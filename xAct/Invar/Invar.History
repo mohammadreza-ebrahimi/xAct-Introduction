@@ -1,0 +1,83 @@
+-----------------------------------------------------------------------
+2006
+-----------------------------------------------------------------------
+
+22 Nov - First release of Invar, version 1.0.
+
+
+-----------------------------------------------------------------------
+2007
+-----------------------------------------------------------------------
+
+16 Apr - Finished long computation of WToR / RToW rules for R1..R7 and
+         D1..D5.
+17 Apr - Added Invar1_D7 rules.
+30 May - Added WToR2_D6 / RToW2_D6 rules.
+
+-----------------------------------------------------------------------
+2008
+-----------------------------------------------------------------------
+
+ 8 Feb - Released version 2.0 of Invar.
+14 Feb - Changed definition of $InvarDirectory. It was assuming a
+         single-user installation of xAct. Thanks to Alessandro Stecchina
+         for reporting this problem. This is version 2.0.1.
+ 5 Mar - InvarDoc.nb moved to the Documentation/English subdirectory.
+       - Changed MathLink->True from ToCanonical to CanonicalPerm, as
+         this option is now in xPerm instead of xTensor. This is version
+         2.0.2.
+
+-----------------------------------------------------------------------
+2011
+-----------------------------------------------------------------------
+
+30 Sep - Added messages mentioning the nonstandard configuration choices
+	 of Invar. Reported by Teake and others.
+	 This is now version 2.0.3.
+
+23 Oct - Fixed cases g[a,b]Ricci[-a,-b] and g[a,b]Riemann[-a,-c,-b,c]
+	 reported by Teake by adding a ContractMetric.
+       - Hack to compensate the fact that epsilons are now sorted at
+	 the beginning by xTensor, because they have much symmetry,
+	 instead of at the end, as Invar always wanted.
+	 Rerelease version 2.0.3.
+
+-----------------------------------------------------------------------
+2012
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+2013
+-----------------------------------------------------------------------
+
+27 Jan - Added $RicciSign in the conversion from Ricci to Riemann, as
+	 pointed out by Teake.
+       - Added Teake's function CheckImport.
+	 Release version 2.0.4.
+
+28 Apr - Added Kernel/init.m.
+
+-----------------------------------------------------------------------
+2014
+-----------------------------------------------------------------------
+
+15 Feb - Release version 2.0.5.
+
+-----------------------------------------------------------------------
+2015
+-----------------------------------------------------------------------
+
+23 Aug - Release again version 2.0.5.
+
+-----------------------------------------------------------------------
+2016
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+2017
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+2018
+-----------------------------------------------------------------------
+

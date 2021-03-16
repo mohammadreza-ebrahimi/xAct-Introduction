@@ -1,0 +1,772 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"RemoveTensors\"\>":>
+       Documentation`HelpLookup["paclet:xTras/ref/RemoveTensors"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras/ref/RemoveConstants\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["xTras/ref/RemoveConstants"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/xTras/ref/\
+RemoveConstants.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "xTras/ref/RemoveConstants", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["RemoveConstants", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"RemoveConstants", "[", 
+       StyleBox["expr", "TI"], "]"}]], "InlineFormula"],
+     "\[LineSeparator]removes all constants from the tensorial expression ",
+     StyleBox["expr", "TI"],
+     ", leaving just the tensors."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          FrameBox[
+           StyleBox[
+            RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"], 
+           StripOnInput -> False], Appearance -> {Automatic, None}, BaseStyle -> 
+          None, ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Details"}], "NotesSection", 
+        CellSize -> {5000, Inherited}], Appearance -> {Automatic, None}, 
+       BaseStyle -> None, ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->877023360],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell[TextData[{
+ Cell[BoxData["RemoveConstants"], "InlineFormula"],
+ " is a 'destructive' operation, as there is no way to reconstruct the \
+original expression from the result."
+}], "Notes",
+ CellID->1067943069],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "EXAMPLES", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "PrimaryExamplesSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Examples", "  ", 
+          Cell["(1)", "ExampleCount"]}], "PrimaryExamplesSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->1951342159],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1984892976],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DefNiceConstantSymbol", "[", 
+    RowBox[{"\"\<c\>\"", ",", "#"}], "]"}], "&"}], "/@", 
+  RowBox[{"Range", "[", "3", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1010802681],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["c", "1", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`c1,
+    Editable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["c", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`c2,
+    Editable->False], ",", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["c", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`c3,
+    Editable->False]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->1646589781]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"c1", "+", "c2"}], ")"}], " ", 
+   RowBox[{"RicciCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}]}], " ", "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"c3", "+", "c1"}], ")"}], " ", 
+   RowBox[{"metric", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], " ", 
+   RowBox[{"RicciScalarCD", "[", "]"}]}], " ", "+", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"c2", "+", "c3"}], ")"}], 
+   RowBox[{"RiemannCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "c"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "d"}]}], "]"}], 
+   RowBox[{"RicciCD", "[", 
+    RowBox[{"c", ",", "d"}], "]"}]}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1418340606],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["c", "1", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`c1,
+      Editable->False], "+", 
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["c", "2", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`c2,
+      Editable->False]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+        StyleBox[GridBox[{
+           {" ", " "},
+           {"a", "b"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RicciCD[-$CellContext`a, -$CellContext`b],
+    Editable->False]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["c", "1", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`c1,
+      Editable->False], "+", 
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["c", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`c3,
+      Editable->False]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"g", 
+        StyleBox[GridBox[{
+           {" ", " "},
+           {"a", "b"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[-$CellContext`a, -$CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RicciScalarCD[],
+    Editable->False]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["c", "2", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`c2,
+      Editable->False], "+", 
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["c", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`c3,
+      Editable->False]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+        StyleBox[GridBox[{
+           {"c", "d"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RicciCD[$CellContext`c, $CellContext`d],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+        StyleBox[GridBox[{
+           {" ", " ", " ", " "},
+           {"a", "c", "b", "d"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RiemannCD[-$CellContext`a, -$CellContext`c, -$CellContext`b, \
+-$CellContext`d],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->600121758]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RemoveConstants", "[", "%", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->421376336],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {
+       RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"a", "b"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`RicciCD[-$CellContext`a, -$CellContext`b],
+   Editable->False], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"g", 
+        StyleBox[GridBox[{
+           {" ", " "},
+           {"a", "b"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[-$CellContext`a, -$CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RicciScalarCD[],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+        StyleBox[GridBox[{
+           {"c", "d"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RicciCD[$CellContext`c, $CellContext`d],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+        StyleBox[GridBox[{
+           {" ", " ", " ", " "},
+           {"a", "c", "b", "d"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`RiemannCD[-$CellContext`a, -$CellContext`c, -$CellContext`b, \
+-$CellContext`d],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1663180394]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "SEE ALSO", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "SeeAlsoSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "See Also"}], "SeeAlsoSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
+
+Cell[TextData[Cell[BoxData[
+ StyleBox[
+  ButtonBox["RemoveTensors",
+   BaseStyle->"Link",
+   ButtonData->"paclet:xTras/ref/RemoveTensors"],
+  FontFamily->"Verdana"]], "InlineFormula"]], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"RemoveConstants - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "xTras package", ButtonData -> "paclet:xTras/guide/xTras", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 15, 11.075515}", 
+    "history" -> {"1.0.0", "", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Package Symbol", "language" -> "en", "paclet" -> "xTras Package", 
+    "status" -> "None", "summary" -> 
+    "RemoveConstants[expr] removes all constants from the tensorial \
+expression expr, leaving just the tensors.", "synonyms" -> {}, "title" -> 
+    "RemoveConstants", "titlemodifier" -> "", "windowtitle" -> 
+    "RemoveConstants", "type" -> "Symbol", "uri" -> 
+    "xTras/ref/RemoveConstants"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
+]
+

@@ -1,0 +1,117 @@
+------------------------------------------------------------------------
+2011
+
+10 July - First version of SymManipulator.nb. Chosen version number 0.7.0.
+
+-------------------
+
+20 July - Now supposts canonicalization of nested SymH objects, if there are no internal products between SymH objects and tensors.
+- If a symmetry is imposed on indices that does not exist, the corresponding points of the imposed symmetry group are stabilized.
+
+21 July - A code for computation of the mixed symmetry in the general case is implemented. This is not very efficient, but it should give the correct result.
+
+26 September - Bugfixes in ImposeSym.
+
+28 September - Fixed a bug in MoveTensorsOutsideSym.
+
+9 October - Implemented a bute force code for canonicalization of general groups. This is to be treated as experimental.
+  
+* Released with version number 0.8.0.
+
+2 November - Added the functions IrrDecompose and CompleteIrrDecompose for computation of irreducible decompositions of spinor expressions.
+
+31 December - Added an option SmartExpand for ExpandSym. This uses the combination of the imposed symmetry with the internal symmetry to reduce the number of terms in the expansion.
+
+------------------------------------------------------------------------
+2012
+
+22 April - Added options for ImposeSym and CompleteIrrDecompose. 
+
+28 April - Using xTension to ClearRememberedSymHSymmetry
+
+29 April - Added commands SmartSymmetrize and SmartAntisymmetrize.
+
+3 May - Moved the TexPrint functionality to TexAct.
+
+* Released with version number 0.8.3.
+
+18 June - ImposeSym now works on LieD, but only if it is the only factor.
+
+1 August - Fixed a sign error when IrrDecompose works on expressions with free UpIndices. Also changed the option system for IrrDecompose.
+
+8 November - Added the functions RuleInSym, ExpandInternalSym and ToCanonicalSym.
+
+13 November - Changed the canonical form of the general groups to move move symmetrizations to the left to match the symmetric and antisymmetric cases.
+
+------------------------------------------------------------------------
+2013
+
+25 January - Handles the new conventions of xPerm etc. New code for computation of mixed symmetry for the symmetric case. The old code just gave a subgroup of the correct answer. The new code is slower, but gives the correct group. Use $MixedSymSpecialCode to change which code to use.
+
+* Released with version number 0.8.5.
+
+11 February - Fixed a bug in MoveSymIndicesDown
+
+13 March - Fixed a bug in TransversalComputation. Now it should be able to handle unordered bases. TransversalInSymmetricGroup now keeps the base.
+
+12 April - Added SymmetryOfExpression.
+
+13 April - Fixed a bug in SymmetryOfProductOfGroupsSymmetricCase. Thanks Teake for reporting this.
+
+19 July - Fixed bugs with new xAct version.
+
+6 August - New code for CompleteIrrDecImposeNewMethod -> True. SymmetryOfProductOfGroupsSymmetricCase2 improves performance of SymmetryOfProductOfGroupsSymmetricCase. Fixed bug in ExpandInternalSym.
+
+7 August - Added MakeCompareRule.
+
+11 August - Minor change in CanonicalizeGeneralGroupInSym to make it a little bit faster. A major improvement of the algorithm is needed to make it practical for larger cases.
+
+1 September - Intruduced RemoveSuperfluousPartialSym to simplify the SymH objects for the cases where the imposed symmetry factors and all factors are not needed.
+
+2 September - Fixed a bug with CompleteIrrDecImposeNewMethod -> True.
+
+9 October - Added fundamental differential operators acting on symetric spinors. 
+-ImposeSym now expands the expression before it imposes the symmetry. 
+-Improved the sifting code that checks if a permutation is in a product. Now it computes the Schreier vectors only once. 
+
+30 October - Added FindTensorCoefficients.
+
+------------------------------------------------------------------------
+2014
+
+8 January - Changed names for functions that handles the fundamental operators acting on symmetric spinors.
+
+24 January - More changes to the names that handle fundmental spinor operators. Added option ShowValenceInfo for DefFundSpinOperators.
+
+* Released with version number 0.9.0.
+
+13 March to 15 July - Added Mathlink code for an external BaseChange algorithm in xPerm.
+
+23 July - Fixed incompatibility with SubsetQ in Mathematica 10. 
+
+13 September - Added options for Mathlink to xperm.c. Mathlink is disabled for the new functions if they are not found in the executable. 
+
+24 September - Updated the Mathlink code to include StabilizerSGS.
+
+27 September - Fixed problem with the fundamental spinors operators for cases with several extra non-spinor indices.
+
+* Released with version number 0.9.2
+
+------------------------------------------------------------------------
+2015
+
+22 June - Fixed compatibility issue with SpinFrames by unprotecting CovarD.
+
+* Released with version number 0.9.3.
+
+------------------------------------------------------------------------
+2016
+
+12 August - Added PlaceIndicesInTensor
+13 August - Added IndepIrrDecompose to remove dependencies between irreducible pieces of IrrDecompose. Also added FindSpinorsInIrrDec to find the irreducible pieces of a decomposed expression and DefIrreducibleSpinors to define and name these parts as spinors.
+
+27 September - allow PlaceIndicesInTensor to move indices up and down.
+
+29 November - Bug in SymmetryOfProductOfGroupsSymmetricCase2 for cases when H0 has signed permutations.  SymmetryOfProductOfGroupsSymmetricCase2b fixes this problem for the case antisym=False.
+
+* Released with version number 0.9.4.

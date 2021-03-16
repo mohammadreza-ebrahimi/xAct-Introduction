@@ -1,0 +1,680 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"Tutorials \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Symmetrized Covariant Derivatives\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/tutorial/SymmetrizedDerivatives"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"SymmetrizeCovDs\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SymmetrizeCovDs"], "\<\"ExpandSymCovDs\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ExpandSymCovDs"], "\<\"SymCovDQ\"\>":>
+       Documentation`HelpLookup["paclet:xTras/ref/SymCovDQ"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras package\"\>":>
+       Documentation`HelpLookup["paclet:xTras/guide/xTras"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras/ref/$AutoSymmetrizeCovDs\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["xTras/ref/$AutoSymmetrizeCovDs"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/xTras/ref/$\
+AutoSymmetrizeCovDs.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "xTras/ref/$AutoSymmetrizeCovDs", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["$AutoSymmetrizeCovDs", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData["$AutoSymmetrizeCovDs"], "InlineFormula"],
+     " \[LineSeparator]is a boolean variable determining whether all \
+symmetrizable covariant derivatives are automatically symmetrized or not. The \
+default is False."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "EXAMPLES", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "PrimaryExamplesSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Examples", "  ", 
+          Cell["(1)", "ExampleCount"]}], "PrimaryExamplesSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->2141597925],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->2010401755],
+
+Cell[TextData[{
+ "When ",
+ Cell[BoxData["$AutoSymmetrizeCovDs"], "InlineFormula"],
+ " is False, symmetrizable covariant derivatives are not automatically \
+symmetrized:"
+}], "ExampleText",
+ CellID->1446664810],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$AutoSymmetrizeCovDs", "=", "False"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->984552821],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[1]=",
+ CellID->509499411]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CD", "[", 
+   RowBox[{"-", "a"}], "]"}], "@", 
+  RowBox[{
+   RowBox[{"CD", "[", 
+    RowBox[{"-", "b"}], "]"}], "@", 
+   RowBox[{"RicciScalarCD", "[", "]"}]}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1391766927],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   RowBox[{
+    SubscriptBox["\[EmptyDownTriangle]", "a"], 
+    SubscriptBox["\[EmptyDownTriangle]", "b"], 
+    RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}]}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`CD[-$CellContext`a][
+   $CellContext`CD[-$CellContext`b][
+    $CellContext`RicciScalarCD[]]],
+  Editable->False]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1303167501]
+}, Open  ]],
+
+Cell[TextData[{
+ "When ",
+ Cell[BoxData["$AutoSymmetrizeCovDs"], "InlineFormula"],
+ " is True, symmetrizable covariant derivatives are automatically symmetrized:"
+}], "ExampleText",
+ CellID->1864588167],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$AutoSymmetrizeCovDs", "=", "True"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1434886007],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[3]=",
+ CellID->2041759819]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CD", "[", 
+   RowBox[{"-", "a"}], "]"}], "@", 
+  RowBox[{
+   RowBox[{"CD", "[", 
+    RowBox[{"-", "b"}], "]"}], "@", 
+   RowBox[{"RicciScalarCD", "[", "]"}]}]}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1284967786],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   RowBox[{
+    SubsuperscriptBox["\[EmptyDownTriangle]", 
+     RowBox[{"(", "ab", ")"}], "    "], 
+    RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}]}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`CD[-$CellContext`a, -$CellContext`b][
+   $CellContext`RicciScalarCD[]],
+  Editable->False]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->1890575292]
+}, Open  ]],
+
+Cell["\<\
+Non-symmetrizable derivatives are not automatically symmetrized however:\
+\>", "ExampleText",
+ CellID->1669566510],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$AutoSymmetrizeCovDs", "=", "True"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->1383001868],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1896883995]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SymCovDQ", "[", "PD", "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->1968529681],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[6]=",
+ CellID->1902403239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PD", "[", 
+   RowBox[{"-", "a"}], "]"}], "@", 
+  RowBox[{
+   RowBox[{"PD", "[", 
+    RowBox[{"-", "b"}], "]"}], "@", 
+   RowBox[{"RicciScalarCD", "[", "]"}]}]}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->1534564250],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   RowBox[{
+    SubscriptBox["\[PartialD]", "a"], 
+    SubscriptBox["\[PartialD]", "b"], 
+    RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}]}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  xAct`xTensor`PD[-$CellContext`a][
+   xAct`xTensor`PD[-$CellContext`b][
+    $CellContext`RicciScalarCD[]]],
+  Editable->False]], "Output",
+ CellLabel->"Out[7]=",
+ CellID->1513180343]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "SEE ALSO", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "SeeAlsoSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "See Also"}], "SeeAlsoSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["SymmetrizeCovDs",
+    BaseStyle->"Link",
+    ButtonData->"paclet:xTras/ref/SymmetrizeCovDs"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ExpandSymCovDs",
+    BaseStyle->"Link",
+    ButtonData->"paclet:xTras/ref/ExpandSymCovDs"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["SymCovDQ",
+    BaseStyle->"Link",
+    ButtonData->"paclet:xTras/ref/SymCovDQ"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "TutorialsSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "TUTORIALS", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "TutorialsSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Tutorials"}], "TutorialsSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->250839057],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell[TextData[ButtonBox["Symmetrized Covariant Derivatives",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/tutorial/SymmetrizedDerivatives"]], "Tutorials",
+ CellID->341631938],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "MoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "MORE ABOUT", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "MoreAboutSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "More About"}], "MoreAboutSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->38303248],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell[TextData[ButtonBox["xTras package",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/guide/xTras"]], "MoreAbout",
+ CellID->314594387],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"$AutoSymmetrizeCovDs - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "xTras package", ButtonData -> "paclet:xTras/guide/xTras", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 18, 3.945468}", 
+    "history" -> {"1.3.1", "", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Symbol", "language" -> "en", "paclet" -> "xTras", "status" -> 
+    "None", "summary" -> 
+    "$AutoSymmetrizeCovDs is a boolean variable determining whether all \
+symmetrizable covariant derivatives are automatically symmetrized or not. The \
+default is False.", "synonyms" -> {}, "title" -> "$AutoSymmetrizeCovDs", 
+    "titlemodifier" -> "", "windowtitle" -> "$AutoSymmetrizeCovDs", "type" -> 
+    "Symbol", "uri" -> "xTras/ref/$AutoSymmetrizeCovDs"}, 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
+]
+

@@ -1,0 +1,136 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2996,         96]*)
+(*NotebookOutlinePosition[      3661,        119]*)
+(*  CellTagsIndexPosition[      3617,        115]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ToInducedDerivative", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["ToInducedDerivative",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["supercd, cd",
+    FontSlant->"Italic"],
+  "] converts the ",
+  StyleBox["supercd",
+    FontSlant->"Italic"],
+  "-derivatives into the sum of an induced ",
+  StyleBox["cd",
+    FontSlant->"Italic"],
+  "-derivative, a Lie derivative along the orthogonal vector of the \
+projection and additional extrinsic curvature terms."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.6",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Metrics"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["ProjectDerivative",
+    ButtonData:>{"ProjectDerivative.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", DirCovDToLieD.\n\[FilledSmallSquare] New in version 0.\n\
+\[FilledSmallSquare] Last update: 12-I-2009 for version 0.9.8 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+WindowSize->{520, 600},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 41, 0, 38, "ObjectName"],
+Cell[1820, 55, 511, 18, 64, "Usage"],
+Cell[2334, 75, 646, 18, 96, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

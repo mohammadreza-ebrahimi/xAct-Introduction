@@ -1,0 +1,594 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"ToRiemann\"\>":>Documentation`HelpLookup[
+       "paclet:xTras/ref/ToRiemann"], "\<\"ToRicci\"\>":>
+       Documentation`HelpLookup["paclet:xTras/ref/ToRicci"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras/ref/RicciToRiemann\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["xTras/ref/RicciToRiemann"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/xTras/ref/\
+RicciToRiemann.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "xTras/ref/RicciToRiemann", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["RicciToRiemann", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"RicciToRiemann", "[", 
+       StyleBox["expr", "TI"], "]"}]], "InlineFormula"],
+     " \[LineSeparator]converts Ricci tensors and scalars in ",
+     StyleBox["expr", "TI"],
+     " to Riemann tensors."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"RicciToRiemann", "[", 
+       RowBox[{
+        StyleBox["expr", "TI"], ",", " ", 
+        StyleBox["cd", "TI"]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]",
+     "only converts curvature tensors of the covariant derivative ",
+     StyleBox["cd", "TI"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          FrameBox[
+           StyleBox[
+            RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"], 
+           StripOnInput -> False], Appearance -> {Automatic, None}, BaseStyle -> 
+          None, ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Details"}], "NotesSection", 
+        CellSize -> {5000, Inherited}], Appearance -> {Automatic, None}, 
+       BaseStyle -> None, ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->356815152],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell[TextData[{
+ "If the curvature relations are enabled ",
+ Cell[BoxData["RicciToRiemann"], "InlineFormula"],
+ " returns the original expression."
+}], "Notes",
+ CellID->1067943069],
+
+Cell[TextData[{
+ "Ricci scalars are returned wrapped in a ",
+ Cell[BoxData["Scalar"], "InlineFormula"],
+ " head to prevent index collisions."
+}], "Notes",
+ CellID->1231738471],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "EXAMPLES", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "PrimaryExamplesSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Examples", "  ", 
+          Cell["(1)", "ExampleCount"]}], "PrimaryExamplesSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->1217917240],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1868413123],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ClearCurvatureRelations", "[", "CD", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->2044644420],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"17", ",", "18"}], "}"}], 
+   "\[InvisibleSpace]", "\<\" have been removed as DownValues for \"\>", 
+   "\[InvisibleSpace]", "RicciCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{17, 18}], 
+   " have been removed as DownValues for ", $CellContext`RicciCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->2067255311],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8",
+      ",", "9", ",", "10", ",", 
+     RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}]}], "}"}], 
+   "\[InvisibleSpace]", "\<\" have been removed as UpValues for \"\>", 
+   "\[InvisibleSpace]", "RicciCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}], 
+   " have been removed as UpValues for ", $CellContext`RicciCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->222087164],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8",
+      ",", "9", ",", "10", ",", 
+     RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}]}], "}"}], 
+   "\[InvisibleSpace]", "\<\" have been removed as DownValues for \"\>", 
+   "\[InvisibleSpace]", "RiemannCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}], 
+   " have been removed as DownValues for ", $CellContext`RiemannCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->292386862],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8",
+      ",", "9", ",", "10", ",", 
+     RowBox[{"\[LeftSkeleton]", "14", "\[RightSkeleton]"}]}], "}"}], 
+   "\[InvisibleSpace]", "\<\" have been removed as DownValues for \"\>", 
+   "\[InvisibleSpace]", "SymRiemannCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+     20, 21, 22, 23, 24}], 
+   " have been removed as DownValues for ", $CellContext`SymRiemannCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->703405298]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RicciScalarCD", "[", "]"}], "//", "RicciToRiemann"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->235366751],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   RowBox[{
+    StyleBox["(",
+     FontColor->RGBColor[1, 0, 0]], 
+    InterpretationBox[
+     StyleBox[GridBox[{
+        {
+         RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+         StyleBox[GridBox[{
+            {" ", " ", "a", "b"},
+            {"a", "b", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, $CellContext`a, \
+$CellContext`b],
+     Editable->False], 
+    StyleBox[")",
+     FontColor->RGBColor[1, 0, 0]]}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  xAct`xTensor`Scalar[
+   $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, $CellContext`a, \
+$CellContext`b]],
+  Editable->False]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->16623337]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RicciCD", "[", 
+   RowBox[{
+    RowBox[{"-", "a"}], ",", 
+    RowBox[{"-", "b"}]}], "]"}], "//", "RicciToRiemann"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->708801667],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {
+      RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+      StyleBox[GridBox[{
+         {" ", " ", " ", "c"},
+         {"a", "c", "b", " "}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RiemannCD[-$CellContext`a, -$CellContext`c, -$CellContext`b, \
+$CellContext`c],
+  Editable->False]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1167536730]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "SEE ALSO", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "SeeAlsoSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "See Also"}], "SeeAlsoSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ToRiemann",
+    BaseStyle->"Link",
+    ButtonData->"paclet:xTras/ref/ToRiemann"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ToRicci",
+    BaseStyle->"Link",
+    ButtonData->"paclet:xTras/ref/ToRicci"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"RicciToRiemann - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "xTras package", ButtonData -> "paclet:xTras/guide/xTras", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 15, 24.280329}", 
+    "history" -> {"1.4.2", "", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Package Symbol", "language" -> "en", "paclet" -> "xTras Package", 
+    "status" -> "None", "summary" -> 
+    "RicciToRiemann[expr] converts Ricci tensors and scalars in expr to \
+Riemann tensors.RicciToRiemann[expr, cd] only converts curvature tensors of \
+the covariant derivative cd.", "synonyms" -> {}, "title" -> "RicciToRiemann", 
+    "titlemodifier" -> "", "windowtitle" -> "RicciToRiemann", "type" -> 
+    "Symbol", "uri" -> "xTras/ref/RicciToRiemann"}, "SearchTextTranslated" -> 
+  ""},
+CellContext->"Global`",
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
+]
+

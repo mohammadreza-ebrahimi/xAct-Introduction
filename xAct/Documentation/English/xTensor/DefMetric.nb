@@ -1,0 +1,174 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3921,        134]*)
+(*NotebookOutlinePosition[      4590,        157]*)
+(*  CellTagsIndexPosition[      4546,        153]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DefMetric", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["DefMetric",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["signdet",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["metric",
+    FontSlant->"Italic"],
+  "[",
+  StyleBox["-a, -b",
+    FontSlant->"Italic"],
+  "], ",
+  StyleBox["covd",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["covdsymbol",
+    FontSlant->"Italic"],
+  "] defines ",
+  StyleBox["metric",
+    FontSlant->"Italic"],
+  "[",
+  StyleBox["-a, -b",
+    FontSlant->"Italic"],
+  "] with signature given by ",
+  StyleBox["signdet",
+    FontSlant->"Italic"],
+  " and associates to it the covariant derivative ",
+  StyleBox["covd",
+    FontSlant->"Italic"],
+  "[",
+  StyleBox["-a",
+    FontSlant->"Italic"],
+  "]."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] A metric is always a 2-symmetric tensor field.\n\
+\[FilledSmallSquare] The ",
+  StyleBox["signdet",
+    FontSlant->"Italic"],
+  " argument can be 0, 1, -1 or a list of three integers giving the numbers \
+of +1's, -1's and 0's, respectively.\n",
+  "\[FilledSmallSquare] The defined ",
+  StyleBox["covd",
+    FontSlant->"Italic"],
+  " is always torsionless.\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.6",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Metrics"},
+    ButtonStyle->"Hyperlink"],
+  ", ",
+  ButtonBox["Section 1.3",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Type managing"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["Metric",
+    ButtonData:>{"Metric.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["UndefMetric",
+    ButtonData:>{"UndefMetric.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 23-X-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{329, Automatic}, {90, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 31, 0, 38, "ObjectName"],
+Cell[1810, 55, 736, 35, 48, "Usage"],
+Cell[2549, 92, 1356, 39, 184, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

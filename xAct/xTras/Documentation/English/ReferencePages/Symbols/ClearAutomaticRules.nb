@@ -1,0 +1,643 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox["\<\"URL \[RightGuillemet]\"\>",
+       StripOnInput->False], {"\<\"xTras/ref/ClearAutomaticRules\"\>":>
+      None, "\<\"Copy Mathematica url\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["xTras/ref/ClearAutomaticRules"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web url\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/mathematica/xTras/ref/\
+ClearAutomaticRules.html"], StandardForm]], "Input", TextClipboardType -> 
+             "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+           "http://reference.wolfram.com/mathematica/", 
+            "xTras/ref/ClearAutomaticRules", ".html"]], None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["ClearAutomaticRules", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"ClearAutomaticRules", "[", 
+       RowBox[{
+        StyleBox["symbol", "TI"], ",", 
+        StyleBox["rules", "TI"]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]tries to remove ",
+     StyleBox["rules", "TI"],
+     " from the upvalues and downvalues of ",
+     StyleBox["symbol", "TI"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "NotesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       Cell[
+        BoxData[
+         ButtonBox[
+          FrameBox[
+           StyleBox[
+            RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"], 
+           StripOnInput -> False], Appearance -> {Automatic, None}, BaseStyle -> 
+          None, ButtonFunction :> (FrontEndExecute[{
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], All, ButtonCell], 
+             FrontEndToken["OpenCloseGroup"], 
+             FrontEnd`SelectionMove[
+              FrontEnd`SelectedNotebook[], After, CellContents]}]& ), 
+          Evaluator -> None, Method -> "Preemptive"]]]], "NotesSection", 
+      CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Details and Options"}], "NotesSection", 
+        CellSize -> {5000, Inherited}], Appearance -> {Automatic, None}, 
+       BaseStyle -> None, ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& ), Evaluator -> 
+       None, Method -> "Preemptive"]]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->298399269],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell[TextData[{
+ "Automatic rules are usually set via the function ",
+ Cell[BoxData["AutomaticRules"], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->1629279589],
+
+Cell["The following options can be given: ", "Notes",
+ CellID->320479275],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], "Verbose", "True", Cell["\<\
+display extra information about if the rules are cleared or not\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True}}}},
+ CellID->406188249],
+
+Cell[TextData[{
+ "Possible settings for ",
+ Cell[BoxData["Verbose"], "InlineFormula"],
+ " include:"
+}], "Notes",
+ CellID->1904209340],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], "False", Cell[
+    "don't display any extra information", "TableText"]},
+   {Cell["      ", "TableRowIcon"], "True", Cell[
+    "display extra information", "TableText"]}
+  }]], "2ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True}}}},
+ CellID->1884398803],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+      TextData[
+       ButtonBox[
+       "EXAMPLES", BaseStyle -> None, Appearance -> {Automatic, None}, 
+        Evaluator -> None, Method -> "Preemptive", 
+        ButtonFunction :> (FrontEndExecute[{
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], All, ButtonCell], 
+           FrontEndToken["OpenCloseGroup"], 
+           FrontEnd`SelectionMove[
+            FrontEnd`SelectedNotebook[], After, CellContents]}]& )]], 
+      "PrimaryExamplesSection", CellSize -> {5000, Inherited}], 
+     TextData[
+      ButtonBox[
+       Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            InterpretationBox[
+             StyleBox[
+              
+              GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+               Baseline], "CacheGraphics" -> False], 
+             Spacer[24]]]], "Examples", "  ", 
+          Cell["(3)", "ExampleCount"]}], "PrimaryExamplesSection", 
+        CellSize -> {5000, Inherited}], BaseStyle -> None, 
+       Appearance -> {Automatic, None}, Evaluator -> None, Method -> 
+       "Preemptive", ButtonFunction :> (FrontEndExecute[{
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], All, ButtonCell], 
+          FrontEndToken["OpenCloseGroup"], 
+          FrontEnd`SelectionMove[
+           FrontEnd`SelectedNotebook[], After, CellContents]}]& )]]], None}, {
+   None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellTags->"PrimaryExamplesSection",
+ CellID->822198338],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1777681968],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rules", " ", "=", " ", 
+  RowBox[{"MakeRule", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"RicciCD", "[", 
+      RowBox[{"a", ",", "b"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], 
+      RowBox[{"metric", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], 
+      RowBox[{"RicciScalarCD", "[", "]"}]}]}], "}"}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1410521944],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"HoldPattern", "[", 
+    InterpretationBox[
+     StyleBox[GridBox[{
+        {
+         RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+         StyleBox[GridBox[{
+            {
+             UnderscriptBox[
+              UnderscriptBox["a", "_"], "_"], 
+             UnderscriptBox[
+              UnderscriptBox["b", "_"], "_"]},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`RicciCD[
+      PatternTest[
+       Pattern[$CellContext`a, 
+        Blank[]], TangentM`pmQ], 
+      PatternTest[
+       Pattern[$CellContext`b, 
+        Blank[]], TangentM`pmQ]],
+     Editable->False], "]"}], "\[RuleDelayed]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      InterpretationBox[
+       StyleBox[GridBox[{
+          {"g", 
+           StyleBox[GridBox[{
+              {"a", "b"},
+              {" ", " "}
+             },
+             GridBoxSpacings->{"Columns" -> {
+                 Offset[0.], {
+                  Offset[0.034999999999999996`]}, 
+                 Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                  Offset[0.]}}, "RowsIndexed" -> {}}],
+            FontSize->9]}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Center}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.4]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`metric[$CellContext`a, $CellContext`b],
+       Editable->False], " ", 
+      InterpretationBox[
+       StyleBox[
+        RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`RicciScalarCD[],
+       Editable->False]}]}], "]"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->2125160271]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AutomaticRules", "[", 
+  RowBox[{"RicciCD", ",", "rules"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->914300947],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "1", "}"}], 
+   "\[InvisibleSpace]", "\<\" have been declared as DownValues for \"\>", 
+   "\[InvisibleSpace]", "RicciCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{1}], 
+   " have been declared as DownValues for ", $CellContext`RicciCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[21]:=",
+ CellID->1401497732]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RicciCD", "[", 
+  RowBox[{"a", ",", "b"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->2060048023],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"g", 
+       StyleBox[GridBox[{
+          {"a", "b"},
+          {" ", " "}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`metric[$CellContext`a, $CellContext`b],
+   Editable->False], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`RicciScalarCD[],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1495765627]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ClearAutomaticRules", "[", 
+  RowBox[{"RicciCD", ",", "rules"}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->770143288],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "1", "}"}], 
+   "\[InvisibleSpace]", "\<\" have been removed as DownValues for \"\>", 
+   "\[InvisibleSpace]", "RicciCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{1}], 
+   " have been removed as DownValues for ", $CellContext`RicciCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[21]:=",
+ CellID->889321207]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RicciCD", "[", 
+  RowBox[{"a", ",", "b"}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->335342929],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {
+      RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+      StyleBox[GridBox[{
+         {"a", "b"},
+         {" ", " "}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RicciCD[$CellContext`a, $CellContext`b],
+  Editable->False]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1111517975]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->2061341341],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Verbose",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CellID->1757724783],
+
+Cell[BoxData[
+ RowBox[{"ClearAutomaticRules", "[", 
+  RowBox[{"RicciCD", ",", "rules", ",", 
+   RowBox[{"Verbose", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1067453472],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ClearAutomaticRules", "[", 
+  RowBox[{"RicciCD", ",", "rules", ",", 
+   RowBox[{"Verbose", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->612116866],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"   Rules \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "1", "}"}], 
+   "\[InvisibleSpace]", "\<\" have been removed as DownValues for \"\>", 
+   "\[InvisibleSpace]", "RicciCD", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["   Rules ", 
+   Shallow[{1}], 
+   " have been removed as DownValues for ", $CellContext`RicciCD, "."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[22]:=",
+ CellID->1371741428]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"ClearAutomaticRules - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "xTras package", ButtonData -> "paclet:xTras/guide/xTras", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 11, 53.903893}", 
+    "history" -> {"1.0.0", "", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Package Symbol", "language" -> "en", "paclet" -> "xTras Package", 
+    "status" -> "None", "summary" -> 
+    "ClearAutomaticRules[symbol, rules] tries to remove rules from the \
+upvalues and downvalues of symbol.", "synonyms" -> {}, "title" -> 
+    "ClearAutomaticRules", "titlemodifier" -> "", "windowtitle" -> 
+    "ClearAutomaticRules", "type" -> "Symbol", "uri" -> 
+    "xTras/ref/ClearAutomaticRules"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
+]
+

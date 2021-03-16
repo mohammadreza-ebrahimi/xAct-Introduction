@@ -1,0 +1,59 @@
+**********************************************
+*                                            *
+*  INSTALLATION NOTES FOR THE xTras PACKAGE  *
+*                                            *
+**********************************************
+
+The directory structure of xTras is
+
+/
+  INSTALL				(this file)
+  LICENSE
+  xAct/
+    xTras/				(copy this subdirectory into your xAct directory)
+      Kernel/
+        init.m
+      Documentation/	(built-in documentation that integrates with Mathematica's Documentation Center)
+        English/
+          ...
+      Interface.m		(package files)
+      PacletInfo.m
+      xCore.m
+      xTensor.m
+      xPert.m
+      Invar.m
+      xCoba.m
+      Algebra.m
+      Combinatorics.m
+      xTras.history		(changelog)
+
+The "xTras" subdirectory must be copied in its entirety into the directory where you've installed 
+the main xAct bundle (which can be downloaded from www.xact.es).
+The xAct directory is most likely the following on the respective operating systems:
+
+Linux:
+  - system-wide installation (requires root privileges):
+      /usr/share/Mathematica/Applications/xAct/
+  - single-user installation:
+      $HOME/.Mathematica/Applications/xAct/
+
+Mac OS:
+  - system-wide installation (requires root privileges):
+      /Library/Mathematica/Applications/xAct/
+  - single-user installation:
+      /Users/<user>/Library/Mathematica/Applications/xAct/
+
+MSWindows:
+  - system-wide installation:
+      C:\Documents and settings\All Users\Application data\Mathematica\Applications\xAct\
+  - single-user installation:
+      C:\Documents and settings\<user>\Application Data\Mathematica\Applications\xAct\
+
+Beware that in Windows these directories might be hidden!
+After installation, the package can be loaded with
+
+   <<xAct`xTras`
+
+Note that some functionality of xTras requires the presence of the Invar database.
+This database can be downloaded from www.xact.es/Invar, and its installation 
+instructions can be found at http://xact.es/Invar/Invar.Readme

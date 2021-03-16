@@ -1,0 +1,367 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8264,        279]*)
+(*NotebookOutlinePosition[      9120,        306]*)
+(*  CellTagsIndexPosition[      9076,        302]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ValidateSymbolInSession", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["ValidateSymbolInSession[",
+    FontFamily->"Courier"],
+  StyleBox["symbol",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " throws an error if ",
+  StyleBox["symbol",
+    FontSlant->"Italic"],
+  " is already used in this session as a constant-symbol, parameter, \
+manifold, vbundle, abstract-index, tensor (or metric), covariant derivative, \
+basis (or chart), inert-head or scalar-function. Otherwise it gives ",
+  StyleBox["Null",
+    FontFamily->"Courier"],
+  "."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] This function is used by all ",
+  StyleBox["DefType",
+    FontFamily->"Courier"],
+  " commands.\n\[FilledSmallSquare] ",
+  StyleBox["ValidateSymbolInSession",
+    FontFamily->"Courier"],
+  " has attribute ",
+  StyleBox["HoldFirst",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 1.2",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Valid symbols"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["ValidateSymbol",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ], "xCore"}, "ValidateSymbol.nb", CharacterEncoding -> 
+        "iso8859-1"], None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 14-V-2008 for version 0.9.5 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Further Examples", "ExampleSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Needs["\<xAct`xTensor`\>"]\)], "Input",
+  CellLabel->"In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.5.0"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 5}\),
+      
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.5.0", ", ", {2008, 5, 5}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2008, David J. M. Park and Ted Ersek"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"1.0.0"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 3, 5}\),
+      
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "1.0.0", ", ", {2008, 3, 5}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.5"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.5", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="]
+}, Open  ]],
+
+Cell[TextData[{
+  "Define a constant-symbol ",
+  StyleBox["Mass",
+    FontFamily->"Courier"],
+  ":"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefConstantSymbol[Mass]\)], "Input",
+  CellLabel->"In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefConstantSymbol\
+\[InvisibleSpace]": Defining "\[InvisibleSpace]"constant symbol "\
+\[InvisibleSpace]Mass\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefConstantSymbol, ": Defining ", "constant symbol ", Mass, ". ",
+         ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="]
+}, Open  ]],
+
+Cell["Now the same symbol cannot be used with any other meaning:", \
+"MathCaption"],
+
+Cell[BoxData[
+    \(ValidateSymbol[Mass]\)], "Input",
+  CellLabel->"In[3]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Catch@ValidateSymbolInSession[Mass]\)], "Input",
+  CellLabel->"In[4]:="],
+
+Cell[BoxData[
+    \(ValidateSymbol::"used" \(\(:\)\(\ \)\) 
+      "Symbol \!\(\"Mass\"\) is already used \!\(\"as a constant-symbol\"\)."\
+\)], "Message",
+  CellLabel->"From In[4]:="]
+}, Open  ]],
+
+Cell["Tidy up:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefConstantSymbol[Mass]\)], "Input",
+  CellLabel->"In[5]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"\<\"** Undefined constant symbol \"\>", "\[InvisibleSpace]", 
+        InterpretationBox[
+          StyleBox["Mass",
+            AutoSpacing->False],
+          Mass,
+          Editable->False]}],
+      SequenceForm[ "** Undefined constant symbol ", Mass],
+      Editable->False]], "Print",
+  CellLabel->"From In[5]:="]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+ShowPageBreaks->False,
+WindowSize->{704, 600},
+WindowMargins->{{101, Automatic}, {Automatic, 64}},
+PrintingStartingPageNumber->2,
+TaggingRules:>{"PaginationCache" -> {{2004, 11, 22, 16, 52, \
+35.954379`8.30832677168215}, {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 45, 0, 38, "ObjectName"],
+Cell[1824, 55, 560, 17, 64, "Usage"],
+Cell[2387, 74, 1028, 30, 144, "Text"],
+
+Cell[CellGroupData[{
+Cell[3440, 108, 42, 0, 38, "ExampleSection"],
+
+Cell[CellGroupData[{
+Cell[3507, 112, 83, 2, 26, "Input"],
+Cell[3593, 116, 146, 3, 21, "Print"],
+Cell[3742, 121, 308, 7, 21, "Print"],
+Cell[4053, 130, 147, 3, 21, "Print"],
+Cell[4203, 135, 146, 3, 21, "Print"],
+Cell[4352, 140, 95, 2, 21, "Print"],
+Cell[4450, 144, 119, 2, 21, "Print"],
+Cell[4572, 148, 146, 3, 21, "Print"],
+Cell[4721, 153, 308, 7, 21, "Print"],
+Cell[5032, 162, 147, 3, 21, "Print"],
+Cell[5182, 167, 106, 2, 21, "Print"],
+Cell[5291, 171, 87, 2, 21, "Print"],
+Cell[5381, 175, 146, 3, 21, "Print"],
+Cell[5530, 180, 318, 7, 21, "Print"],
+Cell[5851, 189, 147, 3, 21, "Print"],
+Cell[6001, 194, 146, 3, 21, "Print"],
+Cell[6150, 199, 281, 5, 53, "Print"],
+Cell[6434, 206, 146, 3, 21, "Print"]
+}, Open  ]],
+Cell[6595, 212, 118, 5, 40, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[6738, 221, 80, 2, 26, "Input"],
+Cell[6821, 225, 397, 8, 21, "Print"]
+}, Open  ]],
+Cell[7233, 236, 83, 1, 40, "MathCaption"],
+Cell[7319, 239, 77, 2, 26, "Input"],
+
+Cell[CellGroupData[{
+Cell[7421, 245, 92, 2, 26, "Input"],
+Cell[7516, 249, 183, 4, 18, "Message"]
+}, Open  ]],
+Cell[7714, 256, 31, 0, 40, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[7770, 260, 82, 2, 26, "Input"],
+Cell[7855, 264, 369, 10, 21, "Print"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

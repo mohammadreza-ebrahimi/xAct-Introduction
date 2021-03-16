@@ -1,0 +1,782 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     20114,        626]*)
+(*NotebookOutlinePosition[     20759,        649]*)
+(*  CellTagsIndexPosition[     20715,        645]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Multiple derivatives", "Subtitle",
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Date[]\)], "Input"],
+
+Cell[BoxData[
+    \({2007, 10, 29, 8, 58, 35.323786`8.300642224654764}\)], "Output"]
+}, Open  ]],
+
+Cell["\<\
+Here we discuss possible non-nested notations for multiple \
+covariant derivatives.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(<< xAct`xCoba`\)], "Input"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.3.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 9, 
+          24}\),
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.3.0", ", ", {2007, 9, 24}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007, Jose M. Martin-Garcia, under the General Public \
+License."\)], "Print"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print"],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2007, David J. M. Park and Ted Ersek"\)], "Print"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"0.6.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 9, 
+          24}\),
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "0.6.0", ", ", {2007, 9, 24}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print"],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print"],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.2"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 10, 
+          19}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.2", ", ", {2007, 10, 19}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCoba`  version \
+"\[InvisibleSpace]"0.6.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 9, 
+          20}\),
+      SequenceForm[ 
+      "Package xAct`xCoba`  version ", "0.6.0", ", ", {2007, 9, 20}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    \("CopyRight (C) 2005-2007, David Yllanes and Jose M. Martin-Garcia, \
+under the General Public License."\)], "Print"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print"],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+-----------------------------"\)], "Print"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Off[General::spell, General::spell1]\)], "Input"],
+
+Cell[BoxData[
+    \(\($PrePrint = ScreenDollarIndices;\)\)], "Input"],
+
+Cell["Define some background objects:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[M, 4, {a, b, c, d, e, f, g}, z]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]M\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", M, ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentM\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentM, ". ", ""],
+      Editable->False]], "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefCovD[CD[\(-a\)], {"\<;\>", "\<\[EmptyDownTriangle]\>"}]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefCovD\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"covariant derivative "\[InvisibleSpace]CD[\(-a\)]\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefCovD, ": Defining ", "covariant derivative ", 
+        CD[ 
+          Times[ -1, a]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vanishing torsion tensor \
+"\[InvisibleSpace]TorsionCD[
+          a, \(-b\), \(-c\)]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "vanishing torsion tensor ", 
+        TorsionCD[ a, 
+          Times[ -1, b], 
+          Times[ -1, c]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"symmetric Christoffel tensor \
+"\[InvisibleSpace]ChristoffelCD[
+          a, \(-b\), \(-c\)]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "symmetric Christoffel tensor ", 
+        ChristoffelCD[ a, 
+          Times[ -1, b], 
+          Times[ -1, c]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"Riemann tensor \
+"\[InvisibleSpace]RiemannCD[\(-a\), \(-b\), \(-c\), 
+          d]\[InvisibleSpace]". "\[InvisibleSpace]"Antisymmetric only in the \
+first pair."\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "Riemann tensor ", 
+        RiemannCD[ 
+          Times[ -1, a], 
+          Times[ -1, b], 
+          Times[ -1, c], d], ". ", "Antisymmetric only in the first pair."],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"non-symmetric Ricci tensor \
+"\[InvisibleSpace]RicciCD[\(-a\), \(-b\)]\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "non-symmetric Ricci tensor ", 
+        RicciCD[ 
+          Times[ -1, a], 
+          Times[ -1, b]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    \("** DefCovD:  Contractions of Riemann automatically replaced by Ricci."\
+\)], "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefBasis[polar, TangentM, {0, 1, 2, 3}]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefCovD\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"parallel derivative \
+"\[InvisibleSpace]PDpolar[\(-a\)]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefCovD, ": Defining ", "parallel derivative ", 
+        PDpolar[ 
+          Times[ -1, a]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"torsion tensor "\[InvisibleSpace]TorsionPDpolar[
+          a, \(-b\), \(-c\)]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "torsion tensor ", 
+        TorsionPDpolar[ a, 
+          Times[ -1, b], 
+          Times[ -1, c]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"non-symmetric Christoffel tensor "\
+\[InvisibleSpace]ChristoffelPDpolar[
+          a, \(-b\), \(-c\)]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "non-symmetric Christoffel tensor ", 
+        ChristoffelPDpolar[ a, 
+          Times[ -1, b], 
+          Times[ -1, c]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vanishing Riemann tensor \
+"\[InvisibleSpace]RiemannPDpolar[\(-a\), \(-b\), \(-c\), 
+          d]\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "vanishing Riemann tensor ", 
+        RiemannPDpolar[ 
+          Times[ -1, a], 
+          Times[ -1, b], 
+          Times[ -1, c], d], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vanishing Ricci tensor \
+"\[InvisibleSpace]RicciPDpolar[\(-a\), \(-b\)]\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "vanishing Ricci tensor ", 
+        RicciPDpolar[ 
+          Times[ -1, a], 
+          Times[ -1, b]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"antisymmetric +1 density \
+"\[InvisibleSpace]etaUppolar[a, b, c, 
+          d]\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "antisymmetric +1 density ", 
+        etaUppolar[ a, b, c, d], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"antisymmetric -1 density \
+"\[InvisibleSpace]etaDownpolar[\(-a\), \(-b\), \(-c\), \(-d\)]\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefTensor, ": Defining ", "antisymmetric -1 density ", 
+        etaDownpolar[ 
+          Times[ -1, a], 
+          Times[ -1, b], 
+          Times[ -1, c], 
+          Times[ -1, d]], ". ", ""],
+      Editable->False]], "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefTensor[T[a], M]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]T[
+          a]\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        T[ a], ". ", ""],
+      Editable->False]], "Print"]
+}, Open  ]],
+
+Cell[TextData[{
+  "Now we can have several derivative expressions. There are three issues to \
+worry about:\n\t1) nested derivatives,\n\t2) basis contraction, and\n\t3) \
+metric contraction,\nthough it is clear that 2) and 3) are very similar in \
+spirit. Let us first worry about nested derivatives:\n\nThe current notation \
+is simple for the internals of ",
+  StyleBox["xTensor",
+    FontSlant->"Italic"],
+  ", but users complain, and so I should be able to do something better. \
+There are several things that will not be changed:\n\t- ",
+  StyleBox["xTensor",
+    FontSlant->"Italic"],
+  " handles different covariant derivatives at the same time, and therefore \
+we need to keep track of which derivative we are talking about.\n\t- \
+Derivatives are operators on expressions and therefore at least two pairs of \
+brackets (one for indices and one for the differentiated expression) are \
+needed."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-a\)]\)[\(CD[\(-b\)]\)[T[c]]]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      StyleBox[\(\(\[EmptyDownTriangle]\_a\) \(\[EmptyDownTriangle]\_b\) 
+          T\_\ \%c\),
+        AutoSpacing->False],
+      CD[ 
+        Times[ -1, a]][ 
+        CD[ 
+          Times[ -1, b]][ 
+          T[ c]]],
+      Editable->False]], "Output"]
+}, Open  ]],
+
+Cell["It would be nice to have this as", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-a\), \(-b\)]\)[\ T[c]\ ]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(CD[\(-a\), \(-b\)]\), "[", 
+      InterpretationBox[
+        StyleBox[\(T\_\ \%c\),
+          AutoSpacing->False],
+        T[ c],
+        Editable->False], "]"}]], "Output"]
+}, Open  ]],
+
+Cell["or perhaps as", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-b\), \(-a\)]\)[\ T[c]\ ]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(CD[\(-b\), \(-a\)]\), "[", 
+      InterpretationBox[
+        StyleBox[\(T\_\ \%c\),
+          AutoSpacing->False],
+        T[ c],
+        Editable->False], "]"}]], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "Apart from the choice between these two options (which is just a \
+convention), there is the more important question of which one is the \
+internal notation, into which the other one is automatically converted. What \
+we are discussing here is the possibility of having CD[-a, -b][ T[c] ] as \
+internal notation. The other case is trivially defined in the current \
+structure of ",
+  StyleBox["xTensor",
+    FontSlant->"Italic"],
+  "."
+}], "Text"],
+
+Cell["Now comes the second problem: what is", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-a\), \ {\(-b\), \(-polar\)}]\)[\ T[c]\ ]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(CD[\(-a\), {\(-b\), \(-polar\)}]\), "[", 
+      InterpretationBox[
+        StyleBox[\(T\_\ \%c\),
+          AutoSpacing->False],
+        T[ c],
+        Editable->False], "]"}]], "Output"]
+}, Open  ]],
+
+Cell["Is it", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-a\)]\)[\ \(CD[{\(-b\), \(-polar\)}]\)[\ T[c]\ ]\ ]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      StyleBox[
+        RowBox[{\(\[EmptyDownTriangle]\_a\), 
+          SubscriptBox["\[EmptyDownTriangle]", 
+            StyleBox["b",
+              FontColor->RGBColor[1, 0, 0]]], \(T\_\ \%c\)}],
+        AutoSpacing->False],
+      CD[ 
+        Times[ -1, a]][ 
+        CD[ {
+          Times[ -1, b], 
+          Times[ -1, polar]}][ 
+          T[ c]]],
+      Editable->False]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(SeparateBasis[]\)[%]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]ChristoffelCDPDpolar[
+          a, \(-b\), \(-c\)]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        ChristoffelCDPDpolar[ a, 
+          Times[ -1, b], 
+          Times[ -1, c]], ". ", ""],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        InterpretationBox[
+          StyleBox[
+            SubsuperscriptBox["e", 
+              RowBox[{" ", 
+                StyleBox["b",
+                  FontColor->RGBColor[1, 0, 0]]}], \(\(d\)\(\ \)\)],
+            AutoSpacing->False],
+          Basis[ d, {
+            Times[ -1, b], 
+            Times[ -1, polar]}],
+          Editable->False], " ", 
+        RowBox[{"(", 
+          InterpretationBox[
+            
+            StyleBox[\(\(\[EmptyDownTriangle]\_a\) \
+\(\[EmptyDownTriangle]\_d\) T\_\ \%c\),
+              AutoSpacing->False],
+            CD[ 
+              Times[ -1, a]][ 
+              CD[ 
+                Times[ -1, d]][ 
+                T[ c]]],
+            Editable->False], ")"}]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[
+            SubsuperscriptBox[
+              RowBox[{"\[CapitalGamma]", "[", 
+                RowBox[{"\[EmptyDownTriangle]", ",", 
+                  StyleBox["\[ScriptCapitalD]",
+                    FontColor->RGBColor[1, 0, 0]]}], "]"}], 
+              RowBox[{" ", 
+                RowBox[{"a", 
+                  StyleBox["b",
+                    FontColor->RGBColor[1, 0, 0]]}]}], \(\(d\)\(\ \ \)\)],
+            AutoSpacing->False],
+          ChristoffelCDPDpolar[ d, 
+            Times[ -1, a], {
+            Times[ -1, b], 
+            Times[ -1, polar]}],
+          Editable->False], " ", 
+        RowBox[{"(", 
+          InterpretationBox[
+            StyleBox[\(\(\[EmptyDownTriangle]\_d\) T\_\ \%c\),
+              AutoSpacing->False],
+            CD[ 
+              Times[ -1, d]][ 
+              T[ c]],
+            Editable->False], ")"}]}]}]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+or just the first term in the previous expression? The same problem \
+happens with the metric. It could be natural to use the oportunity of this \
+new notation to make these two objects mean different things, as long as the \
+user knows what he is doing.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-a\)]\)[\ \(CD[{\(-b\), \(-polar\)}]\)[\ T[c]\ ]\ ]\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      StyleBox[
+        RowBox[{\(\[EmptyDownTriangle]\_a\), 
+          SubscriptBox["\[EmptyDownTriangle]", 
+            StyleBox["b",
+              FontColor->RGBColor[1, 0, 0]]], \(T\_\ \%c\)}],
+        AutoSpacing->False],
+      CD[ 
+        Times[ -1, a]][ 
+        CD[ {
+          Times[ -1, b], 
+          Times[ -1, polar]}][ 
+          T[ c]]],
+      Editable->False]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(CD[\(-a\), \ {\(-b\), \(-polar\)}]\)[\ T[c]\ ]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(CD[\(-a\), {\(-b\), \(-polar\)}]\), "[", 
+      InterpretationBox[
+        StyleBox[\(T\_\ \%c\),
+          AutoSpacing->False],
+        T[ c],
+        Editable->False], "]"}]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+A third point is the old problem of the components of a covariant \
+derivative. Here the natural notation could be something like\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(T[c, CD[\(-a\)], CD[\(-b\)]];\)\)], "Input"],
+
+Cell["whose components could be of the form", "Text"],
+
+Cell[BoxData[
+    \(\(T[{0, polar}, CD[{1, \(-polar\)}], CD[{2, \(-polar\)}]];\)\)], "Input"],
+
+Cell["\<\
+It is difficult to decide what to choose as basic internal \
+notation...\
+\>", "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{949, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 72, 1, 51, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[1873, 58, 39, 1, 27, "Input"],
+Cell[1915, 61, 84, 1, 27, "Output"]
+}, Open  ]],
+Cell[2014, 65, 107, 3, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[2146, 72, 47, 1, 27, "Input"],
+Cell[2196, 75, 137, 2, 23, "Print"],
+Cell[2336, 79, 285, 6, 23, "Print"],
+Cell[2624, 87, 113, 2, 23, "Print"],
+Cell[2740, 91, 137, 2, 23, "Print"],
+Cell[2880, 95, 66, 1, 23, "Print"],
+Cell[2949, 98, 90, 1, 23, "Print"],
+Cell[3042, 101, 137, 2, 23, "Print"],
+Cell[3182, 105, 285, 6, 23, "Print"],
+Cell[3470, 113, 118, 2, 23, "Print"],
+Cell[3591, 117, 77, 1, 23, "Print"],
+Cell[3671, 120, 58, 1, 23, "Print"],
+Cell[3732, 123, 137, 2, 23, "Print"],
+Cell[3872, 127, 291, 6, 23, "Print"],
+Cell[4166, 135, 118, 2, 23, "Print"],
+Cell[4287, 139, 137, 2, 23, "Print"],
+Cell[4427, 143, 285, 6, 23, "Print"],
+Cell[4715, 151, 136, 2, 23, "Print"],
+Cell[4854, 155, 137, 2, 23, "Print"],
+Cell[4994, 159, 252, 4, 39, "Print"],
+Cell[5249, 165, 137, 2, 23, "Print"]
+}, Open  ]],
+Cell[5401, 170, 69, 1, 27, "Input"],
+Cell[5473, 173, 69, 1, 27, "Input"],
+Cell[5545, 176, 47, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[5617, 180, 76, 1, 27, "Input"],
+Cell[5696, 183, 327, 6, 23, "Print"],
+Cell[6026, 191, 337, 6, 23, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6400, 202, 91, 1, 27, "Input"],
+Cell[6494, 205, 382, 7, 23, "Print"],
+Cell[6879, 214, 468, 11, 23, "Print"],
+Cell[7350, 227, 484, 11, 23, "Print"],
+Cell[7837, 240, 539, 11, 23, "Print"],
+Cell[8379, 253, 451, 10, 23, "Print"],
+Cell[8833, 265, 106, 2, 23, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8976, 272, 72, 1, 27, "Input"],
+Cell[9051, 275, 392, 8, 23, "Print"],
+Cell[9446, 285, 449, 9, 23, "Print"],
+Cell[9898, 296, 502, 11, 23, "Print"],
+Cell[10403, 309, 510, 11, 23, "Print"],
+Cell[10916, 322, 453, 10, 23, "Print"],
+Cell[11372, 334, 418, 8, 23, "Print"],
+Cell[11793, 344, 525, 12, 23, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12355, 361, 51, 1, 27, "Input"],
+Cell[12409, 364, 337, 6, 23, "Print"]
+}, Open  ]],
+Cell[12761, 373, 914, 17, 194, "Text"],
+
+Cell[CellGroupData[{
+Cell[13700, 394, 69, 1, 27, "Input"],
+Cell[13772, 397, 291, 10, 27, "Output"]
+}, Open  ]],
+Cell[14078, 410, 48, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[14151, 414, 65, 1, 27, "Input"],
+Cell[14219, 417, 201, 6, 27, "Output"]
+}, Open  ]],
+Cell[14435, 426, 29, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[14489, 430, 65, 1, 27, "Input"],
+Cell[14557, 433, 201, 6, 27, "Output"]
+}, Open  ]],
+Cell[14773, 442, 466, 10, 68, "Text"],
+Cell[15242, 454, 53, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[15320, 458, 81, 1, 27, "Input"],
+Cell[15404, 461, 215, 6, 27, "Output"]
+}, Open  ]],
+Cell[15634, 470, 21, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[15680, 474, 91, 1, 27, "Input"],
+Cell[15774, 477, 425, 14, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16236, 496, 55, 1, 27, "Input"],
+Cell[16294, 499, 445, 9, 23, "Print"],
+Cell[16742, 510, 1695, 51, 30, "Output"]
+}, Open  ]],
+Cell[18452, 564, 278, 5, 50, "Text"],
+
+Cell[CellGroupData[{
+Cell[18755, 573, 91, 1, 27, "Input"],
+Cell[18849, 576, 425, 14, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[19311, 595, 81, 1, 27, "Input"],
+Cell[19395, 598, 215, 6, 27, "Output"]
+}, Open  ]],
+Cell[19625, 607, 153, 3, 32, "Text"],
+Cell[19781, 612, 66, 1, 27, "Input"],
+Cell[19850, 615, 53, 0, 32, "Text"],
+Cell[19906, 617, 93, 1, 27, "Input"],
+Cell[20002, 620, 96, 3, 32, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

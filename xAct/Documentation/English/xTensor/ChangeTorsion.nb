@@ -1,0 +1,195 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4516,        155]*)
+(*NotebookOutlinePosition[      5184,        178]*)
+(*  CellTagsIndexPosition[      5140,        174]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ChangeTorsion", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["ChangeTorsion[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["covd1, covd2",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " changes the torsion tensor of ",
+  StyleBox["covd1",
+    FontSlant->"Italic"],
+  " by the torsion tensor of ",
+  StyleBox["covd2",
+    FontSlant->"Italic"],
+  " using the antisymmetric part of the Christoffel relating ",
+  StyleBox["covd1",
+    FontSlant->"Italic"],
+  " and ",
+  StyleBox["covd2",
+    FontSlant->"Italic"],
+  ". The second argument is listable.\n\[FilledSmallSquare] ",
+  StyleBox["ChangeTorsion[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["covd1",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " is converted into ",
+  StyleBox["ChangeTorsion[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["covd1, ",
+    FontSlant->"Italic"],
+  StyleBox["PD",
+    FontFamily->"Courier"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["ChangeTorsion[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " is converted into ",
+  StyleBox["ChangeTorsion[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["$CovDs",
+    FontFamily->"Courier"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  "."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] The equivalent name ",
+  StyleBox[ButtonBox["TorsionToChristoffel",
+    ButtonData:>{"TorsionToChristoffel.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " is kept for backward compatibility.\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.5",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Covariant derivatives"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["Torsion",
+    ButtonData:>{"Torsion.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["$CovDs",
+    ButtonData:>{"$CovDs.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n",
+  "\[FilledSmallSquare] Last update: 17-X-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 232}, {47, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 35, 0, 38, "ObjectName"],
+Cell[1814, 55, 1679, 67, 124, "Usage"],
+Cell[3496, 124, 1004, 28, 120, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

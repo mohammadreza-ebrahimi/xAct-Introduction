@@ -1,0 +1,916 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS GUIDE", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"Functions \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AllContractions\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/AllContractions"], "\<\"ClearSymCovDCache\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ClearSymCovDCache"], "\<\"CollectConstants\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/CollectConstants"], "\<\"CollectTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/CollectTensors"], "\<\"ComputeBasisValues\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ComputeBasisValues"], "\<\"ConstructDDIs\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ConstructDDIs"], "\<\"EinsteinCC\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/EinsteinCC"], "\<\"EulerDensity\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/EulerDensity"], "\<\"ExpandBackground\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ExpandBackground"], "\<\"ExpandFlat\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ExpandFlat"], "\<\"ExpandSymCovDs\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ExpandSymCovDs"], "\<\"FromIndexFree\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/FromIndexFree"], "\<\"FullSimplification\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/FullSimplification"], "\<\"ImplodedTensorValues\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ImplodedTensorValues"], \
+"\<\"IndexConfigurations\"\>":>Documentation`HelpLookup[
+       "paclet:xTras/ref/IndexConfigurations"], "\<\"IndexFree\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/IndexFree"], "\<\"InvarLagrangian\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/InvarLagrangian"], "\<\"KillingVectorOf\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/KillingVectorOf"], "\<\"KillingVectorQ\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/KillingVectorQ"], "\<\"MakeAnsatz\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MakeAnsatz"], "\<\"MakeContractionAnsatz\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MakeContractionAnsatz"], "\<\"MakeTraceless\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MakeTraceless"], "\<\"Map\"\>":>
+       Documentation`HelpLookup["paclet:ref/Map"], "\<\"MapTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MapTensors"], "\<\"MapTimed\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MapTimed"], "\<\"MapTimedIfPlus\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MapTimedIfPlus"], "\<\"MapTimedTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MapTimedTensors"], "\<\"MetricOfKillingVector\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MetricOfKillingVector"], "\<\"PerturbBackground\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/PerturbBackground"], "\<\"PerturbFlat\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/PerturbFlat"], "\<\"ProductInvariants\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ProductInvariants"], "\<\"RiemannYoungProject\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/RiemannYoungProject"], "\<\"Schouten\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/Schouten"], "\<\"SchoutenCC\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SchoutenCC"], "\<\"SingleInvariants\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SingleInvariants"], "\<\"SolveConstants\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SolveConstants"], "\<\"SolveTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SolveTensors"], "\<\"SortCovDsToBox\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SortCovDsToBox"], "\<\"SortCovDsToDiv\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SortCovDsToDiv"], "\<\"SymCovDQ\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SymCovDQ"], "\<\"SymmetricSpaceRules\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SymmetricSpaceRules"], "\<\"SymmetrizeCovDs\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SymmetrizeCovDs"], "\<\"SymRiemann\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/SymRiemann"], "\<\"TableauSymmetric\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/TableauSymmetric"], "\<\"ToBackground\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ToBackground"], "\<\"ToFlat\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ToFlat"], "\<\"ToIndexFree\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ToIndexFree"], "\<\"ToRicci\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ToRicci"], "\<\"ToRiemann\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/ToRiemann"], "\<\"YoungProject\"\>":>
+       Documentation`HelpLookup["paclet:xTras/ref/YoungProject"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"Tutorials \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Introduction to xAct\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/tutorial/Introduction"], "\<\"Metric Variations\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/tutorial/MetricVariations"], "\<\"The Gauss-Bonnet \
+term\"\>":>Documentation`HelpLookup[
+       "paclet:xTras/tutorial/GaussBonnet"], "\<\"Spin 2 on a flat background\
+\"\>":>Documentation`HelpLookup[
+       "paclet:xTras/tutorial/SpinTwo"], "\<\"AdS Perturbations\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/tutorial/AdSPerturbations"], "\<\"Symmetrized Covariant \
+Derivatives\"\>":>Documentation`HelpLookup[
+       "paclet:xTras/tutorial/SymmetrizedDerivatives"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras/guide/xTras\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["xTras/guide/xTras"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/xTras/guide/xTras.\
+html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", "xTras/guide/xTras", 
+             ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["xTras package", "GuideTitle",
+ CellID->942062912],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["xTras",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://xact.es/xtras/"], None}],
+  FontSlant->"Italic"],
+ " is a field-theory inspired add-on package for ",
+ StyleBox[ButtonBox["xAct",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://xact.es/"], None}],
+  FontSlant->"Italic"],
+ ". It contains new functions for doing tensor algebra, making Ansatze, \
+computing contractions, and much more.\[LineSeparator]\[LineSeparator]Below \
+is a list of new functionality in ",
+ StyleBox["xTras",
+  FontSlant->"Italic"],
+ ". If you're new to xAct, have a look at the ",
+ ButtonBox["introduction to xAct.",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/tutorial/Introduction"]
+}], "GuideAbstract",
+ CellFrame->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {{0, 0}, {1, 0}}, 
+   Inherited],
+ CellID->2001916300],
+
+Cell[CellGroupData[{
+
+Cell["Basic functions", "GuideFunctionsSubsection",
+ CellID->357840792],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["MapTimed",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MapTimed"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " timed version of ",
+ ButtonBox["Map",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Map"]
+}], "GuideText",
+ CellID->1275979544],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["MapTensors",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MapTensors"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " map over tensors"
+}], "GuideText",
+ CellID->616497066],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["MapTimedTensors",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MapTimedTensors"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["MapTimedIfPlus",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MapTimedIfPlus"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->1773709513],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->984388414]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Combinatorics", "GuideFunctionsSubsection",
+ CellID->402057610],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["AllContractions",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/AllContractions"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives all contractions of an expression"
+}], "GuideText",
+ CellID->1398697808],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["MakeTraceless",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MakeTraceless"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " makes an expression traceless"
+}], "GuideText",
+ CellID->1558058994],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ConstructDDIs",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ConstructDDIs"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " constructs dimensionally dependent identities"
+}], "GuideText",
+ CellID->2029404287],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["IndexConfigurations",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/IndexConfigurations"]], 
+  "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["MakeAnsatz",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MakeAnsatz"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["MakeContractionAnsatz",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MakeContractionAnsatz"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->1862569955],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->344111366]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tensor algebra", "GuideFunctionsSubsection",
+ CellID->306266991],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["CollectTensors",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/CollectTensors"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " collects all tensorial terms"
+}], "GuideText",
+ CellID->2058499525],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["CollectConstants",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/CollectConstants"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " collects all constant symbols"
+}], "GuideText",
+ CellID->1239963505],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SolveConstants",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SolveConstants"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " solves equations with respect to constant symbols"
+}], "GuideText",
+ CellID->885318047],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SolveTensors",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SolveTensors"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " solves equations with respect to tensors"
+}], "GuideText",
+ CellID->1515280984],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->1119810447]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Symmetrized covariant derivatives", "GuideFunctionsSubsection",
+ CellID->107500421],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SymmetrizeCovDs",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SymmetrizeCovDs"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " symmetrizes covariant derivatives"
+}], "GuideText",
+ CellID->725828620],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ExpandSymCovDs",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ExpandSymCovDs"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " expands symmetric covariant derivatives"
+}], "GuideText",
+ CellID->1294501380],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SymCovDQ",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SymCovDQ"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " sets covariant derivatives to be symmetrizable"
+}], "GuideText",
+ CellID->309657972],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["$AutoSymmetrizeCovDs",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/$AutoSymmetrizeCovDs"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["ClearSymCovDCache",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ClearSymCovDCache"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->582612590],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->318928315]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Young tableaux", "GuideFunctionsSubsection",
+ CellID->109007293],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["YoungProject",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/YoungProject"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " projects tensors onto a Young tableau"
+}], "GuideText",
+ CellID->456756991],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["RiemannYoungProject",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/RiemannYoungProject"]], 
+  "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " projects Riemann tensors onto their Young tableau"
+}], "GuideText",
+ CellID->676603571],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["TableauSymmetric",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/TableauSymmetric"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " generates the SGS of a Young tableau"
+}], "GuideText",
+ CellID->750306932],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->1608193359]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Simplification", "GuideFunctionsSubsection",
+ CellID->384630940],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["FullSimplification",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/FullSimplification"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " simplifies curvature tensors as much as possible"
+}], "GuideText",
+ CellID->566431110],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SortCovDsToDiv",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SortCovDsToDiv"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " automatically sorts covariant derivatives to divergences"
+}], "GuideText",
+ CellID->740620925],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SortCovDsToBox",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SortCovDsToBox"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " automatically sorts covariant derivatives to boxes"
+}], "GuideText",
+ CellID->800668463],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->2005075134]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Curvature tensors", "GuideFunctionsSubsection",
+ CellID->966281796],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SymRiemann",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SymRiemann"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " the symmetrized Riemann tensor"
+}], "GuideText",
+ CellID->1568140400],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["Schouten",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/Schouten"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " the Schouten tensor"
+}], "GuideText",
+ CellID->452319137],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SchoutenCC",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SchoutenCC"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " the cosmological Schouten tensor"
+}], "GuideText",
+ CellID->35625179],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["EinsteinCC",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/EinsteinCC"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " the cosmological Einstein tensor"
+}], "GuideText",
+ CellID->1713209559],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ToRicci",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ToRicci"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " converts curvature tensors to Ricci tensors where possible"
+}], "GuideText",
+ CellID->629045261],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ToRiemann",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ToRiemann"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " converts curvature tensors to Riemann tensors where possible"
+}], "GuideText",
+ CellID->622915928],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->1751929587]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Killing vectors", "GuideFunctionsSubsection",
+ CellID->532284692],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["KillingVectorOf",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/KillingVectorOf"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " defines a Killing vector"
+}], "GuideText",
+ CellID->1839428689],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["KillingVectorQ",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/KillingVectorQ"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["MetricOfKillingVector",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/MetricOfKillingVector"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->103393811],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->425511054]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pseudo index-free notation", "GuideFunctionsSubsection",
+ CellID->443740068],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["IndexFree",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/IndexFree"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " head for pseudo index-free expressions"
+}], "GuideText",
+ CellID->1876100492],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ToIndexFree",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ToIndexFree"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " converts to pseudo index-free"
+}], "GuideText",
+ CellID->118580143],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["FromIndexFree",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/FromIndexFree"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " converts from pseudo index-free"
+}], "GuideText",
+ CellID->111638985],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->1026806758]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Perturbations on (A)dS and flat backgrounds", "GuideFunctionsSubsection",
+ CellID->1131996527],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SymmetricSpaceRules",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SymmetricSpaceRules"]], 
+  "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " rules for (A)dS backgrounds"
+}], "GuideText",
+ CellID->203374175],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ExpandBackground",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ExpandBackground"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " perturb and expand on generic backgrounds"
+}], "GuideText",
+ CellID->1463276848],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ExpandFlat",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ExpandFlat"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " perturb and expand on flat backgrounds"
+}], "GuideText",
+ CellID->745876830],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["PerturbBackground",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/PerturbBackground"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["PerturbFlat",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/PerturbFlat"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["ToBackground",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ToBackground"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["ToFlat",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ToFlat"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->58033752],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->311258892]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Invariants of Riemann tensors", "GuideFunctionsSubsection",
+ CellID->390617342],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["EulerDensity",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/EulerDensity"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the Euler density"
+}], "GuideText",
+ CellID->248158115],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ProductInvariants",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ProductInvariants"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives a basis for invariants of Riemann tensors"
+}], "GuideText",
+ CellID->380196331],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["SingleInvariants",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/SingleInvariants"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[TextData[ButtonBox["InvarLagrangian",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/InvarLagrangian"]], "InlineFunctionSans"],
+ " "
+}], "InlineGuideFunctionListing",
+ CellID->1195885292],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->944650371]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["xCoba extensions", "GuideFunctionsSubsection",
+ CellID->392183126],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ComputeBasisValues",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ComputeBasisValues"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " computes values of basis elements"
+}], "GuideText",
+ CellID->794486039],
+
+Cell[TextData[{
+ Cell[TextData[ButtonBox["ImplodedTensorValues",
+  BaseStyle->"Link",
+  ButtonData->"paclet:xTras/ref/ImplodedTensorValues"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " computes values of derivatives of tensors"
+}], "GuideText",
+ CellID->2021024074]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideMoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+   Inherited, {{Inherited, Inherited}, {Inherited, 20}}],
+ CellElementSpacings->{"CellMinHeight"->3},
+ CellFrameLabels->{{
+    FEPrivate`If[
+     FEPrivate`Or[
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+      FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+     Cell[
+     "TUTORIALS", "GuideMoreAboutSection", CellSize -> {5000, Inherited}], 
+     Cell[
+      TextData[{
+        Cell[
+         BoxData[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {24, 0}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[24]]]], "Tutorials"}], "GuideMoreAboutSection", 
+      CellSize -> {5000, Inherited}]], None}, {None, None}},
+ CellFrameLabelMargins->0,
+ CellSize->{Inherited, 
+   FEPrivate`If[
+    FEPrivate`Or[
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+     FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 11, 14]},
+ CellID->415694126],
+
+Cell["", "SectionHeaderSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]],
+
+Cell[TextData[ButtonBox["Introduction to xAct",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/tutorial/Introduction"]], "GuideMoreAbout",
+ CellID->1287459582],
+
+Cell[TextData[ButtonBox["Metric Variations",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/tutorial/MetricVariations"]], "GuideMoreAbout",
+ CellID->806871991],
+
+Cell[TextData[ButtonBox["The Gauss-Bonnet term",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/tutorial/GaussBonnet"]], "GuideMoreAbout",
+ CellID->379564378],
+
+Cell[TextData[ButtonBox["Spin 2 on a flat background",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/tutorial/SpinTwo"]], "GuideMoreAbout",
+ CellID->441045137],
+
+Cell[TextData[ButtonBox["AdS Perturbations",
+ BaseStyle->"Link",
+ ButtonData->"paclet:xTras/tutorial/AdSPerturbations"]], "GuideMoreAbout",
+ CellID->1885805579],
+
+Cell[TextData[ButtonBox["Symmetrized Covariant Derivatives",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:xTras/tutorial/SymmetrizedDerivatives"]], "GuideMoreAbout",
+ CellID->58940903],
+
+Cell["", "SectionFooterSpacer",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ ShowCellBracket->False,
+ ShowSelection->False,
+ CellMargins->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 0, Inherited],
+ CellElementSpacings->{"CellMinHeight"->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 1, Inherited]},
+ CellSize->FEPrivate`If[
+   FEPrivate`Or[
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"], 
+    FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], {Inherited, 1}, 
+   Inherited]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"xTras package - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "GuideColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        StyleBox[
+         ButtonBox[
+         "Mathematica", ButtonData -> "paclet:guide/Mathematica", 
+          BaseStyle -> {"Link", "DockedLinkTrail"}], FontSlant -> "Italic"], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 11, 18.684686}", 
+    "history" -> {"1.2.0", "1.4.2", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Guide", "language" -> "en", "paclet" -> "xTras", "status" -> 
+    "None", "summary" -> 
+    "xTras is a field-theory inspired add-on package for xAct. It contains \
+new functions for doing tensor algebra, making Ansatze, computing \
+contractions, and much more. Below is a list of new functionality in xTras. \
+If you're new to xAct, have a look at the introduction to xAct.", 
+    "synonyms" -> {}, "title" -> "xTras package", "titlemodifier" -> "", 
+    "windowtitle" -> "xTras package", "type" -> "Guide", "uri" -> 
+    "xTras/guide/xTras"}, "SearchTextTranslated" -> ""},
+FrontEndVersion -> "6.0",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+

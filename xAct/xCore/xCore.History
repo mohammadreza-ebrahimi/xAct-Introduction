@@ -1,0 +1,131 @@
+------------------------------------------------------------------------
+2007
+
+22 Apr	- Created first version of xCore (0.1.0)
+	- Moved SetNumberOfArguments, ToSymbol from xTensor.
+	- Moved FoldedRule et al from xCoba.
+ 2 May	- Introduced functions LinkSymbols and UnlinkSymbol, together
+	  with the $LinkCharacter.
+15 May  - Reorganized welcome messages in all of xAct.
+ 2 Jun	- Added xTagSet and xTagSetDelayed.
+ 2 Aug  - Reorder setargs definitions because Mathematica 6.0 is sorting
+          them in a different (I think wrong) way.
+10 Aug	- Tilde now has a third argument to colorize the tildes.
+	- Changed version to 0.3.0 for firts release, as usual.
+15 Aug	* Version 0.3.0 released with date 14 August 2007.
+
+22 Sep	- $LastPackage is now private to xCore.
+	- HoldMap is now also fully private.
+	- Removed function IndependentComponents.
+	- Added a few SetNumberOfArguments and Protect lines.
+	- Added file Directories.nb to xCore.public.
+27 Oct  - Directory xCore added to the CVS repository.
+ 3 Nov	- Tilde changed to TildeString to avoid intereferences with the
+  	  Mathematica builtin.
+	- Added section on "too new" functions.
+ 6 Nov	* Version 0.4.0 released with date 6 November 2007.
+
+------------------------------------------------------------------------
+2008
+
+        - Name analysis transferred from xTensor to xCore.
+16 May  * Version 0.5.0 released with date 16 May 2008.
+
+30 Jun  - Common General::versions message in xCore, for all packages.
+        - Added quotations to the symbol formatted in the string formatting
+          functions.
+        - xTagSetDelayed now does not return a value.
+        - Started doc file xCoreDoc.nb.
+ 1 Jul  * Version 0.6.0 released with date 30 June 2008.
+
+ 8 Aug  - Quotation marks kept only in ColorString.
+11 Aug  * Version 0.6.1 released with date 11 Aug 2008.
+
+15 Sep  - Package ExpressionManipulation is now not imported automatically.
+13 Oct  - ToSymbol changed to SymbolJoin.
+23 Nov  * Version 0.6.2 released with date 23 Nov 2008.
+
+------------------------------------------------------------------------
+2009
+
+31 Dec  - Fixed documentation typo.
+
+------------------------------------------------------------------------
+2010
+
+10 Jan  * Version 0.6.2 rereleased with date 10 Jan 2010.
+
+22 Jan  - Changed ToString[color] to ToString[N/@color] to avoid problems
+          when the values of RGBColor are rational numbers. Thanks to
+          Alessandro Stechina for reporting this problem.
+30 Sep  * Version 0.6.3 released with date 30 Sep 2010.
+
+------------------------------------------------------------------------
+2011
+
+ 6 Mar	- Dropped $DefaultImagingDevice and $ImagingDevices from
+	  $SystemNames.
+17 Apr	* Version 0.6.4 released with date 17 Apr 2011.
+
+15 May	- Added function AppendToUnevaluated.
+	* Version 0.6.4 rereleased with date 15 May 2011.
+
+30 Sep	- Deactivated computation of $SpecialOutputSymbols, as it
+	  interferes with the syntax coloring routines of Mathematica.
+	  Thanks to Teake for reporting this.
+	- Added function SubHead and modified xUpSet, xTagSet and
+	  xTagSetDelayed to load values on the subhead of expressions.
+	* Version 0.6.4 rereleased with date 10 October 2011.
+
+------------------------------------------------------------------------
+2012
+
+21 Apr	- Introduced xTension and MakexTensions to act at the beginning
+	  and at the end of the DefType and UndefType commands, as
+	  discussed with Teake.
+5 May	* Version 0.6.5 released.
+
+------------------------------------------------------------------------
+2013
+
+19 Jan	- UnsortedUnion renamed DeleteDuplicates. Versions 7 and later
+	  now use the System` symbol.
+	- Added ReportSet and ReportSetOption, replacing the messages
+	  reporting nonstandard configuration variables or options.
+27 Jan	* Version 0.6.6 released.
+
+13 Apr	- Added Test functions.
+	- Improved definition of $xActDirectory to use FindFile, as
+	  suggested by Teake.
+28 Apr	- Added Kernel/init.m.
+20 Jul	- Test renamed xTest, to avoid conflicts with WorkBench.
+
+------------------------------------------------------------------------
+2014
+
+15 Feb.	* Version 0.6.7 released.
+
+21 Sep	- Added function Overline, following Thomas, and imitating the
+	  function Underline.
+
+28 Sep. * Version 0.6.8 released.
+
+------------------------------------------------------------------------
+2015
+
+16 Aug	- Added function HatString as suggested by Thomas.
+
+23 Aug. * Version 0.6.9 released.
+
+------------------------------------------------------------------------
+2016
+
+------------------------------------------------------------------------
+2017
+
+------------------------------------------------------------------------
+2018
+
+28 Feb	- Changed an instance of TensorRank by ArrayDepth, as reported
+	  in the forum.
+	* Version 0.6.10 released.

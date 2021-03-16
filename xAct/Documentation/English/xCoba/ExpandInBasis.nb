@@ -1,0 +1,260 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6356,        220]*)
+(*NotebookOutlinePosition[      7022,        243]*)
+(*  CellTagsIndexPosition[      6978,        239]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ExpandInBasis", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["ExpandIn[",
+    FontFamily->"Courier"],
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  StyleBox["][",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["i",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " expands the g-index ",
+  StyleBox["i",
+    FontSlant->"Italic"],
+  " of ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " into a product of components in ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  " and its basis vectors (or covectors).\n\[FilledSmallSquare] ",
+  StyleBox["ExpandInBasis[",
+    FontFamily->"Courier"],
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  StyleBox["][",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["list",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " expands the g-indices of ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " in list into products of components in ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  " and its basis vectors (or covectors).\n\[FilledSmallSquare] ",
+  StyleBox["ExpandInBasis[",
+    FontFamily->"Courier"],
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  StyleBox["][",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " expands the g-indices of ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " in ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  " into products of components in ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  " and its basis vectors (or covectors).\n\[FilledSmallSquare] ",
+  StyleBox["ExpandInBasis[",
+    FontFamily->"Courier"],
+  StyleBox["basis1",
+    FontSlant->"Italic"],
+  StyleBox["][",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["basis2",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " expands the basis indices of ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " in ",
+  StyleBox["basis2",
+    FontSlant->"Italic"],
+  " into products of components in ",
+  StyleBox["basis1",
+    FontSlant->"Italic"],
+  " and its basis vectors (or covectors).\n\[FilledSmallSquare] ",
+  StyleBox["ExpandInBasis[",
+    FontFamily->"Courier"],
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  StyleBox["][",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " expands all indices of ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " (except the basis indices in ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  ") into products of components in ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  " and its basis vectors (or covectors)."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Expansion means introduction of basis indices. For \
+example ",
+  Cell[BoxData[
+      FormBox[Cell["ExpandInBasis[polar][ v[{a}] ]"], TraditionalForm]]],
+  " returns ",
+  Cell[BoxData[
+      \(TraditionalForm\`v[{b, polar}]\ Basis[\(-{b, polar}\), {a}]\)]],
+  Cell[BoxData[
+      FormBox[Cell[""], TraditionalForm]]],
+  ".\n\[FilledSmallSquare] An empty first pair of brackets means that we are \
+expanding in the DefaultChart basis.\n\[FilledSmallSquare] Indices, manifolds \
+and bases in the second argument of the second pair of brackets are \
+recognized using the functions ",
+  StyleBox["AIndexQ",
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox["ManifoldQ",
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox["BasisQ",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.7",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Bases and charts"},
+    ButtonStyle->"Hyperlink"],
+  ".",
+  ButtonBox["\n",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], None},
+    ButtonStyle->"Hyperlink"],
+  "\[FilledSmallSquare] See also: ",
+  ButtonBox["ChangeBasis",
+    ButtonData:>{"ChangeBasis.nb", None},
+    ButtonStyle->"Hyperlink"],
+  ", ",
+  ButtonBox["SeparateBasis",
+    ButtonData:>{"SeparateBasis.nb", None},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] New in version 0."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 0}, {Automatic, 59}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 35, 0, 38, "ObjectName"],
+Cell[1814, 55, 2969, 115, 216, "Usage"],
+Cell[4786, 172, 1554, 45, 194, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

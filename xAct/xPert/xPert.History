@@ -1,0 +1,141 @@
+0.5.0:
+	- First version. Released 30 June 2006.
+
+0.5.1:
+ 23 Nov	- Changed xPert.nb to accept xTensor version 0.9.0. That means
+	  changing Manifold by VBundle, essentially. Added explicit
+	  index dependencies a,b,c,d in several of the Def functions.
+	* Released 23 Nov 2006.
+  8 Dec - Added Off/On[RuleDelayed::rhs] to avoid some useless messages.
+	- Added missing definitions Perturbation[delta]=0. Thanks to
+	  Cyril Pitrou for pointing this out.
+	* Released again on 8 Dec 2006.
+
+------------------------------------------------------------------------
+2007
+------------------------------------------------------------------------
+
+0.7.0:
+ 17 Aug - Adapted xPert.nb for xTensor.0.9.2.
+	- Removed function xPertToCanonical because the new ToCanonical
+	  can now handle this case without tricks.
+ 3 Sep	- Added SetNumberOfArgument messages and protection.
+	- Implemented perturbation of Weyl as given by Cyril Pitrou.
+ 27 Oct - Added directory xPert to the CVS repository.
+
+0.7.1:
+ 13 Nov - Adapted xPert.nb for xTensor.0.9.3.
+        - Some brackets are wrongly colored now. Why?
+
+------------------------------------------------------------------------
+2008
+------------------------------------------------------------------------
+
+1.0.0:
+ May-June
+        - Full restructure of the system. Now it is much more powerful
+          and simple.
+        - Perturbation and GeneralPerturbation combined in a single
+          command Perturbation taking the best of those.
+        - Much faster algorithms to handle the Leibnitz rule and the
+          chain rule, both for arbitrary order and arbitrary number of
+          arguments.
+        - Predefined formulas are now implemented in ExpandPerturbation,
+          so that the user decides when to use them.
+        - ExpandPerturbation now handles all index positions and
+          covariant derivatives of perturbations. Also densities (in
+          particular the determinant of the metric) and Lie derivatives.
+        - Implemented Bruni's formula for a general change of gauge.
+        - Written documentation file xPertDoc.nb.
+        - Cleaned code.
+        * Released on 1 July with date 30 June.
+
+------------------------------------------------------------------------
+2009
+------------------------------------------------------------------------
+
+14 Dec - Added check ?InertHeadQ in the MakeBoxes definitions for
+         Permutation, to avoid problems with the post-6 reordering rules
+         of Mathematica. Thanks to Leo Stein for pointing this out.
+
+------------------------------------------------------------------------
+2010
+------------------------------------------------------------------------
+
+        * Released on 10 January with version 1.0.0.
+
+------------------------------------------------------------------------
+2011
+------------------------------------------------------------------------
+
+29 Jan - DefTensorPerturbation now works on scalars as well. Thanks to
+         Leonardo Motta for reporting this issue.
+       - Fixed documentation example DefScalarFunction[SF, 2] as now
+         DefScalarFunction only takes one argument.
+       - DefTensorPerturbation has the same options as DefTensor, as
+         suggested by Leo Stein.
+       - PerturbationOrder of the derivative of a tensor is taken as
+         PerturbationOrder of the tensor. That is, we assume that this
+         function is being used after expansion, when the derivatives are
+         all of order 0. Thanks to Leo for pointing this out.
+17 Apr * Released on 17 April with version 1.0.1.
+
+30 Sep - Added messages reporting the nonstandard configuration choices
+	 of xPert.
+       * Released on 10 October with version 1.0.2.
+
+------------------------------------------------------------------------
+2012
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+2013
+------------------------------------------------------------------------
+
+20 Jan - Added MakexTensions in DefMetricPerturbation, as requested by
+         Teake.
+       - Perturbation[Scalar[x_]] := Scalar[Perturbation[x]], as suggested
+         by Thomas and Cyril.
+       - GaugeChange now acts on Scalar expressions. Suggested by Cyril.
+       - Let perturbation of scalar densities go through the general
+         definition, which is careful about weights. Suggested by Teake.
+       * Released on 27 January with version 1.0.3.
+
+13 Apr - Added MetricPerturbation, as discussed with Teake.
+       - DefMetricPerturbation has now a default for its 3rd argument.
+28 Apr - Added Kernel/init.m.
+       
+------------------------------------------------------------------------
+2014
+------------------------------------------------------------------------
+
+       * Released on 15 February with version 1.0.4.
+
+21 Sep - Use LogTrace formula for the perturbation of the determinant,
+	 as suggested by Cyril, who contributes the code as well.
+       * Released on 28 September with version 1.0.5.
+
+------------------------------------------------------------------------
+2015
+------------------------------------------------------------------------
+
+       * Released on 23 August again with version 1.0.5.
+
+------------------------------------------------------------------------
+2016
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+2017
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+2018
+------------------------------------------------------------------------
+
+28 Feb - Added $RiemannSign and $RicciSign in the formulas, as reported
+	 by Leslaw Rachwal in the xAct forum.
+       - Added perturbations for TFRicci and Kretschmann, through simple
+	 expansion into Riemann, Ricci, etc.
+
+       * Released on 28 February with version 1.0.6.

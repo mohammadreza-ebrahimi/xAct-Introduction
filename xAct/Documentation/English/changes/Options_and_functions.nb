@@ -1,0 +1,249 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6303,        203]*)
+(*NotebookOutlinePosition[      6933,        225]*)
+(*  CellTagsIndexPosition[      6889,        221]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Options and their associated functions",
+  FontColor->RGBColor[0, 0, 1]]], "Subtitle"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Date[]\)], "Input"],
+
+Cell[BoxData[
+    \({2007, 10, 28, 20, 41, 19.530172`8.043281052064371}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "Options in ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  " often define upvalues for associated functions. For example, the option \
+",
+  StyleBox[ButtonBox["Curvature",
+    ButtonData:>{"Curvature.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " of ",
+  StyleBox[ButtonBox["DefCovD",
+    ButtonData:>{"DefCovD.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " defines an upvalue for the function ",
+  StyleBox[ButtonBox["CurvatureQ",
+    ButtonData:>{"CurvatureQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", and so on. Sometimes the option and its function share the same symbol \
+but that is not always the case. I now find more reasonable to have a single \
+symbol for both things: first because it is simpler to remember, second \
+because we don`t need so many symbols; third because I don't want to have two \
+different styles of doing the same thing."
+}], "Text"],
+
+Cell[TextData[{
+  "Cases in which we have one symbol:\n\n",
+  StyleBox[ButtonBox["FrobeniusQ",
+    ButtonData:>{"FrobeniusQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["Info",
+    ButtonData:>{"Info.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["TensorID",
+    ButtonData:>{"TensorID.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"]
+}], "Text"],
+
+Cell[TextData[{
+  "Cases in which we have two symbols:\n\n",
+  StyleBox[ButtonBox["ContractThrough",
+    ButtonData:>{"ContractThrough.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t",
+  StyleBox[ButtonBox["ContractThroughQ",
+    ButtonData:>{"ContractThroughQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["Curvature",
+    ButtonData:>{"Curvature.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox[ButtonBox["CurvatureQ",
+    ButtonData:>{"CurvatureQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["FlatMetric",
+    ButtonData:>{"FlatMetric.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox[ButtonBox["FlatMetricQ",
+    ButtonData:>{"FlatMetricQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["Linear",
+    ButtonData:>{"Linear.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox[ButtonBox["LinearQ",
+    ButtonData:>{"LinearQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["FromMetric",
+    ButtonData:>{"FromMetric.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox[ButtonBox["MetricOfCovD",
+    ButtonData:>{"MetricOfCovD.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n",
+  StyleBox[ButtonBox["Torsion",
+    ButtonData:>{"Torsion.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox[ButtonBox["TorsionQ",
+    ButtonData:>{"TorsionQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"]
+}], "Text"],
+
+Cell[TextData[{
+  "It always seems more reasonable to keep the symbol on the right column. \
+Note however that ",
+  StyleBox["Torsion",
+    FontFamily->"Courier"],
+  " is used to construct the torsion tensors and hence we need to keep it.\n\n\
+Then we could use only one of ",
+  StyleBox[ButtonBox["ContractMetric",
+    ButtonData:>{"ContractMetric.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox[ButtonBox["ContractMetrics",
+    ButtonData:>{"ContractMetrics.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". And only one of ",
+  StyleBox[ButtonBox["MetricOn",
+    ButtonData:>{"MetricOn.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox[ButtonBox["UseMetricOnVBundle",
+    ButtonData:>{"UseMetricOnVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". Here, in both cases I would keep the first of each pair."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 144}, {47, Automatic}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 110, 1, 51, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[1911, 58, 39, 1, 27, "Input"],
+Cell[1953, 61, 85, 1, 27, "Output"]
+}, Open  ]],
+Cell[2053, 65, 980, 25, 140, "Text"],
+Cell[3036, 92, 475, 16, 101, "Text"],
+Cell[3514, 110, 1803, 61, 158, "Text"],
+Cell[5320, 173, 967, 27, 140, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

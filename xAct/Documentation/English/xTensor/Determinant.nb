@@ -1,0 +1,178 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4227,        138]*)
+(*NotebookOutlinePosition[      4894,        161]*)
+(*  CellTagsIndexPosition[      4850,        157]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Determinant", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["Determinant",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["metric, basis",
+    FontSlant->"Italic"],
+  "][] returns the scalar density representing the absolute value of the \
+determinant of the ",
+  StyleBox["metric",
+    FontSlant->"Italic"],
+  " in the given ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  ". The scalar is defined if it does not exist yet.\n\[FilledSmallSquare] ",
+  StyleBox["Determinant",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["metric",
+    FontSlant->"Italic"],
+  "][] returns the scalar density representing the absolute value of the \
+determinant of the ",
+  StyleBox["metric",
+    FontSlant->"Italic"],
+  " in the default basis ",
+  StyleBox["AIndex",
+    FontFamily->"Courier"],
+  "."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] The name of the tensor is constructed using ",
+  StyleBox["GiveSymbol",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["Determinant",
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox["metric, basis",
+    FontSlant->"Italic"],
+  "]., and by default joins \"Det\" to ",
+  StyleBox["metric",
+    FontSlant->"Italic"],
+  ".",
+  "\n\[FilledSmallSquare] The scalar density has weight +2*",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] Densities are only properly dealt with in ",
+  StyleBox["xCoba`",
+    FontFamily->"Courier"],
+  " but we include this head in ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  " to treat the special case of densities in the basis ",
+  StyleBox[ButtonBox["AIndex",
+    ButtonData:>{"AIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.4",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Tensors"},
+    ButtonStyle->"Hyperlink"],
+  "\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["GiveSymbol",
+    ButtonData:>{"GiveSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["WeightOf",
+    ButtonData:>{"WeightOf.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 1-VII-2008 for version 0.9.6 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+WindowSize->{520, 600},
+WindowMargins->{{195, Automatic}, {1, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 33, 0, 38, "ObjectName"],
+Cell[1812, 55, 793, 28, 102, "Usage"],
+Cell[2608, 85, 1603, 50, 200, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

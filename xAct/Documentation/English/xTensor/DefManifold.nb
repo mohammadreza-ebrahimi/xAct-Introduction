@@ -1,0 +1,861 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     20916,        694]*)
+(*NotebookOutlinePosition[     22570,        742]*)
+(*  CellTagsIndexPosition[     22398,        734]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DefManifold", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["DefManifold",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  StyleBox[", ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic"],
+  "}",
+  StyleBox[", u",
+    FontSlant->"Italic"],
+  "] defines ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  " to be an ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  "-dimensional differentiable manifold with abstract indices ",
+  StyleBox["a, b, c,",
+    FontSlant->"Italic"],
+  "... and ultraindex ",
+  StyleBox["u",
+    FontSlant->"Italic"],
+  StyleBox[" ",
+    FontSlant->"Italic"],
+  "on its tangent vbundle.",
+  "\n\[FilledSmallSquare] ",
+  StyleBox["DefManifold",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["manifold, ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["M1, ..., Mm",
+    FontSlant->"Italic"],
+  "}",
+  StyleBox[", ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic"],
+  "}",
+  StyleBox[", u",
+    FontSlant->"Italic"],
+  "] defines manifold to be the product manifold of previously defined \
+manifolds ",
+  StyleBox["M1, ..., Mm.",
+    FontSlant->"Italic"]
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Currently ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  " must be a valid ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " symbol, not in use in the present session with any other meaning. In the \
+future a pattern will also be valid to allow for \"indexed names\".\n\
+\[FilledSmallSquare] The list of all currently defined manifolds is stored in \
+the global variable ",
+  StyleBox[ButtonBox["$Manifolds",
+    ButtonData:>{"$Manifolds.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". All of them have associated upvalues ",
+  StyleBox["True",
+    FontFamily->"Courier"],
+  " for the function ",
+  StyleBox[ButtonBox["ManifoldQ",
+    ButtonData:>{"ManifoldQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". They have type ",
+  StyleBox[ButtonBox["Manifold",
+    ButtonData:>{"Manifold.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] The dimensionality of the manifold is stored as an \
+upvalue of ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  " for the function ",
+  StyleBox[ButtonBox["DimOfManifold",
+    ButtonData:>{"DimOfManifold.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". It can be any positive integer or 0. A 0-dim manifold cannot have fields \
+on it. For backwards compatibility, the dimension ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  " can also be given as a list of positive integers, whose length is taken \
+to be ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["The (nonempty) list of abstract indices {",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["} and the ultraindex ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["u",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" are passed to ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["DefVBundle",
+    ButtonData:>{"DefVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[" to associate them to the tangent vbundle of the manifold. The \
+name of the tangent vbundle is constructed by default joining the symbol ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["Tangent",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" to the name of the manifold. The result is stored as an upvalue \
+of ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["manifold",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" for the function ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["TangentBundleOfManifold",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[".",
+    FontVariations->{"CompatibilityType"->0}],
+  "\n\[FilledSmallSquare] A manifold can have submanifolds (see ",
+  StyleBox[ButtonBox["SubmanifoldsOfManifold",
+    ButtonData:>{"SubmanifoldsOfManifold.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ") and can be contained in other manifolds, due to the possibility of \
+defining product manifolds. The function ",
+  StyleBox[ButtonBox["SubmanifoldQ",
+    ButtonData:>{"SubmanifoldQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " checks that a first manifold contains a second manifold.\n\
+\[FilledSmallSquare] Manifolds can have objects (tensors and connections \
+living on the manifold), but in principle they should not be or have \
+servants.\n\[FilledSmallSquare] Options:\n",
+  StyleBox[ButtonBox["DefInfo",
+    ButtonData:>{"DefInfo.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["{\"manifold\", \"\"}",
+    FontFamily->"Courier"],
+  "\tinformation on the manifold\n",
+  StyleBox[ButtonBox["Master",
+    ButtonData:>{"Master.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Null",
+    FontFamily->"Courier"],
+  "\t\t\t\tmaster symbol for the manifold (should be never needed)\n",
+  StyleBox[ButtonBox["PrintAs",
+    ButtonData:>{"PrintAs.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Identity",
+    FontFamily->"Courier"],
+  "\t\t\tstring or function of symbol for output\n",
+  StyleBox[ButtonBox["ProtectNewSymbol",
+    ButtonData:>{"ProtectNewSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox[ButtonBox["$ProtectNewSymbols",
+    ButtonData:>{"$ProtectNewSymbols.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\twhether to protect new symbol or not\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.3",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Manifolds"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["UndefManifold",
+    ButtonData:>{"UndefManifold.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["DefVBundle",
+    ButtonData:>{"DefVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 23-IV-2011 for version 1.0.1 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Further Examples", "ExampleSection"],
+
+Cell["Load the packages:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Needs["\<xAct`xTensor`\>"]\)], "Input",
+  CellLabel->"In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.5.0"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.5.0", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2008, David J. M. Park and Ted Ersek"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"1.0.1"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "1.0.1", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.5"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.5", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="]
+}, Open  ]],
+
+Cell["Define a simple manifold:", "Text"],
+
+Cell[TextData[{
+  "Define a 3d manifold ",
+  StyleBox["M.",
+    FontFamily->"Courier"],
+  "The correspondint tangent vbundle ",
+  StyleBox["TangentM",
+    FontFamily->"Courier"],
+  " is also defined:"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[M, 3, \ {a, b, c, d, e}]\)], "Input",
+  CellLabel->"In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]M\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", M, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentM\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentM, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="]
+}, Open  ]],
+
+Cell["This is all the information associated to the manifold:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?M\)\)], "Input",
+  CellLabel->"In[3]:="],
+
+Cell["Global`M", "Print",
+  CellTags->"Info3419860191-1583700"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {GridBox[{
+                {\(ManifoldQ[M] ^= True\)},
+                {" "},
+                {\(SubmanifoldsOfManifold[M] ^= {}\)},
+                {" "},
+                {\(DefInfo[M] ^= {"manifold", \*"\<\"\"\>"}\)},
+                {" "},
+                {\(PrintAs[M] ^= "M"\)},
+                {" "},
+                {\(DimOfManifold[M] ^= 3\)},
+                {" "},
+                {\(TangentBundleOfManifold[M] ^= TangentM\)},
+                {" "},
+                {\(ServantsOf[M] ^= {TangentM}\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "M"],
+      Editable->False]], "Print",
+  CellTags->"Info3419860191-1583700"]
+}, Open  ]],
+
+Cell["Currently we only have one manifold:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($Manifolds\)], "Input",
+  CellLabel->"In[4]:="],
+
+Cell[BoxData[
+    \({M}\)], "Output",
+  CellLabel->"Out[4]="]
+}, Open  ]],
+
+Cell["\<\
+It can be undefined, also removing the associated tangent \
+vbundle:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefManifold[M]\)], "Input",
+  CellLabel->"In[5]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]UndefVBundle\[InvisibleSpace]": \
+Undefined "\[InvisibleSpace]"vbundle"\[InvisibleSpace]" \
+"\[InvisibleSpace]TangentM\),
+      SequenceForm[ 
+      "** ", UndefVBundle, ": Undefined ", "vbundle", " ", TangentM],
+      Editable->False]], "Print",
+  CellLabel->"From In[5]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** \
+"\[InvisibleSpace]UndefManifold\[InvisibleSpace]": Undefined "\
+\[InvisibleSpace]"manifold"\[InvisibleSpace]" "\[InvisibleSpace]M\),
+      SequenceForm[ "** ", UndefManifold, ": Undefined ", "manifold", " ", M],
+      
+      Editable->False]], "Print",
+  CellLabel->"From In[5]:="]
+}, Open  ]],
+
+Cell["\<\
+Now define a manifold with symbolic dimension and using reserved \
+symbols as indices:\
+\>", "Text"],
+
+Cell["Define a constant symbol:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefConstantSymbol[dim]\)], "Input",
+  CellLabel->"In[6]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefConstantSymbol\
+\[InvisibleSpace]": Defining "\[InvisibleSpace]"constant symbol "\
+\[InvisibleSpace]dim\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefConstantSymbol, ": Defining ", "constant symbol ", dim, ". ", 
+        ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[6]:="]
+}, Open  ]],
+
+Cell[TextData[{
+  "Then we can define a manifold ",
+  StyleBox["MC",
+    FontFamily->"Courier"],
+  " with unspecified dimension. Note that we use the ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " symbols ",
+  StyleBox["C",
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox["D",
+    FontFamily->"Courier"],
+  ". The symbol ",
+  StyleBox["E",
+    FontFamily->"Courier"],
+  " cannot be used because it has numeric value:"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[MC, dim, {A, B, C, D, F, G}]\)], "Input",
+  CellLabel->"In[7]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]MC\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", MC, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[7]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentMC\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentMC, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[7]:="],
+
+Cell[BoxData[
+    \(ValidateSymbol::"capital" \(\(:\)\(\ \)\) 
+      "System name \!\(\"C\"\) is overloaded as an abstract index."\)], \
+"Message",
+  CellLabel->"From In[7]:="],
+
+Cell[BoxData[
+    \(ValidateSymbol::"capital" \(\(:\)\(\ \)\) 
+      "System name \!\(\"D\"\) is overloaded as an abstract index."\)], \
+"Message",
+  CellLabel->"From In[7]:="]
+}, Open  ]],
+
+Cell["The symbol C has been overloaded:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(?? C\)], "Input",
+  CellLabel->"In[8]:="],
+
+Cell[BoxData[
+    RowBox[{"\<\"C[i] is the default form for the ith parameter or constant \
+generated in representing the results of various symbolic computations.\"\>", 
+      " ", 
+      ButtonBox[
+        StyleBox["More\[Ellipsis]",
+          "SR"],
+        ButtonData:>"C",
+        Active->True,
+        ButtonStyle->"RefGuideLink"]}]], "Print",
+  CellTags->"Info3419860203-1477175"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {\(Attributes[C] = {NHoldAll, Protected}\)},
+          {" "},
+          {GridBox[{
+                {\(AbstractIndexQ[C] ^= True\)},
+                {" "},
+                {\(PrintAs[C] ^= "C"\)},
+                {" "},
+                {\(VBundleOfIndex[C] ^= TangentMC\)},
+                {" "},
+                {\(TangentMC`Q[C] ^= True\)},
+                {" "},
+                {\(DaggerIndex[C] ^= C\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "C"],
+      Editable->False]], "Print",
+  CellTags->"Info3419860203-1477175"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \({Context[A], Context[C], Context[D]}\)], "Input",
+  CellLabel->"In[9]:="],
+
+Cell[BoxData[
+    \({"Global`", "System`", "System`"}\)], "Output",
+  CellLabel->"Out[9]="]
+}, Open  ]],
+
+Cell["Undefine the manifold:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefManifold[MC]\)], "Input",
+  CellLabel->"In[10]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]UndefVBundle\[InvisibleSpace]": \
+Undefined "\[InvisibleSpace]"vbundle"\[InvisibleSpace]" \
+"\[InvisibleSpace]TangentMC\),
+      SequenceForm[ 
+      "** ", UndefVBundle, ": Undefined ", "vbundle", " ", TangentMC],
+      Editable->False]], "Print",
+  CellLabel->"From In[10]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** \
+"\[InvisibleSpace]UndefManifold\[InvisibleSpace]": Undefined "\
+\[InvisibleSpace]"manifold"\[InvisibleSpace]" "\[InvisibleSpace]MC\),
+      SequenceForm[ 
+      "** ", UndefManifold, ": Undefined ", "manifold", " ", MC],
+      Editable->False]], "Print",
+  CellLabel->"From In[10]:="]
+}, Open  ]],
+
+Cell[TextData[{
+  "Now the additional definitions for ",
+  StyleBox["C",
+    FontFamily->"Courier"],
+  " have been removed:"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(?? C\)], "Input",
+  CellLabel->"In[11]:="],
+
+Cell[BoxData[
+    RowBox[{"\<\"C[i] is the default form for the ith parameter or constant \
+generated in representing the results of various symbolic computations.\"\>", 
+      " ", 
+      ButtonBox[
+        StyleBox["More\[Ellipsis]",
+          "SR"],
+        ButtonData:>"C",
+        Active->True,
+        ButtonStyle->"RefGuideLink"]}]], "Print",
+  CellTags->"Info3419860209-3111306"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {\(Attributes[C] = {NHoldAll, Protected}\)}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "C"],
+      Editable->False]], "Print",
+  CellTags->"Info3419860209-3111306"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+ShowPageBreaks->False,
+WindowSize->{702, 600},
+WindowMargins->{{Automatic, 100}, {16, Automatic}},
+PrintingStartingPageNumber->4,
+TaggingRules:>{"PaginationCache" -> {{2004, 11, 22, 16, 52, \
+37.58997`8.327646958178029}, {4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, \
+5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6}}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "Info3419860191-1583700"->{
+    Cell[13133, 418, 63, 1, 70, "Print",
+      CellTags->"Info3419860191-1583700"],
+    Cell[13199, 421, 894, 25, 70, "Print",
+      CellTags->"Info3419860191-1583700"]},
+  "Info3419860203-1477175"->{
+    Cell[17716, 580, 387, 10, 70, "Print",
+      CellTags->"Info3419860203-1477175"],
+    Cell[18106, 592, 791, 23, 70, "Print",
+      CellTags->"Info3419860203-1477175"]},
+  "Info3419860209-3111306"->{
+    Cell[20201, 669, 387, 10, 70, "Print",
+      CellTags->"Info3419860209-3111306"],
+    Cell[20591, 681, 285, 8, 70, "Print",
+      CellTags->"Info3419860209-3111306"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"Info3419860191-1583700", 21797, 715},
+  {"Info3419860203-1477175", 21998, 720},
+  {"Info3419860209-3111306", 22201, 725}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 33, 0, 38, "ObjectName"],
+Cell[1812, 55, 1243, 55, 86, "Usage"],
+Cell[3058, 112, 5553, 151, 500, "Text"],
+
+Cell[CellGroupData[{
+Cell[8636, 267, 42, 0, 38, "ExampleSection"],
+Cell[8681, 269, 34, 0, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[8740, 273, 83, 2, 70, "Input"],
+Cell[8826, 277, 146, 3, 70, "Print"],
+Cell[8975, 282, 314, 7, 70, "Print"],
+Cell[9292, 291, 147, 3, 70, "Print"],
+Cell[9442, 296, 146, 3, 70, "Print"],
+Cell[9591, 301, 95, 2, 70, "Print"],
+Cell[9689, 305, 119, 2, 70, "Print"],
+Cell[9811, 309, 146, 3, 70, "Print"],
+Cell[9960, 314, 314, 7, 70, "Print"],
+Cell[10277, 323, 147, 3, 70, "Print"],
+Cell[10427, 328, 106, 2, 70, "Print"],
+Cell[10536, 332, 87, 2, 70, "Print"],
+Cell[10626, 336, 146, 3, 70, "Print"],
+Cell[10775, 341, 318, 7, 70, "Print"],
+Cell[11096, 350, 147, 3, 70, "Print"],
+Cell[11246, 355, 146, 3, 70, "Print"],
+Cell[11395, 360, 281, 5, 70, "Print"],
+Cell[11679, 367, 146, 3, 70, "Print"]
+}, Open  ]],
+Cell[11840, 373, 41, 0, 70, "Text"],
+Cell[11884, 375, 219, 8, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[12128, 387, 93, 2, 70, "Input"],
+Cell[12224, 391, 356, 7, 70, "Print"],
+Cell[12583, 400, 366, 7, 70, "Print"]
+}, Open  ]],
+Cell[12964, 410, 78, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[13067, 414, 63, 2, 70, "Input"],
+Cell[13133, 418, 63, 1, 70, "Print",
+  CellTags->"Info3419860191-1583700"],
+Cell[13199, 421, 894, 25, 70, "Print",
+  CellTags->"Info3419860191-1583700"]
+}, Open  ]],
+Cell[14108, 449, 59, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[14192, 453, 67, 2, 70, "Input"],
+Cell[14262, 457, 61, 2, 70, "Output"]
+}, Open  ]],
+Cell[14338, 462, 99, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[14462, 469, 73, 2, 70, "Input"],
+Cell[14538, 473, 335, 7, 70, "Print"],
+Cell[14876, 482, 325, 7, 70, "Print"]
+}, Open  ]],
+Cell[15216, 492, 110, 3, 70, "Text"],
+Cell[15329, 497, 48, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[15402, 501, 79, 2, 70, "Input"],
+Cell[15484, 505, 395, 8, 70, "Print"]
+}, Open  ]],
+Cell[15894, 516, 450, 17, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[16369, 537, 97, 2, 70, "Input"],
+Cell[16469, 541, 358, 7, 70, "Print"],
+Cell[16830, 550, 368, 7, 70, "Print"],
+Cell[17201, 559, 176, 4, 70, "Message"],
+Cell[17380, 565, 176, 4, 70, "Message"]
+}, Open  ]],
+Cell[17571, 572, 56, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[17652, 576, 61, 2, 70, "Input"],
+Cell[17716, 580, 387, 10, 70, "Print",
+  CellTags->"Info3419860203-1477175"],
+Cell[18106, 592, 791, 23, 70, "Print",
+  CellTags->"Info3419860203-1477175"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[18934, 620, 93, 2, 70, "Input"],
+Cell[19030, 624, 91, 2, 70, "Output"]
+}, Open  ]],
+Cell[19136, 629, 45, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[19206, 633, 75, 2, 70, "Input"],
+Cell[19284, 637, 338, 7, 70, "Print"],
+Cell[19625, 646, 328, 7, 70, "Print"]
+}, Open  ]],
+Cell[19968, 656, 143, 5, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[20136, 665, 62, 2, 70, "Input"],
+Cell[20201, 669, 387, 10, 70, "Print",
+  CellTags->"Info3419860209-3111306"],
+Cell[20591, 681, 285, 8, 70, "Print",
+  CellTags->"Info3419860209-3111306"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

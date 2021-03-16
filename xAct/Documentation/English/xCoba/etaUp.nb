@@ -1,0 +1,162 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3654,        122]*)
+(*NotebookOutlinePosition[      4323,        145]*)
+(*  CellTagsIndexPosition[      4279,        141]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["etaUp", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["etaUp",
+    FontFamily->"Courier"],
+  " is a reserved word in ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  ". It is used to generate the name of the completely antisymmetric tensor \
+density of positive weight associated to a basis.\n\[FilledSmallSquare] ",
+  StyleBox["etaUp",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  "][",
+  StyleBox["inds",
+    FontSlant->"Italic"],
+  "] is automatically converted into ",
+  StyleBox["GiveSymbol",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["etaUp",
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  "][",
+  StyleBox["inds",
+    FontSlant->"Italic"],
+  "]."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Currently there is no other use for this symbol.\n\
+\[FilledSmallSquare] This tensor has weight ",
+  StyleBox["+basis",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.4",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Tensors"},
+    ButtonStyle->"Hyperlink"],
+  "\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["etaDown",
+    ButtonData:>{"etaDown.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["GiveSymbol",
+    ButtonData:>{"GiveSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["WeightOfTensor",
+    ButtonData:>{"WeightOfTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 15-X-2007 for version 0.9.2 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{330, Automatic}, {55, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 27, 0, 38, "ObjectName"],
+Cell[1806, 55, 752, 30, 86, "Usage"],
+Cell[2561, 87, 1077, 32, 144, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

@@ -1,0 +1,134 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3624,        125]
+NotebookOptionsPosition[      3244,        107]
+NotebookOutlinePosition[      3605,        123]
+CellTagsIndexPosition[      3562,        120]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ToCanonical", "ObjectName"],
+
+Cell[TextData[{
+ "\[FilledSmallSquare] ",
+ StyleBox["ToCanonical[",
+  FontFamily->"Courier"],
+ StyleBox["expr",
+  FontSlant->"Italic"],
+ StyleBox["]",
+  FontFamily->"Courier"],
+ " gives a canonical reorganization of the indices of ",
+ StyleBox["expr",
+  FontSlant->"Italic"],
+ " according to the symmetries of tensors and positions of dummies."
+}], "Usage"],
+
+Cell[TextData[{
+ "\[FilledSmallSquare] This function is in charge of everything related to \
+canonicalization in the system, and constitutes the most sophisticated part \
+of ",
+ StyleBox["xTensor`",
+  FontFamily->"Courier"],
+ ".\n\[FilledSmallSquare] When there is a metric and a derivative which is \
+not compatible with that metric, ",
+ StyleBox["ToCanonical",
+  FontFamily->"Courier"],
+ " changes to the slower, but more careful algorithm (private) ",
+ StyleBox["ToCanonicalDers",
+  FontFamily->"Courier"],
+ ". This change can be forbidden with the global variable ",
+ StyleBox[ButtonBox["$MixedDers",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"$MixedDers.nb", None}],
+  FontFamily->"Courier"],
+ ".\n\[FilledSmallSquare] Options:\n",
+ StyleBox[ButtonBox["UseMetricOnVBundle",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"UseMetricOnVBundle.nb", None}],
+  FontFamily->"Courier"],
+ "\t",
+ StyleBox["All",
+  FontFamily->"Courier"],
+ "\t\twhich indices can be raised and lowered\n",
+ StyleBox[ButtonBox["Method\t",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"Method.nb", None}],
+  FontFamily->"Courier"],
+ StyleBox["{ChangeCovD, \[OpenCurlyDoubleQuote]ExpandChristoffel\
+\[CloseCurlyDoubleQuote]->True}", "->False}"],
+ "\tmethod to deal with derivatives\n",
+ StyleBox[ButtonBox["Verbose",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"Verbose.nb", None}],
+  FontFamily->"Courier"],
+ "\t\t\t",
+ StyleBox["False",
+  FontFamily->"Courier"],
+ "\t\tglobal information on the canonicalization\n\[FilledSmallSquare] See: \
+",
+ ButtonBox["Section 7.2",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    FrontEnd`FileName[{
+      ParentDirectory[]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+     "iso8859-1"], "ToCanonical"}],
+ ".\n\[FilledSmallSquare] See also: ",
+ StyleBox[ButtonBox["SymmetryOf",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"SymmetryOf.nb", None}],
+  FontFamily->"Courier"],
+ ", ",
+ StyleBox[ButtonBox["xSort",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"xSort.nb", None}],
+  FontFamily->"Courier"],
+ ", ",
+ StyleBox[ButtonBox["Simplification",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{"Simplification.nb", None}],
+  FontFamily->"Courier"],
+ ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 27-IX-2007 for version 0.9.3 of "
+}]]
+}, Open  ]]
+},
+WindowSize->{520, 600},
+WindowMargins->{{166, Automatic}, {Automatic, 40}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"HelpBrowser.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 33, 0, 37, "ObjectName"],
+Cell[615, 24, 357, 12, 42, "Usage"],
+Cell[975, 38, 2253, 66, 184, InheritFromParent]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

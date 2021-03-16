@@ -1,0 +1,140 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3072,        100]*)
+(*NotebookOutlinePosition[      3740,        123]*)
+(*  CellTagsIndexPosition[      3696,        119]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["AddIndices", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["AddIndices",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["vbundle, ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["d, e, ...",
+    FontSlant->"Italic"],
+  "}] adds the abstract indices {",
+  StyleBox["d, e, ...",
+    FontSlant->"Italic"],
+  "} to the user-defined part of indices associated to ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"]
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] This function resets the upvalue for ",
+  StyleBox[ButtonBox["IndicesOfVBundle",
+    ButtonData:>{"IndicesOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " associated to ",
+  StyleBox["vbundle, ",
+    FontSlant->"Italic"],
+  "and the upvalue for the private function ",
+  StyleBox["LastIndex",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.3",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Manifolds"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 23-IX-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 121}, {47, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 32, 0, 38, "ObjectName"],
+Cell[1811, 55, 413, 16, 48, "Usage"],
+Cell[2227, 73, 829, 24, 112, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

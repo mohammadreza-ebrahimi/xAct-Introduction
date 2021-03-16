@@ -1,0 +1,207 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4689,        167]*)
+(*NotebookOutlinePosition[      5355,        190]*)
+(*  CellTagsIndexPosition[      5311,        186]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["PatternIndex", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["PatternIndex[",
+    FontFamily->"Courier"],
+  StyleBox["a, type",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " returns a pattern with name ",
+  StyleBox["a",
+    FontSlant->"Italic"],
+  " for indices of the given ",
+  StyleBox["type",
+    FontSlant->"Italic"],
+  ".\n",
+  "\[FilledSmallSquare] ",
+  StyleBox["PatternIndex[",
+    FontFamily->"Courier"],
+  StyleBox["a, type, character",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " returns a pattern with name ",
+  StyleBox["a",
+    FontSlant->"Italic"],
+  " for indices of the given ",
+  StyleBox["type",
+    FontSlant->"Italic"],
+  " and ",
+  StyleBox["character",
+    FontSlant->"Italic"],
+  ".\n",
+  "\[FilledSmallSquare] ",
+  StyleBox["PatternIndex[",
+    FontFamily->"Courier"],
+  StyleBox["a, type, character, vbundle",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " returns a pattern with name ",
+  StyleBox["a",
+    FontSlant->"Italic"],
+  " for indices of the given ",
+  StyleBox["type",
+    FontSlant->"Italic"],
+  " and ",
+  StyleBox["character",
+    FontSlant->"Italic"],
+  ", on the given ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  "."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["type",
+    FontSlant->"Italic"],
+  " can currently be ",
+  StyleBox[ButtonBox["AIndex",
+    ButtonData:>{"AIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["DIndex",
+    ButtonData:>{"DIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " or ",
+  StyleBox[ButtonBox["LIndex",
+    ButtonData:>{"LIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n",
+  "\[FilledSmallSquare] ",
+  StyleBox["character",
+    FontSlant->"Italic"],
+  " can be ",
+  StyleBox[ButtonBox["Up",
+    ButtonData:>{"Up.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " or ",
+  StyleBox[ButtonBox["Down",
+    ButtonData:>{"Down.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", or ",
+  StyleBox["Null",
+    FontFamily->"Courier"],
+  " to denote both characters.\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 2.6",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Pattern Indices"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["PIndexQ",
+    ButtonData:>{"PIndexQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[".",
+    FontFamily->"Courier"],
+  "\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 28-X-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 71}, {Automatic, 0}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 34, 0, 38, "ObjectName"],
+Cell[1813, 55, 1261, 52, 124, "Usage"],
+Cell[3077, 109, 1596, 55, 144, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

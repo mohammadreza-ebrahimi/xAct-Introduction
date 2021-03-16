@@ -1,0 +1,824 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     15041,        603]*)
+(*NotebookOutlinePosition[     15726,        627]*)
+(*  CellTagsIndexPosition[     15682,        623]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Directories",
+  FontColor->RGBColor[1, 0, 0]]], "Title"],
+
+Cell[TextData[{
+  "Most relevant directories involved in a ",
+  StyleBox["Mathematica -",
+    FontSlant->"Italic"],
+  " ",
+  StyleBox["xAct",
+    FontSlant->"Italic"],
+  " installation."
+}], "Subtitle",
+  FontSize->18,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  StyleBox["Jose M. Martin-Garcia",
+    FontSize->18],
+  "\n(c) 2003-2007, under GPL\nInstituto de Estructura de la Materia, CSIC, \
+Madrid  (SPAIN)\n\njmm@iem.cfmac.csic.es\n\
+http://metric.iem.csic.es/Martin-Garcia/"
+}], "Subsubtitle"],
+
+Cell[TextData[{
+  "The examples in this notebook assume a username  jmm and have been all \
+performed in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " 5.2.\n\nI thank Gilles Esposito-Farese for his help with Mac. "
+}], "Text",
+  FontSize->14],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Date[]\)], "Input"],
+
+Cell[BoxData[
+    \({2007, 11, 3, 19, 4, 58.451409`8.519369957846685}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Directories. Linux", "Subsection",
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  "This is the directory from which the ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " command was called:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($InitialDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/home/jmm"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "This is the home directory of the user calling ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($HomeDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/home/jmm"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The base directory for system-wide files to be loaded by ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($BaseDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/usr/share/Mathematica"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The base directory for user-specific files to be loaded by ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($UserBaseDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/home/jmm/.Mathematica"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The top-level directory in which your ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " installation resides:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($InstallationDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/usr/local/Wolfram/Mathematica/5.2"\)], "Output"]
+}, Open  ]],
+
+Cell["The full path:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($Path\)], "Input"],
+
+Cell[BoxData[
+    \({"/usr/local/Wolfram/Mathematica/5.2/AddOns/JLink", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/NETLink", 
+      "/home/jmm/.Mathematica/Kernel", "/home/jmm/.Mathematica/Autoload", 
+      "/home/jmm/.Mathematica/Applications", "/usr/share/Mathematica/Kernel", 
+      "/usr/share/Mathematica/Autoload", 
+      "/usr/share/Mathematica/Applications", ".", "/home/jmm", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/StandardPackages", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/StandardPackages/StartUp", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/Autoload", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/Applications", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/ExtraPackages", 
+      "/usr/local/Wolfram/Mathematica/5.2/SystemFiles/Graphics/Packages", 
+      "/usr/local/Wolfram/Mathematica/5.2/Configuration/Kernel"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "There are three natural places for ",
+  StyleBox["xAct",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Select[%, StringMatchQ[#, "\<*Applications\>"] &]\)], "Input"],
+
+Cell[BoxData[
+    \({"/home/jmm/.Mathematica/Applications", 
+      "/usr/share/Mathematica/Applications", 
+      "/usr/local/Wolfram/Mathematica/5.2/AddOns/Applications"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "We shall recommend, as ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does, the first two. In our case we have a single-user installation:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FileNames["\<xAct\>", {$UserBaseDirectory, $BaseDirectory, \
+$InstallationDirectory}, Infinity]\)], "Input"],
+
+Cell[BoxData[
+    \({"/home/jmm/.Mathematica/Applications/xAct"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The ",
+  StyleBox["$xActDirectory",
+    FontFamily->"Courier"],
+  " would be therefore:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(First[%]\)], "Input"],
+
+Cell[BoxData[
+    \("/home/jmm/.Mathematica/Applications/xAct"\)], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Directories. Mac OS X", "Subsection",
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  "This is the directory from which the ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " command was called:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($InitialDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/Users/jmm"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "This is the home directory of the user calling ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($HomeDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/Users/jmm"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The base directory for system-wide files to be loaded by ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($BaseDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/Library/Mathematica"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The base directory for user-specific files to be loaded by ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($UserBaseDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/Users/jmm/Library/Mathematica"\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The top-level directory in which your ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " installation resides:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($InstallationDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("/Applications/Mathematica 5.2.app"\)], "Output"]
+}, Open  ]],
+
+Cell["The full path:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($Path\)], "Input"],
+
+Cell[BoxData[
+    \({"/Applications/Mathematica 5.2.app/AddOns/JLink", 
+      "/Applications/Mathematica 5.2.app/AddOns/NETLink", 
+      "/Users/jmm/Library/Mathematica/Kernel", 
+      "/Users/jmm/Library/Mathematica/Autoload", 
+      "/Users/jmm/Library/Mathematica/Applications", 
+      "/Library/Mathematica/Kernel", "/Library/Mathematica/Autoload", 
+      "/Library/Mathematica/Applications", ".", "/Users/jmm", 
+      "/Applications/Mathematica 5.2.app/AddOns/StandardPackages", 
+      "/Applications/Mathematica 5.2.app/AddOns/StandardPackages/StartUp", 
+      "/Applications/Mathematica 5.2.app/AddOns/Autoload", 
+      "/Applications/Mathematica 5.2.app/AddOns/Applications", 
+      "/Applications/Mathematica 5.2.app/AddOns/ExtraPackages", 
+      "/Applications/Mathematica 5.2.app/SystemFiles/Graphics/Packages", 
+      "/Applications/Mathematica 5.2.app/Configuration/Kernel"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "There are three natural places for ",
+  StyleBox["xAct",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Select[$Path, StringMatchQ[#, "\<*Applications\>"] &]\)], "Input"],
+
+Cell[BoxData[
+    \({"/Users/jmm/Library/Mathematica/Applications", 
+      "/Library/Mathematica/Applications", 
+      "/Applications/Mathematica 5.2.app/AddOns/Applications"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "We shall recommend, as ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does, the first two. In our case we have a system-wide installation:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FileNames["\<xAct\>", {$UserBaseDirectory, $BaseDirectory, \
+$InstallationDirectory}, Infinity]\)], "Input"],
+
+Cell[BoxData[
+    \({"/Library/Mathematica/Applications/xAct"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The ",
+  StyleBox["$xActDirectory",
+    FontFamily->"Courier"],
+  " would be therefore:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(First[%]\)], "Input"],
+
+Cell[BoxData[
+    \("/Library/Mathematica/Applications/xAct"\)], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Directories. Windows XP", "Subsection",
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  "This is the directory from which the ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " command was called:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($InitialDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("C:\\Documents and Settings\\jmm\\My documents"\)], "Output",
+  CellChangeTimes -> {3.402422879390625*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+  "This is the home directory of the user calling ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($HomeDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("C:\\Documents and Settings\\jmm"\)], "Output",
+  CellChangeTimes -> {3.40242288571875*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+  "The base directory for system-wide files to be loaded by ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($BaseDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("C:\\Documents and Settings\\All Users\\Program data\\Mathematica"\)], \
+"Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "The base directory for user-specific files to be loaded by ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($UserBaseDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("C:\\Documents and Settings\\jmm\\Program data\\Mathematica"\)], \
+"Output",
+  CellChangeTimes -> {3.4024228935*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+  "The top-level directory in which your ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " installation resides:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($InstallationDirectory\)], "Input"],
+
+Cell[BoxData[
+    \("C:\\Program files\\Wolfram Research\\Mathematica\\5.2"\)], "Output"]
+}, Open  ]],
+
+Cell["The full path:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($Path\)], "Input"],
+
+Cell[BoxData[
+    \({"C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\JLink", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\NETLink", 
+      "C:\\Documents and Settings\\jmm\\Program data\\Mathematica\\Kernel", 
+      "C:\\Documents and Settings\\jmm\\Program data\\Mathematica\\Autoload", 
+      "C:\\Documents and Settings\\jmm\\Program \
+data\\Mathematica\\Applications", 
+      "C:\\Documents and Settings\\All Users\\Program \
+data\\Mathematica\\Kernel", 
+      "C:\\Documents and Settings\\All Users\\Program \
+data\\Mathematica\\Autoload", 
+      "C:\\Documents and Settings\\All Users\\Program \
+data\\Mathematica\\Applications", ".", "C:\\Documents and Settings\\jmm", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\StandardPackages", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\StandardPackages\\StartUp", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\Autoload", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\Applications", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\ExtraPackages", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\SystemFiles\\Graphics\\Packages", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\Configuration\\Kernel"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "There are three natural places for ",
+  StyleBox["xAct",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Select[%, StringMatchQ[#, "\<*Applications\>"] &]\)], "Input"],
+
+Cell[BoxData[
+    \({"C:\\Documents and Settings\\jmm\\Program \
+data\\Mathematica\\Applications", 
+      "C:\\Documents and Settings\\All Users\\Program \
+data\\Mathematica\\Applications", 
+      "C:\\Program files\\Wolfram \
+Research\\Mathematica\\5.2\\AddOns\\Applications"}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "We shall recommend, as ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does, the first two. In our case we have a single-user installation:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FileNames["\<xAct\>", {$UserBaseDirectory, $BaseDirectory, \
+$InstallationDirectory}, Infinity]\)], "Input"],
+
+Cell[BoxData[
+    \({"C:\\Documents and Settings\\jmm\\Program \
+data\\Mathematica\\Applications\\xAct"}\)], "Output",
+  CellChangeTimes -> {3.40242292484375*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+  "The ",
+  StyleBox["$xActDirectory",
+    FontFamily->"Courier"],
+  " would be therefore:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(First[%]\)], "Input"],
+
+Cell[BoxData[
+    \("C:\\Documents and Settings\\jmm\\Program \
+data\\Mathematica\\Applications\\xAct"\)], "Output",
+  CellChangeTimes -> {3.4024229311875*^9}]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{680, 600},
+WindowMargins->{{152, Automatic}, {47, Automatic}},
+ShowSelection->True,
+StyleDefinitions -> "Default.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 80, 1, 98, "Title"],
+Cell[1859, 56, 250, 10, 45, "Subtitle"],
+Cell[2112, 68, 253, 6, 148, "Subsubtitle"],
+Cell[2368, 76, 255, 7, 90, "Text"],
+
+Cell[CellGroupData[{
+Cell[2648, 87, 39, 1, 27, "Input"],
+Cell[2690, 90, 83, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2810, 96, 72, 1, 38, "Subsection"],
+Cell[2885, 99, 147, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[3057, 108, 50, 1, 27, "Input"],
+Cell[3110, 111, 45, 1, 27, "Output"]
+}, Open  ]],
+Cell[3170, 115, 138, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[3333, 124, 47, 1, 27, "Input"],
+Cell[3383, 127, 45, 1, 27, "Output"]
+}, Open  ]],
+Cell[3443, 131, 148, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[3616, 140, 47, 1, 27, "Input"],
+Cell[3666, 143, 58, 1, 27, "Output"]
+}, Open  ]],
+Cell[3739, 147, 150, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[3914, 156, 51, 1, 27, "Input"],
+Cell[3968, 159, 58, 1, 27, "Output"]
+}, Open  ]],
+Cell[4041, 163, 150, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[4216, 172, 55, 1, 27, "Input"],
+Cell[4274, 175, 70, 1, 27, "Output"]
+}, Open  ]],
+Cell[4359, 179, 30, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[4414, 183, 38, 1, 27, "Input"],
+Cell[4455, 186, 884, 13, 203, "Output"]
+}, Open  ]],
+Cell[5354, 202, 119, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[5498, 211, 82, 1, 27, "Input"],
+Cell[5583, 214, 184, 3, 43, "Output"]
+}, Open  ]],
+Cell[5782, 220, 182, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[5989, 229, 128, 2, 43, "Input"],
+Cell[6120, 233, 78, 1, 27, "Output"]
+}, Open  ]],
+Cell[6213, 237, 119, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[6357, 246, 41, 1, 27, "Input"],
+Cell[6401, 249, 76, 1, 27, "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6526, 256, 75, 1, 30, "Subsection"],
+Cell[6604, 259, 147, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[6776, 268, 50, 1, 27, "Input"],
+Cell[6829, 271, 46, 1, 27, "Output"]
+}, Open  ]],
+Cell[6890, 275, 138, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[7053, 284, 47, 1, 27, "Input"],
+Cell[7103, 287, 46, 1, 27, "Output"]
+}, Open  ]],
+Cell[7164, 291, 148, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[7337, 300, 47, 1, 27, "Input"],
+Cell[7387, 303, 56, 1, 27, "Output"]
+}, Open  ]],
+Cell[7458, 307, 150, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[7633, 316, 51, 1, 27, "Input"],
+Cell[7687, 319, 66, 1, 27, "Output"]
+}, Open  ]],
+Cell[7768, 323, 150, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[7943, 332, 55, 1, 27, "Input"],
+Cell[8001, 335, 69, 1, 27, "Output"]
+}, Open  ]],
+Cell[8085, 339, 30, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[8140, 343, 38, 1, 27, "Input"],
+Cell[8181, 346, 901, 14, 219, "Output"]
+}, Open  ]],
+Cell[9097, 363, 119, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[9241, 372, 86, 1, 27, "Input"],
+Cell[9330, 375, 189, 3, 59, "Output"]
+}, Open  ]],
+Cell[9534, 381, 182, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[9741, 390, 128, 2, 43, "Input"],
+Cell[9872, 394, 76, 1, 27, "Output"]
+}, Open  ]],
+Cell[9963, 398, 119, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[10107, 407, 41, 1, 27, "Input"],
+Cell[10151, 410, 74, 1, 27, "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10274, 417, 77, 1, 30, "Subsection"],
+Cell[10354, 420, 147, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[10526, 429, 50, 1, 27, "Input"],
+Cell[10579, 432, 126, 2, 27, "Output"]
+}, Open  ]],
+Cell[10720, 437, 138, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[10883, 446, 47, 1, 27, "Input"],
+Cell[10933, 449, 111, 2, 27, "Output"]
+}, Open  ]],
+Cell[11059, 454, 148, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[11232, 463, 47, 1, 27, "Input"],
+Cell[11282, 466, 102, 2, 27, "Output"]
+}, Open  ]],
+Cell[11399, 471, 150, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[11574, 480, 51, 1, 27, "Input"],
+Cell[11628, 483, 136, 3, 27, "Output"]
+}, Open  ]],
+Cell[11779, 489, 150, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[11954, 498, 55, 1, 27, "Input"],
+Cell[12012, 501, 89, 1, 27, "Output"]
+}, Open  ]],
+Cell[12116, 505, 30, 0, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[12171, 509, 38, 1, 27, "Input"],
+Cell[12212, 512, 1377, 28, 283, "Output"]
+}, Open  ]],
+Cell[13604, 543, 119, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[13748, 552, 82, 1, 27, "Input"],
+Cell[13833, 555, 291, 6, 59, "Output"]
+}, Open  ]],
+Cell[14139, 564, 182, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[14346, 573, 128, 2, 43, "Input"],
+Cell[14477, 577, 162, 3, 27, "Output"]
+}, Open  ]],
+Cell[14654, 583, 119, 5, 32, "Text"],
+
+Cell[CellGroupData[{
+Cell[14798, 592, 41, 1, 27, "Input"],
+Cell[14842, 595, 159, 3, 27, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

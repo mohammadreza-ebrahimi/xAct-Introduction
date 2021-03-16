@@ -1,0 +1,226 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5648,        186]*)
+(*NotebookOutlinePosition[      6316,        209]*)
+(*  CellTagsIndexPosition[      6272,        205]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MakeRule", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["MakeRule",
+    FontFamily->"Courier"],
+  "[{",
+  StyleBox["lhs, rhs",
+    FontSlant->"Italic"],
+  "}] gives a list of delayed rules ",
+  StyleBox["lhs",
+    FontSlant->"Italic"],
+  " ",
+  StyleBox[":>",
+    FontFamily->"Courier"],
+  " ",
+  StyleBox["Module",
+    FontFamily->"Courier"],
+  "[{...}, ",
+  StyleBox["rhs",
+    FontSlant->"Italic"],
+  "], but moving indices to consider all possible equivalent rules, according \
+to the values of options.\n",
+  "\[FilledSmallSquare] ",
+  StyleBox["MakeRule",
+    FontFamily->"Courier"],
+  "[{",
+  StyleBox["lhs, rhs, conditions",
+    FontSlant->"Italic"],
+  "}] adds conditions to the rules."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["MakeRule",
+    FontFamily->"Courier"],
+  " has attribute ",
+  StyleBox["HoldFirst",
+    FontFamily->"Courier"],
+  ", to avoid premature evaluation of any of ",
+  StyleBox["lhs, rhs, conditions",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] There must be no patterns in ",
+  StyleBox["lhs",
+    FontSlant->"Italic"],
+  ". Which indices are to be converted into patterns is controlled by the \
+option ",
+  StyleBox["PatternIndices",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] The power of MakeRule is given by its many \
+options:\n",
+  StyleBox[ButtonBox["PatternIndices",
+    ButtonData:>{"PatternIndices.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox["All",
+    FontFamily->"Courier"],
+  "\t\tindices to be converted into patterns\n",
+  StyleBox[ButtonBox["MetricOn",
+    ButtonData:>{"MetricOn.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t",
+  StyleBox["None",
+    FontFamily->"Courier"],
+  "\t\tindices on which the metric must be used\n",
+  StyleBox[ButtonBox["TestIndices",
+    ButtonData:>{"TestIndices.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox["True",
+    FontFamily->"Courier"],
+  "\t\twhether vbundle of indices must be checked\n",
+  StyleBox[ButtonBox["UseSymmetries",
+    ButtonData:>{"UseSymmetries.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox["True",
+    FontFamily->"Courier"],
+  "\t\twhether symmetries must be used or not\n",
+  StyleBox[ButtonBox["ContractMetrics",
+    ButtonData:>{"ContractMetrics.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox["False",
+    FontFamily->"Courier"],
+  "\t\twhether to contract metric factors on the rhs\n",
+  StyleBox[ButtonBox["Verbose",
+    ButtonData:>{"Verbose.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t",
+  StyleBox["False",
+    FontFamily->"Courier"],
+  "\t\treport on the internal progress\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 6.2",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "MakeRule"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["IndexRule",
+    ButtonData:>{"IndexRule.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["IndexRuleDelayed",
+    ButtonData:>{"IndexRuleDelayed.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["IndexSet",
+    ButtonData:>{"IndexSet.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["IndexSetDelayed",
+    ButtonData:>{"IndexSetDelayed.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 26-X-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{522, 600},
+WindowMargins->{{22, Automatic}, {41, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 30, 0, 38, "ObjectName"],
+Cell[1809, 55, 706, 28, 86, "Usage"],
+Cell[2518, 85, 3114, 98, 338, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

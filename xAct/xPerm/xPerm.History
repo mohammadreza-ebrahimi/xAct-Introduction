@@ -1,0 +1,362 @@
+This is xPerm.History, the log file for the development of the xPerm package
+for efficient manipulation of large permutation groups.
+
+Jose M. Martin-Garcia (c) 2003-2008.
+
+-----------------------------------------------------------------------
+  2003
+-----------------------------------------------------------------------
+
+Main development of xPerm.nb: Mar - Oct 2003.
+Main development of xperm.c: Jun - Aug 2003.
+Main testing: Sep 2003 - Feb 2004.
+
+-----------------------------------------------------------------------
+  2004
+-----------------------------------------------------------------------
+
+0.4.0:	
+	* Released 3 March 2004.
+	*** Version 1.1 of CVS *** 5 March 2004 ***
+
+0.4.1:
+	- Added function NotationOfPerm
+	- Mathematica canonicalization algorithms now do not use
+	  ToSign/FromSign anymore. The C-coded algorithms still use
+	  them.
+	- Improved verification of presence of opposite sign
+	  permutations in DoubleCosetRepresentative.
+	- Changed treatment of KD in DoubleCosetRepresentative.
+	*** Version 1.2 of CVS *** 17 March 2004 ***
+	- The xperm.c code uses double pointers in scherier_sims to
+	  allow for local reallocation of memory. Eliminated mMAX.
+	- Removed many blank lines.
+	*** Version 1.3 of CVS *** 18 March 2004 ***
+	- Changed version number.
+	* Released 23 March 2004.
+	*** Version 1.4 of CVS *** 24 March 2004 ***
+
+0.4.2:
+	- Added definition for GenSet on StrongGenSet.
+	*** Version 1.5 of CVS *** 5 April 2004 ***
+	- Removed global symbols used in the MathLink connection.
+	*** Version 1.6 of CVS *** 15 April 2004 ***
+	* Released 15 April 2004.
+
+0.4.3:
+	- PermutationFromTo rewritten. Now elements of lists can be
+	  repeated.
+	* Released 12 April 2004.
+
+0.4.4:
+	- Compatibility code mathmain was missing in the template.
+	  Now it has been directly included. Thanks to Paolo Matteucci
+	  for spotting this!
+	* Released 28 August 2004.
+
+0.4.5:
+	- Eliminated ALPHAlMAX limitation of xperm.c.
+	- Introduced MinB, PermOrderedQ and PermSortB to work with
+	  arbitrary bases.
+	- Eliminated KSubsets because it is no longer needed.
+	- Introduced function FromBaseImage.
+	- Introduced functions BasicOrbit and BaseChange.
+	- BaseOfDummySet changed to SGSOfDummySet.
+	- Introduced MovePairOf and JoinSGS.
+	- Stabilizer, SchreierOrbit and SchreierOrbits now also admit
+	  SGS as input.
+	- Added option OrderedBase for DoubleCosetRepresentative.
+	*** Version 1.9 of CVS *** 10 September 2004 ***
+	- Simplified SchreierOrbits on SGS input.
+	- CosetRepresentative now uses InversePerm only at the
+	  beginning and end.
+	- Introduced function listof.
+	- Added Reverse function in MovePairOf when selecting a
+	  down-index of a pair.
+	*** Version 1.10 of CVS *** 1 October 2004 ***
+	- Important change in CosetRepresentative: it now imitates
+	  Canon's behaviour, returning the representative and the new
+	  free indices positions and the new strong generating set for
+	  S. This avoids repetition of tasks in CanonicalPerm
+	  (for example hPerm is no longer required).
+	- Introduced function LessB. PermOrderedQ and PermOrderedBQ
+	  merged. PermSort now admits a base as second argument.
+	*** Version 1.11 of CVS *** 19 October 2004, Potsdam ***
+	*** Version 1.12 of CVS *** 20 October 2004, Potsdam ***
+	- Introduced General:: messages and some Throw messages
+	- Small recoding of some very basic routines likee PermQ or
+	  PermDeg.
+	- Main cycle of DoubleCosetRepresentative now goes through every
+	  member of bS, and not all but the last as it was before. This
+	  solves a problem with the all-free-indices case.
+	*** Version 1.13 of CVS *** 25 October 2004, Potsdam ***
+	- OrderedBase option moved to its right place.
+	*** Version 1.14 of CVS *** 16 November 2004 ***
+	* Released 8 December 2004.
+
+0.4.6:
+	- Changed context xPerm` to xAct`xPerm`.
+	*** Version 1.15 of CVS *** 6 December 2004 ***
+
+-----------------------------------------------------------------------
+  2005
+-----------------------------------------------------------------------
+
+	- Modified xperm.tm to put variables in the context
+	  xAct`xTensor`Private.
+	*** Version 1.16 of CVS *** 6 March 2005 ***
+	* Released 6 March 2005.
+
+-----------------------------------------------------------------------
+  2006
+-----------------------------------------------------------------------
+
+0.5.0:
+	- Added SymmetryArray and CanonicalComponent.
+	- Modified Part.
+	- Added SymmetryReplace.
+	- Added SignPermuteList. It should be combined with
+	  PermuteList.
+	- Section on tableaux dropped from xPerm.m.
+	- Added free(ALPHA) to xperm.c. The memory allocated for ALPHA
+	  was not being freed.
+	- Added check in SymmetryReplace to avoid changing a component
+	  determined by symmetry solely.
+	*** Version 1.17 of CVS *** 9 January 2006 ***
+	*** Version 1.18 of CVS *** 9 January 2006 ***
+	- Modified behaviour of FromBaseImage
+	- Added function PermWord
+	- Added functions DeleteRedundantGenerators
+	- Corrected Stabilizer: it was not using all relevant points.
+	- Added function RandomPerm.
+	- Added section on "small" sporadic simple groups in xPermDoc.
+	- Changed RiemannSymmetry to RiemannSymmetric.
+	- Added function PairSymmetric.
+	- All arrays are now dynamically declared in xperm.c. This was
+	  making xperm crash due to memory limitations of the stack.
+	  Thanks to Kasper Peeters for spotting this problem and
+	  correcting it.
+	- Added functions MathLinkOrbit and MathLinkOrderOfGroup.
+ 3 June	- Added BaseChange in Mathematica code for CosetRepresentative.
+	  I'm not sure this is really required, but just in case.
+	- Changed algorithm to compute bSsort in xperm.c.
+	*** Version 1.19 of CVS *** 6 July 2006 ***
+	* Released 6 July 2006.
+
+0.5.1:
+ 1 Oct  - Added message "Found Infinity as a point..."
+	*** Version 1.20 of CVS *** 23 November 2006 ***
+	* Released 23 November 2006.
+
+-----------------------------------------------------------------------
+  2007
+-----------------------------------------------------------------------
+
+0.6.0:
+ 2 Apr  - Fixed tiny memory leak in xperm.c.
+22 Apr	- Deactivated sector on SymmetryArray et al.
+15 May  - Reorganized welcome messages in all of xAct.
+ 3 Jun	- Overloading of Equal, Less, etc. removed. Now there are
+	  functions PermEqual, PermLess, etc.
+	- Notebook has been colored with the style of xTensor.
+ 9 Jun	- Updated file ButlerExamples.nb.
+	- Separated PermLength from PermDeg.
+	- Introduced function SetStabilizer to do setwise stabilization.
+10 Jun	- Changed output of PermWord. Now the residue is simply the
+	  first permutation of the word. This is easier to manipulate.
+20 Jun  - Added pair Search/Generate to do back-tracking.
+21 Jun  - Added SetNumberOfArguments definitions.
+22 Jun  - Overloaded SetStabilizer with definitions on SGSs.
+25 Jun	- DoubleCosetRepresentative slightly reorganized. It now only
+	  uses iperm, and not also perm.
+28 Jun  - Major update of xperm.c to include multiple dummysets and
+          multiple repeatedsets.
+29 Jun	- SymmetryArray stuff dropped from xPerm.m (not from xPerm.nb).
+ 8 Jul	- Translate changed to TranslatePerm to avoid conflict with the
+	  new Mathematica function Translate in version 6.0.
+	- CosetRepresentative changed to RightCosetRepresentative.
+	- Transversal changed to RightTransversal.
+	- Now RightCosetRepresentative and DoubleCosetRepresentative
+	  behave exactly as given by Renato.
+	- Lots of examples changed accordingly. Now the notebook is
+	  easier to read.
+ 9 Jul	- Internal notation of permutations inverted to agree with that
+	  of Portugal et al. Still, to allow backwards compatibility,
+	  the function canonical_perm still uses the old notation.
+	  Now the explanations in xPermDoc.nb are much simpler.
+ 4 Aug  - Added a check at the end of canonical_perm to avoid inverting
+          a zero permutation.
+	*** Version 1.21 of CVS *** 5 August 2007 ***
+        * Release 14 August 2007.
+
+0.7.0:
+21 Sep  - Compiled xperm.c with cygwin using Mathematica 6.0. Finally!
+22 Sep	- xPerm.nb is now prepared to read xperm.win.
+27 Oct  - Directory xPerm added to the CVS repository.
+ 3 Nov	- Definition of Ordering transferred to xCoba.
+        * Release 6 November 2007.
+
+-----------------------------------------------------------------------
+  2008
+-----------------------------------------------------------------------
+
+1.0.0:
+17 Feb	- $MathLink renamed $xpermQ.
+	- PowerPermute rewritten with internal remembered values.
+	- Fixed a potential bug in xperm.c in the use of list usedpoints
+          in schreier_vector. Highly unlikely this was a problem.
+	  Thanks to Kasper Peeters for finding this using valgrind.
+18 Feb	- Functions ToCycles, FromCycles, ToSign, FromSign made private.
+26 Feb  - RepeatedSet now accepts sets of length 1. This is to handle to
+          component indices properly.
+27 Feb  - There are two calls to stabilizer in which the result is
+	  written on the same memory area of the input. Harmless.
+        - CanonExamples.nb updated and improved.
+28 Feb  - Removed argument ob from xperm.c. Now OrderedBase is handled
+	  at the level of (MathLink)CanonicalPerm and
+          DoubleCosetRepresentative. This is much clearer. Bases are
+	  never reordered; we simply fill space with intermediate
+          integers.
+ 2 Mar  - Input in CanonicalPerm and canonical_perm_ext for the D group
+          is now given in terms of indices, and not in terms of slots.
+          I should have done this long time ago.
+ 3 Mar  - xPermDoc.nb reexecuted for 1.0 release.
+	*** Version 1.23 of CVS *** 3 March 2008 ***
+ 4 Mar	- MathLinkCanonicalPerm, MathLinkSchreierSims and MathLinkOrbit
+	  replaced by an option MathLink in CanonicalPerm, SchreierSims
+	  and Orbit. Option MathLink transferred from xTensor to xPerm.
+ 5 Mar  - Removed stupid variable $xPermRules.
+        - Updated and reexecuted ButlerExamples.nb.
+	*** Version 1.24 of CVS *** 5 March 2008 ***
+        * Release 5 March 2008, exActly 4 years after first public
+	  version!
+
+1.0.1:
+23 Mar  - MLOrbit and MLSchreierSims now also accept negative permutations.
+        - Introduced function PermSignature.
+
+1.0.2:
+ 8 Aug  - PermutationFromTo now accepts lists with any head.
+        - Default xperm executable for Mac from Barry Wardell.
+        * Release 11 August 2008.
+
+-----------------------------------------------------------------------
+  2009
+-----------------------------------------------------------------------
+
+1.0.3:
+ 5 Apr  - SGSs given by Symmetric, Antisymmetric and RiemannSymmetric now
+          return all points, instead of all but the last (Tensors).
+        - Added obvious definition of Dimino on SGSs.
+17 Jun  - Discriminate pre6 versions in linux, linking to xperm.linux or
+          xperm.linux.pre6 as needed.
+ 9 Aug  - Added Permute[perm_, 0]:=0 and Permute[0, perm_]:=0.
+ 9 Sep  * Release 9 September 2009.
+
+-----------------------------------------------------------------------
+  2010
+-----------------------------------------------------------------------
+
+1.1.0:
+10 Feb  - Added code for backtrack search in xperm.c. This allows computing
+          set-stabilizers at last.
+15 Sep  - The option Mathlink always defaults to $xpermQ.
+30 Sep  * Release 30 September 2010.
+
+-----------------------------------------------------------------------
+  2011
+-----------------------------------------------------------------------
+
+1.1.1:
+29 Jan  - Temporary fix for the conflicts with Mathematica 8.0 by adding the
+          three conflicting symbols before loading the package:
+          xAct`xPerm`Cycles, xAct`xPerm`Permute and
+          xAct`xPerm`RightCosetRepresentative. CyclicGroup renamed as
+          cyclicGroup.
+15 Mar	- MathLinkSchreierSims returns the same perm notation as the first
+	  permutation in the input GS.
+12 Apr	- SetStabilizer returns result in input notation, instead of Images.
+	- TraceSchreier accepts now 0 orbits and returns the ID if trying to
+	  move points that are not moved by group. Suggested by Thomas.
+	- In Mathematica 8 the product of permutations in cyclic notation is
+	  performed using PermutationProduct.
+	- xperm.win recompiled with a newer version of cygwin. Now it needs
+	  cygwin1.dll and cyggcc_s-1.dll.
+13 Apr	- As suggested by Thomas, NotationOfPerm[GenSet[]]=Cycles.
+17 Apr  * Release 17 April 2011.
+
+27 Apr	- Added both xperm.linux.64-bit and xperm.linux.32-bit. Thanks to
+	  Michal Dobrski for providing the latter.
+	* Rerelease 27 April 2011.
+
+1.1.2:
+10 Jul	- Added IfMathematicaPre8 to define functionality present in Mma8.
+	- xPerm.nb reexecuted.
+	* Release 15 July 2011.
+
+-----------------------------------------------------------------------
+  2012
+-----------------------------------------------------------------------
+
+1.1.3:
+28 Apr	- As suggested by Thomas, Stabilizer returns bases not including
+	  the stabilized points.
+	* Released 5 May 2012.
+
+-----------------------------------------------------------------------
+  2013
+-----------------------------------------------------------------------
+
+1.2.0:
+19 Jan	- Tests now hardwire the result, to check them more easily.
+	- Symmetric and Antisymmetric are now inert, as in Mma9.
+	- Reworked the version-dependent code. Function IfMathematica789.
+	- Renamed Permute -> PermProduct and PowerPermute -> PermPower,
+	  by analogy with Mma8's PermutationProduct and PermutationPower.
+	- PermLength in SetStabilizer now takes into account the base,
+	  as recommended by Thomas.
+	- We now use xperm.mac compiled by Teake, valid for all Mma
+	  versions from 6 to 9.
+	* Released 27 January 2013.
+
+-----------------------------------------------------------------------
+  2013
+-----------------------------------------------------------------------
+
+1.2.1:
+25 Jan	- Replaced .win executable by the .win32 and .win64 executables
+	  provided by Thomas.
+28 Apr	- Added Kernel/init.m.
+
+-----------------------------------------------------------------------
+  2014
+-----------------------------------------------------------------------
+
+	* Released 15 February 2014.
+
+1.2.2:
+21 Sep	- Thomas adds various new functions in xperm.c.
+	* Released 28 September 2014.
+
+1.2.3:
+22 Dec	- Replaced linux xperm executable with a statically linked
+	  version provided by Barry Wardell.
+
+-----------------------------------------------------------------------
+  2015
+-----------------------------------------------------------------------
+
+	* Released 23 August 2015.
+
+-----------------------------------------------------------------------
+  2016
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+  2017
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+  2018
+-----------------------------------------------------------------------
+

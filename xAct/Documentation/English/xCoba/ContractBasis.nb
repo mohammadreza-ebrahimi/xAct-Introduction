@@ -1,0 +1,232 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5700,        192]*)
+(*NotebookOutlinePosition[      6367,        215]*)
+(*  CellTagsIndexPosition[      6323,        211]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+ContractBasis
+ContractBasisOverDerivatives\
+\>", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["ContractBasis[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["i",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " contracts a basis vector (or covector) in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " with abstract index ",
+  StyleBox["i",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["ContractBasis[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["list",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " contracts the basis vectors (or covectors) in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " with abstract indices in the ",
+  StyleBox["list",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["ContractBasis[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " contracts the basis vectors (or covectors) in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " with abstract indices belonging to the ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["ContractBasis[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox[",",
+    FontFamily->"Courier"],
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " contracts the basis vectors (or covectors) in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " belonging to the ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["ContractBasis[",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " contracts all basis vectors (or covectors) in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] ",
+  StyleBox["ContractBasisOverDerivatives",
+    FontFamily->"Courier"],
+  " has the same capabilities of ",
+  StyleBox["ContractBasis ",
+    FontFamily->"Courier"],
+  "but derivatives of basis vectors are computed if needed."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Contraction means removal of the abstract index. For \
+example ",
+  Cell[BoxData[
+      \(TraditionalForm\`ContractBasis[\ v[a]\ \ Basis[\(-a\), {b}]\ ]\)]],
+  " returns ",
+  Cell[BoxData[
+      \(TraditionalForm\`v[{b}]\)]],
+  ".\n\[FilledSmallSquare] Indices, manifolds and bases in the second \
+argument are recognized using the functions ",
+  StyleBox["AIndexQ",
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox["ManifoldQ",
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox["BasisQ",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] Essentially, ContractBasisOverDerivatives jumps \
+derivatives so that a basis vector can be contracted with a differentiated \
+tensor, but ContractBasis does not do that.\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.7",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Bases and charts"},
+    ButtonStyle->"Hyperlink"],
+  ".",
+  ButtonBox["\n",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], None},
+    ButtonStyle->"Hyperlink"],
+  "\[FilledSmallSquare] See also: ",
+  ButtonBox["SeparateBasis",
+    ButtonData:>{"SeparateBasis.nb", None},
+    ButtonStyle->"Hyperlink"],
+  ", ",
+  ButtonBox["ChangeBasis",
+    ButtonData:>{"ChangeBasis.nb", None},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] New in version 0."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 92}, {Automatic, 35}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 72, 3, 58, "ObjectName"],
+Cell[1851, 58, 2319, 86, 222, "Usage"],
+Cell[4173, 146, 1511, 43, 192, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

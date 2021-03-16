@@ -1,0 +1,185 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4460,        139]*)
+(*NotebookOutlinePosition[      5398,        168]*)
+(*  CellTagsIndexPosition[      5354,        164]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DefConstantSymbol", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["DefConstantSymbol",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["constant",
+    FontSlant->"Italic"],
+  "] defines symbol ",
+  StyleBox["constant",
+    FontSlant->"Italic"],
+  " to be a real constant with respect to all kinds of derivatives."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Currently ",
+  StyleBox["constant",
+    FontSlant->"Italic"],
+  " must be a valid ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " symbol, not in use in the present session with any other meaning. In the \
+future a pattern will also be valid to allow for \"indexed names\".\n\
+\[FilledSmallSquare] Options:\n",
+  StyleBox[ButtonBox["Dagger",
+    ButtonData:>{"Dagger.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Real",
+    FontFamily->"Courier"],
+  "\t\t\t\tbehaviour under complex conjugation\n",
+  StyleBox[ButtonBox["DefInfo",
+    ButtonData:>{"DefInfo.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["{\"constant symbol\",\"\"}",
+    FontFamily->"Courier"],
+  "\tinformation on the constant symbol\n",
+  StyleBox[ButtonBox["Master",
+    ButtonData:>{"Master.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Null",
+    FontFamily->"Courier"],
+  "\t\t\t\tmaster symbol for the constant symbol\n",
+  StyleBox[ButtonBox["PrintAs",
+    ButtonData:>{"PrintAs.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Identity",
+    FontFamily->"Courier"],
+  "\t\t\tstring or function of symbol for output\n",
+  StyleBox[ButtonBox["ProtectNewSymbol",
+    ButtonData:>{"ProtectNewSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox[ButtonBox["$ProtectNewSymbols",
+    ButtonData:>{"$ProtectNewSymbols.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\twhether to protect new symbol or not\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.1",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Constant symbols"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["UndefConstantSymbol",
+    ButtonData:>{"UndefConstantSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 23-IV-2011 for version 1.0.1 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+ShowPageBreaks->False,
+WindowSize->{574, 600},
+WindowMargins->{{187, Automatic}, {Automatic, 53}},
+PrintingStartingPageNumber->4,
+TaggingRules:>{"PaginationCache" -> {{2004, 11, 22, 16, 52, \
+37.58997`8.327646958178029}, {4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, \
+5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6}}},
+ShowCellTags->True,
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 39, 0, 38, "ObjectName"],
+Cell[1818, 55, 312, 11, 48, "Usage"],
+Cell[2133, 68, 2311, 68, 291, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

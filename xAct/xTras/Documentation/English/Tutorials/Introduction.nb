@@ -1,0 +1,1957 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS TUTORIAL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"Functions \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras\"\>":>Documentation`HelpLookup[
+       "paclet:xTras/guide/xTras"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras/tutorial/Introduction\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["xTras/tutorial/Introduction"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/xTras/tutorial/\
+Introduction.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "xTras/tutorial/Introduction", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Introduction to ",
+ StyleBox["xAct",
+  FontSlant->"Italic"]
+}], "Title",
+ CellID->509267359],
+
+Cell[TextData[{
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " is a suite of free packages for tensor computer algebra in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ". ",
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " implements state-of-the-art algorithms for fast manipulations of indices \
+and has been modelled on the current geometric approach to General \
+Relativity. It is highly programmable and configurable. Since its first \
+public release in March 2004, xAct has been intensively tested and has solved \
+a number of hard problems in GR."
+}], "Text",
+ CellID->1534169418],
+
+Cell[TextData[{
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " consists of the following packages:"
+}], "Text",
+ CellID->853708862],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox["xCore",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xCore/"], None}], Cell[
+    "generic programming tools", "TableText"]},
+   {
+    ButtonBox["xPerm",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xPerm/"], None}], Cell[
+    "manipulation of large groups of permutations", "TableText"]},
+   {
+    ButtonBox["xTensor",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xTensor/"], None}], Cell[
+    "abstract tensor computations", "TableText"]},
+   {
+    ButtonBox["xCoba",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xCoba/"], None}], Cell[
+    "component tensor computations", "TableText"]}
+  }]], "DefinitionBox",
+ CellID->2096742444],
+
+Cell[TextData[{
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " kernel packages"
+}], "Caption",
+ CellID->1891092685],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox["xPert",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xPert/"], None}], Cell[
+    "high-order perturbation theory in GR", "TableText"]},
+   {
+    ButtonBox["Harmonics",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/Harmonics/"], None}], Cell[
+    "tensor spherical harmonics", "TableText"]},
+   {
+    ButtonBox["Invar",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/Invar/"], None}], Cell[
+    "polynomial invariants of the Riemann tensor", "TableText"]},
+   {
+    ButtonBox["Spinors",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/Spinors/"], None}], Cell[
+    "spinor computations in GR", "TableText"]}
+  }]], "DefinitionBox",
+ CellID->946598027],
+
+Cell[TextData[{
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " application packages"
+}], "Caption",
+ CellID->914182813],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox["xPrint",
+     BaseStyle->"Hyperlink",
+     ButtonData->"https://sites.google.com/site/xprintforxact/"], Cell[
+    "formatted input", "TableText"]},
+   {
+    ButtonBox["SymManipulator",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/SymManipulator/"], None}], Cell[
+    "symmetrized expressions", "TableText"]},
+   {
+    ButtonBox["xTras",
+     BaseStyle->"Link",
+     ButtonData->"paclet:xTras/guide/xTras"], Cell[
+    "field theory inspired additions", "TableText"]},
+   {
+    ButtonBox["TexAct",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/TexAct/"], None}], Cell[TextData[{
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     " code formatting"
+    }], "TableText"]},
+   {
+    ButtonBox["xPand",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xPand/"], None}], Cell[
+    "cosmological perturbation theory", "TableText"]},
+   {
+    ButtonBox["xTerior",
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL["http://www.xact.es/xTerior/"], None}], Cell[
+    "differential forms", "TableText"]}
+  }]], "DefinitionBox",
+ CellID->1256384716],
+
+Cell[TextData[{
+ "Contributed ",
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " packages"
+}], "Caption",
+ CellID->1998704508],
+
+Cell[CellGroupData[{
+
+Cell["Setting up a session", "Section",
+ CellID->1589149423],
+
+Cell["\<\
+Let's start by getting a simple xAct session up and running, and define a \
+manifold and tensors on that manifold.\
+\>", "Text",
+ CellID->580234622],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"DefManifold", "[", 
+     RowBox[{
+      StyleBox["M", "TI"], ",", 
+      StyleBox["dim", "TI"], ",", 
+      StyleBox["inds", "TI"]}], "]"}], Cell[TextData[{
+     "defines a manifold ",
+     StyleBox["M", "TI"],
+     " with dimension ",
+     StyleBox["dim", "TI"],
+     " and a tangent bundle with indices ",
+     StyleBox["inds", "TI"],
+     ". "
+    }], "TableText"]},
+   {
+    RowBox[{"DefMetric", "[", 
+     RowBox[{
+      StyleBox["sign", "TI"], ",", 
+      RowBox[{
+       StyleBox["g", "TI"], "[", 
+       RowBox[{
+        RowBox[{"-", 
+         StyleBox["a", "TI"]}], ",", 
+        RowBox[{"-", 
+         StyleBox["b", "TI"]}]}], "]"}], ",", 
+      StyleBox["cd", "TI"]}], "]"}], Cell[TextData[{
+     "defines a metric ",
+     StyleBox["g", "TI"],
+     " of signature ",
+     StyleBox["sign", "TI"],
+     " on the manifold of which ",
+     StyleBox["a", "TI"],
+     " and ",
+     StyleBox["b", "TI"],
+     " are indices, a covariant derivative ",
+     StyleBox["cd", "TI"],
+     ", and all curvature tensors of ",
+     StyleBox["g", "TI"],
+     "."
+    }], "TableText"]},
+   {
+    RowBox[{"DefTensor", "[", 
+     RowBox[{
+      RowBox[{"T", "[", "inds", "]"}], ",", "M", ",", "sym"}], "]"}], Cell[
+    TextData[{
+     "defines a tensor ",
+     StyleBox["T", "TI"],
+     " with indices ",
+     StyleBox["inds", "TI"],
+     " and symmetry ",
+     StyleBox["sym ", "TI"],
+     "on the manifold ",
+     StyleBox["M", "TI"],
+     "."
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellID->1578102565],
+
+Cell["Commands for defining manifolds, metrics, and tensors.", "Caption",
+ CellID->1746769505],
+
+Cell["First, load the xTensor package.", "Text",
+ CellID->647992887],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "xAct`xTensor`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->2058623809],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->118675068],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xPerm`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.2.0\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2013", ",", "1", ",", "27"}], "}"}]}],
+  SequenceForm["Package xAct`xPerm`  version ", "1.2.0", ", ", {2013, 1, 27}],
+  
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1707043460],
+
+Cell[BoxData["\<\"CopyRight (C) 2003-2013, Jose M. Martin-Garcia, under the \
+General Public License.\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->2045391947],
+
+Cell[BoxData["\<\"Connecting to external mac executable...\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->2131715700],
+
+Cell[BoxData["\<\"Connection established.\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1276086999],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->275009604],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xTensor`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.0.5\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2013", ",", "1", ",", "27"}], "}"}]}],
+  SequenceForm[
+  "Package xAct`xTensor`  version ", "1.0.5", ", ", {2013, 1, 27}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->701606084],
+
+Cell[BoxData["\<\"CopyRight (C) 2002-2013, Jose M. Martin-Garcia, under the \
+General Public License.\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->60748111],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->938769252],
+
+Cell[BoxData["\<\"These packages come with ABSOLUTELY NO WARRANTY; for \
+details type Disclaimer[]. This is free software, and you are welcome to \
+redistribute it under certain conditions. See the General Public License for \
+details.\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->332463855],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->2115045138]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+This loaded not only the xTensor package, but also the xPerm package which \
+handles the group theoretical computations needed for canonicalizing tensors.\
+\[LineSeparator]Let's define a four-dimensiona manifold:\
+\>", "Text",
+ CellID->926877872],
+
+Cell[CellGroupData[{
+
+Cell["DefManifold[M, 4, {a,b,c,d,e,f}]", "Input",
+ CellLabel->"In[1]:=",
+ CellID->1950147529],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefManifold", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"manifold \"\>", "\[InvisibleSpace]", "M", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefManifold, ": Defining ", "manifold ", $CellContext`M,
+    ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->266825575],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefVBundle", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vbundle \"\>", "\[InvisibleSpace]", "TangentM", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefVBundle, ": Defining ", 
+   "vbundle ", $CellContext`TangentM, ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->591584089]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "You'll notice that besides defining a manifold, this also defined a vector \
+bundle ",
+ Cell[BoxData["TangentM"], "InlineFormula"],
+ " where our tensors will live. In fact, ",
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ " is build around the notion of 'defining' geometric quantities and tensors, \
+and has quite some commands to do so. We can get a list of them with the ",
+ ButtonBox["Information",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Information"],
+ " command:"
+}], "Text",
+ CellID->190019366],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "xAct`xTensor`Def*"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->957860695],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["xAct`xTensor`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["xAct`xTensor`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["DefAbstractIndex",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefAbstractIndex", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefInertHead",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefInertHead", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefMapping",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefMapping", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefProductMetric",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefProductMetric", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefVBundle",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefVBundle", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"]},
+        {
+         ButtonBox["DefConstantSymbol",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefConstantSymbol", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefInfo",
+          BaseStyle->"Hyperlink",
+          ButtonData:>{"Info3581859042-4208439", {"DefInfo", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefMetric",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefMetric", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefScalarFunction",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefScalarFunction", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], ""},
+        {
+         ButtonBox["DefCovD",
+          BaseStyle->"Hyperlink",
+          ButtonData:>{"Info3581859042-4208439", {"DefCovD", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefManifold",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefManifold", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefParameter",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefParameter", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], 
+         ButtonBox["DefTensor",
+          BaseStyle->"Hyperlink",
+          
+          ButtonData:>{
+           "Info3581859042-4208439", {"DefTensor", "xAct`xTensor`"}},
+          ButtonNote->"xAct`xTensor`"], ""}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.19]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellID->2051981860]
+}, Open  ]],
+
+Cell["\<\
+The two most important ones (next to DefManifold) are DefMetric, which \
+defines the metric, and DefTensor, which defines a tensor. Let's first define \
+a metric on our manifold M.\[LineSeparator]We don't need to specify the \
+manifold, because xTensor determines that from the indices of the metric. But \
+we do need to specify a symbol for the associated covariant derivative. We'll \
+name it CD, and we'll let the metric be Lorentzian (hence the -1). The option \
+CurvatureRelations is to ensure that contractions of Riemann tensors are \
+automatically converted to Ricci's.\
+\>", "Text",
+ CellID->347301273],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefMetric", "[", 
+  RowBox[{
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"g", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], ",", "CD", ",", 
+   RowBox[{"CurvatureRelations", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->136222302],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric metric tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"g", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "symmetric metric tensor ", 
+   $CellContext`g[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1219233847],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric tensor \"\>", "\[InvisibleSpace]", 
+   
+   RowBox[{"epsilong", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}], ",", 
+     RowBox[{"-", "d"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric tensor ", 
+   $CellContext`epsilong[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->374306855],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Tetrag", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}], ",", 
+     RowBox[{"-", "d"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`Tetrag[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->995709922],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Tetrag\[Dagger]", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}], ",", 
+     RowBox[{"-", "d"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`Tetrag\[Dagger][-$CellContext`a, -$CellContext`b, \
+-$CellContext`c, -$CellContext`d], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1704081630],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefCovD", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"covariant derivative \"\>", "\[InvisibleSpace]", 
+   
+   RowBox[{"CD", "[", 
+    RowBox[{"-", "a"}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefCovD, ": Defining ", "covariant derivative ", 
+   $CellContext`CD[-$CellContext`a], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1658039018],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing torsion tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"TorsionCD", "[", 
+    RowBox[{"a", ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing torsion tensor ", 
+   $CellContext`TorsionCD[$CellContext`a, -$CellContext`b, -$CellContext`c], 
+   ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->913972054],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric Christoffel tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"ChristoffelCD", "[", 
+    RowBox[{"a", ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", 
+   "symmetric Christoffel tensor ", 
+   $CellContext`ChristoffelCD[$CellContext`a, -$CellContext`b, \
+-$CellContext`c], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->177784587],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"Riemann tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"RiemannCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}], ",", 
+     RowBox[{"-", "d"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "Riemann tensor ", 
+   $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->875800732],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric Ricci tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"RicciCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "symmetric Ricci tensor ", 
+   $CellContext`RicciCD[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->729986186],
+
+Cell[BoxData["\<\"** DefCovD:  Contractions of Riemann automatically replaced \
+by Ricci.\"\>"], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->303752791],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"Ricci scalar \"\>", "\[InvisibleSpace]", 
+   RowBox[{"RicciScalarCD", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "Ricci scalar ", 
+   $CellContext`RicciScalarCD[], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->604529418],
+
+Cell[BoxData["\<\"** DefCovD:  Contractions of Ricci automatically replaced \
+by RicciScalar.\"\>"], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->580794369],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric Einstein tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"EinsteinCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", 
+   "symmetric Einstein tensor ", 
+   $CellContext`EinsteinCD[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1097784168],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"Weyl tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"WeylCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "c"}], ",", 
+     RowBox[{"-", "d"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "Weyl tensor ", 
+   $CellContext`WeylCD[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1426500199],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric TFRicci tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"TFRicciCD", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "symmetric TFRicci tensor ", 
+   $CellContext`TFRicciCD[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->681409485],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"Kretschmann scalar \"\>", "\[InvisibleSpace]", 
+   RowBox[{"KretschmannCD", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "Kretschmann scalar ", 
+   $CellContext`KretschmannCD[], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->2066408591],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** DefCovD:  Computing RiemannToWeylRules for dim \"\>", 
+   "\[InvisibleSpace]", "4"}],
+  SequenceForm["** DefCovD:  Computing RiemannToWeylRules for dim ", 4],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1023649653],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** DefCovD:  Computing RicciToTFRicci for dim \"\>", 
+   "\[InvisibleSpace]", "4"}],
+  SequenceForm["** DefCovD:  Computing RicciToTFRicci for dim ", 4],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->988221854],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** DefCovD:  Computing RicciToEinsteinRules for dim \"\>", 
+   "\[InvisibleSpace]", "4"}],
+  SequenceForm["** DefCovD:  Computing RicciToEinsteinRules for dim ", 4],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->406174280],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"weight +2 density \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Detg", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"Determinant.\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "weight +2 density ", 
+   $CellContext`Detg[], ". ", "Determinant."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1868093794]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+This did a whole lot of things. It first defined a metric, and then a number \
+of curvature tensors (the Christoffel tensors, Riemann, Ricci's, the Weyl \
+tensor, etc).\[LineSeparator]For instance, we now have a Riemann tensor. It \
+has the same structure as every tensor in xAct, namely the name of the tensor \
+followed by its indices. Because we named our covariant derivative CD, this \
+Riemann tensor is called RiemannCD (it's the Riemann tensor of the covariant \
+derivative CD). We can enter it as follows:\
+\>", "Text",
+ CellID->231942765],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RiemannCD", "[", 
+  RowBox[{
+   RowBox[{"-", "a"}], ",", 
+   RowBox[{"-", "b"}], ",", 
+   RowBox[{"-", "c"}], ",", 
+   RowBox[{"-", "d"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1505943873],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {
+      RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+      StyleBox[GridBox[{
+         {" ", " ", " ", " "},
+         {"a", "b", "c", "d"}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d],
+  Editable->False]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->156409969]
+}, Open  ]],
+
+Cell["\<\
+Note that it prints much nicer than how it's put in: xAct formats the indices \
+properly and shortens the name of the tensor to something readable. But \
+underneath it still has the same structure:\
+\>", "Text",
+ CellID->579232050],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "InputForm"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->44582102],
+
+Cell["RiemannCD[-a, -b, -c, -d]", "Output",
+ CellLabel->"Out[5]//InputForm=",
+ CellID->1967079158]
+}, Open  ]],
+
+Cell["\<\
+The minus signs in front of the indices indicate that they're (covariant) \
+lower indices. If we want to put in (contravariant) upper indices, we just \
+forgo the minus sign:\
+\>", "Text",
+ CellID->609692499],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RiemannCD", "[", 
+  RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->1172186415],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {
+      RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+      StyleBox[GridBox[{
+         {"a", "b", "c", "d"},
+         {" ", " ", " ", " "}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RiemannCD[$CellContext`a, $CellContext`b, $CellContext`c, \
+$CellContext`d],
+  Editable->False]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->2069582974]
+}, Open  ]],
+
+Cell["We can define other tensors with the DefTensor command:", "Text",
+ CellID->1457350856],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefTensor", "[", 
+  RowBox[{
+   RowBox[{"scalar", "[", "]"}], ",", "M"}], "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->1672279724],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"scalar", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`scalar[], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[7]:=",
+ CellID->1886832979]
+}, Open  ]],
+
+Cell["\<\
+It's very important to not forget the bracket [], even though scalars don't \
+have indices! Thus\
+\>", "Text",
+ CellID->1644842757],
+
+Cell[BoxData[
+ RowBox[{"scalar", "[", "]"}]], "Input",
+ CellID->1402824879],
+
+Cell["\<\
+is a valid xAct expression, even though it doesn't print its indices.\
+\[LineSeparator]More complicated tensors can be defined by just specifying \
+their index structure. We can also specify if it's (anti)symmetric as follows:\
+\>", "Text",
+ CellID->315229068],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefTensor", "[", 
+  RowBox[{
+   RowBox[{"F", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], ",", "M", ",", 
+   RowBox[{"Antisymmetric", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "a"}], ",", 
+      RowBox[{"-", "b"}]}], "}"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[16]:=",
+ CellID->1460296399],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"F", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`F[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[16]:=",
+ CellID->518872285]
+}, Open  ]],
+
+Cell["\<\
+xAct does not automatically enforce the symmetries of the tensor. For \
+instance, this should be zero:\
+\>", "Text",
+ CellID->212788727],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"F", "[", 
+   RowBox[{
+    RowBox[{"-", "b"}], ",", 
+    RowBox[{"-", "a"}]}], "]"}], "+", 
+  RowBox[{"F", "[", 
+   RowBox[{
+    RowBox[{"-", "a"}], ",", 
+    RowBox[{"-", "b"}]}], "]"}]}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->143112170],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"F", 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"a", "b"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`F[-$CellContext`a, -$CellContext`b],
+   Editable->False], "+", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"F", 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"b", "a"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`F[-$CellContext`b, -$CellContext`a],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[9]=",
+ CellID->104556550]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Canonicalizing and contracting indices", "Section",
+ CellID->640312604],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"ToCanonical", "[", 
+     StyleBox["expr", "TI"], "]"}], Cell[TextData[{
+     "gives a canonical reorganization of the indices of ",
+     StyleBox["expr", "TI"],
+     " according to the symmetries of tensors and positions of dummies and \
+repeated indices"
+    }], "TableText"]},
+   {
+    RowBox[{"ContractMetric", "[", 
+     StyleBox["expr", "TI"], "]"}], Cell[TextData[{
+     "contracts all metrics in ",
+     StyleBox["expr", "TI"]
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellID->693380311],
+
+Cell[TextData[{
+ "Arguably two of the most important functions in ",
+ StyleBox["xAct",
+  FontSlant->"Italic"],
+ "."
+}], "Caption",
+ CellID->1396618355],
+
+Cell["\<\
+ToCanonical canonicalizes expressions, which roughly means 'sorting the \
+indices and introduce minus signs where necessary':\
+\>", "Text",
+ CellID->779862434],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"F", "[", 
+  RowBox[{
+   RowBox[{"-", "b"}], ",", 
+   RowBox[{"-", "a"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ToCanonical"}]}], "Input",
+ CellLabel->"In[10]:=",
+ CellID->243250401],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {"F", 
+      StyleBox[GridBox[{
+         {" ", " "},
+         {"b", "a"}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`F[-$CellContext`b, -$CellContext`a],
+  Editable->False]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->1648109366],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"F", 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"a", "b"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`F[-$CellContext`a, -$CellContext`b],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[11]=",
+ CellID->1530035356]
+}, Open  ]],
+
+Cell["\<\
+This introduced a minus sign, because the tensor F is antisymmetric.\
+\>", "Text",
+ CellID->1055230597],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"F", "[", 
+  RowBox[{
+   RowBox[{"-", "a"}], ",", 
+   RowBox[{"-", "b"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ToCanonical"}]}], "Input",
+ CellLabel->"In[12]:=",
+ CellID->1093245142],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {"F", 
+      StyleBox[GridBox[{
+         {" ", " "},
+         {"a", "b"}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`F[-$CellContext`a, -$CellContext`b],
+  Editable->False]], "Output",
+ CellLabel->"Out[12]=",
+ CellID->301017862],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {"F", 
+      StyleBox[GridBox[{
+         {" ", " "},
+         {"a", "b"}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`F[-$CellContext`a, -$CellContext`b],
+  Editable->False]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->1883217949]
+}, Open  ]],
+
+Cell["\<\
+This didn't do anything, because the expression was already canonical (it's \
+indices were already sorted).\[LineSeparator]The symmetrization of F does \
+reduce to zero if we use ToCanonical:\
+\>", "Text",
+ CellID->1340686853],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"F", "[", 
+   RowBox[{
+    RowBox[{"-", "b"}], ",", 
+    RowBox[{"-", "a"}]}], "]"}], "+", 
+  RowBox[{"F", "[", 
+   RowBox[{
+    RowBox[{"-", "a"}], ",", 
+    RowBox[{"-", "b"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ToCanonical"}]}], "Input",
+ CellLabel->"In[14]:=",
+ CellID->1294868320],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"F", 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"a", "b"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`F[-$CellContext`a, -$CellContext`b],
+   Editable->False], "+", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"F", 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"b", "a"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`F[-$CellContext`b, -$CellContext`a],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[14]=",
+ CellID->252575542],
+
+Cell[BoxData["0"], "Output",
+ CellLabel->"Out[15]=",
+ CellID->1609447922]
+}, Open  ]],
+
+Cell["\<\
+ToCanonical also works on  more general expressions and symmetries. Here is \
+its action on a permutation of the Riemann tensor:\
+\>", "Text",
+ CellID->1525514047],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"RiemannCD", "[", 
+  RowBox[{
+   RowBox[{"-", "c"}], ",", 
+   RowBox[{"-", "d"}], ",", 
+   RowBox[{"-", "b"}], ",", 
+   RowBox[{"-", "a"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ToCanonical"}]}], "Input",
+ CellLabel->"In[16]:=",
+ CellID->1699722885],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {
+      RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+      StyleBox[GridBox[{
+         {" ", " ", " ", " "},
+         {"c", "d", "b", "a"}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RiemannCD[-$CellContext`c, -$CellContext`d, -$CellContext`b, \
+-$CellContext`a],
+  Editable->False]], "Output",
+ CellLabel->"Out[16]=",
+ CellID->1415055801],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {
+       RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+       StyleBox[GridBox[{
+          {" ", " ", " ", " "},
+          {"a", "b", "c", "d"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[17]=",
+ CellID->1608940529]
+}, Open  ]],
+
+Cell["We can contract indices with the metric:", "Text",
+ CellID->507326396],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "[", 
+   RowBox[{"a", ",", "c"}], "]"}], 
+  RowBox[{"RiemannCD", "[", 
+   RowBox[{
+    RowBox[{"-", "a"}], ",", 
+    RowBox[{"-", "b"}], ",", 
+    RowBox[{"-", "c"}], ",", 
+    RowBox[{"-", "d"}]}], "]"}]}]], "Input",
+ CellLabel->"In[18]:=",
+ CellID->941791455],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"g", 
+       StyleBox[GridBox[{
+          {"a", "c"},
+          {" ", " "}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`g[$CellContext`a, $CellContext`c],
+   Editable->False], " ", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {
+       RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+       StyleBox[GridBox[{
+          {" ", " ", " ", " "},
+          {"a", "b", "c", "d"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[18]=",
+ CellID->1734505795]
+}, Open  ]],
+
+Cell["\<\
+This is not automatically contracted. We have to use the function \
+ContractMetric if we want to do so:\
+\>", "Text",
+ CellID->1124658982],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "[", 
+   RowBox[{"a", ",", "c"}], "]"}], 
+  RowBox[{"RiemannCD", "[", 
+   RowBox[{
+    RowBox[{"-", "a"}], ",", 
+    RowBox[{"-", "b"}], ",", 
+    RowBox[{"-", "c"}], ",", 
+    RowBox[{"-", "d"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ContractMetric"}]}], "Input",
+ CellLabel->"In[8]:=",
+ CellID->1708976370],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"g", 
+       StyleBox[GridBox[{
+          {"a", "c"},
+          {" ", " "}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`g[$CellContext`a, $CellContext`c],
+   Editable->False], " ", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {
+       RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+       StyleBox[GridBox[{
+          {" ", " ", " ", " "},
+          {"a", "b", "c", "d"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`RiemannCD[-$CellContext`a, -$CellContext`b, -$CellContext`c, \
+-$CellContext`d],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[8]=",
+ CellID->1270007451],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {
+      RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}], 
+      StyleBox[GridBox[{
+         {" ", " "},
+         {"b", "d"}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RicciCD[-$CellContext`b, -$CellContext`d],
+  Editable->False]], "Output",
+ CellLabel->"Out[9]=",
+ CellID->1175261424]
+}, Open  ]],
+
+Cell["This is automatically converted to the Ricci tensor:", "Text",
+ CellID->2139933227],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "InputForm"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->1190903121],
+
+Cell["RicciCD[-b, -d]", "Output",
+ CellLabel->"Out[10]//InputForm=",
+ CellID->64168062]
+}, Open  ]],
+
+Cell["Contracting again gives, as expected, the Ricci scalar:", "Text",
+ CellID->1949109880],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"b", ",", "d"}], "]"}], "%"}], "//", 
+  "ContractMetric"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "InputForm"}]}], "Input",
+ CellLabel->"In[11]:=",
+ CellID->1838671077],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   RowBox[{"R", "[", "\[EmptyDownTriangle]", "]"}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`RicciScalarCD[],
+  Editable->False]], "Output",
+ CellLabel->"Out[11]=",
+ CellID->435827240],
+
+Cell["RicciScalarCD[]", "Output",
+ CellLabel->"Out[12]//InputForm=",
+ CellID->2029186410]
+}, Open  ]],
+
+Cell["\<\
+Contracting a pair of antisymmetric indices results in zero, but only after \
+using ToCanonical:\
+\>", "Text",
+ CellID->974201822],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "[", 
+   RowBox[{"a", ",", "b"}], "]"}], 
+  RowBox[{"F", "[", 
+   RowBox[{
+    RowBox[{"-", "a"}], ",", 
+    RowBox[{"-", "b"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ContractMetric"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "ToCanonical"}]}], "Input",
+ CellLabel->"In[17]:=",
+ CellID->218124366],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"F", 
+       StyleBox[GridBox[{
+          {" ", " "},
+          {"a", "b"}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`F[-$CellContext`a, -$CellContext`b],
+   Editable->False], " ", 
+  InterpretationBox[
+   StyleBox[GridBox[{
+      {"g", 
+       StyleBox[GridBox[{
+          {"a", "b"},
+          {" ", " "}
+         },
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.], {
+              Offset[0.034999999999999996`]}, 
+             Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+              Offset[0.]}}, "RowsIndexed" -> {}}],
+        FontSize->9]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.034999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`g[$CellContext`a, $CellContext`b],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[17]=",
+ CellID->1902887175],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[GridBox[{
+     {"F", 
+      StyleBox[GridBox[{
+         {" ", "a"},
+         {"a", " "}
+        },
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.], {
+             Offset[0.034999999999999996`]}, 
+            Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+             Offset[0.]}}, "RowsIndexed" -> {}}],
+       FontSize->9]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.034999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   ShowAutoStyles->False,
+   AutoSpacing->False],
+  $CellContext`F[-$CellContext`a, $CellContext`a],
+  Editable->False]], "Output",
+ CellLabel->"Out[18]=",
+ CellID->1498279101],
+
+Cell[BoxData["0"], "Output",
+ CellLabel->"Out[19]=",
+ CellID->183605785]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Introduction to xAct - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "xTras package", ButtonData -> "paclet:xTras/guide/xTras", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 18, 22.659114}", 
+    "history" -> {"1.1", "1.3", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Tutorial", "language" -> "en", "paclet" -> "xTras", "status" -> 
+    "None", "summary" -> 
+    "xAct is a suite of free packages for tensor computer algebra in \
+Mathematica. xAct implements state-of-the-art algorithms for fast \
+manipulations of indices and has been modelled on the current geometric \
+approach to General Relativity. It is highly programmable and configurable. \
+Since its first public release in March 2004, xAct has been intensively \
+tested and has solved a number of hard problems in GR. xAct consists of the \
+following packages: xAct kernel packages", "synonyms" -> {}, "title" -> 
+    "Introduction to xAct", "titlemodifier" -> "", "windowtitle" -> 
+    "Introduction to xAct", "type" -> "Tutorial", "uri" -> 
+    "xTras/tutorial/Introduction"}, "SearchTextTranslated" -> ""},
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
+]
+

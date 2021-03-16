@@ -1,0 +1,69 @@
+############################################################################
+#
+# Readme file of the xPerm package - Installation Instructions
+#
+# Version: 1.1.2 (as of 15 July 2011)
+#
+# Language: Mathematica 5.0 or later, and C.
+#
+# Description: The xPerm package is a fast manipulator of large groups
+#   of permutations, using strong generating sets. xPerm implements
+#   basic commands for manipulation of permutations, commands to construct
+#   and use strong generating sets (in particular the Schreier-Sims
+#   algorithm), and commands to find canonical representatives of single
+#   cosets and double cosets (following the Butler-Portugal algorithm).
+#   This is used for fast index canonicalization in the twin package
+#   xTensor.
+#
+# Developer: Jose M. Martin-Garcia (c) 2003-2011
+#
+# Contact and bug report: jose@xAct.es
+#
+############################################################################
+
+The author kindly asks that researchers who have used the package cite
+references describing it.
+
+INSTALLATION INSTRUCTIONS
+
+In order to run the package xPerm you need to have first Mathematica,
+at least version 5.0.
+
+Download the xAct bundle xAct_V.tar.gz for unix/linux/mac or
+xAct_V.zip for Windows, where V is a version number, from
+
+http://www.xAct.es/
+
+Those files must be unpacked in one of the directories prepared for
+Mathematica addons. I recommend, for single-users installations:
+
+  Linux:
+      $HOME/.Mathematica/Applications/
+  Windows:
+      C:\Document and Settings\(user)\Application Data\Mathematica\Applications\
+  Mac:
+      /Users/(user)/Library/Mathematica/Applications/
+
+Everything will be placed in a directory xAct under Applications/.
+For further installation hints, including system-wide installations,
+see the "Installation Notes" at the xAct webpage.
+
+The structure should be something like
+
+.../Applications/xAct/xCore.m
+                     /xPerm.m
+                     ...
+                     /xPerm/xPerm.nb
+                           /mathlink/...
+                          ...
+
+At this point, it should be possible to execute everything in the
+xPermDoc.nb file.
+
+NOTES FOR WINDOWS USERS: the external executable xperm is required to
+speed up the computations. It works for all Mathematica versions under
+Linux and Mac, but only for Mathematica 6.0 or later under Windows.
+This executable opens a black DOS window. Don't kill it! You can dock it in
+the taskbar.
+
+This is the Readme file of xPerm. Last update: 15 July 2011.

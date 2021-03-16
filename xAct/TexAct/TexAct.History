@@ -1,0 +1,109 @@
+--------------------------------------------------------------------------------
+2012
+
+28 Apr	- Package TexAct excised from xTensor, with initial version 0.3.0.
+
+ 4 May	- TexPrint functionality for SymH objects was removed from SymManipulator, and a new improved code was written in TexAct.
+
+ 5 May	* Released in xAct 1.0.4.
+
+17 October	- Added TexMatrix. Fixed TexFactor[-1]
+
+13 December - Added spaces after indices with backslash to avoid problems like "\alphab".
+
+--------------------------------------------------------------------------------
+2013
+
+27 Jan  * Released with version 0.3.1.
+
+1  Feb  Added TexIndexForm and fixed bug with coloured indices.
+
+19 June Added $TexSmallFractionExponent
+
+8 July Added the option TexBreakBy -> "TexPoint" to TexBreak
+
+9 July Added TexPrintAlignedEquations
+
+18 July - Fixed TexBreak so it only breaks at bracket level 0. -TeXForm crashes when given a StyleBox, so now we remove style boxes before passing anything to TexForm. This also gives a better fix for the problem with the coloured indices.
+-FormatTexBasis introduced.
+
+12 September - Changed $TexInitLatexCode to TexInitLatexCode[] which produces the initial lines of .tex output from $TexInitLatexClassCode, and the lists $TexInitLatexPackages, $TexInitLatexExtraCode
+
+13 September - Added TexView.
+
+16 September - Improved TexView, introduced TexPrintAlignedExpressions and made it possible to use latextextwidth for line breaking parameters.
+
+24 October - Added handling of Hold expressions.
+
+7 December - Added Factorials, Pochhammer symbols and Binomials.
+
+7 December * Released with version 0.3.3.
+
+--------------------
+2014
+
+23 March - Added support for SeriesData and Color support. Also inequalities and equalities with several terms are now possible.
+
+
+29 March  - Changed the way parenthesis levels are computed. This gives the correct behaviour and the code is passed through the Tex function only once. The old behaviour can still be used with TexPrint[expr,ParenthesisOldStyle].
+
+2 June - Added TexPort. It does the same things as TexView, but does not open the file.
+
+23 July - Fixed incompatibility for SubsetQ in Mathematica 10.
+
+7 August - Fixed problem with SeriesData when expanding at infinity. 
+- Tex widths where previously measured in inline mode, now it is done in display mode.
+
+7 September - Simplified output for functions in the private list $TrigFuncs, i.e. classical way of writing arguments and powers of functions.
+
+13-24 September - Support for xTerior.
+
+28 September * Released with version 0.3.5.
+
+--------------------
+2015
+
+14 May - Fixed missing || for SymH objects that needs several sets of ||.
+16 May - Fixed extra space in Lie derivative, and TexFix for matrices. 
+18 May - Fixed pdflatex path for linux and nonstopmode.
+
+20 July - Added TexOverline etc and changed how these things are constructed from corresponding PrintAs versions.
+
+10 August - Changed so for instance TexColor["a", Red] can be used after EnableTexColor[].
+
+23 August * Released with version 0.3.7.
+
+--------------------
+2016
+6 March - Fixed an issue with TexBreakBy -> "Character" when the string is too long, but nowhere to break it.
+
+12 August - Made OrderedPlus public, introduced ToOrderedPlus to specify term ordering before printing. 
+
+21 September - Introduced the option Labels to TexPrintAlignedEquations which can add the equation names as tex labels.
+- Added error messages to detect if pdflatex was not found.
+
+4 October - fixed a new bug in TexPrintAlignedEquations.
+
+
+--------------------
+2017
+
+6 March - Changed handling of TexOrnament. Now strings beginning with "\!" are transformed into thier corresponding expressions like subscripts etc. These are then interpreted by Tex.
+
+18 August - Fixed pdflatex path for Mac.
+
+24 September - Added option TexBreakInParenthesis for TexBreak.
+
+--------------------
+2018
+
+11 February - Rewrote TexBreak and TexPrintAlignedEquations so TexPrintAlignedEquations only calls TexWidths once. 
+TexLabelName now extracts the name of special characters to create labels accepted by LaTeX.
+
+22 February - Added $TexNoSumInNumerator. If set to True Tex will move all sums in numerators out of fractions.
+
+24 February - Change handling of strings beginning with "\!" again. Now such strings are converted into proper boxes via the well hidden function FrontEndExecute[FrontEnd`UndocumentedTestFEParserPacket[str, False]].
+
+25 February - Added the $TexViewInternal. If this is set to True, TexView uses $TexInitLatexInternalClassCode instead of $TexInitLatexClassCode and imports the .pdf into Mathematica instead of an external viewer. However, importing pdf files only works on some combinations of OS and Mathematica versions, so it might very well not work on your system. $TexInitLatexExtraCode = {"\\pdfminorversion=3"}; can help in a few cases. 
+
+28 February - Parenthesis styles can now be adjusted with OpenParenthesis and CloseParenthesis for each level. 

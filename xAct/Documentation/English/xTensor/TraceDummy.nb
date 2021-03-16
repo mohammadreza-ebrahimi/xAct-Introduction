@@ -1,0 +1,1065 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     28186,        925]*)
+(*NotebookOutlinePosition[     28852,        948]*)
+(*  CellTagsIndexPosition[     28808,        944]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["TraceDummy", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["TraceDummy[",
+    FontFamily->"Courier"],
+  StyleBox["expr, splitrules",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " traces the dummy indices in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " as given by the ",
+  StyleBox["splitrules",
+    FontSlant->"Italic"],
+  ". \n\[FilledSmallSquare] ",
+  StyleBox["TraceDummy[",
+    FontFamily->"Courier"],
+  StyleBox["expr, splitrules, function",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " traces the dummies in ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " and returns the expanded subexpressions wrapped with ",
+  StyleBox["function",
+    FontSlant->"Italic"],
+  ", which may have holding attributes to prevent evaluation after tracing."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] A splitrule must be of the form ",
+  StyleBox["index",
+    FontSlant->"Italic"],
+  " -> ",
+  StyleBox["IndexList",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["i1, i2, ...",
+    FontSlant->"Italic"],
+  "], meaning that the upindex ",
+  StyleBox["index",
+    FontSlant->"Italic"],
+  " is to be replaced by ",
+  StyleBox["i1, i2, ...",
+    FontSlant->"Italic"],
+  " respectively in each of the terms of the array. The corresponding \
+downindices are also replaced (there is internal duplication of the rules).\n\
+\[FilledSmallSquare] The LHS of a ",
+  StyleBox["splitrules",
+    FontSlant->"Italic"],
+  " can be a pattern, which will be applied on the dummies of ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] Tracing is performed only if the a dummy in the \
+expression matches the ",
+  StyleBox["splitrules",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] A list of splitrules traces several indices \
+simultaneously. That is, a multidimensional matrix is internally produced \
+with all components, which are then added up. Sequential tracing of different \
+indices takes the previously expanded expression as starting point. Though it \
+might seem strange, the former is more efficient, due to accummulation of \
+overhead code in the latter case.\n\[FilledSmallSquare] Tracing is an \
+operation for dummy indices and does not make any sense on free or blocked \
+indices. The closely related operation of splitting is performed by the \
+function ",
+  StyleBox[ButtonBox["SplitIndex",
+    ButtonData:>{"SplitIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] This function is essentially based on ",
+  StyleBox[ButtonBox["ReplaceIndex",
+    ButtonData:>{"ReplaceIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". It is highly efficient because it uses ",
+  StyleBox["ReplaceIndex",
+    FontFamily->"Courier"],
+  " only once and then the rest of the replacement are performed with ",
+  StyleBox["ReplaceAll",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] Log messages can be turned on setting the global \
+variable ",
+  StyleBox[ButtonBox["$TraceDummyVerbose",
+    ButtonData:>{"$TraceDummyVerbose.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 2.9",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Replacing indices"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 3-XI-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Further Examples", "ExampleSection"],
+
+Cell[TextData[{
+  "Load ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  ":"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Needs["\<xAct`xTensor`\>"]\)], "Input",
+  CellLabel->"In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.4.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.4.0", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007, Jose M. Martin-Garcia, under the General Public \
+License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2007, David J. M. Park and Ted Ersek"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"0.7.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "0.7.0", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.3"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.3", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="]
+}, Open  ]],
+
+Cell["\<\
+Define a manifold (and its associated tangent bundle) and a tensor:\
+\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[M, 4, IndexRange[a, p], z]\)], "Input",
+  CellLabel->"In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]M\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", M, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentM\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentM, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefTensor[T[a, b, c], M]\)], "Input",
+  CellLabel->"In[3]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]T[a, b, 
+          c]\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        T[ a, b, c], ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[3]:="]
+}, Open  ]],
+
+Cell["\<\
+The basic operation of tracing is as follows, replacing a dummy \
+pair by different possibilities, adding up the results:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(TraceDummy[T[a, b, c] T[\(-a\), \(-b\)], 
+      a \[Rule] IndexList[d, e, f]]\)], "Input",
+  CellLabel->"In[4]:="],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_db\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, d], 
+            Times[ -1, b]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%dbc\),
+            AutoSpacing->False],
+          T[ d, b, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_eb\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, e], 
+            Times[ -1, b]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%ebc\),
+            AutoSpacing->False],
+          T[ e, b, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_fb\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, f], 
+            Times[ -1, b]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%fbc\),
+            AutoSpacing->False],
+          T[ f, b, c],
+          Editable->False]}]}]], "Output",
+  CellLabel->"Out[4]="]
+}, Open  ]],
+
+Cell["Several indices can be splitted at the same time:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(TraceDummy[
+      T[a, b, c] T[\(-a\), \(-b\)], {a \[Rule] IndexList[d, e, f], 
+        b \[Rule] IndexList[g, h]}]\)], "Input",
+  CellLabel->"In[5]:="],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_dg\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, d], 
+            Times[ -1, g]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%dgc\),
+            AutoSpacing->False],
+          T[ d, g, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_dh\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, d], 
+            Times[ -1, h]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%dhc\),
+            AutoSpacing->False],
+          T[ d, h, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_eg\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, e], 
+            Times[ -1, g]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%egc\),
+            AutoSpacing->False],
+          T[ e, g, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_eh\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, e], 
+            Times[ -1, h]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%ehc\),
+            AutoSpacing->False],
+          T[ e, h, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_fg\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, f], 
+            Times[ -1, g]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%fgc\),
+            AutoSpacing->False],
+          T[ f, g, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_fh\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, f], 
+            Times[ -1, h]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%fhc\),
+            AutoSpacing->False],
+          T[ f, h, c],
+          Editable->False]}]}]], "Output",
+  CellLabel->"Out[5]="]
+}, Open  ]],
+
+Cell["If a dummy is not present then it is not traced:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(TraceDummy[T[a, b, c] T[\(-a\), \(-b\)], 
+      c \[Rule] IndexList[d, e, f]]\)], "Input",
+  CellLabel->"In[6]:="],
+
+Cell[BoxData[
+    RowBox[{
+      InterpretationBox[
+        StyleBox[\(T\_ab\%\ \ \),
+          AutoSpacing->False],
+        T[ 
+          Times[ -1, a], 
+          Times[ -1, b]],
+        Editable->False], " ", 
+      InterpretationBox[
+        StyleBox[\(T\_\(\(\ \ \ \) \)\%abc\),
+          AutoSpacing->False],
+        T[ a, b, c],
+        Editable->False]}]], "Output",
+  CellLabel->"Out[6]="]
+}, Open  ]],
+
+Cell["\<\
+It is possible to use more powerful rules, with patterns on the LHS \
+and delayed index generation on the RHS:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(TraceDummy[
+      T[a, b, A, c] T[\(-a\), \(-b\), \(-A\)], _?TangentM`Q \[RuleDelayed] 
+        IndexList[DummyIn[TangentM], DummyIn[TangentM]]]\)], "Input",
+  CellLabel->"In[7]:="],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_p$79p$81A\%\ \ \ \ \ \ \ \ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, p$79], 
+            Times[ -1, p$81], 
+            Times[ -1, A]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \ \ \ \ \ \ \ \) \)\%p$79p$81Ac\),
+            AutoSpacing->False],
+          T[ p$79, p$81, A, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_p$79p$82A\%\ \ \ \ \ \ \ \ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, p$79], 
+            Times[ -1, p$82], 
+            Times[ -1, A]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \ \ \ \ \ \ \ \) \)\%p$79p$82Ac\),
+            AutoSpacing->False],
+          T[ p$79, p$82, A, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_p$80p$81A\%\ \ \ \ \ \ \ \ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, p$80], 
+            Times[ -1, p$81], 
+            Times[ -1, A]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \ \ \ \ \ \ \ \) \)\%p$80p$81Ac\),
+            AutoSpacing->False],
+          T[ p$80, p$81, A, c],
+          Editable->False]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_p$80p$82A\%\ \ \ \ \ \ \ \ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, p$80], 
+            Times[ -1, p$82], 
+            Times[ -1, A]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \ \ \ \ \ \ \ \) \)\%p$80p$82Ac\),
+            AutoSpacing->False],
+          T[ p$80, p$82, A, c],
+          Editable->False]}]}]], "Output",
+  CellLabel->"Out[7]="]
+}, Open  ]],
+
+Cell[TextData[{
+  "The function ",
+  StyleBox["TraceDummy",
+    FontFamily->"Courier"],
+  " is rather efficient. This is an example tracing 6 dummy pairs in 6 \
+dimensions (final expression with 6^6=46656 components):"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Length[\ 
+        TraceDummy[
+          T[a, b, c, d, e, 
+            f, \(-a\), \(-b\), \(-c\), \(-d\), \(-e\), \(-f\)], _ \[Rule] 
+            IndexList[g, h, i, j, k, l]]\ ]\  // AbsoluteTiming\)], "Input",
+  CellLabel->"In[8]:="],
+
+Cell[BoxData[
+    \({1.546675`6.640944059273603\ Second, 46656}\)], "Output",
+  CellLabel->"Out[8]="]
+}, Open  ]],
+
+Cell["Verbose log message can be turned on:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($TraceDummyVerbose = True\)], "Input",
+  CellLabel->"In[9]:="],
+
+Cell[BoxData[
+    \(True\)], "Output",
+  CellLabel->"Out[9]="]
+}, Open  ]],
+
+Cell["\<\
+It is possible to mark the expanded terms using a third argument:\
+\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(T[a, b, c] T[\(-b\), \(-c\)] + 
+      5  Sin[T[b] T[\(-b\)]] \((3  T[a] + T[d] T[a, \(-d\)])\)\)], "Input",
+  CellLabel->"In[10]:="],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"5", " ", 
+        RowBox[{
+          InterpretationBox[
+            StyleBox["Sin",
+              AutoSpacing->False],
+            Sin,
+            Editable->False], "[", 
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_b\%\ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, b]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \) \)\%b\),
+                AutoSpacing->False],
+              T[ b],
+              Editable->False]}], "]"}], " ", 
+        RowBox[{"(", 
+          RowBox[{
+            RowBox[{"3", " ", 
+              InterpretationBox[
+                StyleBox[\(T\_\(\(\ \) \)\%a\),
+                  AutoSpacing->False],
+                T[ a],
+                Editable->False]}], "+", 
+            RowBox[{
+              InterpretationBox[
+                StyleBox[\(T\_\(\(\ \) \)\%d\),
+                  AutoSpacing->False],
+                T[ d],
+                Editable->False], " ", 
+              InterpretationBox[
+                StyleBox[\(T\_\(\(\ \)\(d\)\)\%\(\(a\)\(\ \)\)\),
+                  AutoSpacing->False],
+                T[ a, 
+                  Times[ -1, d]],
+                Editable->False]}]}], ")"}]}], "+", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_bc\%\ \ \),
+            AutoSpacing->False],
+          T[ 
+            Times[ -1, b], 
+            Times[ -1, c]],
+          Editable->False], " ", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%abc\),
+            AutoSpacing->False],
+          T[ a, b, c],
+          Editable->False]}]}]], "Output",
+  CellLabel->"Out[10]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(TraceDummy[%, _ \[Rule] IndexList[A, B], Expanded]\)], "Input",
+  CellLabel->"In[11]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"\<\"Tracing indices \"\>", "\[InvisibleSpace]", \({b}\), 
+        "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
+        TagBox[
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_b\%\ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, b]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \) \)\%b\),
+                AutoSpacing->False],
+              T[ b],
+              Editable->False]}],
+          HoldForm]}],
+      SequenceForm[ "Tracing indices ", 
+        IndexList[ b], " in ", 
+        HoldForm[ 
+          Times[ 
+            T[ 
+              Times[ -1, b]], 
+            T[ b]]]],
+      Editable->False]], "Print",
+  CellLabel->"From In[11]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"\<\"Tracing indices \"\>", "\[InvisibleSpace]", \({d}\), 
+        "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
+        TagBox[
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \) \)\%d\),
+                AutoSpacing->False],
+              T[ d],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \)\(d\)\)\%\(\(a\)\(\ \)\)\),
+                AutoSpacing->False],
+              T[ a, 
+                Times[ -1, d]],
+              Editable->False]}],
+          HoldForm]}],
+      SequenceForm[ "Tracing indices ", 
+        IndexList[ d], " in ", 
+        HoldForm[ 
+          Times[ 
+            T[ d], 
+            T[ a, 
+              Times[ -1, d]]]]],
+      Editable->False]], "Print",
+  CellLabel->"From In[11]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"\<\"Tracing indices \"\>", "\[InvisibleSpace]", \({b, c}\), 
+        "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
+        TagBox[
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_bc\%\ \ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, b], 
+                Times[ -1, c]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \ \ \) \)\%abc\),
+                AutoSpacing->False],
+              T[ a, b, c],
+              Editable->False]}],
+          HoldForm]}],
+      SequenceForm[ "Tracing indices ", 
+        IndexList[ b, c], " in ", 
+        HoldForm[ 
+          Times[ 
+            T[ 
+              Times[ -1, b], 
+              Times[ -1, c]], 
+            T[ a, b, c]]]],
+      Editable->False]], "Print",
+  CellLabel->"From In[11]:="],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Expanded", "[", 
+        RowBox[{
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_AA\%\ \ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, A], 
+                Times[ -1, A]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \ \ \) \)\%aAA\),
+                AutoSpacing->False],
+              T[ a, A, A],
+              Editable->False]}], "+", 
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_AB\%\ \ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, A], 
+                Times[ -1, B]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \ \ \) \)\%aAB\),
+                AutoSpacing->False],
+              T[ a, A, B],
+              Editable->False]}], "+", 
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_BA\%\ \ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, B], 
+                Times[ -1, A]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \ \ \) \)\%aBA\),
+                AutoSpacing->False],
+              T[ a, B, A],
+              Editable->False]}], "+", 
+          RowBox[{
+            InterpretationBox[
+              StyleBox[\(T\_BB\%\ \ \),
+                AutoSpacing->False],
+              T[ 
+                Times[ -1, B], 
+                Times[ -1, B]],
+              Editable->False], " ", 
+            InterpretationBox[
+              StyleBox[\(T\_\(\(\ \ \ \) \)\%aBB\),
+                AutoSpacing->False],
+              T[ a, B, B],
+              Editable->False]}]}], "]"}], "+", 
+      RowBox[{"5", " ", 
+        RowBox[{
+          InterpretationBox[
+            StyleBox["Sin",
+              AutoSpacing->False],
+            Sin,
+            Editable->False], "[", 
+          RowBox[{"Expanded", "[", 
+            RowBox[{
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_A\%\ \),
+                    AutoSpacing->False],
+                  T[ 
+                    Times[ -1, A]],
+                  Editable->False], " ", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \) \)\%A\),
+                    AutoSpacing->False],
+                  T[ A],
+                  Editable->False]}], "+", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_B\%\ \),
+                    AutoSpacing->False],
+                  T[ 
+                    Times[ -1, B]],
+                  Editable->False], " ", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \) \)\%B\),
+                    AutoSpacing->False],
+                  T[ B],
+                  Editable->False]}]}], "]"}], "]"}], " ", 
+        RowBox[{"(", 
+          RowBox[{
+            RowBox[{"Expanded", "[", 
+              RowBox[{
+                RowBox[{
+                  InterpretationBox[
+                    StyleBox[\(T\_\(\(\ \) \)\%A\),
+                      AutoSpacing->False],
+                    T[ A],
+                    Editable->False], " ", 
+                  InterpretationBox[
+                    StyleBox[\(T\_\(\(\ \)\(A\)\)\%\(\(a\)\(\ \)\)\),
+                      AutoSpacing->False],
+                    T[ a, 
+                      Times[ -1, A]],
+                    Editable->False]}], "+", 
+                RowBox[{
+                  InterpretationBox[
+                    StyleBox[\(T\_\(\(\ \) \)\%B\),
+                      AutoSpacing->False],
+                    T[ B],
+                    Editable->False], " ", 
+                  InterpretationBox[
+                    StyleBox[\(T\_\(\(\ \)\(B\)\)\%\(\(a\)\(\ \)\)\),
+                      AutoSpacing->False],
+                    T[ a, 
+                      Times[ -1, B]],
+                    Editable->False]}]}], "]"}], "+", 
+            RowBox[{"3", " ", 
+              InterpretationBox[
+                StyleBox[\(T\_\(\(\ \) \)\%a\),
+                  AutoSpacing->False],
+                T[ a],
+                Editable->False]}]}], ")"}]}]}]], "Output",
+  CellLabel->"Out[11]="]
+}, Open  ]],
+
+Cell["Tidy up:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefTensor[T]\)], "Input",
+  CellLabel->"In[12]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined tensor "\[InvisibleSpace]T\),
+      SequenceForm[ "** Undefined tensor ", T],
+      Editable->False]], "Print",
+  CellLabel->"From In[12]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefManifold[M]\)], "Input",
+  CellLabel->"In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined vector bundle \
+"\[InvisibleSpace]TangentM\),
+      SequenceForm[ "** Undefined vector bundle ", TangentM],
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined manifold "\[InvisibleSpace]M\),
+      SequenceForm[ "** Undefined manifold ", M],
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+WindowSize->{696, 600},
+WindowMargins->{{55, Automatic}, {Automatic, 0}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 32, 0, 38, "ObjectName"],
+Cell[1811, 55, 820, 28, 70, "Usage"],
+Cell[2634, 85, 2775, 70, 352, "Text"],
+
+Cell[CellGroupData[{
+Cell[5434, 159, 42, 0, 38, "ExampleSection"],
+Cell[5479, 161, 102, 5, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[5606, 170, 83, 2, 70, "Input"],
+Cell[5692, 174, 146, 3, 70, "Print"],
+Cell[5841, 179, 314, 7, 70, "Print"],
+Cell[6158, 188, 142, 3, 70, "Print"],
+Cell[6303, 193, 146, 3, 70, "Print"],
+Cell[6452, 198, 95, 2, 70, "Print"],
+Cell[6550, 202, 119, 2, 70, "Print"],
+Cell[6672, 206, 146, 3, 70, "Print"],
+Cell[6821, 211, 314, 7, 70, "Print"],
+Cell[7138, 220, 147, 3, 70, "Print"],
+Cell[7288, 225, 106, 2, 70, "Print"],
+Cell[7397, 229, 87, 2, 70, "Print"],
+Cell[7487, 233, 146, 3, 70, "Print"],
+Cell[7636, 238, 318, 7, 70, "Print"],
+Cell[7957, 247, 147, 3, 70, "Print"],
+Cell[8107, 252, 146, 3, 70, "Print"],
+Cell[8256, 257, 281, 5, 70, "Print"],
+Cell[8540, 264, 146, 3, 70, "Print"]
+}, Open  ]],
+Cell[8701, 270, 100, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[8826, 277, 95, 2, 70, "Input"],
+Cell[8924, 281, 356, 7, 70, "Print"],
+Cell[9283, 290, 366, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9686, 302, 81, 2, 70, "Input"],
+Cell[9770, 306, 378, 7, 70, "Print"]
+}, Open  ]],
+Cell[10163, 316, 152, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[10340, 323, 134, 3, 70, "Input"],
+Cell[10477, 328, 1203, 41, 70, "Output"]
+}, Open  ]],
+Cell[11695, 372, 72, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[11792, 376, 172, 4, 70, "Input"],
+Cell[11967, 382, 2349, 80, 70, "Output"]
+}, Open  ]],
+Cell[14331, 465, 71, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[14427, 469, 134, 3, 70, "Input"],
+Cell[14564, 474, 398, 14, 70, "Output"]
+}, Open  ]],
+Cell[14977, 491, 141, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[15143, 498, 201, 4, 70, "Input"],
+Cell[15347, 504, 1925, 58, 70, "Output"]
+}, Open  ]],
+Cell[17287, 565, 237, 6, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[17549, 575, 253, 6, 70, "Input"],
+Cell[17805, 583, 101, 2, 70, "Output"]
+}, Open  ]],
+Cell[17921, 588, 60, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[18006, 592, 82, 2, 70, "Input"],
+Cell[18091, 596, 62, 2, 70, "Output"]
+}, Open  ]],
+Cell[18168, 601, 98, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[18291, 608, 152, 3, 70, "Input"],
+Cell[18446, 613, 1730, 54, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[20213, 672, 108, 2, 70, "Input"],
+Cell[20324, 676, 839, 26, 70, "Print"],
+Cell[21166, 704, 872, 26, 70, "Print"],
+Cell[22041, 732, 928, 28, 70, "Print"],
+Cell[22972, 762, 4298, 123, 70, "Output"]
+}, Open  ]],
+Cell[27285, 888, 31, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[27341, 892, 72, 2, 70, "Input"],
+Cell[27416, 896, 193, 4, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27646, 905, 74, 2, 70, "Input"],
+Cell[27723, 909, 223, 5, 70, "Print"],
+Cell[27949, 916, 197, 4, 70, "Print"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

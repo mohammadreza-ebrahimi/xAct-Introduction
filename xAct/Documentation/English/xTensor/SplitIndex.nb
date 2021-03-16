@@ -1,0 +1,764 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     20751,        651]*)
+(*NotebookOutlinePosition[     21419,        674]*)
+(*  CellTagsIndexPosition[     21375,        670]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["SplitIndex", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["SplitIndex[",
+    FontFamily->"Courier"],
+  StyleBox["expr, splitrules",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " returns an array whose elements are ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " with certain indices replaced by the ",
+  StyleBox["splitrules",
+    FontSlant->"Italic"],
+  ". "
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] A splitrule must be of the form ",
+  StyleBox["index",
+    FontSlant->"Italic"],
+  " -> ",
+  StyleBox["IndexList",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["i1, i2, ...",
+    FontSlant->"Italic"],
+  "], meaning that ",
+  StyleBox["index",
+    FontSlant->"Italic"],
+  " is to be replaced by ",
+  StyleBox["i1, i2, ...",
+    FontSlant->"Italic"],
+  " respectively in each of the terms of the array.\n\[FilledSmallSquare] The \
+splitting is performed even if the ",
+  StyleBox["index",
+    FontSlant->"Italic"],
+  " is not present in the expression (in such a case we would get just a \
+number of copies of the original expression).\n\[FilledSmallSquare] A list of \
+splitrules gives a multidimensional array, with rank equal to the number of \
+splitrules.\n\[FilledSmallSquare] It is possible to give a compacted form ",
+  StyleBox["IndexList",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["index1, index2, ...",
+    FontSlant->"Italic"],
+  "] -> ",
+  StyleBox["IndexList",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["i1, i2, ...",
+    FontSlant->"Italic"],
+  "], where each of the indices ",
+  StyleBox["indexi",
+    FontSlant->"Italic"],
+  ", is to be splitted as ",
+  StyleBox["IndexList",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["i1, i2, ...",
+    FontSlant->"Italic"],
+  "].\n\[FilledSmallSquare] Splitting is an operation for free indices. It \
+can be also done on blocked indices, even if that does not make much sense \
+mathematically. But it can never give sensible results on dummy indices. Use \
+the function ",
+  StyleBox[ButtonBox["TraceDummy",
+    ButtonData:>{"TraceDummy.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " to trace dummy pairs.\n\[FilledSmallSquare] This function is essentially \
+based on ",
+  StyleBox[ButtonBox["ReplaceIndex",
+    ButtonData:>{"ReplaceIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". It is highly efficient because it uses ",
+  StyleBox["ReplaceIndex",
+    FontFamily->"Courier"],
+  " only once and then the rest of the replacement are performed with ",
+  StyleBox["ReplaceAll",
+    FontFamily->"Courier"],
+  "..\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 2.9",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Replacing indices"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 2-XI-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Further Examples", "ExampleSection"],
+
+Cell[TextData[{
+  "Load ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  ":"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Needs["\<xAct`xTensor`\>"]\)], "Input",
+  CellLabel->"In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.4.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.4.0", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007, Jose M. Martin-Garcia, under the General Public \
+License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2007, David J. M. Park and Ted Ersek"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"0.7.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "0.7.0", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.3"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.3", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="]
+}, Open  ]],
+
+Cell["\<\
+Define a manifold (and its associated tangent bundle) and a tensor:\
+\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[M, 4, IndexRange[a, p], z]\)], "Input",
+  CellLabel->"In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]M\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", M, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentM\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentM, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefTensor[T[a, b, c], M]\)], "Input",
+  CellLabel->"In[3]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]T[a, b, 
+          c]\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        T[ a, b, c], ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[3]:="]
+}, Open  ]],
+
+Cell["\<\
+The basic operation of splitting is as follows, replacing an index \
+by different possibilities, and returning a list:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(SplitIndex[T[a, b, c], a \[Rule] IndexList[d, e, f]]\)], "Input",
+  CellLabel->"In[4]:="],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%dbc\),
+            AutoSpacing->False],
+          T[ d, b, c],
+          Editable->False], ",", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%ebc\),
+            AutoSpacing->False],
+          T[ e, b, c],
+          Editable->False], ",", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%fbc\),
+            AutoSpacing->False],
+          T[ f, b, c],
+          Editable->False]}], "}"}]], "Output",
+  CellLabel->"Out[4]="]
+}, Open  ]],
+
+Cell["\<\
+Several indices can be splitted at the same time, producing a \
+matrix of objects:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(SplitIndex[
+      T[a, b, c], {a \[Rule] IndexList[d, e, f], b \[Rule] IndexList[g, h], 
+        c \[Rule] IndexList[Dir[T[z]], i]}]\)], "Input",
+  CellLabel->"In[5]:="],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{"{", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(dg\)\(\ \)\)\),
+                    AutoSpacing->False],
+                  T[ d, g, 
+                    Dir[ 
+                      T[ z]]],
+                  Editable->False], ",", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \ \) \)\%dgi\),
+                    AutoSpacing->False],
+                  T[ d, g, i],
+                  Editable->False]}], "}"}], ",", 
+            RowBox[{"{", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(dh\)\(\ \)\)\),
+                    AutoSpacing->False],
+                  T[ d, h, 
+                    Dir[ 
+                      T[ z]]],
+                  Editable->False], ",", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \ \) \)\%dhi\),
+                    AutoSpacing->False],
+                  T[ d, h, i],
+                  Editable->False]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{"{", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(eg\)\(\ \)\)\),
+                    AutoSpacing->False],
+                  T[ e, g, 
+                    Dir[ 
+                      T[ z]]],
+                  Editable->False], ",", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \ \) \)\%egi\),
+                    AutoSpacing->False],
+                  T[ e, g, i],
+                  Editable->False]}], "}"}], ",", 
+            RowBox[{"{", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(eh\)\(\ \)\)\),
+                    AutoSpacing->False],
+                  T[ e, h, 
+                    Dir[ 
+                      T[ z]]],
+                  Editable->False], ",", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \ \) \)\%ehi\),
+                    AutoSpacing->False],
+                  T[ e, h, i],
+                  Editable->False]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{"{", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(fg\)\(\ \)\)\),
+                    AutoSpacing->False],
+                  T[ f, g, 
+                    Dir[ 
+                      T[ z]]],
+                  Editable->False], ",", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \ \) \)\%fgi\),
+                    AutoSpacing->False],
+                  T[ f, g, i],
+                  Editable->False]}], "}"}], ",", 
+            RowBox[{"{", 
+              RowBox[{
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(fh\)\(\ \)\)\),
+                    AutoSpacing->False],
+                  T[ f, h, 
+                    Dir[ 
+                      T[ z]]],
+                  Editable->False], ",", 
+                InterpretationBox[
+                  StyleBox[\(T\_\(\(\ \ \ \) \)\%fhi\),
+                    AutoSpacing->False],
+                  T[ f, h, i],
+                  Editable->False]}], "}"}]}], "}"}]}], "}"}]], "Output",
+  CellLabel->"Out[5]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(MatrixForm[%]\)], "Input",
+  CellLabel->"In[6]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(dg\)\(\ \)\)\),
+                          AutoSpacing->False],
+                        T[ d, g, 
+                          Dir[ 
+                            T[ z]]],
+                        Editable->False]},
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \ \) \)\%dgi\),
+                          AutoSpacing->False],
+                        T[ d, g, i],
+                        Editable->False]}
+                    }], "\[NoBreak]", ")"}], 
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(dh\)\(\ \)\)\),
+                          AutoSpacing->False],
+                        T[ d, h, 
+                          Dir[ 
+                            T[ z]]],
+                        Editable->False]},
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \ \) \)\%dhi\),
+                          AutoSpacing->False],
+                        T[ d, h, i],
+                        Editable->False]}
+                    }], "\[NoBreak]", ")"}]},
+            {
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(eg\)\(\ \)\)\),
+                          AutoSpacing->False],
+                        T[ e, g, 
+                          Dir[ 
+                            T[ z]]],
+                        Editable->False]},
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \ \) \)\%egi\),
+                          AutoSpacing->False],
+                        T[ e, g, i],
+                        Editable->False]}
+                    }], "\[NoBreak]", ")"}], 
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(eh\)\(\ \)\)\),
+                          AutoSpacing->False],
+                        T[ e, h, 
+                          Dir[ 
+                            T[ z]]],
+                        Editable->False]},
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \ \) \)\%ehi\),
+                          AutoSpacing->False],
+                        T[ e, h, i],
+                        Editable->False]}
+                    }], "\[NoBreak]", ")"}]},
+            {
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(fg\)\(\ \)\)\),
+                          AutoSpacing->False],
+                        T[ f, g, 
+                          Dir[ 
+                            T[ z]]],
+                        Editable->False]},
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \ \) \)\%fgi\),
+                          AutoSpacing->False],
+                        T[ f, g, i],
+                        Editable->False]}
+                    }], "\[NoBreak]", ")"}], 
+              RowBox[{"(", "\[NoBreak]", GridBox[{
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \)\(T\)\)\%\(\(fh\)\(\ \)\)\),
+                          AutoSpacing->False],
+                        T[ f, h, 
+                          Dir[ 
+                            T[ z]]],
+                        Editable->False]},
+                    {
+                      InterpretationBox[
+                        StyleBox[\(T\_\(\(\ \ \ \) \)\%fhi\),
+                          AutoSpacing->False],
+                        T[ f, h, i],
+                        Editable->False]}
+                    }], "\[NoBreak]", ")"}]}
+            }], "\[NoBreak]", ")"}],
+      MatrixForm[ {{{
+        T[ d, g, 
+          Dir[ 
+            T[ z]]], 
+        T[ d, g, i]}, {
+        T[ d, h, 
+          Dir[ 
+            T[ z]]], 
+        T[ d, h, i]}}, {{
+        T[ e, g, 
+          Dir[ 
+            T[ z]]], 
+        T[ e, g, i]}, {
+        T[ e, h, 
+          Dir[ 
+            T[ z]]], 
+        T[ e, h, i]}}, {{
+        T[ f, g, 
+          Dir[ 
+            T[ z]]], 
+        T[ f, g, i]}, {
+        T[ f, h, 
+          Dir[ 
+            T[ z]]], 
+        T[ f, h, i]}}}]]], "Output",
+  CellLabel->"Out[6]//MatrixForm="]
+}, Open  ]],
+
+Cell["\<\
+Splitting is performed even if the index is not present, giving \
+multiple copies of the input:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(SplitIndex[T[a, b, c], d \[Rule] IndexList[g, h]]\)], "Input",
+  CellLabel->"In[7]:="],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%abc\),
+            AutoSpacing->False],
+          T[ a, b, c],
+          Editable->False], ",", 
+        InterpretationBox[
+          StyleBox[\(T\_\(\(\ \ \ \) \)\%abc\),
+            AutoSpacing->False],
+          T[ a, b, c],
+          Editable->False]}], "}"}]], "Output",
+  CellLabel->"Out[7]="]
+}, Open  ]],
+
+Cell["Tidy up:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefTensor[T]\)], "Input",
+  CellLabel->"In[8]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined tensor "\[InvisibleSpace]T\),
+      SequenceForm[ "** Undefined tensor ", T],
+      Editable->False]], "Print",
+  CellLabel->"From In[8]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefManifold[M]\)], "Input",
+  CellLabel->"In[9]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined vector bundle \
+"\[InvisibleSpace]TangentM\),
+      SequenceForm[ "** Undefined vector bundle ", TangentM],
+      Editable->False]], "Print",
+  CellLabel->"From In[9]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined manifold "\[InvisibleSpace]M\),
+      SequenceForm[ "** Undefined manifold ", M],
+      Editable->False]], "Print",
+  CellLabel->"From In[9]:="]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+WindowSize->{694, 600},
+WindowMargins->{{123, Automatic}, {Automatic, 17}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 32, 0, 38, "ObjectName"],
+Cell[1811, 55, 400, 15, 32, "Usage"],
+Cell[2214, 72, 2609, 76, 312, "Text"],
+
+Cell[CellGroupData[{
+Cell[4848, 152, 42, 0, 38, "ExampleSection"],
+Cell[4893, 154, 102, 5, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[5020, 163, 83, 2, 70, "Input"],
+Cell[5106, 167, 146, 3, 70, "Print"],
+Cell[5255, 172, 314, 7, 70, "Print"],
+Cell[5572, 181, 142, 3, 70, "Print"],
+Cell[5717, 186, 146, 3, 70, "Print"],
+Cell[5866, 191, 95, 2, 70, "Print"],
+Cell[5964, 195, 119, 2, 70, "Print"],
+Cell[6086, 199, 146, 3, 70, "Print"],
+Cell[6235, 204, 314, 7, 70, "Print"],
+Cell[6552, 213, 147, 3, 70, "Print"],
+Cell[6702, 218, 106, 2, 70, "Print"],
+Cell[6811, 222, 87, 2, 70, "Print"],
+Cell[6901, 226, 146, 3, 70, "Print"],
+Cell[7050, 231, 318, 7, 70, "Print"],
+Cell[7371, 240, 147, 3, 70, "Print"],
+Cell[7521, 245, 146, 3, 70, "Print"],
+Cell[7670, 250, 281, 5, 70, "Print"],
+Cell[7954, 257, 146, 3, 70, "Print"]
+}, Open  ]],
+Cell[8115, 263, 100, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[8240, 270, 95, 2, 70, "Input"],
+Cell[8338, 274, 356, 7, 70, "Print"],
+Cell[8697, 283, 366, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9100, 295, 81, 2, 70, "Input"],
+Cell[9184, 299, 378, 7, 70, "Print"]
+}, Open  ]],
+Cell[9577, 309, 149, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[9751, 316, 109, 2, 70, "Input"],
+Cell[9863, 320, 579, 18, 70, "Output"]
+}, Open  ]],
+Cell[10457, 341, 113, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[10595, 348, 189, 4, 70, "Input"],
+Cell[10787, 354, 3456, 93, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14280, 452, 70, 2, 70, "Input"],
+Cell[14353, 456, 4798, 128, 70, "Output"]
+}, Open  ]],
+Cell[19166, 587, 126, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[19317, 594, 106, 2, 70, "Input"],
+Cell[19426, 598, 414, 13, 70, "Output"]
+}, Open  ]],
+Cell[19855, 614, 31, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[19911, 618, 71, 2, 70, "Input"],
+Cell[19985, 622, 192, 4, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[20214, 631, 73, 2, 70, "Input"],
+Cell[20290, 635, 222, 5, 70, "Print"],
+Cell[20515, 642, 196, 4, 70, "Print"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

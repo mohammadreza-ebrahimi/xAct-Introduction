@@ -1,0 +1,3360 @@
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["XTRAS TUTORIAL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"Functions \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"CollectTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/CollectTensors"], "\<\"MakeContractionAnsatz\"\>":>
+       Documentation`HelpLookup[
+       "paclet:xTras/ref/MakeContractionAnsatz"], "\<\"SolveConstants\"\>":>
+       Documentation`HelpLookup["paclet:xTras/ref/SolveConstants"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"xTras/tutorial/SpinTwo\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["xTras/tutorial/SpinTwo"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/xTras/tutorial/\
+SpinTwo.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "xTras/tutorial/SpinTwo", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["Spin 2 on a flat background", "Title",
+ CellID->509267359],
+
+Cell["\<\
+This tutorial describes how to construct a gauge invariant theory of a free \
+spin 2 field on a flat background. In doing so, we will recover the \
+linearized Einstein equations.\
+\>", "Text",
+ CellID->1534169418],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["MakeContractionAnsatz",
+      BaseStyle->"Link",
+      ButtonData->"paclet:xTras/ref/MakeContractionAnsatz"], "[", 
+     StyleBox["expr", "TI"], "]"}], Cell[TextData[{
+     "makes an Ansatz with all possible contractions of ",
+     StyleBox["expr.", "TI"]
+    }], "TableText"]},
+   {
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        StyleBox["tens", "TI"], ",", " ", 
+        StyleBox["cd", "TI"]}], "]"}], "[", 
+      StyleBox["expr", "TI"], "]"}], " "}], Cell[TextData[{
+     "takes the functional derivative of ",
+     StyleBox["expr", "TI"],
+     " w.r.t the tensor ",
+     StyleBox["tens", "TI"],
+     ", while integrating by parts w.r.t. the derivative ",
+     StyleBox["cd.", "TI"]
+    }], "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["SolveConstants",
+      BaseStyle->"Link",
+      ButtonData->"paclet:xTras/ref/SolveConstants"], "[", 
+     StyleBox["expr", "TI"], "]"}], Cell[TextData[{
+     "attempts to solve the system ",
+     StyleBox["expr", "TI"],
+     " of tensorial equations for all constant symbols appearing in ",
+     StyleBox["expr.", "TI"]
+    }], "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["CollectTensors",
+      BaseStyle->"Link",
+      ButtonData->"paclet:xTras/ref/CollectTensors"], "[", 
+     StyleBox["expr", "TI"], "]"}], Cell[TextData[{
+     "collects all tensorial terms in ",
+     StyleBox["expr.", "TI"]
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellID->503181429],
+
+Cell["Often used functions for doing field theory.", "Caption",
+ CellID->179675317],
+
+Cell[CellGroupData[{
+
+Cell["Setup", "Section",
+ CellID->1322945693],
+
+Cell[TextData[{
+ "First of all, load the ",
+ StyleBox["xTras",
+  FontSlant->"Italic"],
+ " package."
+}], "Text",
+ CellID->667023463],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", "Print", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"<<", "xAct`xTras`"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->2058623809],
+
+Cell["Now we'll set up the manifold ...", "Text",
+ CellID->798705301],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefManifold", "[", 
+  RowBox[{"M", ",", "dim", ",", 
+   RowBox[{"IndexRange", "[", 
+    RowBox[{"a", ",", "l"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->646362501],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefManifold", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"manifold \"\>", "\[InvisibleSpace]", "M", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefManifold, ": Defining ", "manifold ", $CellContext`M,
+    ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[7]:=",
+ CellID->42641954],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefVBundle", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vbundle \"\>", "\[InvisibleSpace]", "TangentM", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefVBundle, ": Defining ", 
+   "vbundle ", $CellContext`TangentM, ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[7]:=",
+ CellID->1571266427]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "... and the metric. Note the option ",
+ Cell[BoxData["FlatMetric"], "InlineFormula"],
+ ", to indicate we're in a flat background."
+}], "Text",
+ CellID->1705634167],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefMetric", "[", 
+  RowBox[{
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"metric", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], ",", "PD", ",", 
+   RowBox[{"PrintAs", "\[Rule]", "\"\<\[Eta]\>\""}], ",", 
+   RowBox[{"FlatMetric", "\[Rule]", "True"}], ",", 
+   RowBox[{"SymbolOfCovD", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<,\>\"", ",", "\"\<\[PartialD]\>\""}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->506083566],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric metric tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"metric", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "symmetric metric tensor ", 
+   $CellContext`metric[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[8]:=",
+ CellID->668431430],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric tensor \"\>", "\[InvisibleSpace]", 
+   
+   RowBox[{"epsilonmetric", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric tensor ", 
+   $CellContext`epsilonmetric[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[8]:=",
+ CellID->840086553],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"weight +2 density \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Detmetric", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"Determinant.\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "weight +2 density ", 
+   $CellContext`Detmetric[], ". ", "Determinant."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[8]:=",
+ CellID->1777200893]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "This did not define a new covariant derivative, but instead set the \
+pre-existing partial derivative ",
+ Cell[BoxData["PD"], "InlineFormula"],
+ " to be metric compatible with the newly defined ",
+ Cell[BoxData["metric"], "InlineFormula"],
+ ". Furthermore, we need to tell the function ",
+ Cell[BoxData["SymmetryOf"], "InlineFormula"],
+ " that the metric is constant:"
+}], "Text",
+ CellID->1183864479],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"SymmetryOf", ",", 
+   RowBox[{"ConstantMetric", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->1521689368],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"CommutePDs", "\[Rule]", "True"}], ",", 
+   RowBox[{"ConstantMetric", "\[Rule]", "True"}]}], "}"}]], "Output",
+ CellLabel->"Out[9]=",
+ CellID->774309098]
+}, Open  ]],
+
+Cell["\<\
+Lastly, we need to define tensors for the spin 2 field and its gauge \
+parameter:\
+\>", "Text",
+ CellID->125711706],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefTensor", "[", 
+  RowBox[{
+   RowBox[{"H", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], ",", "M", ",", 
+   RowBox[{"Symmetric", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "a"}], ",", 
+      RowBox[{"-", "b"}]}], "}"}], "]"}], ",", 
+   RowBox[{"PrintAs", "\[Rule]", "\"\<h\>\""}]}], "]"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->248715740],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"H", "[", 
+    RowBox[{
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`H[-$CellContext`a, -$CellContext`b], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[10]:=",
+ CellID->62109266]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefTensor", "[", 
+  RowBox[{
+   RowBox[{"xi", "[", "a", "]"}], ",", "M", ",", 
+   RowBox[{"PrintAs", "\[Rule]", "\"\<\[Xi]\>\""}]}], "]"}]], "Input",
+ CellLabel->"In[11]:=",
+ CellID->678585114],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"xi", "[", "a", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`xi[$CellContext`a], ". ", ""],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[11]:=",
+ CellID->193381220]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The action and the equations of motion", "Section",
+ CellID->2066820538],
+
+Cell[TextData[{
+ "The first step is to construct all possible terms for the action, and make \
+an Ansatz from them. Because we are not interested in total derivative, it \
+suffices to consider terms of the form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"h", 
+    RowBox[{"\[Del]", 
+     RowBox[{"\[Del]", "h"}]}]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text",
+ CellID->1504791941],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"S", " ", "=", " ", 
+  RowBox[{"MakeContractionAnsatz", "[", 
+   RowBox[{
+    RowBox[{"H", "[", 
+     RowBox[{"a", ",", "b"}], "]"}], 
+    RowBox[{
+     RowBox[{"PD", "[", "c", "]"}], "@", 
+     RowBox[{
+      RowBox[{"PD", "[", "d", "]"}], "@", 
+      RowBox[{"H", "[", 
+       RowBox[{"e", ",", "f"}], "]"}]}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[12]:=",
+ CellID->1148478368],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "1", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C1,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "b"], 
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`b][
+     xAct`xTensor`PD[-$CellContext`a][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", "c"},
+            {"a", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[-$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", " "},
+           {" ", "a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, -$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "4", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"a", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[-$CellContext`a, -$CellContext`b]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "5", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", " "},
+           {" ", "a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, -$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", " "},
+            {" ", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`b, -$CellContext`b]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[12]=",
+ CellID->1015406629]
+}, Open  ]],
+
+Cell["The equations of motion are then:", "Text",
+ CellID->551888944],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eom", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"VarD", "[", 
+     RowBox[{
+      RowBox[{"H", "[", 
+       RowBox[{
+        RowBox[{"-", "a"}], ",", 
+        RowBox[{"-", "b"}]}], "]"}], ",", "PD"}], "]"}], "[", "S", "]"}], " ",
+    "//", " ", "CollectTensors"}]}]], "Input",
+ CellLabel->"In[13]:=",
+ CellID->615610415],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "1", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C1,
+      Editable->False], "+", 
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C3,
+      Editable->False]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], 
+      SuperscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     xAct`xTensor`PD[$CellContext`a][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`a][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"a", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`b][
+      $CellContext`H[$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "4", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"a", "b"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`a, $CellContext`b]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "1", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C1,
+      Editable->False], "+", 
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C3,
+      Editable->False]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Eta]", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "d"], 
+      SubscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", "d"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`d][
+     xAct`xTensor`PD[-$CellContext`c][
+      $CellContext`H[$CellContext`c, $CellContext`d]]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "5", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Eta]", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "d"], 
+      SuperscriptBox["\[PartialD]", "d"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`d][
+     xAct`xTensor`PD[$CellContext`d][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->2034154541]
+}, Open  ]],
+
+Cell["Note that there are still some total derivatives present:", "Text",
+ CellID->261368130],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SolveConstants", "[", 
+  RowBox[{"eom", "\[Equal]", "0"}], "]"}]], "Input",
+ CellLabel->"In[14]:=",
+ CellID->1527538475],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "svars"}], "MessageName"], ":", 
+  " ", "\<\"Equations may not give solutions for all \\\"solve\\\" variables. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Solve/svars\\\", \
+ButtonNote -> \\\"Solve::svars\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[14]:=",
+ CellID->95710347],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "2", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C2,
+      Editable->False], "\[Rule]", "0"}], ",", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C3,
+      Editable->False], "\[Rule]", 
+     RowBox[{"-", 
+      InterpretationBox[
+       StyleBox[
+        SubsuperscriptBox["C", "1", ""],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`C1,
+       Editable->False]}]}], ",", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "4", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C4,
+      Editable->False], "\[Rule]", "0"}], ",", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "5", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C5,
+      Editable->False], "\[Rule]", "0"}]}], "}"}], "}"}]], "Output",
+ CellLabel->"Out[14]=",
+ CellID->138550426]
+}, Open  ]],
+
+Cell[TextData[{
+ "If the constant ",
+ Cell[BoxData[
+  SubscriptBox["C", "3"]], "InlineFormula"],
+ " takes the value ",
+ Cell[BoxData[
+  RowBox[{"-", 
+   SubscriptBox["C", "1"]}]], "InlineFormula"],
+ ", the action has one total derivative. To eliminate it, we'll set ",
+ Cell[BoxData[
+  SubscriptBox["C", "1"]], "InlineFormula"],
+ " to zero:"
+}], "Text",
+ CellID->165129769],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"S", " ", "=", " ", 
+  RowBox[{"S", "/.", 
+   RowBox[{"C1", "\[Rule]", "0"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"eom", " ", "=", " ", 
+  RowBox[{"eom", " ", "/.", " ", 
+   RowBox[{"C1", "\[Rule]", "0"}]}]}]}], "Input",
+ CellLabel->"In[15]:=",
+ CellID->1225895293],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", "c"},
+            {"a", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[-$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", " "},
+           {" ", "a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, -$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "4", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"a", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[-$CellContext`a, -$CellContext`b]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "5", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", " "},
+           {" ", "a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, -$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", " "},
+            {" ", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`b, -$CellContext`b]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[15]=",
+ CellID->744736434],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], 
+      SuperscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     xAct`xTensor`PD[$CellContext`a][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`a][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"a", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`b][
+      $CellContext`H[$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "4", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"a", "b"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`a, $CellContext`b]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Eta]", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "d"], 
+      SubscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", "d"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`d][
+     xAct`xTensor`PD[-$CellContext`c][
+      $CellContext`H[$CellContext`c, $CellContext`d]]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "5", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Eta]", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "d"], 
+      SuperscriptBox["\[PartialD]", "d"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`d][
+     xAct`xTensor`PD[$CellContext`d][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[16]=",
+ CellID->1250551522]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gauge invariance", "Section",
+ CellID->1813849860],
+
+Cell["\<\
+We impose the following gauge transformation of the spin 2 field:\
+\>", "Text",
+ CellID->1844227855],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Delta]H", " ", "=", " ", 
+  RowBox[{"2", " ", 
+   RowBox[{"Symmetrize", "[", 
+    RowBox[{
+     RowBox[{"PD", "[", 
+      RowBox[{"-", "a"}], "]"}], "@", 
+     RowBox[{"xi", "[", 
+      RowBox[{"-", "b"}], "]"}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[17]:=",
+ CellID->1887028051],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[
+    RowBox[{
+     SubscriptBox["\[PartialD]", "a"], GridBox[{
+       {"\[Xi]", 
+        StyleBox[GridBox[{
+           {" "},
+           {"b"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   xAct`xTensor`PD[-$CellContext`a][
+    $CellContext`xi[-$CellContext`b]],
+   Editable->False], "+", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{
+     SubscriptBox["\[PartialD]", "b"], GridBox[{
+       {"\[Xi]", 
+        StyleBox[GridBox[{
+           {" "},
+           {"a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   xAct`xTensor`PD[-$CellContext`b][
+    $CellContext`xi[-$CellContext`a]],
+   Editable->False]}]], "Output",
+ CellLabel->"Out[17]=",
+ CellID->596977065]
+}, Open  ]],
+
+Cell["\<\
+The variation of the action is then, up to total derivatives,\
+\>", "Text",
+ CellID->2131699434],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Delta]S", "=", 
+  RowBox[{
+   RowBox[{"\[Delta]H", " ", "eom"}], "//", "CollectTensors"}]}]], "Input",
+ CellLabel->"In[18]:=",
+ CellID->1002704337],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "b"], 
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`b][
+     xAct`xTensor`PD[-$CellContext`a][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"\[Xi]", 
+         StyleBox[GridBox[{
+            {"a"},
+            {" "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     $CellContext`xi[$CellContext`a]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"\[Xi]", 
+         StyleBox[GridBox[{
+            {"a"},
+            {" "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     $CellContext`xi[$CellContext`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", "c"},
+            {"b", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`a][
+      $CellContext`H[-$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"\[Xi]", 
+         StyleBox[GridBox[{
+            {"a"},
+            {" "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     $CellContext`xi[$CellContext`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", "c"},
+            {"a", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[-$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "3", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"\[Xi]", 
+         StyleBox[GridBox[{
+            {"a"},
+            {" "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`a][
+     $CellContext`xi[$CellContext`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "4", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"\[Xi]", 
+         StyleBox[GridBox[{
+            {"a"},
+            {" "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     $CellContext`xi[$CellContext`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"a", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[-$CellContext`a, -$CellContext`b]]],
+    Editable->False]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "5", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"\[Xi]", 
+         StyleBox[GridBox[{
+            {"a"},
+            {" "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`a][
+     $CellContext`xi[$CellContext`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", " "},
+            {" ", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`b, -$CellContext`b]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[18]=",
+ CellID->349932671]
+}, Open  ]],
+
+Cell[TextData[{
+ "We remove any remaining total derivatives integrating by parts w.r.t. the \
+gauge parameter \[Xi]. For this, ",
+ Cell[BoxData["VarD"], "InlineFormula"],
+ " comes in handy again:"
+}], "Text",
+ CellID->1397023943],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Delta]S", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"xi", "[", "a", "]"}], 
+    RowBox[{
+     RowBox[{"VarD", "[", 
+      RowBox[{
+       RowBox[{"xi", "[", "a", "]"}], ",", "PD"}], "]"}], "[", "\[Delta]S", 
+     "]"}]}], "//", "CollectTensors"}]}]], "Input",
+ CellLabel->"In[19]:=",
+ CellID->956198774],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "2"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "2", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C2,
+      Editable->False], "+", 
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C3,
+      Editable->False]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Xi]", 
+        StyleBox[GridBox[{
+           {"a"},
+           {" "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`xi[$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], 
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      xAct`xTensor`PD[-$CellContext`a][
+       $CellContext`H[$CellContext`b, $CellContext`c]]]],
+    Editable->False]}], "-", 
+  RowBox[{"2", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C3,
+      Editable->False], "+", 
+     RowBox[{"2", " ", 
+      InterpretationBox[
+       StyleBox[
+        SubsuperscriptBox["C", "5", ""],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`C5,
+       Editable->False]}]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Xi]", 
+        StyleBox[GridBox[{
+           {"a"},
+           {" "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`xi[$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", " "},
+            {" ", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      xAct`xTensor`PD[-$CellContext`a][
+       $CellContext`H[$CellContext`b, -$CellContext`b]]]],
+    Editable->False]}], "-", 
+  RowBox[{"2", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "2", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C2,
+      Editable->False], "+", 
+     RowBox[{"2", " ", 
+      InterpretationBox[
+       StyleBox[
+        SubsuperscriptBox["C", "4", ""],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`C4,
+       Editable->False]}]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Xi]", 
+        StyleBox[GridBox[{
+           {"a"},
+           {" "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`xi[$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", "b"},
+            {"a", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      xAct`xTensor`PD[-$CellContext`b][
+       $CellContext`H[-$CellContext`a, $CellContext`b]]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[19]=",
+ CellID->1508176011]
+}, Open  ]],
+
+Cell["\<\
+For a gauge invariant theory, the above should be zero. Let's solve for the \
+constants:\
+\>", "Text",
+ CellID->1526357848],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gaugeSols", " ", "=", " ", 
+  RowBox[{"SolveConstants", "[", 
+   RowBox[{"\[Delta]S", "\[Equal]", "0"}], "]"}]}]], "Input",
+ CellLabel->"In[20]:=",
+ CellID->517292607],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "svars"}], "MessageName"], ":", 
+  " ", "\<\"Equations may not give solutions for all \\\"solve\\\" variables. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Solve/svars\\\", \
+ButtonNote -> \\\"Solve::svars\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[20]:=",
+ CellID->1164731336],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "3", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C3,
+      Editable->False], "\[Rule]", 
+     RowBox[{"-", 
+      InterpretationBox[
+       StyleBox[
+        SubsuperscriptBox["C", "2", ""],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`C2,
+       Editable->False]}]}], ",", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "4", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C4,
+      Editable->False], "\[Rule]", 
+     RowBox[{"-", 
+      FractionBox[
+       InterpretationBox[
+        StyleBox[
+         SubsuperscriptBox["C", "2", ""],
+         ShowAutoStyles->False,
+         AutoSpacing->False],
+        $CellContext`C2,
+        Editable->False], "2"]}]}], ",", 
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubsuperscriptBox["C", "5", ""],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`C5,
+      Editable->False], "\[Rule]", 
+     FractionBox[
+      InterpretationBox[
+       StyleBox[
+        SubsuperscriptBox["C", "2", ""],
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       $CellContext`C2,
+       Editable->False], "2"]}]}], "}"}], "}"}]], "Output",
+ CellLabel->"Out[20]=",
+ CellID->1326121747]
+}, Open  ]],
+
+Cell["\<\
+This fixed all constant symbols, up to an overall normalization. The gauge \
+invariant action is:\
+\>", "Text",
+ CellID->2107419549],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"S", " ", "=", " ", 
+  RowBox[{"S", "/.", 
+   RowBox[{"gaugeSols", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]], "Input",
+ CellLabel->"In[21]:=",
+ CellID->354611719],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", "c"},
+            {"a", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[-$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", " "},
+           {" ", "a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, -$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SubscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[-$CellContext`b][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"a", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[-$CellContext`a, -$CellContext`b]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"h", 
+        StyleBox[GridBox[{
+           {"a", " "},
+           {" ", "a"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`H[$CellContext`a, -$CellContext`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", " "},
+            {" ", "b"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`b, -$CellContext`b]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[21]=",
+ CellID->1542913263]
+}, Open  ]],
+
+Cell["And the gauge invariant equations of motion are:", "Text",
+ CellID->406152693],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eom", "=", 
+  RowBox[{"eom", "/.", 
+   RowBox[{"gaugeSols", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]], "Input",
+ CellLabel->"In[22]:=",
+ CellID->358427904],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    InterpretationBox[
+     StyleBox[
+      SubsuperscriptBox["C", "2", ""],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`C2,
+     Editable->False]}], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "b"], 
+      SuperscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[$CellContext`b][
+     xAct`xTensor`PD[$CellContext`a][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "a"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"b", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`a][
+      $CellContext`H[$CellContext`b, $CellContext`c]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "b"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"a", "c"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`b][
+      $CellContext`H[$CellContext`a, $CellContext`c]]],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "c"], 
+      SuperscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"a", "b"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`c][
+     xAct`xTensor`PD[$CellContext`c][
+      $CellContext`H[$CellContext`a, $CellContext`b]]],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Eta]", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "d"], 
+      SubscriptBox["\[PartialD]", "c"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", "d"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`d][
+     xAct`xTensor`PD[-$CellContext`c][
+      $CellContext`H[$CellContext`c, $CellContext`d]]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubsuperscriptBox["C", "2", ""],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`C2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {"\[Eta]", 
+        StyleBox[GridBox[{
+           {"a", "b"},
+           {" ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+               Offset[0.]}}, "RowsIndexed" -> {}}],
+         FontSize->9]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`metric[$CellContext`a, $CellContext`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "d"], 
+      SuperscriptBox["\[PartialD]", "d"], GridBox[{
+        {"h", 
+         StyleBox[GridBox[{
+            {"c", " "},
+            {" ", "c"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "ColumnsIndexed" -> {}, "Rows" -> {{
+                Offset[0.]}}, "RowsIndexed" -> {}}],
+          FontSize->9]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`xTensor`PD[-$CellContext`d][
+     xAct`xTensor`PD[$CellContext`d][
+      $CellContext`H[$CellContext`c, -$CellContext`c]]],
+    Editable->False]}]}]], "Output",
+ CellLabel->"Out[22]=",
+ CellID->878173716]
+}, Open  ]],
+
+Cell["These are precisely the linearized Einstein equations.", "Text",
+ CellID->1901833935]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Spin 2 on a flat background - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "xTras package", ButtonData -> "paclet:xTras/guide/xTras", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}], 
+        Cell[">", "DockedLinkTrailSeparator"]}]}}, ColumnAlignments -> Left], 
+  "Metadata" -> {
+   "built" -> "{2014, 10, 30, 13, 18, 31.261238}", 
+    "history" -> {"1.2", "1.2.1", "", ""}, "context" -> "xTras`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "xTras Tutorial", "language" -> "en", "paclet" -> "xTras", "status" -> 
+    "None", "summary" -> 
+    "This tutorial describes how to construct a gauge invariant theory of a \
+free spin 2 field on a flat background. In doing so, we will recover the \
+linearized Einstein equations. Often used functions for doing field theory. \
+First of all, load the xTras package.", "synonyms" -> {}, "title" -> 
+    "Spin 2 on a flat background", "titlemodifier" -> "", "windowtitle" -> 
+    "Spin 2 on a flat background", "type" -> "Tutorial", "uri" -> 
+    "xTras/tutorial/SpinTwo"}, "SearchTextTranslated" -> ""},
+FrontEndVersion -> "6.0",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "6.0", 
+  StyleDefinitions -> "Default.nb"]
+]
+

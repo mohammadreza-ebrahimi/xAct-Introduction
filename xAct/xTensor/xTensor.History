@@ -1,0 +1,1690 @@
+=== 2001 =====================================
+
+pre 0:	*** 2001 ***
+	- notebook GS.nb
+
+=== 2002 =====================================
+
+0.0:	*** beginning 2002 ***
+	- notebooks tensors1.nb to tensors9.nb
+
+0.1:	*** 15 May 2002 ***
+	- Converted tensors9.nb into package source MTensor.nb.
+	- Dollar-dummy-indices and screening.
+	- DefManifold and DefTensor.
+	- 398 lines
+	*** 22 May 2002 ***
+
+0.2:	*** 3 June 2002 ***
+	- Changed name to exTensor.nb.
+	- Notation \[EmptyDownTriangle][Cd] prepending derivative
+	  indices.
+	- Added Throw and Catch for error control.
+	- Improved capabilities of DefDerivative.
+	- Improved function ImposeSymmetry.
+	- calc.
+	- DefMetric.
+	- Included Riemann symmetries in ImposeSymmetry.
+	- Changed name to xTensor.nb.
+	- Included Riemann, Ricci, RicciScalar, Einstein and epsilon.
+	- Option UseMetric.
+	- Lie derivatives.
+	- DefProductMetric. Note that it is a direct product.
+	- ReplaceDummies knows that only the Cd of a metric conmutes
+	  with that metric.
+	- Introduced Christoffel, Cd, Riemann, Ricci and RicciScalar of
+	  a product spacetime.
+	- Variational derivatives.
+	- 913 lines
+	*** 30 June 2002 ***
+
+0.3:	- Changed "signature of metric" to "signdet of metric" to avoid
+	  confusion.
+	- Idea: Implement coordinates as scalar fields x[A][].
+	*** 7 October 2002 ***
+
+=== 2003 =====================================
+
+0.4: 	*** 31 January 2003 ***
+	- Added 0 covariant derivative of the Einstein tensor.
+	- Generalized handling of symmetries. Now we can input any kind
+	  of symmetry. Very slow.
+	- Added data-types Tensor, Form, Spinor and CovD. Eliminated
+	  because it is not possible to associate upvalues to names.
+	- Lots of validation of input.
+	- Undef functions.
+	*** 16 March 2003 ***
+
+0.5:    *** 1 April 2003 ***
+        - Introduce function MakeRule and associated.
+	- Generalized ScreenDollarIndices and InternalToStandard to
+	  work with patterns.
+	- MakeRule detects the manifold of the pattern-indices and adds
+	  its `Q function.
+	- Added different priorities for index sorting.
+	- Depend function.
+	- Improved symmetry handling, based on papers by Portugal et al.
+	*** 11 April 2003 ***
+
+0.6:	*** 28 April 2003 ***
+	- Created package xPerm: strong generating sets for symmetries
+	  and coset representatives.
+	- Translated xPerm into C. Much faster.
+	- Recoded basic functions as FindIndices, ReplaceIndex and so
+	  on.
+	- Recoded treatment of Lie derivatives.
+	- Introduced functions IndexForm and AddIndex. Eliminated
+	  InternalForm and related.
+	- Notebook xTensorDoc.nb.
+	- FlatMetric and metrics with PD as associated derivative.
+	- CheckOptions.
+	- Converted many symbols into private symbols.
+	- Eliminated Depend and related functions.
+	- NumberOfArguments.
+	- Vectors and covectors on the tensor slots (Dir).
+	- Eliminated patterns.
+	- Introduced determinant of metric.
+	*** 9 December 2003 ***
+
+=== 2004 =====================================
+
+0.7.0:	- Eliminated IndexForm. Now formatting is done using MakeBoxes.
+	- Introduced IndexRule, IndexSet, IndexRuleDelayed and
+	  IndexSetDelayed.
+	- Rules now have Module, rather than ReplaceDummies, on the rhs.
+
+	* First public release 3 March 2004.
+	*** Version 1.1 of CVS *** 5 March 2004 ***
+0.7.1:	- TypeOf slightly improved, but still incomplete. IndexedQ now
+	  depends on TypeOf instead of FindFreeIndices.
+	- Added usage messages for DefInertHead, UndefInertHead,
+	  DefScalarFunction, UndefScalarFunction and ForceSymmetries.
+	- Added symbols DoubleRightTee for IndexSet and RightTeeArrow
+	  for IndexRule.
+	- Corrected IndexSet. The ouput must be evrhs, and not rhsb.
+	- Added more definitions for Scalar expressions.
+	- Added definition for IsIndexOf on derivatives of scalar
+	  functions.
+	- Special case added: SDI[SDI]:=SDI.
+	- Corrected ValidateDir.
+	- Added definition for a covd on a Scalar expression.
+	- Introduced function GroupScalars.
+	- Simplification now includes Simplify.
+	*** Version 1.6 of CVS *** 24 March 2004 ***
+	* Released 24 March 2004.
+
+0.7.2:	- Collected PrintAsTensor, PrintAsConstant in a single PrintAs
+	  function, sharing the name with the option PrintAs. The
+	  function PrintAs always returns strings. Extended to
+	  inert heads and scalar functions.
+	- Introduced PrintAsRiemann, PrintAsRicci, PrintAsRicciScalar,
+	  PrintAsWeyl, PrintAsEintein, PrintAsChristoffel options for
+	  DefCovD. The default values of these options contain ToSymbol,
+	  which has been promoted to public function.
+	  Function defcovd has a new argument to transmit the names.
+	- Added new input syntax for high-order derivatives. For example
+	  we can now write PD[T[-c],-a,-b].
+	- New rules for Validate on Slot, Pattern and Function
+	  expressions.
+	- Deleted name "$ReadingVerbose" from $DollarNames.
+	- Improved evaluation control of function FindSymbols. Now it
+	  has a second argument to wrap the output symbols with a
+	  function f, which could have a Hold attribute.
+	- Improved evaluation control of UnknownSymbols. It returns
+	  names of symbols without evaluating them. That is, the names
+	  of symbols at input time.
+	- Functions FindHeads and UnknownHeads have been removed. The
+	  global variable $Heads is kept.
+	- Function setargs completely rewritten to have better control
+	  on evaluation.
+	- Added more definitions for Scalar.
+	- Functions TypeOf and IndexedQ have been protected.
+	- pairsin and freesin have been improved. Now there are no
+	  problems with Dir indices and integers. Patterns are correctly
+	  recognized.
+	- Added function HeldQ and global variable $HeldNames with all
+	  symbols with a Hold attribute.
+	- InertHeads has a new option: HomogeneityType.
+	- Added functions HoldMap and xHold to improve evaluation
+	  control.
+	- Warnings from Validate are given in a different color now.
+	- ListOfFactores uses Factor instead of Expand.
+	- nosign throws an error when acting on -_Dir.
+	- Blanks are now accepted, but not Conditions.
+	- Added nopairsin.
+	- SetIndexSortPriorities slightly simplified.
+	- Introduced function IndexName. FindIndices and ReplaceIndex
+	  completely rewritten.
+	- IndexSet et al. rewritten.
+	- Function Validate reorganized.
+	*** Version 1.7 of CVS *** 15 April 2004 ***
+	* Released 15 April 2004.
+
+0.7.3:	- Expanded definitions of ManifoldOfIndex. Now there is a
+	  function xIndexQ.
+	- Rewritten handling of symmetries of an object. Now there is
+	  a structure Symmetry and explicit slots. Function
+	  JoinSymmetries. Head TensorTimes. Eliminated ToNumeric and
+	  ToIndicial.
+	- ToCanonical on MonomialTimes has been accordindly rewritten.
+	- Verbose messages start with the name of the function that
+	  outputs them.
+	- SortInClasses replaced by SplitSort.
+	- Rewritten handling of symmetries of covd objects. Function AD.
+	  Eliminated symPD and the like.
+	- SymmetryOf now acts on Commuting expressions.
+	*** Version 1.8 of CVS *** 20 April 2004 ***
+	- Eliminated ObjectQ.
+	- Eliminated HomogeneityType. InertHeads have one argument.
+	- Eliminated old FindIndices1.
+	- $Coordinates is now CoordinatesOfManifold /@ $Manifolds.
+	- TypeOf rewritten. Added head Type.
+	- Added function RD to replace the list of a Module construct.
+	- Corrected SymmetryOfObject on derivatives.
+	*** Version 1.9 of CVS *** 23 April 2004 ***
+	* Released 23 April 2004.
+
+0.7.4:	- Constant renamed to ConstantSymbol. Now Constant means either
+	  a constant-symbol or a numeric object. Added ConstantQ.
+	- Added global variables $ProtectNewSymbols and $HoldIndices
+	  and options ProtectNewSymbol and HoldIndices for the
+	  Def-commands. Added many lines dealing with protected
+	  objects.
+	- Separated xPerm`Disclaimer and xTensor`Disclaimer.
+	- x-indices renamed as g-indices (from "generalized indices").
+	- ValidateSymbol now checks that the symbol has no ownvalues.
+	- Added subsubsection analyzing $HeldNames.
+	- Changed definitions for Scalar.
+	- Found a simpler way to deal with xHold and company. Not used
+	  yet.
+	- Added more usage messages.
+	- Eliminated calc and its options.
+	- nosign eliminated in favor of up.
+	- Eliminated MapOntoIndices.
+	- HoldReplaceIndex rewritten for derivatives.
+	- Now Dir objects have up/down flag.
+	- Introduce IncreaseSlots to work with held slots.
+	*** Version 1.10 of CVS *** 4 May 2004 ***
+	- Added action of Validate on OverDot expressions.
+	- Added variable xTensor`$xPermVersionExpected to check that
+	  we are working with the right version of xPerm.
+	- The message General:shdw is turned off while defining the
+	  Disclaimer message.
+	- Corrected SymmetryOfObject acting on Commuting expressions.
+	  Now the code is much simpler, using the new function
+	  CommutingCycles.
+	- ToCanonical does not act on rules to avoid breaking fine tuned
+	  rules.
+	*** Version 1.11 of CVS *** 1 June 2004 ***
+	- Changed version number and date.
+	*** Version 1.12 of CVS *** 3 June 2004 ***
+	* Released 3 June 2004.
+
+0.7.5:
+	- Added BasesOfManifold, storing the list of bases defined for
+	  a given manifold.
+	- Added ChartsOfManifold, storing the list of charts defined for
+	  a given manifold.
+	- Added DefaultBasisOfManifold and DefaultChartOfManifold.
+	  The default for both is DefaultChart.
+	- Defined ColorIndex, printing basis-indices according to the
+	  color associated to its basis.
+	- Introduced symbol Basis, with some of its properties.
+	- Added DerQ, identifying CovDs, LieDs and OverDots.
+	- Changed Coordinate* by CoordinateNumber*.
+	- Improved addIndex functions to deal with colored indices.
+	- UltraindexOf now admits both Dir[expr] and expr.
+	- Added a few lines concerning Torsion. Far from finished.
+	- Simplified MakeBoxesCovD.
+	- Added Bracket and main properties: linearity, derivations,
+	  MakeBoxes rules and validation.
+	*** Version 1.13 of CVS *** 16 June 2004 ***
+	- Fixed ToCanonical on Scalar expressions.
+	- Small changes in Info section.
+	- Changed UltraIndex by Ultraindex.
+	- Eliminated DefaultBasisOfManifold and DefaultChartOfManifold.
+	*** Version 1.14 of CVS *** 3 July 2004 ***
+	- Changed IndexQ by AIndexQ. Introduced BIndexQ and DIndexQ.
+	  Introduced symbols AIndex, BIndex and CIndex.
+	- Added definiton for FindIndices on Bracket expressions.
+	- Added more properties for Basis.
+	- upQ (downQ) on Blank expressions now gives True (False).
+	- ManifoldQ and co. have now attribute HoldAll. This removes
+	  some errors in the formatting process.
+	- Improved function ColorString.
+	- Validate now returns the input when it is correct. This
+	  allows us to eliminate AutomaticValidate and ManualValidate.
+	  The user now directly interacts with the variable $Pre.
+	- Eliminated Catch, but not the Throw messages. Now any message
+	  goes uncatched to the highest level.
+	- Introduced UncatchedValidate. Now Validate is just
+	  Catch@UncatchedValidate.
+	- Fixed (still untested!) small problems in the validation
+	  routines.
+	*** Version 1.15 of CVS *** 11 July 2004 ***
+	- Added inert head ERROR
+	- Now the Validation routines hold their arguments.
+	- Added Parameters and corresponding functions.
+	- Now tensors can depend upon parameters.
+	- Added ParamD and its definitions.
+	- Added *** section *** lines.
+	- Eliminated nonused Find functions.
+	- Several functions modified so that they deal correctly with
+	  the basis indices.
+	- Small changes in the info section.
+	- StructureOfManifold changed by SubmanifoldsOfManifold.
+	- Added SupermanifoldsOfManifold.
+	- MetricOfManifold changed by MetricsOfManifold, which now
+	  contains a list of metrics. The first one is the default
+	  metric, used to raise and lower indices. Other metrics will
+	  not be contracted.
+	- Added functions MasterQ, MasterOf and SlavesOf to control
+	  which symbols (slaves) are undefined if and only if other
+	  symbol (the master) is undefined. Added function MasterSlave.
+	- Function tilde changed to Tilde. Function removesymbol changed
+	  to RemoveSymbol. Function lastindex changed to LastIndex.
+	- Added functions xUpSet, xUpAppendTo and xUpDeleteCasesTo.
+	- Fixed problem with ReplaceDummies on basis indices.
+	- Fixed problem with formatting of basis-indices in Prefix
+	  notation for derivatives.
+	- Changed "slave" by "servant".
+	- Eliminated BasesOfManifold and ChartsOfManifold. Now
+	  registering is done directly on $Bases and $Charts.
+	- Messages of ColorString are now given using nouse rather
+	  than warning.
+	- Introduced private list Qfunctions.
+	- Added warning messages when up acts on patterns.
+	- Added IndexType.
+	- Added FirstMetricOfManifold.
+	- Changed symbol All to AllManifolds.
+	- Improved Trace functions.
+	*** Version 1.16 of CVS *** 9 August 2004 ***
+	- Added some more usage messages.
+	- Solved problem in HoldReplaceIndex: Unevaluated was missing
+	  in the Thread computations.
+	- Added private variable $xTensorPrivateNames.
+	- Eliminated CovDsOfManifold.
+	- Added function ObjectsOf, DependenciesOf, ManifoldsOf and
+	  ParametersOf.
+	- DefaultChart now has associated color blue.
+	- Modified definitions of derivatives on delta and eta tensors
+	  to avoid the use of BlankSequence.
+	- Introduced section "Simple types" containing inertheads,
+	  scalarfunctions, constantsymbols and parameters.
+	- Index formatting much simplified: patindex eliminated.
+	  Introduced IndexForm, that controls all formatting options.
+	  The function addindex is much simpler now.
+	- Introduced functions AtPoint and EvaluateAtPoint, with some
+	  basic definitions.
+	- SetIndexSortPriorities now allows lexicographic as first
+	  priority.
+	- xTensor now expects version 0.4.4 of xPerm.
+	- Added option Notation of ToCanonical.
+	*** Version 1.17 of CVS *** 10 September 2004 ***
+	- Eliminated options PrintAsRiemann, etc from DefCovD. Now there
+	  are two functions dealing with that problem: Give Name and
+	  GiveOutputName. There are also global symbols Torsion,
+	  Riemann, Ricci, RicciScalar, Einstein and Weyl.
+	- Eliminated argument names from defcovd.
+	- Introduced TorsionOfCovd and CurvatureOfCovd.
+	- Introduced BIndexQ.
+	- Solved torsion cases of defcovd.
+	- Introduced TorsionToChristoffel.
+	- Eliminated option CoordinateBasis.
+	- Simplified treatment of symmetries.
+	- Symmetries of tensors are now given as StrongGenSets.
+	*** Version 1.19 of CVS *** 19 October 2004, AEI ***
+	*** Version 1.20 of CVS *** 20 October 2004, AEI ***
+	- Introduced function ReplaceDummiesInModule and eliminated RD
+	- xUnique replaced by xPat and xDum. RPrules changed.
+	- Recoded IndexSet, IndexRule, IndexSetDelayed and
+	  IndexRuleDelayed. There is more coherence among them and the
+	  RD problem is solved.
+	- Metric[a,-b] is automatically translated into delta[a,-b].
+	  Function MetricToDelta has been eliminated. Several
+	  definitions concerning the metric now need HoldPattern.
+	- ManifoldsOfTensor modified to return also the supermanifolds
+	  of a manifold. This solves a problem removing product metrics.
+	*** Version 1.21 of CVS *** 25 October 2004, AEI ***
+	- Package ExpressionManipulation is now loaded.
+	- Use ColorPositions from ExpressionManipulation. Introduced
+	  ColorTerms and ColorPositionsOfPattern.
+	- Introduced variable $EMNames.
+	- Introduced types Type and AbstractIndex.
+	- Functions FindTensors, FindForms, FindSpinors and FindCovDs
+	  replaced by the single function FindAllOfType.
+	- CommuteCovDs replaced by SortCovDs.
+	- New function CommuteCovDs now has a new argument with the
+	  indices to commute.
+	- Introduced functions Symmetrize, Antisymmetrize,
+	  PairSymmetrize and PairAntisymmetrize.
+	- Introduced function ContractMetricOverDerivatives.
+	- Indices now has their own type and objects cannot share a
+	  symbol with indices.
+	- Eliminated functions xDum, ReplaceDummiesInModule.
+	- Simplified IndexRule, IndexSet, IndexRuleDelayed and
+	  IndexSetDelayed.
+	- sortdeps changed to SortDependencies.
+	- IndexForm on symbols now uses PrintAs rather than ToString.
+	- DefTensor slightly rewritten.
+	- Added conditions to MakeRule.
+	*** Version 1.22 of CVS *** 16 November 2004 ***
+	- Changed context xTensor` to xAct`xTensor`
+	- Changed and added many usage messages.
+	- Introduced type AbstractIndex and related functions.
+	- Introduced $AbstractIndices, which is now a single list
+	  containing the equivalent of the previous Flatten@$Indices.
+	- Functions Tilde and ColorString recoded in a safer way.
+	- DefScalarFunction now has a second argument with the number of
+	  arguments (stored in NumberOfArgumentsOf).
+	- BIndexQ recoded to consider missing cases.
+	- Allowed more general priority combinations for IndexSort.
+	  Introduced private function validpriority.
+	- Introduced RegisterIndexOnManifold.
+	- Modified DefBasis/DefChart. Now the parallel derivative is
+	  defined by DefBasis, and not by DefChart.
+	- Recoded ContractBasis/SeparateBasis/ChangeBasis.
+	- Modified AtPoint. Still in progress.
+	*** Version 1.23 of CVS *** 6 December 2004, LSU ***
+	- Removed wrong rule for Lie derivatives.
+	- Added missing ReplaceDummies in LieD[v,der][expr].
+	*** Version 1.24 of CVS *** 8 December 2004, LSU ***
+	* Released 8 December 2004.
+
+=== 2005 =====================================
+
+0.7.6:
+	- Function SymmetrySlotsOfTensor made private. It is only used
+	  by SymmetryEquivalentsOfTensor, which is already private.
+	- Function SortDependencies made private.
+	- Organized treatmente of PrintAs using the function SetPrintAs.
+	- Introduced global variable $WarningFrom to get an idea of
+	  where the warning-messages are coming from.
+	- Functions up, IndexName moved in ScreenDollarIndices to get
+	  less warning messages.
+	- ReplaceOneIndex recoded on patterns. Now it only gives a
+	  warning message if the pattern is actually replaced, and not
+	  if a list of rules is attempted on the pattern.
+	- Several sections reordered.
+	- Introduced commands BeginExamples[] and EndExamples[] to
+	  separate the Private and the Global contexts. Introduced
+	  abbreviation xATP for xAct`xTensor`Private.
+	*** Version 1.25 of CVS *** 4 March 2005 ***
+	- Recoding of the canonicalization of monomials containing
+	  a metric and derivatives which are not the corresponding
+	  Levi-Civita derivative. This is done through extensive use
+	  of ContractMetricOverDerivatives.
+	- Full recoding of the ContractMetric section. Essentially the
+	  number of definitions has doubled to ensure that the second
+	  index of the metric factors is always contracted before the
+	  first index.
+	*** Version 1.26 of CVS *** 6 March 2005 ***
+	- Corrected function careQ, which decides the canonicalization
+	  algorithm to be used.
+	*** Version 1.27 of CVS *** 7 March 2005 ***
+	* Released 7 March 2005.
+
+0.7.7:
+	*** Version 1.28 of CVS *** 13 April 2005 ***
+	- Recoded all defcovd functions in just one defcovd function.
+	  This saves more than 200 lines of code in xTensor.m and is
+	  easier to read.
+        - Introduced functions SupermanifoldQ and DisjointManifolds,
+	  replacing the uggly connectedmanifolds.
+	- Corrected brackets of DerQ in DependenciesOf.
+	- Corrected function ManifoldsOfTensor, introducing a Flatten
+	  head.
+	- Introduced option OrthogonalTo for DefTensor and DefCovD.
+	- Introduced private function MakeOrthogonalDerivative.
+	- Eliminated function SymmetrySlotsOfTensor. It was only being
+	  used in SymmetryEquivalentsOfTensor, and was not really
+	  needed.
+	- Introduced option ProjectedWith for DefTensor and DefCovD.
+	- Introduced option Vanishing for DefTensor.
+	- Eliminated HoldIndices and $HoldIndices.
+	- Added definition for ToCanonical on inert-head expressions.
+	- Added option Linear for DefInertHead.
+	- Started section of xTensorDoc on induced metrics.
+	*** Version 1.29 of CVS *** 30 June 2005 ***
+	* Released 30 June 2005.
+
+0.7.8:
+	- Added function JustOne.
+	- Added head IndexList, which replaces a List of indices,
+	  internally. Many functions are modified to work with
+	  IndexList rather than List.
+	- Added ValidateGIndex and ValidateIndexList.
+	- DisjointManifoldsQ deprecated. Introduced function
+	  ZeroDerivativeQ.
+	- Added function DisorderedPairQ, to replace Not@IndexOrderedQ.
+	- Changed = by := in ProductMetricRules.
+	*** Version 1.30 of CVS *** 18 July 2005 ***
+	- Added ZeroDerivativeQ[_,Basis]:=0 to avoid computing
+	  DependenciesOfTensor[Basis].
+	- Recoded function ExpandInBasis.
+	- DerQ now only recognizes parametric derivatives with respect
+	  to a single parameter. This is because DerQ is mostly used to
+	  implement the Leibniz rule, which is only valid for single
+	  derivatives.
+	- Eliminated functions TorsionOfCovD and CurvatureOfCovD.
+	- Modified IsIndexOf to admit {a,DefaultChart} when looking for
+	  {a} and viceversa.
+	- Added ManifoldOfBasis[DefaultChart]^=AllManifolds.
+	- Added automatic contraction of Basis elements belonging to the
+	  same basis.
+	- All derivatives of admetric are now automatically expanded
+	  into derivatives of the metric.
+	- Added an important missing case in the function AD.
+	- Added ContractBasisOverDerivatives and
+	  ChangeBasisOverDerivatives.
+	- Added RicciRotation coefficients. Ongoing work. Functions:
+	  PDOfBasis, ChristoffelOf, StructureOfRicciRotation,
+	  RicciRotationToChristoffel, ChristoffelToRicciRotation,
+	  RicciRotationQ, UseRicciRotation.
+	- Added signs RiemannSign and RicciSign.
+	- Solved wrong index positioning in the Christoffels for the
+	  function CovDToChristoffel.
+	- Code for ChangeCovD is now legacy code.
+	*** Version 1.31 of CVS *** 31 July 2005 ***
+	- ManifoldsOf* changed again: now they do not return the
+	  sub/supermanifolds of the actual manifolds. That was a source
+	  of confusion and errors in ZeroDerivativeQ.
+	- Added new definition for AD: now two (non-torsional)
+	  derivatives of a scalar do generate a symmetric component
+	  in SymmetryOf.
+	- Add head LI (from Label Index) to include a fifth type of
+	  g-index. It is very similar to Dir, but without any added
+	  meaning. There is the head Labels, which is defined as the
+	  manifold of all LI indices (dirty trick).
+	- All patterns _?xTensorQ and co. converted into
+	  x_Symbol?xTensorQ and co.
+	- A message Validate::invalid from UltraindexOf is now not
+	  thrown because it was halting the ouput from Information
+	  concerning definitions associated to derivatives.
+	- Added definitions for Trace*Dummy on lists. It was working
+	  improperly because lists were treated as a single object.
+	- Added function STFPart to compute the symmetric-tracefree
+	  part of any tensor in any dimension. There are terribly many
+	  symmetrizations to do, so that ToCanonical has been removed
+	  from Symmetrize to speed up the computation.
+	- Added function SetComponents to compute all components of
+	  a tensor in a given basis (perhaps different for different
+	  indices) from an arbitrary expression.
+	- ZeroDerivativeQ now remembers its results on tensors to avoid
+	  repeating the computation many times.
+	- Added function makepattern to eliminate spurious messages from
+	  the formatting of the Info information.
+	- The ExtrinsicK tensor is removed when the induced metric is
+	  removed.
+	- Removed function ReorderDummies. It was only used as a last
+	  step in ToCanonical and was giving problems when used with
+	  several manifolds. Now its role is played by SameDummies,
+	  which is much safer.
+	- SymmetryOfTensor changed to SymmetryGroupOfTensor. This is
+	  to avoid confusion between the (very different) outputs of
+	  functions like SymmetryOf and the old SymmetryOfTensor.
+	- Changed output symbol of slot from # to a dotted-square to
+	  avoid confusion with the output of Slot.
+	- Function displace changed to DisplaceSlots.
+	- Functions SymmetryOf / SymmetryOfObject / symmetryof
+	  rewritten into SymmetryOf / CovDSymmetryOf, which is simpler
+	  to understand because it separates the difficult issues
+	  concerning derivatives from SymmetryOf.
+	- TermTimes changed to SortedTermTimes and MonomialTimes changed
+	  to SortedMonomialTimes. Removed some unnecessary definitions
+	  concerning canonicalization.
+	*** Version 1.32 of CVS *** 7 October 2005 ***
+	- BIndexQ checks that the basis integer is actually a
+	  coordinate-number.
+	- Treatment of Scalar expressions completely changed. Now it is
+	  done as part of the normal process of canonicalization and
+	  not independently by SimplificationScalar. The definition of
+	  Simplification is now simply Simplify@ToCanonical.
+	- Function GroupScalars has been rewritten and it is now called
+	  PutScalar. Functions BreakScalars and NoScalar simplified.
+	- BreakScalars is not now a part of Simplification.
+	- Introduced EmptySymmetry.
+	- Eliminated xsort. Definitions assigned to xSort directly.
+	*** Version 1.33 of CVS *** 13 October 2005 ***
+        - Eliminated "third element" of basis indices.
+        - Temporary recoding of ContractBasis/ChangeBasis. The
+          True/False switch has been moved to the head of the C*Basis1
+          functions.
+        - Section on bases and charts moved to a the new package
+          xCoba.nb.
+        - Added automatic rules for the multiplication of two epsilon
+          tensors.
+        - Added EpsilonSign.
+        - Added rules etaUpToepsilon, etaDownToepsilon, epsilonToetaUp
+          and epsilonToetaDown. They requiere one argument: a metric.
+        - Added possibility of defining a manifold with a
+          constant-symbol as dimension.
+	- Recoded function AD. Not it is simpler to understand and more
+	  general.
+	- Added one more definition for SortedTermTimes, concerning its
+	  product with a numeric quantity.
+	- Recoded generic case of the functions M`Q. The previous coding
+	  was too slow when the list of computer-generated indices was
+	  too long. Now it is much faster, but there are remembered
+	  upvalues for M`Q for all dollar-indices. Thanks to Alfonso
+	  Garcia-Parrado for pointing out this problem.
+
+=== 2006 =====================================
+
+	*** Version 1.34 of CVS *** 4 January 2006 ***
+	*** Version 1.35 of CVS *** 9 January 2006 ***
+	- Added function IndexSame to detect that {A,DefaultChart} and
+	  {A} are actually the same index. Currently only used in the
+	  function pairsin.
+	- Replaced Expand[...] by FixedPoint[Expand, ...] (twice) in
+	  the canonicalization routines, to avoid generating new
+	  sums by automatic expansion of products, like in a*b*c
+	  becoming a*(d+e) by expansion of b*c.
+	- Added Factorial as a scalar-function by default.
+	* Not released.
+
+0.8.0:
+	- The function MonomialsOfTerm now checks that the
+	  scalar-functions actually contain indexed objects before
+	  converting them into separate monomials.
+	- The built-in Information is modified to avoid the context
+	  xAct`xTensor`Private` crop in its output.
+	- The expected version of xPerm is now a minimum version and
+	  not the only possible version. We simply compare dates.
+	- Introduced new section on Mathematical Input, dealing with
+	  the mathematical expressions themselve, at a low level
+	  (terms, factors, expansions and so on).
+	- Any basis-index {i, DefaultChart} is automatically converted
+	  into {i}.
+	- PatternQ changed to PIndexQ which is much more careful with
+	  the types of pattern that xTensor accepts.
+	- Simplified programming of FindIndices.
+	- The pair IndexPair/UpIndexPair replaces the function
+	  horizontal avoiding duplication of messages from up.
+	- Simplified Hold structure of ScreenDollarIndices.
+	- Function defdeltaeta broken in two parts: defdelta and defeta.
+	  The former is still associated to a manifold. The latter is
+	  now associated to a manifold and a chart.
+	- Added functions xTensorFormStart and xTensorFormStop which
+	  can start and stop object formatting.
+	- Many Evaluate heads have been eliminated by wrapping modules
+	  with With.
+	- Modified MakeRule to work with component indices. Simply added
+          IndexName at definition of the lists of indices using the
+	  fact that the replacement functions work on abstract indices.
+	- GiveName replaced by GiveSymbol and GiveOutputName replaced by
+	  GiveOutputString.
+	- Reorganized the check for zero derivatives due to action on
+	  a different manifold. It was automatic. Now it can be
+	  automatic or user-driven. New functions CheckZeroDerivative
+	  and similar.
+	- Removed special version of ValidateCovD for directional
+	  derivatives. The generic definition was also valid there.
+	- Simplified formatting of derivatives. There was a third
+	  redundant case.
+	- Rewritten whole treatment of Christoffel tensors.
+	- Added function BracketToCovD.
+	- Solved small problem in the ordering of component indices.
+	  Index -2 was being sorted before index -1.
+	- Inert-heads can now have many arguments, but only the first
+	  one must be tensorial. The tensorial properties of the whole
+	  expression are those of the first argument.
+	- Now UndefMetric removes the symbol, without need of
+	  UndefTensor.
+	- Added function FindRepeatedIndices. Modified ToCanonicalOne
+	  to handle repeated indices (only in the xPerm code; not in
+	  xperm.c). Uses the head RepeatedSet imitating DummySet.
+ 3 June	- Fully recoded xSort. Now it uses a parser (Identify and
+	  MarkBlocked). ObjectSort is now much simpler and clear.
+	  Changed ToCanonical accordingly. SymmetryOf not changed.
+	- Added switch $CommuteFreeIndices.
+15 June	- IndexList, FindIndices, FindFreeIndices, FindDummyIndices
+	  made public.
+16 June	- Automatic conversion of the delta of a product manifold into
+	  the delta of one of its manifolds or zero.
+17 June	- Added function SeparateDir.
+	- ReplaceOneIndex now replaces blocked indices, and basis
+	  indices as a whole.
+18 June	- Added ChangeFreeIndices and EqualExpressionsQ to compare
+	  two expressions with different free indices.
+24 June - Fully updated xTensorDoc.nb.
+25 June - Reintroduced BreakInMonomials and Monomial.
+26 June - Further development of frozen metrics.
+27 June - Solved problems in ToCanonicalDers. Now it directly uses
+	  ChangeCovD. Needs generalization for non-CovD derivatives.
+	- Added function LinearInertHeadQ. Now deltas can be contracted
+	  through linear inert-heads.
+ 4 July - ToCanonical and ContractMetric threaded on equations (Equal).
+	- For induced metrics we cannot use d(g^-1) = -(g^-2)dg
+ 6 July	*** Version 1.37 of CVS *** 6 July 2006 ***
+	* Released 6 July 2006.
+
+0.8.1 and 0.9.0:
+23 July	- Added a definition on empty lists for ChangeFreeIndices to
+	  avoid EqualExpressionsQ crashing when comparing scalars.
+	- Added option Verbose to NewIndexIn.
+30 July	- Symmetry checks in DefTensor are now more intelligent.
+ 1 Aug  - EqualExpressionsQ now accepts indices of several manifolds.
+ 3 Aug  - Removed association of coordinate-numbers to manifolds.
+          Removed type CoordinateNumber: also removed CoordinateNumberQ
+          and $CoordinateNumbers. Function ManifoldOfCoordinateNumber[i]
+	  converted into private function ManifoldOfCIndex[i, basis]
+	  only called by ManifoldOfIndex. 
+ 4 Aug  - Added global variable $CindexForm to print cnumbers using
+	  the names of the coordinates instead.
+	- Two manifolds cannot share a cnumber in their DefaultChart's.
+ 6 Aug	- Only left CNumbersOf[basis, manifold] or CNumbersOf[basis].
+	  Now "cnumbers" are associated to bases. CIndexQ simplified.
+	- Removed disjointmanifolds, redundant with DisjointManifoldsQ.
+18 Aug	- Changed meaning of the DefaultChart. Now it represents a
+	  particular chart which has been already defined, and not an
+	  abstract chart always present. This requires the corresponding
+	  change in xCoba.
+	- Added type VectorBundle and associated objects. In progress.
+ 3 Sep	- Eliminated TypeOf, NonIndexedQ, NonIndexed, Mixed, only used
+	  by the old canonicalizer.
+ 7 Sep	- Dropped definition of upIndex on and integers, because it is
+	  a particular case of the general definition.
+	- Removed DefaultChart. I tried to avoid it, but it was always
+	  a headache.
+	- Created a single delta tensor, instead of different delta
+	  tensors for different vector bundles. Big change!
+	- Introduced the Lovelock generalized delta tensor Gdelta.
+	- The objects etaUp, etaDown now only depend on a basis. They
+	  must be defined when defining a basis, and not with the
+	  manifold or the vector bundle.
+14 Sep	- Completed function DependenciesOf. Now the result is not
+	  sorted according to SortDependencies.
+ 4 Oct  - Added DependenciesOf[parameter]={parameter}.
+ 6 Oct  - Removed SupermanifoldQ. Redundant with SubmanifoldQ.
+19 Oct  - Changed definition sortder[ParamD[_]] to sortder[ParamD[__]]
+	  to consider multiple derivatives. (Thanks to Guillaume Faye
+	  for pointing out this problem.)
+ 1 Nov  - Added driver ContractMetric for CurvatureRelations.
+	- Added MetricOfCovD[PD] ^= Null.
+	- Corrected Lie derivatives on metric and epsilon tensors
+	  (thanks to Alfonso Garcia-Parrado for pointing this out).
+        - Corrected norm factors in InducedDecomposition
+	  (thanks to Alfonso Garcia-Parrado for pointing this out).
+ 4 Nov	- Removed SupermanifoldsOfManifold. It is not used.
+	- VectorBundle changed to VBundle and vb changed to vbundle.
+	- Changed Module to With in some Module[{servants=...}, ...].
+ 5 Nov	- Changed priorities of IndexSort: free / lexicographic / up .
+	- Rewritten IndexSort (which now uses Block instead of Module),
+	  and IndexSortPriorities (which has been decomposed in several
+	  pieces). Easier to understand and probably faster.
+	- Added subsections "End of section" to have full control on the
+	  created symbols.
+	- $ComputeNewIndices and $FindIndicesAcceptedHeads made public.
+	- Symbol Any changed to AnyIndices and made public because the
+	  user could ask for FindIndices[0].
+ 6 Nov	- Private function setorthogonal converted into public function
+	  SetOrthogonal.
+	- eta tensors moved to xCoba because they always depend on a
+	  basis choice.
+ 8 Nov	- Symbols delta, Gdelta, Basis, PD are now servants of symbol
+	  Symbol, and hence cannot be undefined.
+ 22 Nov	*** Version 1.38 of CVS *** 22 Nov 2006 ***
+	* Released 22 Nov 2006 with date 1 Nov 2006. Version 0.8.1.
+
+ 23 Nov *** Version 1.39 of CVS *** 23 Nov 2006 ***
+ 27 Nov - Fixes for several small bugs found by Alfonso.
+ 28 Nov - Fixed bug: there was a MetricOfCovD missing in
+          makeChangeRicciRules. Thanks to Gilles Exposito Farese for
+	  spotting this.
+	- STFPart now uses FindFreeIndices instead of FindIndices
+	  because I think it is not possible to do it consistently on
+	  dummies. It also accepts a third argument to specify the
+	  indices to symmetrize.
+	- Added missing usage messages for public functions.
+ 4 Dec  - Corrected LieD of projected epsilon tensor. Thanks to Alfonso
+	  for spotting this.
+	* Released 4 Dec 2006. Version 0.9.0.
+
+0.9.1:
+ 5 Dec  - Added SignatureOfMetric because it is needed when computing
+	  the values of a normal or an orthonormal metric. We use the
+	  slot of signet at definition time, but now with a list of
+	  three elements (numbers of +1's, -1's and 0's).
+	- Functions epsilonToeta* and viceversa moved to xCoba.
+ 8 Dec	- Added Hold during the construction of the rules in MakeRule.
+28 Dec	- DaggerIndex on basis indices.
+
+=== 2007 =====================================
+
+ 2 Jan	- MetricSign removed. Superceeded by SignatureOfMetric.
+ 2 Jan  - Code of IndexRuleDelayed and IndexSetDelayed rewritten in
+	  order to handle automatically the problem of conflicting
+	  dummies on the RHS.
+ 3 Jan	- Added option ExtendedFrom to DefCovD.
+	- Added SymmetryOfMetric to handle antisymmetric metrics.
+ 4 Jan	- Added function TransposeDagger.
+	- Added value Hermitian for option Dagger of DefTensor.
+ 9 Jan	- Rewritten part of the code of MakeRule to avoid unwanted
+	  evaluations of the LHS and RHS of the rules. There are still
+	  some checks where those expressions are evaluated.
+	- Rewritten headers of the functions defcovd to transfer part
+	  of the Module variables to With constructs. In particular this
+	  improves the handling of the indices i1, i2, ...
+10 Jan	- Solved a problem in Identify, related to recursive
+	  identification of Plus expression within TensorTimes.
+11 Jan	- Improved DependenciesOfIndex. Added AnyDependencies to avoid
+	  having the default for DependenciesOf as {}, which was
+	  making certain things to be automatically killed by ders.
+	- Added possibility for bases to depend on both manifolds and
+	  parameters. See DependenciesOfBasis in xCoba.
+	- Recoded treatment of Dagger. Eliminated the ugly case
+	  Dagger->Null.
+15 Jan	- Removed optional argument "message" from ValidateDir.
+	- Modified manipulation of LHS minus signs in MakeRule.
+	*** Version 1.40 of CVS *** 15 Jan 2007 ***
+	* Released 15 Jan 2007. Version 0.9.1.
+16 Jan	- Corrected CheckRepeated on AnyIndices cases.
+	- Corrected expandGdelta.
+	- Changed sign of formula for LieD on epsilon tensors.
+	- Changed DaggerIndex on basis indices. Now we use a function
+	  in xCoba called DaggerCNumber.
+17 Jan	- Added some Scalar1->Times rules in ToCanonical to remove some
+	  Scalar1 heads left.
+	* Second release 17 Jan 2007. Version 0.9.1.
+18 Jan	- Changed function DaggerCNumber by DaggerBCIndex, more general.
+29 Jan	- NonIndexedScalarQ now detects sums of nonindexed objects.
+	- SymmetryOf now tries to remove nonindexed objects before
+	  going into its generic definition.
+	* Third release 29 Jan 2007. Version 0.9.1.
+
+0.9.2:
+	- Added function IndicesOf, the new user driver for index
+	  selections.
+21 Feb	- Changed Sort[...] by Union[upIndex/@...] in the computation of
+	  LexicSorted in IndexSort. Now the c-indices are sorted
+	  according to their absolute value in "lexicographic" priority.
+	- FindIndices on a List is computed as FindIndices on Plus.
+26 Feb	- Added WeightOfTensor[tensor_?xTensorQ]:=0 definition.
+1 Mar	- Now Slot and SlotSequence indices are allowed, because they
+	  are used by Coba in xCoba. Modified UpIndexQ and IndexForm
+	  accordingly.
+4 Mar	- Changed output of covd-dependent objects, like Christoffel,
+	  Riemann, etc.
+5 Mar	- ToCanonical generalized to admit not only a-index dummies,
+	  but also b-index dummies.
+	- Added missing definition for SymmetryOf on Bracket objects.
+	- Added another definition for EmptySymmetry, with 2 arguments.
+6 Mar	- Functions addhead need evaluation of their arguments to
+	  canonicalize scalars through ToCanonicalScalar. First
+	  argument (with HoldFirst) cannot be used, so it is now
+	  redundant.
+7 Mar	- Added check of general Bianchi identities (with torsion) to
+	  xTensorDoc.nb.
+20 Apr	- Added function SeparateMetric, inverse to ContractMetric.
+	- Moved special basis AIndex from xCoba to xTensor, because it
+	  is used by SeparateMetric.
+22 Apr	- Moved SetNumberOfArguments, ToSymbol, Tilde, Underline,
+	  ColorString to xCore. Moved also the issue of warnings and
+	  messages.
+2 May	- Added option Info to control all output info messages at
+	  definition time.
+8 May	- Rereading of xTensor.nb. Rerun all examples.
+9 May   - Changed notation of bc-indices: {a, basis} and {-a,-basis}
+          for b-indices and {1, basis} and {1, -basis} for c-indices.
+11 May  - Added function xCollect. Not finished.
+15 May  - Reorganized welcome messages in all of xAct.
+	- Added value False for option Info.
+20 May  - Reorganized section on induced derivatives.
+21 May	- Added option FrobeniusQ for DefTensor. Still not in use by
+          the induced metric stuff.
+	- Commented out definition of covd on Scalar objects because
+          it leads to infinite recursion after using
+          InducedDecomposition.
+22 May  - Lots of changes concerning induced metrics. Essentially the
+          system is now far more intelligent, though slower. In
+          particular ToCanonical and ContractMetric are now fully
+          aware of induced metrics.
+23 May  - Reviewed xTensorDoc.nb. It has 1000 cells now!
+        - Rewritten part of the function ReplaceDummies.
+        - $ComputeNewIndices changed to $ComputeNewDummies.
+4 Jun	- Added private function RemoveDollarIndices.
+6 Jun   - nodollar is now handled only through upvalues for indices.
+        - Modified function UnsortedUnion to skip the 100-times problem.
+29 Jun	- Extended concept of inert-head.
+	- Constant-symbols can now be real, imaginary or complex.
+	- Some functions of section 1 of xTensor moved to xCore.
+	- Reviewed sections 1-5 of xTensor.
+30 Jun	- Added a first version of SplitIndex.
+1 Jul	- Improved treatment of contexts of capitals C,D,K,N,O.
+	- Started function Tex, based on strings.
+	- Reviewed sections 6-9 of xTensor.
+2 Jul   - Started review of Symmetry section. ToCanonical reorganized.
+5 Jul	- Solved problem with CommutingObjects and metrics blocked by
+          non-compatible derivatives.
+10 Jul	- Added two InversePerm functions before and after calling
+	  CanonicalPerm to change xPerm to Renato's notation.
+	- Further reorganization of the properties of inert heads.
+	- Another revision of xTensorDoc.nb.
+11 Jul	- Finished work on inert heads. It is clear that it can be done
+	  better.
+	- Reorganized special canonicalization algorithm for
+	  non-compatible derivatives. Now the process is clearer.
+	  Removed AlreadyCanonicalized.
+29 Jul	- Added $SymmetryCommuteCovDsOnScalars to stop commutation of
+	  covds on scalars in DInvar.
+	- Added IndexRange to avoid typing lots of indices at
+	  definition time.
+7 Aug	- Removed every mention of spinors in xTensor.
+10 Aug	- The Ashtekar notation for densities is now an option, and
+	  not compulsory, to simplify tensor formatting, and to allow
+	  greater flexibility.
+	- Option Weight renamed WeightOfTensor. Weight removed.
+	  Weights are now linear combinations of bases.
+13 Aug	- Pattern _Symbol?ScalarFunctionQ changed to _?ScalarFunctionQ
+	  to allow the InChart[__][__] functions of xCoba.
+	- Created SequenceBox to format sequence of arguments.
+14 Aug	- ChangeCovD does not see basis-indices anymore.
+	- Introduced public function SetCharacters.
+	* Released 15 August 2007. Version 0.9.2.
+
+0.9.3:
+16 Aug	- Dropped any mention to density weights in xTensorDoc.nb.
+	- FrozenMetricQ sends (but doesn't throw) messages.
+	- Added special PD-PD definition in changeCovD.
+17 Aug	- All derivatives are now mapped over lists.
+	- Fixed small bug in ContractMetric.
+3 Sep	- Rewritten SameVBundleRules. Now SameDummies is much faster.
+	- Reintroduced special definition of ToCanonical on sums.
+20 Sep  - Fixed parenthesization of ToCanonicalObject on Scalar1.
+        - Added DaggerIndex in the action of Dagger on covds.
+        - Definitions for Dagger on Power.
+22 Sep	- Updated help files for the *Manifold* commands.
+23 Sep	- Tangent bundles are servants of their base manifolds.
+	- Updated help files for the *VBundle* commands, and others up
+          to a total of 100 files.
+24 Sep  - Updated 44 more help files related to indices.
+25 Sep  - Updated 14 more help files related to tensors.
+15 Oct  - Continue working on the documentation. 203 updated files so
+	  far.
+19 Oct	- Function ChangeCovD simplified and generalized.
+22 Oct  - Function addOther added in CommuteCovDs to handle non-abstract
+          indices and upper characters.
+	- Removed tensors RiemannPD, RicciPD, etc. Now expressions
+	  GiveSymbol[Riemann, PD] etc all give Zero.
+25 Oct  - 270 help files updated so far. Another 60 remaining.
+26 Oct  - Function UncatchedValidate made private.
+27 Oct  - Directory xTensor added to the CVS repository.
+	- Removed everything related to Form type. It should be DForm,
+	  in case this is reintroduced.
+28 Oct	- Function xCollect renamed as IndexCollect.
+	- Finished documenting the 330 public symbols of xTensor.
+	- Removed test ?vbpmq from the a_ pattern in
+	  CD[a_][metric[_,_]] := 0 for a metric and its Levi-Civita CD.
+ 1 Nov	- Introduced notation for definition of a variable rank tensor:
+	  DefTensor[T[a, AnyIndices[vb]], M]. ValidateTensor is
+	  deactivated on such tensors.
+ 2 Nov	- Introduced function TraceDummy and its related variable
+	  $TraceDummyVerbose.
+ 4 Nov	- SubmanifoldQ and SubvbundleQ now work through upvalues in
+	  their first argument.
+	- 0-dim and 1-dim manifolds are now possible.
+	- 1-dim vbundles are possible. Tensors with indices on a 1-dim
+	  vbundle are symmetric on those indices having the same
+	  character.
+	* Released 6 November 2007. Version 0.9.3.
+
+0.9.4:
+12 Nov  - New function SubdummiesIn.
+        - New code for TraceProductDummy in terms of TraceDummy and
+          SubdummiesIn. Much simpler.
+17 Nov	- Fixed a bug in ContractMetric. There was xTensorQ where there
+          must be CovDQ in the function PRJ. This affected only induced
+	  covds. Thanks to Cyril Pitrou for spotting this.
+        - covdchecks changed to DefCovDCheck and metricchecks changed to
+          DefMetricCheck.
+	- Rewritten function addOther to handle induced derivatives.
+ 5 Dec  - Fixed missing Flatten[{}] in makeChangeCurvatureRules. Thanks
+          to Alfonso for spotting and fixing this.
+22 Dec	- Added Heads->True in FindAllOfType to allow ToValues to find
+	  tensors in InChart expressions.
+24 Dec	- Changed convention of epsilonSign: now +1 with covariant
+	  indices.
+
+=== 2008 =====================================
+
+ 3 Jan  - DefMetric only accepts metrics fields with indices on tangent
+          bundles. Otherwise DefCovD in DefMetric complains.
+20 Jan	- DaggerSymbolQ changed to HasDaggerCharacterQ to avoid
+	  confusion with DaggerQ.
+	- Removed Linear. Now both option and function are called
+	  LinearQ.
+26 Jan	- upIndex, downIndex, change renamed as UpIndex, DownIndex,
+	  ChangeIndex.
+	- Several functions upQ/downQ restricted to UpIndexQ/DownIndexQ.
+	- Removed (obsolete) deltaperm code.
+27 Jan	- Dropped nopatterns. It wasn't being used.
+	- Improved function symperms, now accepting repeated indices.
+	- Added a careQ warning in MakeRule.
+	- Updated section on Index Notations to allow the new notations
+	  Polar[a] and -Polar[2]. Also pure integers.
+	- Renamed several functions in the Indices section.
+	- Introduced function FindBlockedIndices.
+30 Jan	- Replaced fast patterns in DefMetric by UpIndexQ, EIndexQ, etc.
+ 2 Feb  - Completed handling of the double notations BASIS1 and BASIS2
+          for bc-indices.
+        - Most of the Cases constructs in SelectIndices have been
+          replaced by simpler (but slower) Select constructs to avoid
+          the explicit use of patterns.
+        - Simplified code for metric contractions through inert-heads.
+ 5 Feb	- Functions GradMetricToChristoffel y ChristoffelToGradMetric
+	  generalized to work with any type of indices.
+	- Directional arguments of (first-)metrics are automatically
+	  converted into normal expressions.
+ 6 Feb  - The PrintAs definition in DefTensor now takes into account the
+          weight of the tensor.
+ 7 Feb	- Added third argument of IsIndexOf in several (not all) places.
+17 Feb	- Changed $MathLink to $xpermQ, following the change in xPerm.
+23 Feb	- TraceDummy threads over lists.
+26 Feb  - Added private global variable $RepeatedSingletonsQ to control
+          canonicalization of repeated indices.
+ 2 Mar  - Changed ToCanonicalOne because now the D group is handled
+          using indices instead of slots in xPerm.
+ 4 Mar	- Removed option MathLink, which has been transferred to xPerm.
+          In particular MathLink->True is now an option of
+          CanonicalPerm, and not of ToCanonical.
+	*** Version 1.42 of CVS *** 5 Mar 2008 ***
+	* Released 5 March 2008. Version 0.9.4.
+
+0.9.5:
+13 Mar  - Function putmetric in MakeRule modified to work with spinor
+          metrics.
+14 Mar  - OrthogonalToVector now knows that the Lie derivative of a
+          spatial tensor along the orthogonal vector is also spatial.
+          Thanks to Alfonso for pointing this out.
+21 Mar	- FindIndices on inert-heads generalized to find the indices
+	  on additional index-arguments.
+	- Name analysis and other stuff in section 1 transferred to
+	  xCore. Only left the usage messages and the "begin package".
+	- Functions UnknownSymbols and related removed.
+	- Generalized sections 1-7 (mainly FindIndices, IsIndexOf and
+	  ReplaceIndices) to have several indices in the CovD and
+	  Bracket index-arguments. Only DerQ has not been generalized.
+	- DerQ renamed as FirstDerQ for clarity.
+	- Further generalization of additional index-arguments of
+	  inert-heads. Now they don't need to have a subset of the
+	  indices of the expr. The indices of the whole expression
+	  are taken to be the (unsorted) union of the indices of the
+	  expr and the additional indices.
+22 Mar	- Generalized IndexForm to format lists of indices.
+	- Generalized AddIndex to work with multiple-indices
+	  derivatives.
+	- Private function setprojected converted into an extended
+	  public function SetProjected, which imitates SetOrthogonal.
+	- Private function OrthogonalToVector renamed as
+	  OrthogonalToVectorQ because it is Boolean.
+	- DefTensor reorganized, separating a function performing
+	  general checks, and another one performing symmetry checks.
+	- Introduced function SymmetryTableauxOfTensor for future needs.
+	- Private function PermuteObject generalized and converted into
+	  the public function PermuteIndices.
+23 Mar	- Introduced value Antihermitian for option Dagger of DefTensor.
+	- Improved treatment of Dagger option in DefTensor.
+	- A bit of cleaning in DefProductMetric.
+	- All of xTensor.nb reexecuted after a long time.
+ 6 Apr	- Daggered objects (constant-symbols, vbundles and tensors)
+	  are now servants of their non-daggered paired. This simplifies
+	  definition / undefinition. Indices treated as usual.
+20 Apr	- Sign variables now have a $ in front.
+	- Started encoding of riggings.
+22 Apr	- Fixed problem in DummyAs affecting SeparateMetric. Thanks to
+	  Juan Jose Lopez-Villarejo for spotting this.
+	- Reversed arguments basis, metric to metric, basis in
+	  SeparateMetric, which seems more reasonable to me.
+	- CheckRemoveSymbol now does not complain if the symbol has
+	  servants. This was stupid.
+	- An inner vbundle is an object of its base manifold. (Recall
+	  that a tangent bundle is a servant of its base manifold.)
+ 1 May	- AIndex is a basis (gives True under BasisQ) colored in black.
+	- Introduced new public option/function WeightedWithBasis for
+	  covds.
+	- Reintroduced weights in ChangeCovD, ExpandLieD and
+	  ExpandProductMetric. In the first case the formula is general
+          for all bases, but not in the other two cases.
+ 2 May	- MakeDefineInfo renamed as MakeDefInfo, and MakeUndefineInfo
+	  rename as MakeUndefInfo.
+	- nodollar capitalized to NoDollar, and dollarQ to DollarQ.
+ 3 May	- FindIndices now finds indices of tensor patterns like
+	  tensor_?xTensorQ[a_,b_,c_] and patterns for covds.
+	- Now metric connections can have torsion. I'm not sure which
+	  formulas survive and which do not.
+ 4 May	- FrobeniusQ now has a default value False, and so it is only
+	  given upvalues when having value True.
+	- First code for variational derivatives.
+ 7 May	- Much improved code of IndexCoefficient. Now IndexCollect is
+	  a recursive function based on IndexCoefficient. Thanks to
+	  Juanjo Lopez-Villarejo for discussions on this pair of
+	  functions.
+10 May	- Function FrozenMetricQ is now computed on real time, instead
+	  of having upvalues.
+        - A more flexible version of MakeLinearDerivative.
+12 May  - Ultraindices removed! Only UltraindexOf has been left. Now
+          ToCanonicalDir replaces the ultraindex with the first
+	  user-index.
+        - A new full rewriting of IndexCoefficient.
+        - New function SymmetryEquivalentsOf, generalizing the previous
+          SymmetryEquivalentsOfTensor, which still exists. Both private.
+13 May  - DefManifold and DefVBundle with ultraindex argument convert it
+          into the last index and print a legacy message.
+        - Updated xTensorDoc.nb. Some new examples on VarD and
+          IndexCoefficient.
+15 May	- Improved section on symbol relations. The old "objects" are
+	  now called "visitors" to distinguish them from the Object
+	  expressions of Identify. Visitors have "hosts" and now there
+	  are functions VisitorsOf (the old ObjectsOf) and HostsOf.
+	  The function MasterServant has been changed to 
+	  SymbolRelations, which now also handles visitors and hosts.
+	* Released 16 May 2008. Version 0.9.5.
+29 May  - SeparateMetric now also separates the indices of a covariant
+          derivative. Thanks to Juanjo for pointing this out.
+	* Rereleased 29 May 2008. Version 0.9.5.
+
+0.9.6:
+31 May  - Eliminated dangerous upvalues of AIndex.
+ 4 Jun  - AbsDet moved back from xCoba to xTensor. Motivated by xPert.
+10 Jun  - IsIndexOf[{},_,_]:= False, instead of the old (computed) True.
+11 Jun  - Introduced pair Implode / Explode.
+18 Jun  - Removed AbsDet and introduced Determinant, with same code,
+          but not including the absolute value. Cleaner and simpler.
+          AbsDet behaved incorrectly under complex changes of basis.
+          Thanks to Alfonso for noticing this problem.
+        - DefMetric now automatically defines the determinant in the
+          basis AIndex, as used to do in the past.
+19 Jun  - SetPrintAs broken into three parts: SetPrintAs, PrintAsString
+          and AddDaggerCharacter, for clarity. Equivalent behaviour.
+20 Jun  - Cleaning of ToCanonicalObject. Intermediate function tocanonical
+          removed. Part of its role is now played by Reconstruct.
+        - puthead now worries about GivePerm.
+        - ToCanonicalOne now returns {0, indices} instead of 0, to
+          have a homogeneous answer. Here indices are those at input.
+        - Reorganization of removeTMPCovD: simpler recursion.
+27 Jun  - Added Reverse in all Undef/@Reverse[servants] constructs.
+          The servants must be undefined in reverse order because there
+          could be mutual relations.
+28 Jun  - Added tensor Tetra of a metric, motivated by Spinors`.
+29 Jun  - Now tensors are also visitors of their slot vbundles.
+        - Modified SymbolRelations to take into account masters of masters.
+30 Jun  - All indices in directions and scalars are replaced in the rhs
+          of IndexRule and similar, to avoid collisions with patterns on
+          the lhs, as pointed out by Alfonso.
+        - Adsded function ReplaceIsolated, to handle isolated indices on
+          the RHS of rules.
+        - Fixed TransposeDagger. It was wrong with c-indices.
+	* Released 30 June 2008. Version 0.9.6.
+
+0.9.7:
+ 2 Jul  - Patterns now don't send a message under ReplaceIndex.
+ 4 Jul  - Introduced concept of "isolated expressions" and code for it.
+        - MakeRule now acts on isolated expressions via a call to itself.
+ 5 Jul  - Further extensions for multi-index derivatives.
+        - Improved Implode/Explode on complex objects.
+ 6 Jul  - The All definition of IndexOnQ transferred to SubvbundleQ, to
+          validate delta tensors.
+        - Only delta[-a, b] is allowed now on vbundles without metric.
+        - delta has now the symmetries of the (first-) metric of the
+          vbundle of its indices. This is controlled through the new
+          private function SymmetryOfIndex, a call to SymmetryOfMetric.
+ 2 Aug  - Introduced head Pair for dagger pairs.
+        - Cleaned code of TransposeDagger.
+ 8 Aug  - Introduced function FormatTensor to format tensor components in
+          an arbitrary way. This could be in xCoba, but it's nearly
+          identical to xTensorForm for tensors (which is in xTensor).
+ 9 Aug  - Added error message for SignatureOfmetric.
+        * Released 11 August 2008. Version 0.9.7.
+
+0.9.8:
+13 Aug  - Removed check of base manifolds on sum-vbundles: we do not
+          need a product-manifold. All vbundles can have the same base.
+ 4 Sep  - Function Symmetry1D to simplify expressions with indices in
+          1D vbundles.
+ 9 Sep  - Now symmetrization of 1D abstract indices is performed in
+          real time in ToCanonical, and not at DefTensor. This is more
+          general, in particular valid on tensor products.
+15 Sep  - All curvature tensors vanish for a metric in a 1d vbundle.
+ 1 Oct  - Introduced function ToInducedDerivative, as suggested by Cyril.
+        - Introduced function DirCovDToLieD, as suggested by Cyril.
+        - Added Lie cases in GradNormalToExtrinsicK.
+        - Implode conflicts with induced derivatives.
+ 2 Oct  - Fixed SeparateMetric. The see-saw convention was reversed.
+          Thanks to Alfonso for pointing this out.
+ 5 Oct  - Fixed a number of problems with variational derivatives. Note
+          that they do not obey the Leibnitz rule on products. Example:
+          VariationalD[g[x]f'[x],f[x],x] = -g'[x] and not 0.
+13 Oct  - Added ContractMetric in the OToVcheck. This solves a problem
+          in Implode with induced derivatives.
+14 Oct  - Fixed SetOrthogonal.
+        - VarD now acts on powers.
+16 Oct  - Added command GaussCodazzi.
+20 Oct  - DaggerIndex and IndexForm now act on LI[___], not only LI[_].
+22 Oct  - The $*Sign variables are now constant symbols. Their integer
+          powers are converted into 1 or themselves.
+ 2 Nov  - Weyl also exists for metric connections with torsion, as
+          pointed out by Alfonso.
+ 3 Nov  - Introduced command Cyclize.
+        - Symmetrize and Antisymmetrize with one argument expr act on all
+          free indices of expr.
+13 Nov  - Added third argument {1} of Position, in IndexSort, to avoid
+          confusion with indices in Dir.
+        - Added Catch in all DefType and UndefType functions, following
+          Guillaume's suggestion.
+        - Implemented "hiding of attributes of Times", as suggested by
+          Michael Trott, to avoid the combinatorial explosion in delta
+          contraction.
+        - Added context xAct`ExpressionManipulation` to ColorTerms.
+        - Reexecuted xTensorDoc.nb.
+20 Nov  - Introduced DaggerCovD, to deal with the "Hermitian" spincovds
+          with two indices.
+        - TransposeDagger now also acts on lists with head IndexList.
+22 Nov  - Treatment of derivatives of metric determinants simplified.
+        - Added a fourth argument in ImposeSymmetry and related functions.
+23 Nov  - Added option Method in ToCanonical, to choose between the old
+          ChangeCovD-based algorithm for canonicalization with
+          non-compatible derivatives and the new Implode-based algorithm.
+        - Symbols for covds are now an option SymbolOfCovD. Old syntax
+          kept for backwards compatibility.
+	* Released 23 November 2008. Version 0.9.8.
+
+0.9.9:
+ 8 Dec  - Removed Simplify from ToCanonicalScalar. It was preventing the
+          use of Expand on Scalar expressions.
+        - Fixed variational derivatives on functions. The derivative of
+          the function must go into the rest, and not just outside the
+          derivative. Thanks to Cyril for pointing this out.
+        - New code for NoScalar. Safer. Does not remove Scalar if it is
+          essential. Thanks to Guillaume and Bala for pointing this out.
+
+=== 2009 =====================================
+
+ 3 Jan  - Completed working version of TexPrint. Created TexBreak.
+ 9 Jan  - Added special definition for NonIndexedScalarQ expressions in
+          ReplaceDummies.
+        - Added missing definition TMPCovD[0,_]:=0.
+13 Jan  - Added global variable $Info, to deactivate all info messages.
+15 Jan  - Introduced option OtherDependencies for DefCovD and DefMetric.
+          Now covds, metrics and all their associated objects can have
+          additional dependencies.
+        - Introduced DependenciesOfCovD, so that now covds add other
+          dependencies. On PD it gives {}.
+17 Jan  - Implode with PD now creates PDMtensor, where M is a manifold,
+          in those cases in which the tensor has several manifold
+          dependencies.
+        - Fixed Cyclize (ReplaceList changed to ReplaceAll). Now we divide
+          by the number of terms, consistently with ImposeSymmetry.
+21 Jan  - Fixed ToCanonicalDir, which was changing the character of the
+          vector or covector inside Dir.
+        - Added ToCanonicalIndex inside the definition of ToCanonical on
+          single tensors.
+26 Jan  - Added definition for NoScalar on (first-order) derivatives.
+14 Feb  - BIndexQ doesn't check now compabitility between the a-index i
+          and the basis in {i, basis}. We just use AIndexQ and BasisQ.
+        - VBundleOfIndex on b-indices uses the a-index. On c-indices it
+          still uses the basis, via VBundleOfBasis.
+10 Mar  - Introduced public function SplitManifold, which adds much
+          flexibility in defining product manifolds, as suggested by
+          Guillaume. Code simplified. In particular RegisterManifold
+          has been removed.
+        - Parallel change for vbundles, with a function SplitVBundle.
+        - There are no checks now on dimensions at definition time.
+          Any expression can be a dimension. The Split* functions check
+          compatibility.
+18 Mar  - Introduced function SetSplitTensors.
+19 Mar  - Function SplitTensor.
+15 Jun  - Added ChangeFreeIndices[0, _List] := 0 . Thanks to Alfonso for
+          spotting this.
+        - The STFPart::wrongsym message is now only sent, not thrown,
+          following a related recommendation by Guillaume.
+17 Jun  - Started implementing CovD derivatives, as suggested by Guillaume.
+          It should be more general: Der[expr, ders__], where ders could
+          be of any type.
+ 9 Jul  - Added code for LaTeX formatting of derivatives of scalar
+          functions.
+11 Jul  - All functions with attribute NumericFunction are now considered
+          as scalar-functions by xTensor. Now we do not need to have a
+          special initial list of scalar-functions.
+        - Removed head NumberOfArguments for scalar functions, which was
+          not being used.
+18 Jul  - Added a check of ranks in IndexCoefficient3, to allow for
+          variable-rank tensors.
+25 Jul  - Scalar-functions can now be declared as Real, Imaginary or
+          Complex. The NumericFunctions of Mathematica are all assumed
+          to be real, in the sense of staying invariant under complex
+          conjugation of their arguments.
+        - checkChristoffelIndices is now less restrictive, allowing
+          indices of subvbundles. Commented out old code for comparison.
+ 5 Aug  - Added Kretschmann scalar.
+ 6 Aug  - Added Leibnitz operator, following Jan's suggestion.
+        - Added RiemannDown, and solved the inconsistencies with curvature
+          tensors of frozen metrics, found when working with Estelita and
+          Irene.
+16 Aug  - I've run "Scan for possible issues" again on xTensor and I see
+          that ParameterQ was a reserved word in Statistics`Common`. It
+          has been now renamed DistributionParameterQ there. Harmless.
+	* Released 9 September 2009. Version 0.9.9. "Chus version".
+14 Sep  - SeparateDir with two arguments.
+        - More powerful ContractDir, following ContractMetric. In
+          particular, now it handles properly derivatives, and has an
+          OverDerivatives option. Thanks to Thomas Backdahl for
+          discussions on this command.
+23 Sep  - (This is more a xAct comment than a xTensor comment): mixed
+          xAct webpage and xAct development directory, to make simpler
+          moving both things around...
+18 Nov  - As pointed out by Alex, extended derivatives associated to a
+          metric were not fully coded up. Added two definitions, as
+          discussed in the group: Christoffel[CD,cd]=0, if CD is an
+          extension of cd, and CD[-a][metric[_?AIndexQ,_?AIndexQ]]:=0
+          if cd[-a][metric[-b,-c]]==0.
+20 Nov  - Changed treatment of derivatives on Scalar expressions.
+          Scalar is kept under parametric and Lie derivatives, but
+          covariant derivatives and Lie derivatives convert Scalar
+          into ReplaceDummies before acting on the expression. Scalar
+          could be introduced with PutScalar, but that could be slow,
+          as pointed out by Guillaume.
+        * Rereleased 24 November 2009. Version 0.9.9.
+11 Dec  - Fixed a missing comma in the new formatting of Scalar. Thanks
+          to Leo Stein for pointing this out.
+25 Dec  - NumberOfArguments removed from the documentation.
+          Thanks to Sebastian Szybka for pointing this out.
+        - As pointed out by Alessandro (magma), the $Info variable
+          is not able to turn off Undef messages. Now $Info converted
+          into two independent global variables $DefInfo and $UndefInfo.
+          Info changed to DefInfo, because Info is too general. There is
+          no UndefInfo option/function yet.
+        - Also pointed out by Alessandro, chart undefinition was leaving
+          Removed symbols in VisitorsOf[M]. Solved by appending hosts,
+          instead of setting them (that assumes the setting is done only
+          once, and that is not true with charts, which are also bases).
+        - Reexecuted xTensor.nb. Fixed some examples with respect to the
+          presence or not of a metric. Added a couple of trivial
+          Module[{prot=...},...] constructions.
+	*** Version 1.46 of CVS *** 31 December 2009 ***
+
+=== 2010 =====================================
+
+        * Rereleased 10 January 2010. Version 0.9.9.
+
+1.0.0:
+25 Jan  - Introduced head Sym, following suggestions by Thomas Bäckdahl,
+          as discussed in the group.
+26 Jan  - Added ReplaceDummies on the RHS of VarD acting on scalar functions
+          because the initial ReplaceDummies does not act on the arguments
+          of scalar functions. Thanks to Leo Stein for reporting in the xAct
+          group the problem caused by that.
+29 Jan  - Changed all (but one) patterns _Symbol?xTensorQ to _?xTensorQ to
+          allow for more flexible tensor pattern heads. Introduced Tensor
+          objects which contain their info as arguments, instead of going
+          through DefTensor.   
+        - Introduced a generalized form of delta, called Sdelta[sym][inds],
+          the "superdelta", to help in the canonicalization of Sym objects.
+ 2 Feb  - ImplicitTensorDepQ made public because there are problems in which
+          the user needs to set a nondefault upvalue for it, as in an example
+          posted by Jörg in the xAct group.
+ 3 Feb  - Fixed handling of Sym canonicalization for spinor metrics. Problems
+          found by Thomas.
+ 4 Feb  - Added CheckRepeated in ValidateTensor to check for repeated indices.
+          Found while constructing xPrintValidQ for Alessandro.
+12 Feb  - SymmetryOf has a NonIndexedScalarQ check on products which is very
+          slow when there are many terms. Used technique of hiding attributes
+          to make it faster.
+18 Feb  - Accepted tensor weights in which the coefficient is a constant, and
+          not necessarily a numeric quantity.
+24 Feb  - Generalized GradMetricToChristoffel and ChristoffelToGradMetric to
+          work with frozen metrics. Not yet for induced metrics.
+          Also ChangeCurvature.
+ 4 Mar  - ReplaceDummies now calls ReplaceDummies2[expr,...] instead of the
+          old ReplaceDummies2[MathInputExpand[expr],...]. This change could
+          lead to results having a different, hopefully simpler, form.
+        - Cleaning and small improvements in the section 5.7.5 on
+          ReplaceDummies and SameDummies.
+ 5 Mar  - IndexList[___] now formats with blue ($IndexListColor) braces.
+        - The message Validate::repeated from CheckRepeated is now only sent,
+          not thrown. This is to proceed in the 1dim case with repeated
+          indices.
+ 9 Apr  - Solved problem in SeparateMetric, which made the function not work
+          on non-indexed scalars. Solved by changing Join@@somelist to
+          Flatten[IndexList@@somelist], where somelist is a list of IndexList
+          expressions. The problem was the special case somelist={}. Thanks
+          to Torsten for reporting this problem in the group.
+18 Apr  - Added ShowAutoStyles->False in interpretbox to avoid the blue
+          coloring of indices in Mathematica 6+ after copy-pasting.
+          Thanks to Alessandro for spotting this problem.
+        - Added line ReplaceOneIndex[i:slot[_],rules_]:=Replace[i,rules];
+          to allow slot-expressions to be replaced by normal indices.
+          Suggested by Thomas.
+25 Apr  - IndexLength computes lengths from PrintAs[index] and not from index,
+          because what we actually show is the PrintAs form. Thanks to
+          Guillaume for finding this.
+        - NewIndexIn now creates indices in the same context of the LastIndex.
+          Suggested by Guillaume.
+        - SetPrintAs now uses StripContext to remove the context of a symbol
+          in its PrintAs form. Suggested by Guillaume.
+26 Apr  - Started implementation of projectors, following discussions with
+          Guillaume. Projected and MakeProjectors. $ProjectedFormat.
+28 Apr  - Motivated by the new formatting of projected indices, the functions
+          constructing boxes for tensor formatting are modified. Now they are
+          based on GridBox, instead of SubsuperscriptBox. Both codes are left,
+          with the global variable $TensorBoxes to switch among them.
+18 May  - Introduced Mapping & company, after discussions with Alfonso at AEI.
+        - Extended syntax of DefManifold to define submanifolds.
+13 Jun  - Added TensorD and TensorDerivative. It is faster than ChangeCovD and
+          Implode, and seems simple to program.
+14 Jun  - christoffelToGradMetric acting on metricovd = PD returns the expr.
+          This is to avoid converting Christoffels into covariant derivatives
+          of Cartesian metrics. Thanks to Istvan Racz for finding this problem.
+        - ZeroDerivativeQ now performs pm`Q checks to avoid confusing manifolds
+          when using PD. Thanks again to Istvan.
+17 Jun  - Fixed problem in SortCovDsStart. Changed a RuleDelayed by SetDelayed.
+          Thanks to Alessandro for reporting this problem. Slight rewriting of
+          SortCovDsStart/Stop to avoid Evaluate.
+ 6 Aug  - Removed one of two ; at the end of TexCovDCombine, which was being
+          interpreted as Span. Thanks to Barry for reporting this.
+25 Aug  - Function DefSign, to define constant symbols representing signs.
+23 Sep  - Now we admit frozen metrics with associated connection with torsion.
+        - Encoded general contracted Bianchi identity, with torsion and for
+          first and frozen metrics.
+24 Sep  - Improved formatting and symmetries of TensorDerivative objects.
+	* Released 30 September 2010. Version 1.0.0.
+
+=== 2011 =====================================
+
+1.0.1:
+29 Jan  - As pointed out by Alessandro, IndexLength counts all characters of
+          StyleBox[...] symbols, like colored commas. Returned to the previous
+          convention of assigning length 1 to any comma-object.
+        - Added missing comma in SetNumberOfArguments[Sym{1,3}].
+	- Added missing definition of TensorDerivative on LI indices.
+18 Feb	- Extended VarD to work on expressions with free indices, as requested
+	  by several people in the group. Not tested at all. Does not work on
+	  expressions with derivatives of the differentiation variables, as
+	  pointed out by Leo, as xTensor cannot extract the test function then.
+28 Feb	- Solved problem found by Cyril on the treatment of symmetries of
+	  double derivatives of scalars, by describing group orders as a list
+	  instead of a number inside Object.
+ 6 Mar	- Mathematica 8 dollar symbols produce a$101 and a$101$. This requires
+	  a slight twist in RemoveDollarIndices.
+10 Mar	- Fixed a typo in SignatureOfMetric, that was affecting MetricInBasis.
+	  Detected by Alfonso.
+11 Mar	- TexBreak improved using ideas and code by Barry Wardell.
+	- Tex formatting of indices improved using ideas and code by Thomas
+	  Backdahl.
+15 Mar	- DefCovD[ cd[-a] ] now checks that a belongs to a tangent vbundle.
+	- TorsionQ was not being inherited by extended derivatives, as
+	  detected by Alfonso.
+16 Mar	- Proper ordering of delta indices in VarD, as suggested by David
+	  Brizuela.
+18 Mar	- ToInducedDerivative generalized to work with Lie derivatives as
+	  suggested by Cyril.
+	- The weighted part of LieDToCovD is a divergence of the vector,
+	  instead of a LieD of the metric along the vector, to avoid the use
+	  of a metric. PD is now by default weighted in the basis AIndex.
+	  Suggested by David.
+	- Fixed a Not[A,B] in SymDers that should have been Not[A]&&Not[B].
+	  Thanks to Cyril for finding and tracking this down.
+10 Apr	- Added basic support for conformal transformations, after discussions
+	  with Cyril Pitrou and Thomas Backdahl. A conformal transformation is
+	  specified using the option ConformalTo->{metric,confactor} in
+	  DefMetric. Information is stored in ConformalFactor and (general)
+	  ConformalRules. Christoffel changes between connections is done with
+	  ChristoffelToGradConformal. Indices CANNOT be moved with the
+	  conformal metric; only with the first metric, as usual in xTensor.
+12 Apr	- Added global variable $TexIndicesInitialBracesQ, suggested by Thomas.
+	* Released 17 April 2011. Version 1.0.1.
+
+20 Apr	- Fixed Christoffel relation for conformal transformations, as reported
+	  by Cyril. Several small extensions suggested by him. Added function
+	  SetConformalTo, which allows setting conformal relations of already
+	  declared metrics.
+23 Apr	- SortCovDsStart/Stop generalized to work with both up and down indices,
+	  as SortCovDs does. Thanks to Cyril for finding and fixing this.
+	* Rereleased 27 April 2011. Version 1.0.1.
+
+15 May	- Improved Tex on products, sums and powers, after a bug found by Thomas
+	  with the product of two sums.
+	- As suggested by Leo, SetOrthogonal and SetProjected now accept input
+	  SetOrthogonal[ T[AnyIndices[vb]], vector ]. OrthogonalToVectorQ still
+	  refuses to call OToVcheck because it is not clear that orthogonality
+	  for 13 indices means orthogonality for any number of indices.
+	* Rereleased 15 May 2011. Version 1.0.1.
+
+1.0.2:
+20 May	- Fixed TexPrint with exponents. Added $VerboseParenthesationLevel, with
+	  default False.
+ 9 Jul	- As suggested by Thomas, we now assume that the base of any SGS is formed
+	  by the sorted list of moved points, for safe compatibility with the
+	  option OrderedBase->True, which produces the nicest output. The function
+	  SGSofsym has been modified to inforce that.
+	- Code of SeparateMetric partially modified so that it first localize
+	  the tensors to act on, and then computes the indices to separate. This
+	  fixes the problem reported by Leo on May 2 in the xAct group.
+	- Added formatting for ParamD. The global variable $ParamDFormat controls
+	  this. Currently it takes values "Prefix", "SinglePrefix" and "Postfix",
+	  with the first one being the default.
+	- Fixed problem with Christoffel[cd, cdextended] not being declared as a
+	  tensor, as reported by Leo on June 3 in the xAct group. Used this
+	  oportunity to implement a better treatment of the "vanishing" info
+	  messages for tensors. MakeDefInfo has now a fourth argument for this.
+15 Jul	- TexUpIndex wraps IndexForm[index] with Tex to get proper formatting.
+	  Thanks to Eduardo Serna for reporting this, and Thomas for fixing it.
+	- Added better treatment of fractions and roots of numbers, as suggested
+	  by Thomas.
+	- Added Zero definitions for TensorDerivative[metric | epsilon | det, LCcovd],
+	  as suggested by Leo.
+	* Released 15 July 2011. Version 1.0.2.
+
+1.0.3:
+30 Sep	- Typo: RicciToEinsteinRule -> RicciToEinsteinRules. Found by Alfonso.
+	- Added xHold to prevent evaluation in ToIndexExpr. Thanks to Stephen Green
+	  and Leo Stein.
+	- Changed MetricOfCovD[covd1] by delta in makeChangeRicciRule, as suggested
+	  by Leo.
+	- Added line FindIndices[expr_Condition]:=... Thanks to Teake.
+	- Changed a Module[{c},...] to Module[{c=DummyIn@vbundle},...] in
+	  ExtrinsicKToGradNormalRules, as suggested by Leo.
+	* Released 10 October 2011. Version 1.0.3.
+	- Changed signs in the definition of the Tetra-metric, to follow the
+	  conventions in Penrose & Rindler.
+	- Introduced option epsilonOrientationInBasis for DefMetric and
+	  associated function epsilonOrientation. This function takes the default
+	  value $epsilonSign, for backward compatibility.
+	* Rereleased 25 October 2011. Version 1.0.3.
+
+=== 2012 =====================================
+
+1.0.4:
+ 1 Jan	- Added support for SeriesData in sections before Canonicalization.
+21 Apr	- Extended VarD to operate on general Power expressions, as Leo suggested
+	  in 2010!
+	- Implemented code from Thomas to format ParamD in Tex, both in prefix and
+	  postfix form.
+	- Added {} for proper Tex formatting of derivative indices in postfix form,
+	  as recommended by Thomas.
+	- Added global variable $TexScalarParentheses, with default True.
+	- Fixed AD, case 6, as recommended by Thomas.
+	- Added missing definitions for movedindices on AnyIndices, as reported by
+	  Obinna.
+	- Fixed double use of SMP for inert-heads. Found by Thomas.
+	- Introduced MakexTensions in all DefType and UndefType commands, as
+	  discussed with Teake.
+28 Apr	- Tex functionality excised to new package TexAct.
+	* Released 5 May. Version 1.0.4.
+
+1.0.5:
+25 Nov	- Define IndexLength and IndexForm for BlankSequence and BlankNullSequence
+	  indices. Follows suggestion by Thomas in the group (26 Oct 2012).
+	- Define IndexName for BlanSequence and BlankNullSequence indices. Follows
+	  suggestion by Leo in the group (26 Oct 2012).
+	- Define UltraIndexOf on Slot objects, as suggested by Thomas in the group
+	  (26 Oct 2012).
+	- Fixed lieDcovDdiff by adding an expr term. Reported by Teake in the
+	  group (2 Nov 2012).
+
+=== 2013 =====================================
+
+20 Jan	- Renamed Permute -> PermProduct, following change in xPerm.
+	- Fixed evaluation leak in the MakeBoxes calls for tensors and covds.
+	- UnsortedUnion renamed DeleteDuplicates, following change in xCore.
+	- Removed spurious $RicciSign in TFRicciToRicciRules and
+	  RicciToTFRicciRules. Spotted by Teake.
+	- Implemented DropIndexBasis suggestion from Thomas, to allow the IndexRule
+	  and MakeRule functions deal with dummy basis indices.
+	- Added selection of AB indices in OToVcheck, as suggested by Cyril. Also
+	  a call of GradNormalToExtrinsicK there, suggested by Thomas.
+	- Added another AB selection in IndexSolve, also suggested by Cyril.
+	- The function movedindices now understands inertheads. Contributed by Cyril.
+	- ToInducedDerivative now accepts inertheads. Contributed by Cyril.
+	- Important change in how the induced derivative act on non-projected
+	  expressions, in particular the orthogonal vector and the ambient
+	  metric. Suggested by Cyril. Watch out for this change.
+26 Jan	- Extended Bracket to act on all types of scalars, as suggested by
+	  Leo. Fixed a bug there, pointed out by him.
+	- VarD extended to work on multi-argument scalar functions. Code
+	  contributed by Leo, which includes now the Power case.
+	- Warping factors in product metrics are now general scalars, as
+	  suggested by Leo in the group.
+	- Induced derivatives give zero on products of two or more orthogonal
+	  vectors.
+	- Extended SameDummies (actually ReplaceDummies2) to work on List
+	  and Equal expressions, as suggested by Teake and Thomas in the
+	  group.
+	- Fixed a bug pointed out by Alfonso: SymmetryOf was not seing the
+	  IndexList indices of the inert heads.
+	- Extended and improved orthogonality checks, following Thomas.
+	  In particular the code of GradNormalToExtrinsicKRules is more
+	  general now.
+	- Modified usage message of IsIndicesOf, as suggested by Cyril.
+	- Added definition LieD[v[a]][v[b]] := 0 .
+	- Added definition v[b] LieD[v[a]][w[-b]] := 0 if v[b]w[-b]==0.
+	- OrthogonalToVectorQ is now public and protected. It handles
+	  remembered information through upvalues of the tensor, as
+	  suggested by Thomas.
+	- Added definition ParamD[p][p] := 1, found after a discussion with
+	  Guillaume in the group.
+	- As suggested by Thomas, now we specify in error messages which
+	  non-projected expression has been found.
+	- Added automatic listability of equations, as discussed with
+	  Alfonso.
+	- Removed check of less than 2 manifolds in CheckZeroDerivativeStart,
+	  because we might be working with one manifold and a tensor
+	  DefTensor[v[a],{}].
+	* Released 27 January. Version 1.0.5.
+
+28 Jan	- Converted many _Symbol?CovDQ into _?CovD, to make CCovD work.
+	  Not all.
+30 Jan	- Added determinants to the ConformalRules, as pointed out by
+	  Dario Bettoni in the group.
+	- Added support for parametric derivatives in VarD, as I
+	  recommended to Jan Oliver one year ago in the group.
+	- Created google project xact-developer to keep track of bugs.
+3 Feb	- SplitManifold and SplitVBundle were using SymbolRelations with
+	  the wrong order of symbols, hence defining inverted relations
+	  host/visitor.
+24 Feb	- As suggested by Teake, added an explicit factor 3/4 for the
+	  fontsize of the indices respect to that of the stem, instead
+	  of hardwiring a fontsize 9 vs the standard 12 of the stem.
+3 Mar	- Fixed sign of the symmetry of Gdelta for an odd half-number of
+	  indices. Reported by Davide Cassani.
+	- CovDOfMetric now admits two arguments [metric, torsion].
+	  Introduced LC[metric] to return the Levi-Civita connection,
+	  equivalent to CovDOfMetric[metric, Zero].
+9 Mar	- HeadOfTensor has now two arguments and is public.
+	- MultiplyHead is now public.
+	- Following Leo's suggestion in the group, Bracket[a][v1, v2] is
+	  now Bracket[v1, v2][a], so that it follows the general structure
+	  tensor[inds]. Bracket[v1, v2] is now a xTensorQ object, which
+	  allowed removing multiple special definitions for Bracket.
+	- Extended PullBack to work on covariant derivatives.
+	- Reverted again the host/visitor relations of SplitManifold and
+	  SplitVBundle because they break the reasoning of constructing
+	  the product out of the (already existing) factors. Hence the
+	  product is a visitor of its (host) factors.
+	- Reexecuted xTensor.nb in Mathematica 9.0.1. From now on the
+	  development will be done in the last version of Mathematica,
+	  instead of always using 5.2, as done until now.
+	- Christoffels between connections of different base manifolds are
+	  now converted into 0, with a Christoffel::base warning, instead
+	  of throwing an error. This was suggested by Adam in the group.
+	- Manifolds can be nonatomic now, to work with mappings.
+16 Mar	- DefType functions now thread over a list in the first argument.
+	- Construction of `Q and `pmQ functions centralized in VBundleIndexQ
+	  and VBundleIndexPMQ respectively.
+23 Mar	- TangentBundleOfManifold now evaluates to Tangent, which is what
+	  we should always use. Nicer formatting for TangentM.
+30 Mar	- SubmanifoldsOfManifold replaced with the (not identical, but
+	  almost) SplittingsOfManifold. Same thing for the function
+	  SubvbundlesOfVBundle and SplittingsOfVBundle.
+	- The functions SubmanifoldQ and SubvbundleQ do not thread over
+	  lists anymore. DisjointManifoldsQ and DisjointVBundlesQ still
+	  take lists as arguments.
+ 7 Apr	- Fixed ProjectDerivativeRules, which was not careful with
+	  divergencies, as pointed out by Filippo in the group.
+	- DummyAs made public.
+13 Apr	- Added new type Product, with DefProduct, etc, following Alfonso's
+	  suggestions and code. ToCanonical extended to handle these objects.
+	- TensorTimes renamed VerbatimProduct[Times], and now the argument
+	  can be any product.
+28 Apr	- Added Kernel/init.m.
+26 May	- Option GivePerm of ToCanonical removed. Replaced by a simple Sow,
+	  right now only used by Invar.
+	- Eliminated Scalar1 and MarkBlocked. Functionality now implemented
+	  in the simpler SimpleObjectQ. xSort1 also eliminated.
+	- Eliminated $CommuteFreeIndices. Not needed anymore. Its role is
+	  now played by the freesQ argument of ObjectOrder.
+30 Jun	- Contractions of Gdelta. Imitate the GAMMA` package.
+14 Jul	- Added xSortPrecedence, as suggested by Thomas.
+	- Added missing definition of Symmetry1D on Symmetric/Antisymmetric
+	  as reported by Leo in the group.
+28 Jul	- Inert heads can be now nonatomic, as requested by Leo.
+18 Aug	- Added missing torsion terms in ChristoffelToGradMetric, as reported
+	  by Teake in the group.
+
+=== 2014 =====================================
+
+24 Jan	- DefMetric now defines epsilon for a frozen metric, as suggested
+	  by Alfonso.
+	- Added function PrimeDagger suggested by Thomas.
+	- Changed PrintAsString in section 2.6.3, Following Thomas suggestion.
+	* Released 15 February. Version 1.1.0.
+
+23 Feb	- Fix canonicalization for "Commutative" products.
+	- Fix heuristics for placement of highly symmetric tensors in xSort.
+	- Rewrite symListCombine to avoid hitting $IterationLimit.
+	* Re-released 23 February. Version 1.1.0.
+
+	* Released 28 September. Version 1.1.1.
+
+=== 2015 =====================================
+
+21 Apr	- Fix a problem with MakeSequenceBox of a singleton, as suggested
+	  by Thomas.
+
+22 Aug	- Add missing torsion terms in LieDToCovD, as suggested by Alfonso.
+
+	* Released 23 August. Version 1.1.2.
+
+=== 2016 =====================================
+
+=== 2017 =====================================
+
+=== 2018 =====================================
+
+28 Feb  - Modified extraction of non-indexed scalars inside Scalar expressions.
+
+	* Released 28 February. Version 1.1.3.
+
+25 Mar	- Avoid having a visitor-host relation between two symbols for which
+	  there is a master-servant chain between them.
+	- Make sure that a symbol is not added twice to the list of visitors of
+	  another symbol.
+
+20 Oct	- Solve a problem pointed out by Michael Kopp and Cyril Pitrou, and
+	  actually solved by Leo Stein. This problem had been introduced in
+	  1.1.0 when adding VerbatimProduct.
+	- Solve a typesetting problem with c-indices pointed out by Alfonso.
+
+18 Nov	- Fix issue with finding indices of Object expressions, that was reported
+	  in the forum in relation with (harmless, but spurious) validation messages
+	  in xPand.

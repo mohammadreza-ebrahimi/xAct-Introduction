@@ -1,0 +1,361 @@
+0.1-4:	*** 3 November 2005 ***
+        - Created package xCoba.nb by bisection from xTensor.nb.
+          See xTensor.History for previous developments on bases and
+          charts.
+        - Eliminated "third element" of basis indices.
+        - Temporary recoding of ContractBasis/ChangeBasis. The
+          True/False switch has been moved to the head of the C*Basis1
+          functions.
+        - Completed full recoding of ContractBasis. Six new functions
+          or options have been added: AbstractIndicesInBasisOf,
+          BasisIndicesInBasisOf, IndicesInBasisOf, Indices,
+          OverDerivatives, ContractFirst. Three other have been
+          eliminated: ChangeBasis, ContractBasisOverDerivatives,
+          ChangeBasisOverDerivaties. Many capabilities added.
+	- Recoded TraceBasisDummy to act locally on expressions, without
+	  expanding them first.
+	- Added third possibility (a tensor) for the argument of the
+	  functions *IndicesOf.
+
+(******************************** 2006 ********************************)
+
+	*** Version 1.1 of CVS *** 9 January 2006 ***
+	- Completed recoding of TraceBasisDummy.
+	- Removed function CoordinateBasisQ. It is equivalent to ChartQ.
+	- Created SetComponents and RuleComponents.
+	*** Version 1.2 of CVS *** 7 July 2006 ***
+	* Released as version 0.4.0 on 7 July 2006 *
+
+ 3 Aug  - Added option CNumbers ("coordinate" or "component" numbers)
+	  in DefBasis (to be extended to DefChart). Now the numbers of
+	  the basis vectors are associated to the bases, and not to the
+	  manifolds. There is still a function CNumbersOf in xTensor,	
+	  similar to CooordinateNumbersOfManifold, but now taking two
+	  arguments: basis and manifold.
+ 8 Aug	- Changed TraceBasisDummy to work with the new CNumbersOf.
+   Nov  - The cnumbers are now not given as an option, but as a third
+	  mandatory argument of DefBasis and DefChart.
+	- Removed DefaultChart and AllManifolds. Introduced new chart
+	  cart in the xCobaDoc.nb file to replace the role of the
+	  old DefaultChart without changing the output too much.
+	- Updated basis part of xCoba for the new version of xTensor.
+	- Recursive part of TraceBasisDummy (implemented in ExpandRange)
+	  is now done with two functions (ExpandRange and ExpandRang1)
+	  to have more control on the expansions of products.
+ 4 Dec  - Corrected index of PD definition. It must always be a
+	  Tangent index. Thanks to Alfonso for spotting this.
+ 5 Dec  - Functions epsilonToeta* and viceversa moved from xTensor.
+18 Dec	- Fixed function TraceBasisDummy. It was not checking that
+	  during tracing some dummies could dissapear and hence the
+	  expansion in that index was not needed anymore. Thanks again
+	  to Alfonso for finding this one.
+	* Released as version 0.4.2 on 18 December 2006 *
+
+24 Dec	- xCobaDoc updated.
+28 Dec	- DefBasis must define the parallel derivative on the fiber.
+	- Dagger[Basis] ^= Basis.
+
+(******************************** 2007 ********************************)
+
+16 Jan	- Defined complex conjugated basis.
+18 Jan	- Definitions for DaggerBCIndex.
+ 6 Feb	- Simplified section on index extractors AllIndicesOf, etc.
+ 7 Feb	- Improved examples section on SeparateBasis.
+ 8 Feb	- Added function FormatBasis for special formatting of the
+	  vectors of a basis.
+12 Feb	- Removed function BasisOf.
+14 Feb	- Removed functions AllIndicesOf, AbstractIndicesOf and
+	  BasisIndicesOf in favour of a single function IndicesOf,
+	  which is now the user driver for finding indices in xTensor.
+	- ContractBasis now works with both members of the pair to
+	  contract, and not only the index in Basis, as before.
+20 Feb	- Removed shortcuts for the basis.
+	- Introduced new function MetricInBasis, in charge of setting
+	  the properties of a metric in a given basis.
+	- Added functions FreeToBasis (a simplified version of
+	  ContractBasis), DummyToBasis (a simplified version of
+	  SeparateBasis) and ToBasis (a combination of those two).
+21 Feb	- Improved (in xTensor) ToCanonical with respect to c-indices.
+	  Now all symmetry arguments can be based on ToCanonical,
+	  which is "simpler".
+22 Feb	- TableOfComponents fully rewritten. Now it is based on
+	  another new public function Components, and two private
+	  functions ComponentArray and ComponentRule. Now everything
+	  is faster, safer and more flexible. The "responsibility"
+	  has been transferred from ContractBasis to ReplaceIndex.
+23 Feb	- Introduced concept of Coba, and renamed ComponentArray as
+	  CobaArray and CobaToRules.
+	- Introduced concept of FoldedRule, which allows us to separate
+	  symmetry based ("dependent") rules from the "independent"
+	  rules.
+	- Constructed RuleComponents and FoldedRuleComponents.
+1 Mar	- Coba has now additional capabilities to construct components,
+	  using the Mathematica Slot notation.
+	- Created GroupAnalysis to arrange "difficult" configurations
+	  of components (different bases and characters simultaneously).
+2 Mar	- SymmetryRuleComponents excised from RuleComponents.
+	- Introduced CobaSymmetryRules, which remembers the
+	  canonical form off all components for a given list of bases
+	  and a symmetry description.
+	- Simplified coding of GroupAnalysis.
+	- Updated xCobaDoc to include all recent changes.
+3 Mar	- Removed special treatment of c-indices in CobaArray, for the
+	  sake of coherence. The function Components still treats them
+	  in a different way in the case Components[expr].
+	- Section on derivatives converted into a subsection of
+	  the section on components.
+4 Mar	- BasisList renamed as BasisArray.
+5 Mar	- Added definition Basis[{a,polar},{-a,polar}]:= dim.
+4-8 Apr - Corrected SeparateBasis. There was an index collision.
+	- Introduced section on "Extracting components".
+	- Reorganized section on Components and Symmetry.
+19 Apr  - Introduced TensorValues and TensorValuesAt.
+20 Apr	- Special basis AIndex moved to xTensor.
+	- Added function ChangeComponents, in charge of constructing
+	  new FoldedRule's for the same tensor but with indices of
+	  different characters and bases.
+22 Apr	- Moved FoldedRule et al to xCore.
+9 May   - Changed notation of bc-indices: {a,basis} and {-a,-basis}
+          for b-indices, {1,basis} and {1,-basis} for c-indices.
+	  Updated both xCoba.nb and xCobaDoc.nb. The functions
+	  VBundleOfBasis and VBundleOfIndex still keep the old
+	  behaviour.
+	- Simplified once again some parts of SeparateBasis.
+11 May  - Added function DependenciesOfBasis.
+        - Added functions TensorValues.
+15 May	- Reorganized welcome messages in all of xAct.
+	- Function DaggerBCIndex broken into DaggerBIndex (private) and
+	  DaggerCIndex (public).
+16 May	- Encoded SetDaggerMatrix.
+12 Jul	- Introduced function ComponentArray, based on SplitIndex. It is
+	  faster than Components, and therefore TableOfComponents is
+	  now based on ComponentArray, rather than Components.
+19 Jul	- Added concept of ValID: {tensor, ders, basesequivalents}.
+23 Jul	- Further reorganization of DCV and ICV. There are less
+	  canonicalizations and now it is possible to remove rules
+	  from the independent part of a TensorValues list, using Null.
+	- Added function DateOfTensorValID and dropped date from valIDs.
+7 Aug	- Function ComponentArray now checks that the indices to expand
+	  are present in the expression.
+9 Aug	- ChangeComponents adapted to work with ComponentValue.
+	- Constructed ToValues.
+	- Section 4 on values finished at last!
+10 Aug	- Reconstructed section on densities, etas, determinants, etc.
+11 Aug	- MetricInBasis rewritten. Much simpler and general.
+13 Aug	- Improved function InChart.
+14 Aug	- Improved function ChangeChart.
+	- Readapted Schwarzschild.nb for the new version of xCoba.
+15 Aug	- Final revision of xCobaDoc.nb.
+	* Released as version 0.6.0 on 15 August 2007 *
+
+17 Aug	- Improved treatment of L-indices in the Values section.
+20 Sep  - Removed function SeparateIndex because it was introducing
+          spurious indices Null. Replaced by CompatibleQ. Simplified
+          code of SeparateBasis.
+        - Added a few definitions concerning AnyIndices.
+27 Oct  - Added directory xCoba to the CVS repository.
+ 3 Nov	- Tilde changed to TildeString, following xCore.
+	* Released as version 0.6.1 on 6 November 2007 *
+
+13 Nov  - TraceBasisDummy now rewritten in terms of TraceDummy. Much
+	  faster.
+23 Dec	- Added option Inverse in MetricInBasis to store values for the
+	  inverse metric.
+	- Added possibility of using a function as value in
+	  ComponentValue.
+24 Dec	- DefBasis now uses the Info structure.
+	- Removed the definition of WeightOfTensor on Basis because
+	  we can use the default 0 on tensors.
+	- Now FormatBasis does not set the name of the dual basis
+	  vector.
+	- Removed $epsilonSign in xCoba because it was redundant with
+	  epsilonSign in xTensor.
+	- Added function values in ThreadComponentArray. Threading in
+	  ComponentValue now rewritten in terms of ThreadComponentArray.
+	- Removed final Flatten in ThreadComponentArray.
+
+(******************************** 2008 ********************************)
+
+23 Feb	- Contraction of two Basis objects is now not automatic by
+	  default. Changed DummyToBasis to work in this situation.
+26 Feb  - xCoba.nb rerun to show the new ordering of component indices
+          (using the xTensor variable $RepeatedSingletonsQ).
+ 5 Mar  - Changed MathLink->True from ToCanonical to CanonicalPerm, as
+          now this option resides in xPerm instead of xTensor.
+	* Released as version 0.6.2 on 5 March 2008 *
+
+20 Apr	- Sign variables now have a $ in front, following xTensor.
+14 May  - Solved sign problem in dummyrule.
+        * Released as version 0.6.3 on 16 May 2008 *
+
+31 May  - Eliminated function UltraindexOfVBundle, not present in xTensor.
+        - Removed overloading of Coefficient. Definitions passed to
+          IndexCoefficient.
+ 4 Jun  - AbsDet moved back from xCoba to xTensor. Motivated by xPert.
+16 Jun  - Cleaning of subsection 2.1.
+17 Jun  - Started cleaning of subsection 2.2.
+18 Jun  - Changed AbsDet to Determinant, following xTensor. Overloading
+          of Det absorbed in Determinant as well. Much cleaner. This was
+          motivated by the fact that, as pointed out by Alfonso, AbsDet
+          was incorrect with determinants in complex bases.
+19 Jun  - Jacobian generalized to work with complex bases. Nontrivial.
+        * Released as version 0.6.4 dated 30 June 2008 *
+
+ 2 Aug  - Added definition for DaggerCIndex[-basis_,...].
+ 3 Aug  - Basis is not orderless anymore. It now inherits the symmetries
+          of the first-metric, as delta does. Motivated by Spinors.
+ 9 Aug  - Dropped option ContractFirst because it was not being used.
+        - MetricInBasis now checks its arguments.
+10 Aug  - Functions InverseMetric, ChristoffelFromMetric and
+          RiemannFromChristoffel made public.
+        * Released as version 0.6.5 dated 11 August 2008 *
+
+(******************************** 2009 ********************************)
+
+24 Jul  - The definition PDbasis+ = PDbasis is only done for complex
+          bases in complex vbundles, because in other cases PDbasis+ is
+          not even defined.
+        - Automatic basis contraction of the Kronecker Basis is now
+          performed using the hiding-attributes technique.
+        - ContractBasis with option OverDerivatives now contracts through
+          high-order derivatives.
+25 Jul  - Generalization to admit bases of a vbundle to be bases of its
+          subvbundles. A key point is the change in CompatibleQ and indexas
+          of SameQ to SubvbundleQ. The main idea is using a second argument
+          in CNumbersOf and CIndicesOf. There is a new command SplitBasis.
+        - DefChart accepts already-existing scalar fields.
+31 Jul  - Message "Replaced independent rule..." now controlled by
+          $CVVerbose.
+ 2 Aug  - Added option CVSimplify in a number of functions: MetricInBasis,
+          ...
+        - Added function MetricCompute to construct curvature tensors from
+          the knowledge of a metric.
+ 9 Sep  * Released as version 0.7.0 dated 9 September 2009.
+
+29 Oct  - Fixed a missing /2 in the computation of the Einstein tensor, using
+          the new MetricCompute. Thanks to Juanjo for pointing this out.
+23 Nov  - MetricCompute code slightly improved and reorganized.
+        - Prepared new notebook with examples in spherical symmetry.
+        * Rereleased as version 0.7.0 dated 24 November 2009.
+
+(******************************** 2010 ********************************)
+
+ 4 Jan  - SetToRule and RuleToSet acting on Basis were interacting with
+          TensorValues instead of BasisValues. Thanks to Alfonso for pointing
+          this out.
+        - DeleteTensorValues now checks that the values are actually in Rule
+          state and changes to Rule state if not. Otherwise DeleteTensorValues
+          would leave an inconsistent situation. Thanks to Alfonso again for
+          pointing out this problem.
+        * Rereleased as version 0.7.0 dated 10 January 2010.
+
+24 Sep  - In MetricCompute we do not compute Einstein for dim<=2 nor Weyl for
+          dim<=3.
+        * Rereleased as version 0.7.0 dated 30 September 2010.
+
+ 6 Oct  - Fixed misplaced dim checks in MetricCompute for Einstein and Weyl.
+          Thanks to Alfonso for reporting this problem.
+
+(******************************** 2011 ********************************)
+
+10 Mar	- Fixed typo: "Orthonormal" instead of wrong "OrthoNormal".
+	  Thanks to Alfonso for detecting MetricInBasis was not working.
+	- MetricCompute now also accepts "DetMetric"[]. Suggested by Leo
+	  Stein.
+17 Apr	- Added option ExtendedCoordinateDerivatives in DefChart to implement
+	  Alfonso's suggestion of having only the PDchart on coordinate scalars
+	  being converted into Basis objects, and not all covariant derivatives.
+        * Released as version 0.7.1 dated 17 April 2011.
+
+30 Apr	- Fixed computation of Weyl tensor, that was missing an antisymmetrizer.
+	  Thanks to Javier Cuchi for reporting this in the group.
+        * Rereleased as version 0.7.1 dated 30 April 2011.
+
+ 9 Jul	- Added option FormatBasis in DefBasis/DefChart to make easier the
+	  formatting of basis vectors and covectors. The default is
+	  FormatBasis->Automatic, and in general is FormatBasis->{vectors, covectors}.
+	  For DefChart we can specify FormatBasis->{"Partials","Differentials"}.
+	- Fixed problem with MetricCompute computation of a Christoffel tensor with
+	  disordered derivatives. Reported by Alfonso in the group on July 4.
+15 Jul	- xCoba now accepts nonatomic tensor heads, as suggested by Alfonso.
+        * Released as version 0.7.2 dated 15 July 2011.
+
+23 Oct	- Added option epsilonOrientationOfMetric for DefBasis, associated
+	  the the function epsilonOrientation of xTensor.
+	- The epsilonToeta functions use now epsilonOrientation instead of
+	  $epsilonSign, thought the former has default value the latter, for
+	  backward compatibility.
+	- Introduced etaOrientation[basis] computed as Signature[cnumbers].
+	* Rereleased as version 0.7.2 dated 25 October 2011.
+
+(******************************** 2012 ********************************)
+
+21 Apr	- Added xTension and MakexTensions.
+28 Apr	- Fixed WithSetValues. Bug found by Alfonso.
+	* Released as version 0.7.3 dated 5 May 2012.
+
+(******************************** 2013 ********************************)
+
+26 Jan	- Added CTensor, and associated functions.
+	- Fixed handling of options in RiemannFromChristoffel. Reported
+	  by Dietmar S. Theiss.
+	- Added DetToBasis, extending ToBasis, as discussed in the group.
+	* Released as version 0.8.0 dated 27 January 2013.
+
+28 Jan	- Solve issues with weights in CTensor. Weight is a 3rd argument.
+	  Propagate change.
+ 3 Feb	- Cleaned up sections 1 to 3 of xCoba.nb. Removed Coba section.
+ 9 Feb  - Working on section 4. Automatic contraction, including changes
+	  of bases.
+16 Feb	- Added xCobaCache.
+23 Feb	- MetricCompute handles frames and torsion.
+17 Mar	- Removed SmallCircle as a notation for TraceBasisDummy.
+30 Mar	- Patterns basis_Symbol converted into basis_?BasisQ.
+28 Apr	- Added Kernel/init.m.
+
+(******************************** 2014 ********************************)
+
+	* Released as version 0.8.1 dated 15 February 2014.
+
+ 7 Sep	- Removed restriction to CTensor objects in the second argument of
+	  of CCovD, to allow Zero there. Problem reported by Daniel Mahler
+	  in the group.
+	- Added option Parallelize in MetricCompute, as suggested by Thomas
+	  in the group. He also contributes the actual code.
+	- Removed a spurious SGSofsym in BasesEquivalents, as reported by Leo.
+
+27 Sep	- Added function ToTensorRules, as suggested by Alfonso.
+	- Collected some docs for CTensor in the file xCobaDoc2.nb.
+	* Released as version 0.8.2 dated 28 September 2014.
+
+ 2 Nov	- Added option SignatureOfMetric to SetCMetric.
+
+(******************************** 2015 ********************************)
+
+22 Mar	- Added SlotsOfTensor[Basis]^={-All,All}, following the corresponding
+	  definition for delta. Requested by Alessandro for xPrint.
+
+	* Released as version 0.8.3 dated 23 August 2015.
+
+ 9 Sep	- Fix computation of Kretschmann scalar from CCovD, as reported by
+	  Leo in the forum.
+
+(******************************** 2016 ********************************)
+
+(******************************** 2017 ********************************)
+
+(******************************** 2018 ********************************)
+
+15 Feb	- Fix CTensor computation of Torsion[pd]. Reported by Alfonso.
+20 Feb	- Introduced Jacobian[frame, AIndex] following Christoffel[cd, PD].
+
+        * Released as version 0.8.4 dated 28 February 2018.
+
+25 Feb	- Added function BasisCollect.
+	  Added missing usage messages for SetCMetric and UnsetCMetric, as pointed
+	  out by Alessandro in the forum.
+	  Added a couple of ToValue calls in the old algorithms for construction of
+	  Christoffel and Riemann, to make them a bit faster.
+	  Added function ToCCovD.
+
+31 Mar	- Improved Determinant on CTensor objects.

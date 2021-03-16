@@ -1,0 +1,226 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5735,        186]*)
+(*NotebookOutlinePosition[      6405,        209]*)
+(*  CellTagsIndexPosition[      6361,        205]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["IndicesOf", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["IndicesOf[",
+    FontFamily->"Courier"],
+  StyleBox["selectors",
+    FontSlant->"Italic"],
+  StyleBox["][",
+    FontFamily->"Courier"],
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " returns a list (head ",
+  StyleBox["IndexList",
+    FontFamily->"Courier"],
+  ") of the indices in expression selected by the given ",
+  StyleBox["selectors",
+    FontSlant->"Italic"],
+  "."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] A sequence of several selectors represents the ",
+  StyleBox["And",
+    FontFamily->"Courier"],
+  " of all selectors (smaller result). A list of several selectors represents \
+the ",
+  StyleBox["Or",
+    FontFamily->"Courier"],
+  " of all selectors (bigger result).\n\[FilledSmallSquare] Possible \
+selectors are:\n\t- ",
+  StyleBox[ButtonBox["Free",
+    ButtonData:>{"Free.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": free indices\n\t- ",
+  StyleBox[ButtonBox["Dummy",
+    ButtonData:>{"Dummy.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": dummy indices\n\t- ",
+  StyleBox[ButtonBox["Blocked",
+    ButtonData:>{"Blocked.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": blocked indices\n\t- ",
+  StyleBox[ButtonBox["Up",
+    ButtonData:>{"Up.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": contravariant indices\n\t- ",
+  StyleBox[ButtonBox["Down",
+    ButtonData:>{"Down.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": covariant indices\n\t- ",
+  StyleBox[ButtonBox["AIndex",
+    ButtonData:>{"AIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": abstract indices\n\t- ",
+  StyleBox[ButtonBox["BIndex",
+    ButtonData:>{"BIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": basis indices\n\t- ",
+  StyleBox[ButtonBox["CIndex",
+    ButtonData:>{"CIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": component indices\n\t- ",
+  StyleBox[ButtonBox["DIndex",
+    ButtonData:>{"DIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": directional indices\n\t- ",
+  StyleBox[ButtonBox["LIndex",
+    ButtonData:>{"LIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ": label indices:\n\t- ",
+  StyleBox["Not",
+    FontFamily->"Courier"],
+  "[any of the previous]: complement of the previous\n\t- ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  ": indices of the given vbundle\n\t- ",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  ": indices of the given basis\n\t- ",
+  StyleBox["tensor",
+    FontSlant->"Italic"],
+  ": indices on the given tensor\n\t- ",
+  StyleBox["covd",
+    FontSlant->"Italic"],
+  ": indices on the given covariant derivative\n\t- ",
+  StyleBox[ButtonBox["Basis",
+    ButtonData:>{"Basis.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["basis",
+    FontSlant->"Italic"],
+  "]: (both) indices on ",
+  StyleBox["Basis",
+    FontFamily->"Courier"],
+  " objects of the given basis\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 2.7",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Findind indices"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["FindIndices",
+    ButtonData:>{"FindIndices.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["IsIndexOf",
+    ButtonData:>{"IsIndexOf.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 24-IX-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{279, Automatic}, {Automatic, 185}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 31, 0, 38, "ObjectName"],
+Cell[1810, 55, 487, 19, 48, "Usage"],
+Cell[2300, 76, 3419, 107, 544, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

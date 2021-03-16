@@ -1,0 +1,94 @@
+****************************************
+INSTALLATION NOTES FOR THE xAct PACKAGES
+****************************************
+
+The xAct packages are currently:
+
+   Main: xCore, xPerm, xTensor and xCoba
+
+   Applications: xPert, Harmonics, Invar and Spinors
+
+   Contributed: xPrint, SymManipulator, AVF, xTras, TexAct, xPand,
+      xTerior and SpinFrames
+
+All packages can be downloaded as a single archive xAct_V.tgz
+(linux or mac) or xAct_V.zip (windows) from the webpage
+
+   http://www.xact.es/
+
+The V in xAct_V represents the current version number of xTensor,
+the leading package of the system. Note that the database of Riemann
+relations in Invar must be downloaded separately!
+
+When uncompressed, the archive files give a number of files hanging
+from a directory called xAct/. This directory must be placed at
+(or linked from) one of the places Mathematica prepares for external
+applications. You can find the actual paths in your Mathematica
+installation in the variables $BaseDirectory and $UserBaseDirectory.
+You need the Applications/ subdirectory (or subfolder) of those
+returned by those variables.
+
+Linux:
+
+   - system-wide installation (requires root priviledges):
+
+        /usr/share/Mathematica/Applications/
+
+   - single-user installation:
+
+        $HOME/.Mathematica/Applications/
+
+Mac OS:
+
+   - system-wide installation (requires root priviledges):
+
+        /Library/Mathematica/Applications/
+
+   - single-user installation:
+
+        /Users/<user>/Library/Mathematica/Applications/
+
+MSWindows:
+
+   - system-wide installation:
+
+        C:\Documents and settings\All Users\Application data\Mathematica\Applications\
+
+   - single-user installation:
+
+        C:\Documents and settings\<user>\Application Data\Mathematica\Applications\
+
+   Beware that in Windows these directories might be hidden!
+
+To install xAct on a Raspberry Pi, do the following:
+
+   Place the xAct tree in
+      ~/.WolframEngine/Applications
+
+   Run the following commands:
+
+      cd ~/.WolframEngine/Applications/xAct/xPerm/mathlink/
+
+      sudo apt-get install uuid-dev
+
+      mcc xperm.tm -luuid -O3 -o xperm.linux.32-bit
+
+Documentation files (like xTensorDoc.nb, etc) are placed in the xAct/Documentation/English directory.
+
+Then the packages can be loaded using unix style
+
+        <<xAct/xTensor.m
+
+or Mathematica style
+
+        <<xAct`xTensor`
+
+If you have any problem, don't hesitate to contact me at
+
+        jose@xAct.es
+
+or even better, post your question in our group (everybody welcome to post!)
+
+        http://groups.google.com/group/xAct
+
+This is the "install" file of xAct. Last update: 2 March 2018.

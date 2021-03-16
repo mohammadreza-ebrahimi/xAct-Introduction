@@ -1,0 +1,995 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     26324,        821]*)
+(*NotebookOutlinePosition[     27975,        869]*)
+(*  CellTagsIndexPosition[     27803,        861]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DefVBundle", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["DefVBundle",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["dimF, ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic"],
+  "}] defines ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  " to be a vector bundle with base ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  ", with a vectorial fiber of dimension ",
+  StyleBox["dimF",
+    FontSlant->"Italic"],
+  " and tensor abstract indices ",
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic"],
+  "\n\[FilledSmallSquare] ",
+  StyleBox["DefVBundle",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["manifold, ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["B1, ..., Bm",
+    FontSlant->"Italic"],
+  "}",
+  StyleBox[", ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic"],
+  "}",
+  "] defines ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  " to be the direct sum vector bundle of previously defined vector bundles \
+B",
+  StyleBox["1, ..., Bm",
+    FontSlant->"Italic"],
+  " over the base product ",
+  StyleBox["manifold",
+    FontSlant->"Italic"],
+  "."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Currently ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  " must be a valid ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " symbol, not in use in the present session with any other meaning. In the \
+future a pattern will also be valid to allow for \"indexed names\".\n\
+\[FilledSmallSquare] The list of all currently defined vector bundles is \
+stored in the global variable ",
+  StyleBox[ButtonBox["$VBundles",
+    ButtonData:>{"$VBundles.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". All of them have associated upvalues ",
+  StyleBox["True",
+    FontFamily->"Courier"],
+  " for the function ",
+  StyleBox[ButtonBox["VBundleQ",
+    ButtonData:>{"VBundleQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". They have type ",
+  StyleBox[ButtonBox["VBundle",
+    ButtonData:>{"VBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] The base manifold of the vbundle is stored as an \
+upvalue for the function ",
+  StyleBox[ButtonBox["BaseOfVBundle",
+    ButtonData:>{"BaseOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] The dimension ",
+  StyleBox["dimF",
+    FontSlant->"Italic"],
+  " is that of the fiber vector space, and is not necessarily related to the \
+dimension of the base manifold. The fiber dimension is stored as an upvalue \
+of ",
+  StyleBox["vbundle",
+    FontSlant->"Italic"],
+  " for the function ",
+  StyleBox[ButtonBox["DimOfVBundle",
+    ButtonData:>{"DimOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". It can be any positive integer (not 0) or a constant symbol.\n\
+\[FilledSmallSquare] ",
+  StyleBox["The (nonempty) list {",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["a, b, c, ...",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["} is stored as the first element of two in the list ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["IndicesOfVBundle",
+    ButtonData:>{"IndicesOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[". The second element will be the list of indices internally \
+generated when the number of registered indices is not enough. See the \
+function ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["NewIndexIn",
+    ButtonData:>{"NewIndexIn.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[". Indices can be added to the first list (",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["AddIndices",
+    ButtonData:>{"AddIndices.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[") or removed from it (",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["RemoveIndices",
+    ButtonData:>{"RemoveIndices.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox["), even though the latter is very dangerous. We can get any \
+number of abstract indices using the function ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["GetIndicesOfVBundle",
+    ButtonData:>{"GetIndicesOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[". Unique dummy (dollar) indices can be obtained using ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[ButtonBox["DummyIn",
+    ButtonData:>{"DummyIn.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[".",
+    FontVariations->{"CompatibilityType"->0}],
+  "\n\[FilledSmallSquare] A vector bundle can have subvbundles (see ",
+  StyleBox[ButtonBox["SubvbundlesOfVBundle",
+    ButtonData:>{"SubvbundlesOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ") and can be contained in other vbundles, due to the possibility of \
+defining direct-sum vector bundles. The function ",
+  StyleBox[ButtonBox["SubvbundleQ",
+    ButtonData:>{"SubvbundleQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " checks that a first vbundle contains a second vbundle.\n\
+\[FilledSmallSquare] When a direct-sum vbundle is defined, we check that the \
+product ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox["manifold",
+          FontSlant->"Italic"], TraditionalForm]]],
+  " actually contains all needed base manifolds for the subvbundles B",
+  StyleBox["1, ..., Bm",
+    FontSlant->"Italic"],
+  ".\n\[FilledSmallSquare] A vbundle is defined as real by default (perhaps \
+later complexified) but can also be defined as complex using the option ",
+  StyleBox[ButtonBox["Dagger",
+    ButtonData:>{"Dagger.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  StyleBox[" -> Complex",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] Any manifold with non-zero dimension has an \
+associated real vbundle called its tangent bundle, with the same dimension. \
+The name is formed by joining the symbol ",
+  StyleBox[ButtonBox["Tangent",
+    ButtonData:>{"Tangent.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " with the name of the manifold, and it is stored as an upvalue for the \
+function ",
+  StyleBox[ButtonBox["TangentBundleOfManifold",
+    ButtonData:>{"TangentBundleOfManifold.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] When a complex vbundle is defined its complex \
+conjugate vbundle is also defined. The name of the latter is formed by \
+appending the symbol ",
+  StyleBox[ButtonBox["$DaggerCharacter",
+    ButtonData:>{"$DaggerCharacter.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " to the name of the vbundle.\n\[FilledSmallSquare] A vundle can have one \
+or several metrics, stored as an upvalue list for the function ",
+  StyleBox[ButtonBox["MetricsOfVBundle",
+    ButtonData:>{"MetricsOfVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ". When the vbundle has at least one metric then the function ",
+  StyleBox[ButtonBox["MetricEndowedQ",
+    ButtonData:>{"MetricEndowedQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " returns ",
+  StyleBox["True",
+    FontFamily->"Courier"],
+  " on that vbundle. \n\[FilledSmallSquare] Options:\n",
+  StyleBox[ButtonBox["DefInfo",
+    ButtonData:>{"DefInfo.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["{\"vbundle\", \"\"}",
+    FontFamily->"Courier"],
+  "\t\tinformation on the vbundle\n",
+  StyleBox[ButtonBox["Master",
+    ButtonData:>{"Master.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Null",
+    FontFamily->"Courier"],
+  "\t\t\t\tmaster symbol for the vbundle\n",
+  StyleBox[ButtonBox["PrintAs",
+    ButtonData:>{"PrintAs.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Identity",
+    FontFamily->"Courier"],
+  "\t\t\tstring or function of symbol for output\n",
+  StyleBox[ButtonBox["ProtectNewSymbol",
+    ButtonData:>{"ProtectNewSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox[ButtonBox["$ProtectNewSymbols",
+    ButtonData:>{"$ProtectNewSymbols.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\twhether to protect new symbol or not\n",
+  StyleBox[ButtonBox["Dagger",
+    ButtonData:>{"Dagger.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Real",
+    FontFamily->"Courier"],
+  "\t\t\t\tbehaviour of the vbundle under complex conjugation\n\
+\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.3",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Manifolds"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["UndefVBundle",
+    ButtonData:>{"UndefVBundle.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["DefManifold",
+    ButtonData:>{"DefManifold.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 23-IV-2011 for version 1.0.1 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Further Examples", "ExampleSection"],
+
+Cell["Load the packages:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Needs["\<xAct`xTensor`\>"]\)], "Input",
+  CellLabel->"In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.5.0"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.5.0", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2008, David J. M. Park and Ted Ersek"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"1.0.1"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "1.0.1", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.5"\[InvisibleSpace]", "\[InvisibleSpace]{2008, 5, 
+          16}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.5", ", ", {2008, 5, 16}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2008, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="]
+}, Open  ]],
+
+Cell["Before defining a vbundle we need to define a manifold:", "Text"],
+
+Cell[TextData[{
+  "Define a 3d manifold ",
+  StyleBox["M:",
+    FontFamily->"Courier"]
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[M, \ 3, \ {a, b, c, d, e}]\)], "Input",
+  CellLabel->"In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]M\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", M, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentM\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentM, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="]
+}, Open  ]],
+
+Cell["Its tangent bundle has been defined:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?TangentM\)\)], "Input",
+  CellLabel->"In[3]:="],
+
+Cell["Global`TangentM", "Print",
+  CellTags->"Info3419860118-4995368"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {GridBox[{
+                {
+                  RowBox[{
+                    InterpretationBox[
+                      StyleBox[\(Dagger[TangentM]\),
+                        AutoSpacing->False],
+                      Dagger[ TangentM],
+                      Editable->False], "^=", "TangentM"}]},
+                {" "},
+                {\(VBundleQ[TangentM] ^= True\)},
+                {" "},
+                {\(BaseOfVBundle[TangentM] ^= M\)},
+                {" "},
+                {\(MetricsOfVBundle[TangentM] ^= {}\)},
+                {" "},
+                {\(SubvbundlesOfVBundle[TangentM] ^= {}\)},
+                {" "},
+                {\(IndicesOfVBundle[TangentM] ^= {{a, b, c, d, e}, {}}\)},
+                {" "},
+                {\(DimOfVBundle[TangentM] ^= 3\)},
+                {" "},
+                {\(DefInfo[TangentM] ^= {"vbundle", \*"\<\"\"\>"}\)},
+                {" "},
+                {\(PrintAs[TangentM] ^= "TangentM"\)},
+                {" "},
+                {\(MasterOf[TangentM] ^= M\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "TangentM"],
+      Editable->False]], "Print",
+  CellTags->"Info3419860118-4995368"]
+}, Open  ]],
+
+Cell["\<\
+A tangent bundle cannot be undefined, unless we undefine its base \
+manifold:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Catch@UndefVBundle[TangentM]\)], "Input",
+  CellLabel->"In[4]:="],
+
+Cell[BoxData[
+    \(General::"noundef" \(\(:\)\(\ \)\) 
+      "\!\(\"Symbol\"\) \!\(TangentM\) cannot be undefined because \!\(\"its \
+master is still alive\"\)."\)], "Message",
+  CellLabel->"From In[4]:="]
+}, Open  ]],
+
+Cell["\<\
+Now we can define inner vbundles (for example those used in gauge \
+theories):\
+\>", "Text"],
+
+Cell["Define an inner vbundle over the same base manifold:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefVBundle[Fiber, M, \ 4, \ {A, B, C, D, F}]\)], "Input",
+  CellLabel->"In[5]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle \
+"\[InvisibleSpace]Fiber\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", Fiber, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[5]:="],
+
+Cell[BoxData[
+    \(ValidateSymbol::"capital" \(\(:\)\(\ \)\) 
+      "System name \!\(\"C\"\) is overloaded as an abstract index."\)], \
+"Message",
+  CellLabel->"From In[5]:="],
+
+Cell[BoxData[
+    \(ValidateSymbol::"capital" \(\(:\)\(\ \)\) 
+      "System name \!\(\"D\"\) is overloaded as an abstract index."\)], \
+"Message",
+  CellLabel->"From In[5]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?Fiber\)\)], "Input",
+  CellLabel->"In[6]:="],
+
+Cell["Global`Fiber", "Print",
+  CellTags->"Info3419860123-1636921"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {GridBox[{
+                {
+                  RowBox[{
+                    InterpretationBox[
+                      StyleBox[\(Dagger[Fiber]\),
+                        AutoSpacing->False],
+                      Dagger[ Fiber],
+                      Editable->False], "^=", "Fiber"}]},
+                {" "},
+                {\(VBundleQ[Fiber] ^= True\)},
+                {" "},
+                {\(BaseOfVBundle[Fiber] ^= M\)},
+                {" "},
+                {\(MetricsOfVBundle[Fiber] ^= {}\)},
+                {" "},
+                {\(SubvbundlesOfVBundle[Fiber] ^= {}\)},
+                {" "},
+                {\(IndicesOfVBundle[Fiber] ^= {{A, B, C, D, F}, {}}\)},
+                {" "},
+                {\(DimOfVBundle[Fiber] ^= 4\)},
+                {" "},
+                {\(DefInfo[Fiber] ^= {"vbundle", \*"\<\"\"\>"}\)},
+                {" "},
+                {\(PrintAs[Fiber] ^= "Fiber"\)},
+                {" "},
+                {\(HostsOf[Fiber] ^= {M}\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "Fiber"],
+      Editable->False]], "Print",
+  CellTags->"Info3419860123-1636921"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($Manifolds\)], "Input",
+  CellLabel->"In[7]:="],
+
+Cell[BoxData[
+    \({M}\)], "Output",
+  CellLabel->"Out[7]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($VBundles\)], "Input",
+  CellLabel->"In[8]:="],
+
+Cell[BoxData[
+    \({TangentM, Fiber}\)], "Output",
+  CellLabel->"Out[8]="]
+}, Open  ]],
+
+Cell["\<\
+We can also define a complex vbundle. Its conjugate is \
+automatically defined. Note that the latter has its own set of abstract \
+indices:\
+\>", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefVBundle[complex, M, 
+      2, {\[ScriptA], \[ScriptB], \[ScriptC], \[ScriptD], \[ScriptE]}, 
+      Dagger \[Rule] Complex]\)], "Input",
+  CellLabel->"In[9]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle \
+"\[InvisibleSpace]complex\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", complex, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[9]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"conjugated vbundle "\[InvisibleSpace]complex\
+\[Dagger]\[InvisibleSpace]". "\[InvisibleSpace]"Assuming fixed \
+anti-isomorphism between complex and complex\[Dagger]"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "conjugated vbundle ", 
+        complex\[Dagger], ". ", 
+        "Assuming fixed anti-isomorphism between complex and \
+complex\[Dagger]"],
+      Editable->False]], "Print",
+  CellLabel->"From In[9]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?complex\[Dagger]\)\)], "Input",
+  CellLabel->"In[10]:="],
+
+Cell["Global`complex\[Dagger]", "Print",
+  CellTags->"Info3419860127-5967561"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {GridBox[{
+                {
+                  RowBox[{
+                    InterpretationBox[
+                      StyleBox[\(Dagger[complex\[Dagger]]\),
+                        AutoSpacing->False],
+                      Dagger[ complex\[Dagger]],
+                      Editable->False], "^=", "complex"}]},
+                {" "},
+                {\(VBundleQ[complex\[Dagger]] ^= True\)},
+                {" "},
+                {\(BaseOfVBundle[complex\[Dagger]] ^= M\)},
+                {" "},
+                {\(MetricsOfVBundle[complex\[Dagger]] ^= {}\)},
+                {" "},
+                {\(SubvbundlesOfVBundle[complex\[Dagger]] ^= {}\)},
+                {" "},
+                {\(IndicesOfVBundle[
+                      complex\[Dagger]] ^= {{\[ScriptA]\[Dagger], \[ScriptB]\
+\[Dagger], \[ScriptC]\[Dagger], \[ScriptD]\[Dagger], \[ScriptE]\[Dagger]}, \
+{}}\)},
+                {" "},
+                {\(DimOfVBundle[complex\[Dagger]] ^= 2\)},
+                {" "},
+                {\(DefInfo[complex\[Dagger]] ^= {"conjugated vbundle", 
+                      "Assuming fixed anti-isomorphism between complex and \
+complex\[Dagger]"}\)},
+                {" "},
+                {\(PrintAs[complex\[Dagger]] ^= "complex\[Dagger]"\)},
+                {" "},
+                {\(MasterOf[complex\[Dagger]] ^= complex\)},
+                {" "},
+                {\(HostsOf[complex\[Dagger]] ^= {M}\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "complex\[Dagger]"],
+      Editable->False]], "Print",
+  CellTags->"Info3419860127-5967561"]
+}, Open  ]],
+
+Cell["Tidy up:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefVBundle[Fiber]\)], "Input",
+  CellLabel->"In[11]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]UndefVBundle\[InvisibleSpace]": \
+Undefined "\[InvisibleSpace]"vbundle"\[InvisibleSpace]" \
+"\[InvisibleSpace]Fiber\),
+      SequenceForm[ 
+      "** ", UndefVBundle, ": Undefined ", "vbundle", " ", Fiber],
+      Editable->False]], "Print",
+  CellLabel->"From In[11]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefVBundle[complex]\)], "Input",
+  CellLabel->"In[12]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]UndefVBundle\[InvisibleSpace]": \
+Undefined "\[InvisibleSpace]"conjugated vbundle"\[InvisibleSpace]" "\
+\[InvisibleSpace]complex\[Dagger]\),
+      SequenceForm[ 
+      "** ", UndefVBundle, ": Undefined ", "conjugated vbundle", " ", 
+        complex\[Dagger]],
+      Editable->False]], "Print",
+  CellLabel->"From In[12]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]UndefVBundle\[InvisibleSpace]": \
+Undefined "\[InvisibleSpace]"vbundle"\[InvisibleSpace]" \
+"\[InvisibleSpace]complex\),
+      SequenceForm[ 
+      "** ", UndefVBundle, ": Undefined ", "vbundle", " ", complex],
+      Editable->False]], "Print",
+  CellLabel->"From In[12]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(UndefManifold[M]\)], "Input",
+  CellLabel->"In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]UndefVBundle\[InvisibleSpace]": \
+Undefined "\[InvisibleSpace]"vbundle"\[InvisibleSpace]" \
+"\[InvisibleSpace]TangentM\),
+      SequenceForm[ 
+      "** ", UndefVBundle, ": Undefined ", "vbundle", " ", TangentM],
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** \
+"\[InvisibleSpace]UndefManifold\[InvisibleSpace]": Undefined "\
+\[InvisibleSpace]"manifold"\[InvisibleSpace]" "\[InvisibleSpace]M\),
+      SequenceForm[ "** ", UndefManifold, ": Undefined ", "manifold", " ", M],
+      
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+ShowPageBreaks->False,
+WindowSize->{704, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingStartingPageNumber->4,
+TaggingRules:>{"PaginationCache" -> {{2004, 11, 22, 16, 52, \
+37.58997`8.327646958178029}, {4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, \
+5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6}}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "Info3419860118-4995368"->{
+    Cell[15999, 489, 70, 1, 70, "Print",
+      CellTags->"Info3419860118-4995368"],
+    Cell[16072, 492, 1408, 37, 70, "Print",
+      CellTags->"Info3419860118-4995368"]},
+  "Info3419860123-1636921"->{
+    Cell[19071, 591, 67, 1, 70, "Print",
+      CellTags->"Info3419860123-1636921"],
+    Cell[19141, 594, 1367, 37, 70, "Print",
+      CellTags->"Info3419860123-1636921"]},
+  "Info3419860127-5967561"->{
+    Cell[22297, 700, 78, 1, 70, "Print",
+      CellTags->"Info3419860127-5967561"],
+    Cell[22378, 703, 1807, 44, 70, "Print",
+      CellTags->"Info3419860127-5967561"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"Info3419860118-4995368", 27202, 842},
+  {"Info3419860123-1636921", 27404, 847},
+  {"Info3419860127-5967561", 27606, 852}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 32, 0, 38, "ObjectName"],
+Cell[1811, 55, 1318, 58, 86, "Usage"],
+Cell[3132, 115, 8439, 223, 755, "Text"],
+
+Cell[CellGroupData[{
+Cell[11596, 342, 42, 0, 38, "ExampleSection"],
+Cell[11641, 344, 34, 0, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[11700, 348, 83, 2, 70, "Input"],
+Cell[11786, 352, 146, 3, 70, "Print"],
+Cell[11935, 357, 314, 7, 70, "Print"],
+Cell[12252, 366, 147, 3, 70, "Print"],
+Cell[12402, 371, 146, 3, 70, "Print"],
+Cell[12551, 376, 95, 2, 70, "Print"],
+Cell[12649, 380, 119, 2, 70, "Print"],
+Cell[12771, 384, 146, 3, 70, "Print"],
+Cell[12920, 389, 314, 7, 70, "Print"],
+Cell[13237, 398, 147, 3, 70, "Print"],
+Cell[13387, 403, 106, 2, 70, "Print"],
+Cell[13496, 407, 87, 2, 70, "Print"],
+Cell[13586, 411, 146, 3, 70, "Print"],
+Cell[13735, 416, 318, 7, 70, "Print"],
+Cell[14056, 425, 147, 3, 70, "Print"],
+Cell[14206, 430, 146, 3, 70, "Print"],
+Cell[14355, 435, 281, 5, 70, "Print"],
+Cell[14639, 442, 146, 3, 70, "Print"]
+}, Open  ]],
+Cell[14800, 448, 71, 0, 70, "Text"],
+Cell[14874, 450, 105, 4, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[15004, 458, 95, 2, 70, "Input"],
+Cell[15102, 462, 356, 7, 70, "Print"],
+Cell[15461, 471, 366, 7, 70, "Print"]
+}, Open  ]],
+Cell[15842, 481, 59, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[15926, 485, 70, 2, 70, "Input"],
+Cell[15999, 489, 70, 1, 70, "Print",
+  CellTags->"Info3419860118-4995368"],
+Cell[16072, 492, 1408, 37, 70, "Print",
+  CellTags->"Info3419860118-4995368"]
+}, Open  ]],
+Cell[17495, 532, 108, 3, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[17628, 539, 85, 2, 70, "Input"],
+Cell[17716, 543, 206, 4, 70, "Message"]
+}, Open  ]],
+Cell[17937, 550, 102, 3, 70, "Text"],
+Cell[18042, 555, 75, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[18142, 559, 101, 2, 70, "Input"],
+Cell[18246, 563, 360, 7, 70, "Print"],
+Cell[18609, 572, 176, 4, 70, "Message"],
+Cell[18788, 578, 176, 4, 70, "Message"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[19001, 587, 67, 2, 70, "Input"],
+Cell[19071, 591, 67, 1, 70, "Print",
+  CellTags->"Info3419860123-1636921"],
+Cell[19141, 594, 1367, 37, 70, "Print",
+  CellTags->"Info3419860123-1636921"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[20545, 636, 67, 2, 70, "Input"],
+Cell[20615, 640, 61, 2, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[20713, 647, 66, 2, 70, "Input"],
+Cell[20782, 651, 75, 2, 70, "Output"]
+}, Open  ]],
+Cell[20872, 656, 170, 4, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[21067, 664, 182, 4, 70, "Input"],
+Cell[21252, 670, 371, 8, 70, "Print"],
+Cell[21626, 680, 552, 11, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22215, 696, 79, 2, 70, "Input"],
+Cell[22297, 700, 78, 1, 70, "Print",
+  CellTags->"Info3419860127-5967561"],
+Cell[22378, 703, 1807, 44, 70, "Print",
+  CellTags->"Info3419860127-5967561"]
+}, Open  ]],
+Cell[24200, 750, 31, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[24256, 754, 77, 2, 70, "Input"],
+Cell[24336, 758, 330, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24703, 770, 79, 2, 70, "Input"],
+Cell[24785, 774, 383, 8, 70, "Print"],
+Cell[25171, 784, 334, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[25542, 796, 74, 2, 70, "Input"],
+Cell[25619, 800, 336, 7, 70, "Print"],
+Cell[25958, 809, 326, 7, 70, "Print"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

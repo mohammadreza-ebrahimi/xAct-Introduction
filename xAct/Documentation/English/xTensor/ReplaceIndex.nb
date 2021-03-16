@@ -1,0 +1,167 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4336,        127]*)
+(*NotebookOutlinePosition[      5005,        150]*)
+(*  CellTagsIndexPosition[      4961,        146]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ReplaceIndex", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["ReplaceIndex[",
+    FontFamily->"Courier"],
+  StyleBox["expr, rules",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " replaces indices of objects in expr as given by rules (a single rule or a \
+list of rules of the form i1->i2). Note that the rules a->b and -a->-b are \
+independent and both must be given if this is what we want.\n\
+\[FilledSmallSquare] ",
+  StyleBox["ReplaceIndex[",
+    FontFamily->"Courier"],
+  StyleBox["expr, ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["rules1, rules2, ...",
+    FontSlant->"Italic"],
+  "}",
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " is automatically threaded, giving a list of expressions."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] It is possible to change any valid index by any other \
+expression, not necessarily an index. That is, there is no check on the RHS \
+of the rules.\n\[FilledSmallSquare] The function tries to change first the \
+basis indices as a whole and, if no rule applies, then the internal abstract \
+index of the basis indices is changed.\n\[FilledSmallSquare] Patterns can be \
+changed but a `Contact JMM\.b4 message is sent.\n\[FilledSmallSquare] Blocked \
+indices (components, directions and labels) can be changed.\n\
+\[FilledSmallSquare] ",
+  StyleBox["ReplaceIndex",
+    FontFamily->"Courier"],
+  " has attribute ",
+  StyleBox["HoldFirst",
+    FontFamily->"Courier"],
+  ", and hence requires very often the use of ",
+  StyleBox["Evaluate",
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 2.9",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Replacing indices"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["SplitIndex",
+    ButtonData:>{"SplitIndex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["ReplaceDummies",
+    ButtonData:>{"ReplaceDummies.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["SameDummies",
+    ButtonData:>{"SameDummies.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 24-IX-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{214, Automatic}, {81, Automatic}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 34, 0, 38, "ObjectName"],
+Cell[1813, 55, 734, 23, 102, "Usage"],
+Cell[2550, 80, 1770, 44, 264, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

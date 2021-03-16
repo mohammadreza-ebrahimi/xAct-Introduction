@@ -1,0 +1,7 @@
+In order to produce HTML files from this list of notebooks do the following:
+
+1.- Use ./changes1 to remove dollars from the beginning of the names.
+    They conflict with HTMLSave.
+2.- Use ToHTML.nb to convert.
+3.- Use ./changes2 to reintroduce the dollars in the .nb files.
+4.- Use ./changes3 to reintroduce the dollars in the .nb.html files.

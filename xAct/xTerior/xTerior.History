@@ -1,0 +1,158 @@
+--------------------------------------------------------------------
+2013 
+
+Moved code from the notebook xTeriorAlgebra.nb to the notebook
+xTerior.nb which contains the code of the package. The following 
+are the main differences between the code which was written in 
+the notebook xTeriorAlgebra.nb and what has been put in the notebook
+xTerior.nb
+
+-The notation for the exterior derivative is ExtDiff[form]. ExtDiff should
+be independent from any covariant derivative, as the exterior derivative
+only requires the differential structure for its definition.
+
+-The notation for the exterior covariant derivative is 
+ExtCovDiff[form,covd]. ExtCovDiff[expr] is automatically transformed into
+ExtCovDiff[expr,PD]
+
+-Connection forms: The notation for the connection 1-form is 
+ConnectionForm[CovD,VBundle][a,-b]. The connection isn't regarded as the 
+difference between two connections as it represents a connection in 
+a principal bundle. If VBundle=TangentBundle then one has the automatic 
+transformation
+
+ConnectionForm[covd,TangentBundle]->ChristoffelForm[covd]
+
+In addition we set ConnectionForm[PD,VBundle]=0, ChristoffelForm[PD]=0.
+The user cannot change the index layout of the connection forms
+
+-Curvature forms: The notation for the curvature 2-form is 
+CurvatureForm[covd,VBundle][a,-b]. If VBundle=TangentBundle then we
+have the automatic rule
+
+CurvatureForm[covd,TangentBundle][a,-b]=RiemannForm[covd][a,-b].
+The index layout cannot be changed by the user.
+
+-Added the command ExpandExtDiff whose syntax is ExpandExtDiff[expr,covd]
+This command handles the Cartan eqs. and the expansion of the exterior 
+derivative in a coordinate chart.
+
+-The notation for the co-differential is CoDiff. The codifferential has been
+made independent from any covariant derivative because we don't need a 
+covariant derivative to define the co-differential. This affects the 
+last lines of the code of FormVarD.
+
+
+6 Nov. 2013: added automatic contraction of basis elements in their product with 
+             the exterior derivative.
+
+10 Nov. 2013: added ConnectionFormToTensor and CurvatureFormToTensor.
+
+1 Dec. 2013: -added ?CovDQ in the definition of ConnectionForm and ChristoffelForm 
+             as non-atomic tensors (section 3.1).
+            -Changed the on-line help of Connection form and ChristoffelForm to adapt them to
+             their new syntax.
+            -Added the covariant derivative to the list of HostsOf ConnectionForm, ChristoffelForm, 
+             RiemannForm, CurvatureForm. 
+10 Dec. 2013: -added the condition that the exterior derivative of Basis objects is zero. 
+             Suppressed addition of 6th Nov.
+             
+11 Dec. 2013: -Enlarged the code of ExpandHodgeDual to admit exterior powers
+             of coordinates.
+             
+12 Dec. 2013: Fixed bug in ExpandExtDiff.
+
+18 Dec. 2013: Suppressed $DefInfoQ in section 1.4. Added DefInfo->Null in a number of Def commands.
+              Deg is now an argument of DefDifferentialForm and not an option. 
+
+             
+22 Dec. 2013: Suppressed symbol ExtCovDiff. Now everything is done through ExtDiff and a second
+              argument is added to it to represent the exterior covariant derivative.
+
+23 Dec. 2013: Changed name ExtDiff by Diff. All the commands which contained ExtDiff in their 
+              name contain now just Diff.
+              
+              Changed name CoDiff by Codiff. All the commands which contained CoDiff in their name
+              contain now just Codiff.
+              
+              Changed names DefDifferentialForm by DefDiffForm and UndefDifferentialForm by UndefDiffForm.
+              
+27 Dec. 2013: Added second argument to Lie representing a covariant derivative. LieDToCovD now trasforms Lie derivatives
+              of tensor valued differential forms into expressions containing the operator Lie.
+              
+              Added DFormQ.
+              
+28 Dec. 2013: Adapted usage messages to the name changes mentioned above. 
+
+31 Dec. 2013: Changed the formatting of the operator Lie which is different from LieD. The operator Lie accepts a covariant
+              derivative as a second argument. The commutation rules of this operator have been adapted to this
+              new situation.
+              
+1 Jan. 2014: Added action of Int on Coframe and dx.
+
+7 Jan. 2014: Added global variable $UseDimensionQ.
+
+13 Jan. 2014: Implemented relation between Lie, Int and Basis objects.
+
+15 Jan. 2014: Changed name "ExpandDiff" by "UseCartan".
+              Dropped $UseDimensionQ which is now replaced by UseDimensionStart[] and UseDimensionStop[].
+             
+16 Jan. 2014: Threaded Diff and UseCartan over equations and lists.
+	      Diff[expr] is always automatically replaced by Diff[expr,PD].
+	    
+18 Jan. 2014: Some name changes: new symbols are CartanD (Cartan Derivative) and CartanToDiff (transformation of the Cartan
+              derivative into an expression with the exterior derivative and the inner contraction by using the Cartan rule).
+              
+20 Jan. 2014: Removed DFormQ from xTerior.nb. It is no longer needed.
+
+24 Jan. 2014: Added back dependency on the covariant derivative in Codiff. Codiff of xCoba basis objects yields zero.
+
+26 Jan. 2014: Changed syntax of UseCartan when the covariant derivative argument is PD. See the on-line help of UseCartan.
+              Dropped ZeroFormQ.
+              
+27 Jan 2014: Changed name ExtCovDiff by ExtCovD.
+
+28 Jan 2014: Coded UseDimensionStart and UseDimensionStop with xTensions. Patch submitted by José María.
+
+* Released with version 0.8.5
+
+12 Jul 2014: Added product CircleTimes.
+
+12 Aug 2014: Added FindPotential.
+
+15 Aug 2014: Added Inner contraction of basis objects.
+
+29 Sep 2014: Added code to allow the inner contraction with covectors.
+
+18 Oct 2014:  Added relation of Wedge with respect to Times in GradeOfProduct, necessary when working with the latest xTensor.m. 
+	      Fixed the action of Int on Coframe and Frame.
+      
+18 Oct 2014: Started coding of support of CTensor in xTerior.
+
+5 Nov 2014: Changed sign convention in the definition of Codiff.
+
+6 Nov 2014: Changed sign in the definition of FormVarD to adapt to the new sign convention in Codiff.
+
+7 Nov 2014: Added code to get Zero Riemann form.
+
+23 Nov 2014: Fixed problem with the xTension DefTensorUseDimension.
+
+7 Dec 2014: Fixed problems with the code of the exterior derivative. Thanks 
+	   to José for doing this.
+
+16 Dec 2014: Corrected bug in UseDimensionStart
+
+------------------------------------------------------------------
+2015
+
+15 Aug 2015: corrected bug in CartanD.
+
+19 Aug 2015: set version compatibility wit xTensor 1.1.2 and above.
+
+* Released with version 0.9.0
+
+21 Oct 2015: Fix in FindPotential for the case of 1-degree forms.
+
+11 Feb. 2016: Added FormIntegrate and UseStokes by José.
+
+26 Jul. Added code to compute the Hodge dual of scalar 0-forms.

@@ -1,0 +1,934 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     23686,        782]*)
+(*NotebookOutlinePosition[     24849,        818]*)
+(*  CellTagsIndexPosition[     24761,        812]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["DefTensor", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["DefTensor[",
+    FontFamily->"Courier"],
+  StyleBox["tensor",
+    FontSlant->"Italic"],
+  "[",
+  StyleBox["-a, b, D, ...",
+    FontSlant->"Italic"],
+  "], ",
+  StyleBox["deps",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " defines ",
+  StyleBox["tensor",
+    FontSlant->"Italic"],
+  " to be a tensor field with dependencies ",
+  StyleBox["deps ",
+    FontSlant->"Italic"],
+  StyleBox["(one or a list of several manifolds and/or parameters) and index \
+structure as given by the abstract indices ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["-a, b, D, ...",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  "\n\[FilledSmallSquare] ",
+  StyleBox["DefTensor[",
+    FontFamily->"Courier"],
+  StyleBox["tensor",
+    FontSlant->"Italic"],
+  "[",
+  StyleBox["-a, b, D, ...",
+    FontSlant->"Italic"],
+  "], ",
+  StyleBox["deps",
+    FontSlant->"Italic"],
+  ", ",
+  StyleBox["syms",
+    FontSlant->"Italic"],
+  StyleBox["]",
+    FontFamily->"Courier"],
+  " in addition defines the tensor field with permutation symmetries ",
+  StyleBox["syms, ",
+    FontSlant->"Italic"],
+  StyleBox["given as a generating set (head ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["GenSet",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[") or a strong generating set (head ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["StrongGenSet",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[").",
+    FontVariations->{"CompatibilityType"->0}]
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] Currently ",
+  StyleBox["tensor",
+    FontSlant->"Italic"],
+  " must be a valid ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " symbol, not in use in the present session with any other meaning. In the \
+future a pattern will also be valid to allow for \"indexed names\".\n\
+\[FilledSmallSquare] The slot structure of the tensor (",
+  StyleBox[ButtonBox["SlotsOfTensor",
+    ButtonData:>{"SlotsOfTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ") is stored as ",
+  StyleBox["{-M1, M1, M2, ...}",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  ", where indices ",
+  StyleBox["a",
+    FontSlant->"Italic"],
+  ",",
+  StyleBox["b",
+    FontSlant->"Italic"],
+  " belong to manifold ",
+  StyleBox["M1",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  ", index ",
+  StyleBox["D",
+    FontSlant->"Italic"],
+  " belongs to manifold ",
+  StyleBox["M2",
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  ", etc. \n\[FilledSmallSquare] A tensor field has dependencies (",
+  StyleBox[ButtonBox["DependenciesOfTensor",
+    ButtonData:>{"DependenciesOfTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "), that can be either manifolds and/or parameters. The order in the list \
+",
+  StyleBox["deps",
+    FontSlant->"Italic"],
+  " is irrelevant because it is overwritten using the private function ",
+  StyleBox["SortDependencies.",
+    FontFamily->"Courier"],
+  "If the tensor has no dependencies then use ",
+  StyleBox["{}.",
+    FontFamily->"Courier"],
+  "A tensor is always a tensor field on the manifolds corresponding to its \
+indices; that is, we consider that a nonscalar tensor cannot be a constant on \
+a given manifold. This is because we need additional structure to show that a \
+tensor field does not depend on that manifold (for example a vector field, in \
+order to take Lie derivatives).\n\[FilledSmallSquare] The symmetries of a \
+tensor (",
+  StyleBox[ButtonBox["SymmetryGroupOfTensor",
+    ButtonData:>{"SymmetryGroupOfTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ")are given using group-theoretical notation. For example a symmetric \
+tensor ",
+  StyleBox["T[a,b] ",
+    FontFamily->"Courier"],
+  "would have a symmetry group described by ",
+  StyleBox["GenSet[Cycles[{1,2}]]",
+    FontFamily->"Courier"],
+  " or ",
+  StyleBox["GenSet[Perm[{a,b}]",
+    FontFamily->"Courier"],
+  ", etc. There are three commands that generate strong generating sets in \
+three frequent cases: ",
+  StyleBox["Symmetric",
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox["Antisymmetric",
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox["RiemannSymmetry",
+    FontFamily->"Courier"],
+  ". See the documentation for the package ",
+  StyleBox["xPerm`",
+    FontFamily->"Courier"],
+  ". Symmetries are always stored as strong generating sets, and permutations \
+are always stored in ",
+  StyleBox["Cycles",
+    FontFamily->"Courier"],
+  " notation, using numbers.\n\[FilledSmallSquare] Tensors defined with \
+indices on 1-dim vbundles are automatically defined as totally symmetric on \
+those groups of indices of the same vbundle having the same character. The \
+presence of a metric in that vbundle does not introduce symmetries mixing \
+characters.\n\[FilledSmallSquare] Tensorial densities are represented using \
+Ashtekar's tilde notation, with a number of tildes equal to the weight of the \
+density (",
+  StyleBox[ButtonBox["WeightOfTensor",
+    ButtonData:>{"WeightOfTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ") above (below) the symbol if the weight is positive (negative). The \
+tildes are colored according to the basis used to form the density.\n\
+\[FilledSmallSquare] Possible values for the ",
+  StyleBox[ButtonBox["Dagger",
+    ButtonData:>{"Dagger.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " option are ",
+  StyleBox[ButtonBox["Real",
+    ButtonData:>{"Real.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["Imaginary",
+    ButtonData:>{"Imaginary.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["Complex",
+    ButtonData:>{"Complex.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox[ButtonBox["Hermitian",
+    ButtonData:>{"Hermitian.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] Options:\n",
+  StyleBox[ButtonBox["Dagger",
+    ButtonData:>{"Dagger.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox[ButtonBox["Real",
+    ButtonData:>{"Real.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t\tbehaviour under complex conjugation\n",
+  StyleBox[ButtonBox["ForceSymmetries",
+    ButtonData:>{"ForceSymmetries.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t",
+  StyleBox["False",
+    FontFamily->"Courier"],
+  "\t\t\t\twhether symmetry for mixed up/down\n",
+  StyleBox[ButtonBox["FrobeniusQ",
+    ButtonData:>{"FrobeniusQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["False",
+    FontFamily->"Courier"],
+  "\t\t\t\tdoes it obery the Frobenius condition?\n",
+  StyleBox[ButtonBox["DefInfo",
+    ButtonData:>{"DefInfo.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["{\"tensor\", \"\"}\t",
+    FontFamily->"Courier"],
+  "\tinformation on the defined tensor\n",
+  StyleBox[ButtonBox["Master",
+    ButtonData:>{"Master.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Null",
+    FontFamily->"Courier"],
+  "\t\t\t\tmaster of new symbol\n",
+  StyleBox[ButtonBox["OrthogonalTo",
+    ButtonData:>{"OrthogonalTo.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t{}\t\t\t\torthogonality to a list of vectors\n",
+  StyleBox[ButtonBox["PrintAs",
+    ButtonData:>{"PrintAs.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["Identity",
+    FontFamily->"Courier"],
+  "\t\t\tstring or function of symbol for output\n",
+  StyleBox[ButtonBox["ProjectedWith",
+    ButtonData:>{"ProjectedWith.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t{}\t\t\t\tlist of projectors\n",
+  StyleBox[ButtonBox["ProtectNewSymbol",
+    ButtonData:>{"ProtectNewSymbol.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t",
+  StyleBox[ButtonBox["$ProtectNewSymbols",
+    ButtonData:>{"$ProtectNewSymbols.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\twhether to protect new symbol or not\n",
+  StyleBox[ButtonBox["TensorID",
+    ButtonData:>{"TensorID.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t{}\t\t\t\tfurther properties of the tensor\n",
+  StyleBox[ButtonBox["VanishingQ",
+    ButtonData:>{"VanishingQ.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t\t",
+  StyleBox["False",
+    FontFamily->"Courier"],
+  "\t\t\t\twheter the tensor vanishes or not\n",
+  StyleBox[ButtonBox["WeightOfTensor",
+    ButtonData:>{"WeightOfTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\t\t0\t\t\t\tweight of tensor as a density\n\[FilledSmallSquare] Special \
+messages:\n",
+  StyleBox["DefTensor::wrongsym",
+    FontFamily->"Courier"],
+  " = \"Symmetry properties are inconsistent with indices of tensor.\", \
+thrown when the given symmetries involve both up-indices and down-indices and \
+the option ",
+  StyleBox["ForceSymmetries",
+    FontFamily->"Courier"],
+  " is not set to ",
+  StyleBox["True",
+    FontFamily->"Courier"],
+  ".\n",
+  StyleBox["DefTensor::nodummy",
+    FontFamily->"Courier"],
+  " = \"Tensor cannot be defined with dummy indices\", thrown when there are \
+paired indices in the tensor to be defined.\n",
+  StyleBox["DefTensor::zero",
+    FontFamily->"Courier"],
+  " = \"Symmetry makes tensor zero. Use ",
+  StyleBox["VanishingQ",
+    FontFamily->"Courier"],
+  " instead.\", thrown when the tensor is detected to be zero as a \
+consequence of its symmetry properties.\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.4",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Tensors"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["UndefTensor",
+    ButtonData:>{"UndefTensor.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 23-IV-2011 for version 1.0.1 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Further Examples", "ExampleSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Needs["\<xAct`xTensor`\>"]\)], "Input",
+  CellLabel->"In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xCore`  version \
+"\[InvisibleSpace]"0.4.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xCore`  version ", "0.4.0", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2007, Jose M. Martin-Garcia, under the General Public \
+License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Package ExpressionManipulation`"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 1999-2007, David J. M. Park and Ted Ersek"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xPerm`  version \
+"\[InvisibleSpace]"0.7.0"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xPerm`  version ", "0.7.0", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2003-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connecting to external linux executable..."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("Connection established."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("Package xAct`xTensor`  version \
+"\[InvisibleSpace]"0.9.3"\[InvisibleSpace]", "\[InvisibleSpace]{2007, 11, 
+          6}\),
+      SequenceForm[ 
+      "Package xAct`xTensor`  version ", "0.9.3", ", ", {2007, 11, 6}],
+      Editable->False]], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("CopyRight (C) 2002-2007, Jose M. Martin-Garcia, under the General \
+Public License."\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("These packages come with ABSOLUTELY NO WARRANTY; for details type \
+Disclaimer[]. This is free software, and you are welcome to redistribute it \
+under certain conditions. See the General Public License for details."\)], \
+"Print",
+  CellLabel->"From In[1]:="],
+
+Cell[BoxData[
+    \("-----------------------------------------------------------------------\
+---------"\)], "Print",
+  CellLabel->"From In[1]:="]
+}, Open  ]],
+
+Cell[TextData[{
+  "Define a 3d manifold ",
+  StyleBox["M",
+    FontFamily->"Courier"],
+  " and a parameter ",
+  StyleBox["time",
+    FontFamily->"Courier"],
+  ":"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefManifold[M, \ 3, \ {a, b, c, d, e}, s]\)], "Input",
+  CellLabel->"In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefManifold\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"manifold "\[InvisibleSpace]M\[InvisibleSpace]". "\
+\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefManifold, ": Defining ", "manifold ", M, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefVBundle\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"vbundle "\[InvisibleSpace]TangentM\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefVBundle, ": Defining ", "vbundle ", TangentM, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[2]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefParameter[time]\)], "Input",
+  CellLabel->"In[3]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefParameter\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"parameter \
+"\[InvisibleSpace]time\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ 
+      "** ", DefParameter, ": Defining ", "parameter ", time, ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[3]:="]
+}, Open  ]],
+
+Cell[TextData[{
+  "Define a contravariant vector ",
+  StyleBox["v",
+    FontFamily->"Courier"],
+  " on ",
+  StyleBox["M",
+    FontFamily->"Courier"],
+  ":"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefTensor[v[a], M]\)], "Input",
+  CellLabel->"In[4]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]v[
+          a]\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        v[ a], ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[4]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(v[a]\)], "Input",
+  CellLabel->"In[5]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      StyleBox[\(v\_\(\(\ \) \)\%a\),
+        AutoSpacing->False],
+      v[ a],
+      Editable->False]], "Output",
+  CellLabel->"Out[5]="]
+}, Open  ]],
+
+Cell[TextData[{
+  "Define a symmetric two-covariant tensor ",
+  StyleBox["g",
+    FontFamily->"Courier"],
+  " on ",
+  StyleBox["M",
+    FontFamily->"Courier"],
+  ":"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefTensor[g[\(-a\), \(-b\)], M, Symmetric[{1, 2}]]\)], "Input",
+  CellLabel->"In[6]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]g[\(-a\), \(-b\)]\
+\[InvisibleSpace]". "\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        g[ 
+          Times[ -1, a], 
+          Times[ -1, b]], ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[6]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(g[\(-a\), \(-b\)]\)], "Input",
+  CellLabel->"In[7]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      StyleBox[\(g\_ab\%\ \ \),
+        AutoSpacing->False],
+      g[ 
+        Times[ -1, a], 
+        Times[ -1, b]],
+      Editable->False]], "Output",
+  CellLabel->"Out[7]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?g\)\)], "Input",
+  CellLabel->"In[8]:="],
+
+Cell["Global`g", "Print",
+  CellTags->"Info3403198845-4514717"],
+
+Cell[BoxData[
+    InterpretationBox[GridBox[{
+          {GridBox[{
+                {\(SymmetryGroupOfTensor[g] ^= 
+                    StrongGenSet[{1}, GenSet[Cycles[{1, 2}]]]\)},
+                {" "},
+                {
+                  RowBox[{
+                    InterpretationBox[
+                      StyleBox[\(Dagger[g]\),
+                        AutoSpacing->False],
+                      Dagger[ g],
+                      Editable->False], "^=", "g"}]},
+                {" "},
+                {\(xTensorQ[g] ^= True\)},
+                {" "},
+                {\(SlotsOfTensor[g] ^= {\(-TangentM\), \(-TangentM\)}\)},
+                {" "},
+                {\(DependenciesOfTensor[g] ^= {M}\)},
+                {" "},
+                {\(FrobeniusQ[g] ^= False\)},
+                {" "},
+                {\(DefInfo[g] ^= {"tensor", \*"\<\"\"\>"}\)},
+                {" "},
+                {\(TensorID[g] ^= {}\)},
+                {" "},
+                {\(PrintAs[g] ^= "g"\)}
+                },
+              GridBaseline->{Baseline, {1, 1}},
+              ColumnWidths->0.999,
+              ColumnAlignments->{Left}]}
+          },
+        GridBaseline->{Baseline, {1, 1}},
+        ColumnAlignments->{Left}],
+      Definition[ "g"],
+      Editable->False]], "Print",
+  CellTags->"Info3403198845-4514717"]
+}, Open  ]],
+
+Cell[TextData[{
+  "Define a ",
+  StyleBox["time",
+    FontFamily->"Courier"],
+  "-dependent scalar field on ",
+  StyleBox["M",
+    FontFamily->"Courier"],
+  ", with special output:"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(DefTensor[tau[], {time, M}, PrintAs -> "\<\[Tau]\>"]\)], "Input",
+  CellLabel->"In[9]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** "\[InvisibleSpace]DefTensor\[InvisibleSpace]": \
+Defining "\[InvisibleSpace]"tensor "\[InvisibleSpace]tau[]\[InvisibleSpace]". \
+"\[InvisibleSpace]\*"\<\"\"\>"\),
+      SequenceForm[ "** ", DefTensor, ": Defining ", "tensor ", 
+        tau[ ], ". ", ""],
+      Editable->False]], "Print",
+  CellLabel->"From In[9]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(3  tau[]\)], "Input",
+  CellLabel->"In[10]:="],
+
+Cell[BoxData[
+    RowBox[{"3", " ", 
+      InterpretationBox[
+        StyleBox[\(\[Tau]\_\%\),
+          AutoSpacing->False],
+        tau[ ],
+        Editable->False]}]], "Output",
+  CellLabel->"Out[10]="]
+}, Open  ]],
+
+Cell[TextData[{
+  "The variable ",
+  StyleBox["$Tensors",
+    FontFamily->"Courier"],
+  " contains the list of all defined tensors:"
+}], "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \($Tensors\)], "Input",
+  CellLabel->"In[11]:="],
+
+Cell[BoxData[
+    \({v, g, tau}\)], "Output",
+  CellLabel->"Out[11]="]
+}, Open  ]],
+
+Cell["Tidy up:", "MathCaption"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(UndefTensor /@ $Tensors;\)\)], "Input",
+  CellLabel->"In[12]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined tensor "\[InvisibleSpace]v\),
+      SequenceForm[ "** Undefined tensor ", v],
+      Editable->False]], "Print",
+  CellLabel->"From In[12]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined tensor "\[InvisibleSpace]g\),
+      SequenceForm[ "** Undefined tensor ", g],
+      Editable->False]], "Print",
+  CellLabel->"From In[12]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined tensor "\[InvisibleSpace]tau\),
+      SequenceForm[ "** Undefined tensor ", tau],
+      Editable->False]], "Print",
+  CellLabel->"From In[12]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(UndefManifold[M]\), "\[IndentingNewLine]", 
+    \(UndefParameter[time]\)}], "Input",
+  CellLabel->"In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined vector bundle \
+"\[InvisibleSpace]TangentM\),
+      SequenceForm[ "** Undefined vector bundle ", TangentM],
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[\("** Undefined manifold "\[InvisibleSpace]M\),
+      SequenceForm[ "** Undefined manifold ", M],
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"\<\"** Undefined parameter \"\>", "\[InvisibleSpace]", 
+        InterpretationBox[
+          StyleBox["time",
+            AutoSpacing->False],
+          time,
+          Editable->False]}],
+      SequenceForm[ "** Undefined parameter ", time],
+      Editable->False]], "Print",
+  CellLabel->"From In[13]:="]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 800}},
+ShowPageBreaks->False,
+WindowSize->{712, 600},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingStartingPageNumber->4,
+TaggingRules:>{"PaginationCache" -> {{2004, 11, 22, 16, 52, \
+37.58997`8.327646958178029}, {4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, \
+5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6}}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "Info3403198845-4514717"->{
+    Cell[19209, 618, 63, 1, 70, "Print",
+      CellTags->"Info3403198845-4514717"],
+    Cell[19275, 621, 1316, 36, 70, "Print",
+      CellTags->"Info3403198845-4514717"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"Info3403198845-4514717", 24564, 803}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 31, 0, 38, "ObjectName"],
+Cell[1810, 55, 1650, 57, 86, "Usage"],
+Cell[3463, 114, 8928, 253, 929, "Text"],
+
+Cell[CellGroupData[{
+Cell[12416, 371, 42, 0, 38, "ExampleSection"],
+
+Cell[CellGroupData[{
+Cell[12483, 375, 83, 2, 70, "Input"],
+Cell[12569, 379, 146, 3, 70, "Print"],
+Cell[12718, 384, 314, 7, 70, "Print"],
+Cell[13035, 393, 142, 3, 70, "Print"],
+Cell[13180, 398, 146, 3, 70, "Print"],
+Cell[13329, 403, 95, 2, 70, "Print"],
+Cell[13427, 407, 119, 2, 70, "Print"],
+Cell[13549, 411, 146, 3, 70, "Print"],
+Cell[13698, 416, 314, 7, 70, "Print"],
+Cell[14015, 425, 147, 3, 70, "Print"],
+Cell[14165, 430, 106, 2, 70, "Print"],
+Cell[14274, 434, 87, 2, 70, "Print"],
+Cell[14364, 438, 146, 3, 70, "Print"],
+Cell[14513, 443, 318, 7, 70, "Print"],
+Cell[14834, 452, 147, 3, 70, "Print"],
+Cell[14984, 457, 146, 3, 70, "Print"],
+Cell[15133, 462, 281, 5, 70, "Print"],
+Cell[15417, 469, 146, 3, 70, "Print"]
+}, Open  ]],
+Cell[15578, 475, 181, 8, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[15784, 487, 98, 2, 70, "Input"],
+Cell[15885, 491, 356, 7, 70, "Print"],
+Cell[16244, 500, 366, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16647, 512, 75, 2, 70, "Input"],
+Cell[16725, 516, 366, 7, 70, "Print"]
+}, Open  ]],
+Cell[17106, 526, 174, 8, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[17305, 538, 75, 2, 70, "Input"],
+Cell[17383, 542, 366, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[17786, 554, 61, 2, 70, "Input"],
+Cell[17850, 558, 175, 6, 70, "Output"]
+}, Open  ]],
+Cell[18040, 567, 184, 8, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[18249, 579, 107, 2, 70, "Input"],
+Cell[18359, 583, 419, 9, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[18815, 597, 74, 2, 70, "Input"],
+Cell[18892, 601, 214, 8, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[19143, 614, 63, 2, 70, "Input"],
+Cell[19209, 618, 63, 1, 70, "Print",
+  CellTags->"Info3403198845-4514717"],
+Cell[19275, 621, 1316, 36, 70, "Print",
+  CellTags->"Info3403198845-4514717"]
+}, Open  ]],
+Cell[20606, 660, 200, 8, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[20831, 672, 109, 2, 70, "Input"],
+Cell[20943, 676, 359, 7, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[21339, 688, 66, 2, 70, "Input"],
+Cell[21408, 692, 205, 7, 70, "Output"]
+}, Open  ]],
+Cell[21628, 702, 151, 5, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[21804, 711, 66, 2, 70, "Input"],
+Cell[21873, 715, 70, 2, 70, "Output"]
+}, Open  ]],
+Cell[21958, 720, 31, 0, 70, "MathCaption"],
+
+Cell[CellGroupData[{
+Cell[22014, 724, 86, 2, 70, "Input"],
+Cell[22103, 728, 193, 4, 70, "Print"],
+Cell[22299, 734, 193, 4, 70, "Print"],
+Cell[22495, 740, 197, 4, 70, "Print"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22729, 749, 130, 3, 70, "Input"],
+Cell[22862, 754, 223, 5, 70, "Print"],
+Cell[23088, 761, 197, 4, 70, "Print"],
+Cell[23288, 767, 358, 10, 70, "Print"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

@@ -1,0 +1,148 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3307,        108]*)
+(*NotebookOutlinePosition[      3975,        131]*)
+(*  CellTagsIndexPosition[      3931,        127]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["$epsilonSign", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["$epsilonSign",
+    FontFamily->"Courier"],
+  " gives the sign of the ",
+  StyleBox["epsilon",
+    FontFamily->"Courier"],
+  " tensor of a metric when all covariant components have been sorted. It is \
+used in the relation between the ",
+  StyleBox["epsilon",
+    FontFamily->"Courier"],
+  " tensor and the ",
+  StyleBox["etaUp",
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox["etaDown",
+    FontFamily->"Courier"],
+  " tensorial densities."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] The ",
+  StyleBox["etaUp",
+    FontFamily->"Courier"],
+  " and ",
+  StyleBox["etaDown",
+    FontFamily->"Courier"],
+  " tensorial densities are defined in the companion package ",
+  StyleBox["xCoba`",
+    FontFamily->"Courier"],
+  ", as well as their relations with the ",
+  StyleBox["epsilon",
+    FontFamily->"Courier"],
+  " tensor.\n\[FilledSmallSquare] See: ",
+  ButtonBox["Section 4.6",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "Metrics"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["epsilon",
+    ButtonData:>{"epsilon.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  "\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 14-V-2008 for version 0.9.5 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.2 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{85, Automatic}, {Automatic, 28}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 34, 0, 38, "ObjectName"],
+Cell[1813, 55, 508, 18, 64, "Usage"],
+Cell[2324, 75, 967, 30, 136, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

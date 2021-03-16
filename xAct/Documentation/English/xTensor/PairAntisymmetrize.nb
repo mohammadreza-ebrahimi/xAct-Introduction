@@ -1,0 +1,170 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3866,        130]*)
+(*NotebookOutlinePosition[      4533,        153]*)
+(*  CellTagsIndexPosition[      4489,        149]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["PairAntisymmetrize", "ObjectName"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] ",
+  StyleBox["PairAntisymmetrize",
+    FontFamily->"Courier"],
+  "[",
+  StyleBox["expr, ",
+    FontSlant->"Italic"],
+  "{{",
+  StyleBox["i1,j1",
+    FontSlant->"Italic"],
+  "},",
+  StyleBox[" ..., ",
+    FontSlant->"Italic"],
+  "{",
+  StyleBox["in,jn",
+    FontSlant->"Italic"],
+  "}}] antisymmetrizes ",
+  StyleBox["expr",
+    FontSlant->"Italic"],
+  " with respect to exchange of both indices among any two pairs, i. e., \
+under simultaneous change of ",
+  StyleBox["i3",
+    FontSlant->"Italic"],
+  "<->",
+  StyleBox["i7",
+    FontSlant->"Italic"],
+  " and of ",
+  StyleBox["j3",
+    FontSlant->"Italic"],
+  "<->j",
+  StyleBox["7",
+    FontSlant->"Italic"],
+  ". By convention there is a factor 1/",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  "! multiplying."
+}], "Usage"],
+
+Cell[TextData[{
+  "\[FilledSmallSquare] This function is just a specialization of ",
+  StyleBox[ButtonBox["ImposeSymmetry",
+    ButtonData:>{"ImposeSymmetry.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  " for the pair-antisymmetric group corresponding to the given indices.\n\
+\[FilledSmallSquare] See: ",
+  ButtonBox["Section 7.3",
+    ButtonData:>{
+      FrontEnd`FileName[ {
+        ParentDirectory[ ]}, "xTensorRefGuide.nb", CharacterEncoding -> 
+        "iso8859-1"], "ImposeSymmetry"},
+    ButtonStyle->"Hyperlink"],
+  ".\n\[FilledSmallSquare] See also: ",
+  StyleBox[ButtonBox["Symmetrize",
+    ButtonData:>{"Symmetrize.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["Antisymmetrize",
+    ButtonData:>{"Antisymmetrize.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ", ",
+  StyleBox[ButtonBox["PairSymmetrize",
+    ButtonData:>{"PairSymmetrize.nb", None},
+    ButtonStyle->"Hyperlink"],
+    FontFamily->"Courier"],
+  ".\n\[FilledSmallSquare] New in version 0.\n\[FilledSmallSquare] Last \
+update: 28-X-2007 for version 0.9.3 of ",
+  StyleBox["xTensor`",
+    FontFamily->"Courier"],
+  "."
+}], "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1024}, {0, 768}},
+WindowSize->{526, 482},
+WindowMargins->{{Automatic, 167}, {Automatic, 0}},
+StyleDefinitions -> "HelpBrowser.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 40, 0, 38, "ObjectName"],
+Cell[1819, 55, 817, 36, 64, "Usage"],
+Cell[2639, 93, 1211, 34, 136, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
