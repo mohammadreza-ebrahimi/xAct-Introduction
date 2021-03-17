@@ -14,6 +14,16 @@ xAct contains lots of concepts. I would briefly explain about what xAct actually
 - **Linux**  
 1. Copy the folder **xAct** which I uploaded  
 2. Active your root access
-3. In your user directory, `root/usr/local/Wolfram/Mathematica/"yourVersion"/addOnes/Applications` paste the folder.
+3. In your user directory, `root/usr/local/Wolfram/Mathematica/"yourVersion"/AddOnes/Applications` paste the folder.
 4. Open a mathematica notbook and run the command `<<xAct` with your appropriate package between two (`). 
+
+### Start using xAct  
+Load one of the xAct packages:  
+- xTensor
+- xTras
+- xCoba
+- xPerm
+- ...
+
+For exmaple, most time I use ***xTras*** which is compatible for my GR projects. 
 
