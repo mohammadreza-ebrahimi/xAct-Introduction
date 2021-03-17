@@ -27,3 +27,17 @@ Load one of the xAct packages:
 
 For exmaple, most time I use **xTras** which is compatible with my GR projects. 
 
+In this notebook, I trained some some fundamental concepts in xAct. By learn it, you will able to
+define d-dimensional manifold which is the base of GR. Also you will know how to define a  
+- **Metric**
+- **Tensor**
+- **Coordinate**
+- **Covariant Dericative**
+- **Christoffel symbol** 
+- **Rule**
+- ...  
+
+Please [contact](mailto:m.reza.ebrahimi1995@gmail.com) me if you have any question and help me 
+to make it better. 
+
+
