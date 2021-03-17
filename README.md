@@ -25,5 +25,5 @@ Load one of the xAct packages:
 - xPerm
 - ...
 
-For exmaple, most time I use ***xTras*** which is compatible for my GR projects. 
+For exmaple, most time I use **xTras** which is compatible with my GR projects. 
 
